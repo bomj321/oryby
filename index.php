@@ -1,14 +1,6 @@
 <?php session_start();
 include('Connect.php');
 include('head.php');
-
-/*
-$sql = "SHOW COLUMNS FROM seller";
-$result = mysqli_query($connection,$sql);
-while($row = mysqli_fetch_array($result)){
-echo $row['Field']."<br>";
-}
-*/
 ?>
 
     <body>
@@ -219,181 +211,60 @@ $(document).ready(function(){
             </div><!-- end container -->
         </section>
         <!-- end section -->
-             <section class="section white-background">
-            <div class="container">
-			
-		<!--	<div class="row">
-			
-                    <div class="col-sm-12">
-					  <div class="title-wrap">
-                            <h2 style="position: absolute; top: 150px;left: 0;width: 100%;   margin: 0 auto;"class="title text-white" class="title text-grey">MY Advertisement</h2>
-                            <p style="position: absolute; top: 200px;left: 0;width: 100%;   margin: 0 auto;"class="title text-white" class="text-white">You Can Use Advertisement Here</p>
-							<img style="width:1150px; height:300px" src="img/slider/slider_03.jpg" />
-                        </div>
-							
-                      
-                    </div>
-				
-                </div>
-           -->
-                
-        
-              <div class="row visible-xs">
-              <div class="col-sm-12 ">
-                <div class="row">
-                    <div class="col-sm-3 ">
-                        <div class="box-banner-img">
-						<?php 
-							$query="Select * from `products` Where productType='Innovation'";
-							$resultt=mysqli_query($connection,$query);
-						$rows=mysqli_fetch_array($resultt);
-					 $title =$rows['productType'];
-							
+<section class="section white-background">
+	<div class="container">
+		<!-- COMIENZA AQUI -->    
+			<div class="row hidden-xs">
+						<div class="col-sm-3 col-md-3">
+							<div class="box-banner-img">
+								<?php 
+								$query="Select * from `products` Where productType='Innovation'";
+								$resultt=mysqli_query($connection,$query);
+								$rows=mysqli_fetch_array($resultt);
+								$title =$rows['productType'];?>
+								<?php 
+								$sql="Select * from `aboutus` Where elementname='innovation'";
+								$result=mysqli_query($connection,$sql);
+								$row=mysqli_fetch_array($result);
+								$image=$row['picture'];
 								?>
-						<?php 
-							$sql="Select * from `aboutus` Where elementname='innovation'";
-							$result=mysqli_query($connection,$sql);
-							$row=mysqli_fetch_array($result);
-							 $image=$row['picture'];
-								
-							
-								?>
-                            <figure>
-						
-							<a href="premShop.php?title=<?php echo $title; ?>"><img style="height:260px;width:370px;" src="images/<?php echo $image ?>" alt=""/> </a>
-					
-                               <!-- <a href="premShop.php">
-                                    
-                                </a>  -->
-                            </figure>
-                        </div><!-- end box-banner-img -->
-                    </div><!-- end col -->
-					<div class="col-sm-6 ">
-				
-				   <div class="box-banner-img">
-						<?php 
-							$sql="Select * from `aboutus` Where elementname='advertisement'";
-						$result=mysqli_query($connection,$sql);
-							$row=mysqli_fetch_array($result);
+								<a href="premShop.php?title=<?php echo $title; ?>"><img class="img-responsive height" src="images/<?php echo $image ?>" alt=""/></a>
+							</div><!-- end box-banner-img -->
+						</div><!-- end col -->
+						<div class="col-sm-6 col-md-6">
+							<div class="box-banner-img">
+								<?php 
+								$sql="Select * from `aboutus` Where elementname='advertisement'";
+								$result=mysqli_query($connection,$sql);
+								$row=mysqli_fetch_array($result);
 								$hreflink =$row['hreflink'];
-							 	$picture=$row['picture'];
-							
+								$picture=$row['picture'];
 								?>
-							<a href="<?php echo $hreflink ?>"><img style="width:370px; height:260px" src="images/<?php echo $picture ?>" />
-							</a>			<!--	<div class="title-wrap">
-												<h2  style="position: absolute; top: 130px;left: 0;width: 100%;   margin: 0 auto;"class="title text-white">Your Advertisement Here</h2>
-											
-											</div>	-->
-					</div>
-                    </div><!-- end col -->
-                    <div class="col-sm-3">
-						<?php 
+								<a href="<?php echo $hreflink ?>"><img class="img-responsive height" src="images/<?php echo $picture ?>"/></a>			
+							</div>
+						</div><!-- end col -->
+						<div class="col-sm-3 col-md-3">
+							<?php 
 							$query="Select * from `products` Where productType='Eco Friendly'";
 							$resultt=mysqli_query($connection,$query);
-							while($rows=mysqli_fetch_array($resultt)){
-								$title =$rows['productType'];
-								
-								
-							}
-								?>
+							$rows=mysqli_fetch_array($resultt);
+							$title =$rows['productType'];
+							?>
 							<?php 
 							$sql="Select * from `aboutus` Where elementname='ecofriendly'";
 							$result=mysqli_query($connection,$sql);
 							$row=mysqli_fetch_array($result);
-							  $image=$row['picture'];
-							
-								?>
-                        <div class="box-banner-img">
-                            <figure>
-							<a href="premShop.php?title=<?php echo $title ?>"> <img style="height:260px;width:370px;" src="images/<?php echo $image ?>" alt=""/> </a> 
-							                           </figure>
-                        </div><!-- end box-banner-img -->
-                    </div><!-- end col -->
-                </div><!-- end row -->
-				</div><!-- Main Col End -->
-				</div> <!-- Main Row End -->
-              <div class="row hidden-xs">
-              <div class="col-sm-12 ">
-                <div class="row">
-                    <div class="col-sm-3 ">
-                        <div class="box-banner-img">
-						<?php 
-							$query="Select * from `products` Where productType='Innovation'";
-							$resultt=mysqli_query($connection,$query);
-						$rows=mysqli_fetch_array($resultt);
-					 $title =$rows['productType'];
-							
-								?>
-						<?php 
-							$sql="Select * from `aboutus` Where elementname='innovation'";
-							$result=mysqli_query($connection,$sql);
-							$row=mysqli_fetch_array($result);
-							 $image=$row['picture'];
-								
-							
-								?>
-                            <figure>
-						
-							<a href="premShop.php?title=<?php echo $title; ?>"><img style="height:260px;width:250px;" src="images/<?php echo $image ?>" alt=""/> </a>
-					
-                               <!-- <a href="premShop.php">
-                                    
-                                </a>  -->
-                            </figure>
-                        </div><!-- end box-banner-img -->
-                    </div><!-- end col -->
-					<div class="col-sm-6 ">
-				
-				  <div class="box-banner-img">
-						<?php 
-							$sql="Select * from `aboutus` Where elementname='advertisement'";
-						$result=mysqli_query($connection,$sql);
-							$row=mysqli_fetch_array($result);
-								$hreflink =$row['hreflink'];
-							 	$picture=$row['picture'];
-							
-								?>
-							<a href="<?php echo $hreflink ?>"><img style="width:526px; height:260px" src="images/<?php echo $picture ?>" />
-							</a>			<!--	<div class="title-wrap">
-												<h2  style="position: absolute; top: 130px;left: 0;width: 100%;   margin: 0 auto;"class="title text-white">Your Advertisement Here</h2>
-											
-											</div>	-->
-					</div>
-                    </div><!-- end col -->
-                    <div class="col-sm-3">
-						<?php 
-							$query="Select * from `products` Where productType='Eco Friendly'";
-							$resultt=mysqli_query($connection,$query);
-							while($rows=mysqli_fetch_array($resultt)){
-								$title =$rows['productType'];
-								
-								
-							}
-								?>
-							<?php 
-							$sql="Select * from `aboutus` Where elementname='ecofriendly'";
-							$result=mysqli_query($connection,$sql);
-							$row=mysqli_fetch_array($result);
-							  $image=$row['picture'];
-							
-								?>
-                        <div class="box-banner-img">
-                            <figure>
-							<a href="premShop.php?title=<?php echo $title ?>"> <img style="height:260px;width:250px;" src="images/<?php echo $image ?>" alt=""/> </a> 
-							                           </figure>
-                        </div><!-- end box-banner-img -->
-                    </div><!-- end col -->
-                </div><!-- end row -->
-				</div><!-- Main Col End -->
-				</div> <!-- Main Row End -->
-		<hr>
-              <div class="row">
-                  
-                </div><!-- end row -->
+							$image=$row['picture'];
+							?>
+							<div class="box-banner-img">
+								<a href="premShop.php?title=<?php echo $title ?>"> <img class="img-responsive height" src="images/<?php echo $image ?>" alt=""/></a>
+							</div><!-- end box-banner-img -->
+						</div><!-- end col -->		
+			</div> <!-- Main Row End -->
+<hr>
             		
 
- 
-	
+ <!-- HASTA AQUI-->	
 <div id="Carousel2" class="carousel slide" style="background-color:#ffffff;">
                 <!-- Carousel items -->
 							
@@ -1377,9 +1248,7 @@ if($queryResult){
   ?>
       
         <!-- JavaScript Files -->
-        <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
-    
-		
+        <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>  
 		<script type="text/javascript" src="js/bootstrap.min_2.js"></script>
         <script type="text/javascript" src="js/owl.carousel.min.js"></script>
 		 <script type="text/javascript" src="js/owl.carousel.min_1.js"></script>
@@ -1394,13 +1263,11 @@ if($queryResult){
         <script type="text/javascript" src="js/swiper.min.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
         <script>
-
-$(document).ready(function(){
-   
-        $("#suc").fadeIn("slow");
-        $("#suc").fadeOut("slow");
-   
-});
-</script>
+			$(document).ready(function(){			
+					$("#suc").fadeIn("slow");
+					$("#suc").fadeOut("slow");
+			
+			});
+		</script>
     </body>
 </html> 

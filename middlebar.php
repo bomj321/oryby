@@ -4,13 +4,11 @@
                     <div class="col-sm-3 vertical-align text-left hidden-xs">
                         <a href="index.php">
 							<?php 
-								$sql='Select * from aboutus where elementname="logoimage"';
+							$sql='Select * from aboutus where elementname="logoimage"';
 							$result=mysqli_query($connection,$sql);
 							$row=mysqli_fetch_array($result);
-							$image  = $row['picture'];?>
-							
-							  <img width="150"  src="images/<?php echo $image; ?>" alt="" />
-                    
+							$image  = $row['picture'];?>							
+							<img width="150"  src="images/<?php echo $image; ?>" alt="" />                    
                         </a>
                     </div><!-- end col -->
                     <div class="col-sm-7 vertical-align text-center">
@@ -18,7 +16,7 @@
 						
 						 <div class="row grid-space-1">
                                 <div class="col-sm-6">
-                  <input class="form-control  input-lg" type="text" name="keyword"   style="height:46px;"  placeholder=" Search">
+                  <input class="form-control  input-lg" type="text" name="keyword" placeholder=" Search">
                                 </div><!-- end col -->
 								<?php 
 								$sql='Select * from `categories`';
@@ -26,24 +24,26 @@
 							
                                ?>
 							   <div class="col-sm-3 ">
-                                    <select  class="form-control input-lg" name="category">
-									
-                                        <option value="all">&nbsp; &nbsp; &nbsp; All Categories</option>
-                                    <?php while($row=mysqli_fetch_array($result)){
-									?>    
-                                  <option value="<?php echo $row['title'];?>"><?php echo $row['title'];?></option>
-									<?php 
-								    	} ?>  
-										</select>
+                                	<select  class="form-control input-lg" name="category">			
+	                                 	<option value="all">All Categories</option>
+	                                	<?php while($row=mysqli_fetch_array($result)){
+										?>    
+		                              <option value="<?php echo $row['title'];?>"><?php echo $row['title'];?></option>
+										<?php 
+									    	} ?>  
+									</select>
                                 </div><!-- end col -->
                                 <div class="col-sm-3 ">
-                                    <input  class=" btn btn-success btn-block btn-lg" type="submit"   style="height:46px;" value="Search">
-									
-                                </div><!-- end col -->
-								
+                                    <button type="submit" class="btn btn-success btn-lg btn-block">Search</button>
+                                </div><!-- end col -->								
                             </div><!-- end row -->
                         </form>
                       </div><!-- end col -->
+
+
+
+
+
                        <div class="col-sm-2 vertical-align header-items hidden-xs" style="margin-top:10px; ">
                         <div class="header-item mr-5">
                             <a href="cart.php" data-toggle="tooltip" data-placement="top" title="carts"  onmouseover="this.style.backgroundColor='#5cb85c'" onmouseout="this.style.backgroundColor='' ">
@@ -66,15 +66,8 @@
                     </div><!-- end col -->
                 </div><!-- end  row -->
             </div><!-- end container -->
-        </div><!-- end middleBar -->
-		             
-				<style>
-				.header-items
-				{
-				background-color:#fff;
-				}
-				</style>
-                   
+        </div><!-- end middleBar -->	             
+
                 </div><!-- end  row -->
             </div><!-- end container -->
         </div><!-- end middleBar --><?php

@@ -3,13 +3,6 @@
 include('Connect.php');
 include('head.php');
 
-/*
-$sql = "SHOW COLUMNS FROM seller";
-$result = mysqli_query($connection,$sql);
-while($row = mysqli_fetch_array($result)){
-echo $row['Field']."<br>";
-}
-*/
 ?>
 
     <body>

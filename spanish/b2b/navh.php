@@ -40,7 +40,6 @@ error_reporting(0);
                             <ul role="menu" class="dropdown-menu">
                                 <li><a href="allproduct.php">Página de la tienda</a></li>
                                 <li><a href="startBuying.php">Comience a comprar</a></li>
-								 <li><a href="howToBuying.php">Cómo comprar</a></li>
                                 <li><a href="buysecurtly.php">Cómo comprar Securetly</a></li>
 								 <li><a href="considerateToImport.php">Qué considerar para la importación</a></li>
                                 

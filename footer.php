@@ -1,63 +1,6 @@
-<script>
-   $(document).ready(function() {
-    $('#example').DataTable();
-} );
-</script>
-
-
-
 <a href="chatuser.php" class="btn btn-primary" style="position: fixed;    bottom: 3px;    left: 3px;	background-color:##6495ED;	color:white;	font-size:16px;font-weight:bold;" >Chats with Different Users</a>
     <footer class="footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-3">
-                        <div class="icon-boxes style1">
-                            <div class="icon">
-                                <i class="fa fa-truck text-gray"></i>
-                            </div><!-- end icon -->
-                            <div class="box-content">
-                                <h6 class="alt-font text-light text-uppercase">Shipping</h6>
-                                <p class="text-gray">Aenean semper lacus sed molestie sollicitudin.</p>
-                            </div>
-                        </div><!-- icon-box -->
-                    </div><!-- end col -->
-                    <div class="col-sm-3">
-                        <div class="icon-boxes style1">
-                            <div class="icon">
-                                <i class="fa fa-life-ring text-gray"></i>
-                            </div><!-- end icon -->
-                            <div class="box-content">
-                                <h6 class="alt-font text-light text-uppercase">Support 24/7</h6>
-                                <p class="text-gray">Aenean semper lacus sed molestie sollicitudin.</p>
-                            </div>
-                        </div><!-- icon-box -->
-                    </div><!-- end col -->
-                    <div class="col-sm-3">
-                        <div class="icon-boxes style1">
-                            <div class="icon">
-                                <i class="fa fa-gift text-gray"></i>
-                            </div><!-- end icon -->
-                            <div class="box-content">
-                                <h6 class="alt-font text-light text-uppercase">Gift cards</h6>
-                                <p class="text-gray">Aenean semper lacus sed molestie sollicitudin.</p>
-                            </div>
-                        </div><!-- icon-box -->
-                    </div><!-- end col -->
-                    <div class="col-sm-3">
-                        <div class="icon-boxes style1">
-                            <div class="icon">
-                                <i class="fa fa-credit-card text-gray"></i>
-                            </div><!-- end icon -->
-                            <div class="box-content">
-                                <h6 class="alt-font text-light text-uppercase">Payment 100% Secure</h6>
-                                <p class="text-gray">Aenean semper lacus sed molestie sollicitudin.</p>
-                            </div>
-                        </div><!-- icon-box -->
-                    </div><!-- end col -->
-                </div><!-- end row -->
-                
-                <hr class="spacer-30">
-                
+            <div class="container">                
                 <div class="row">
                     <div class="col-sm-3">
                         <h5 class="title">Plus</h5>
@@ -102,17 +45,9 @@
                             <li class="text-white"><i class="fa fa-cc-discover fa-2x"></i></li>
                         </ul>
                     </div><!-- end col -->
-                </div><!-- end row -->
-                
-                <hr class="spacer-30">
-                
-                <div class="row text-center">
-                    <div class="col-sm-12">
-                        <p class="text-sm">&COPY; Copy Rights  B2B 2017. Made  by <a href="http://anitsolutions.com/" style="color:red" >ANITSOLUTIONS</a></p>
-                    </div><!-- end col -->
-                </div><!-- end row -->
+                </div><!-- end row -->            
             </div><!-- end container -->
-        </footer>
-        <!-- end footer -->
+    </footer>
+
 	
 	

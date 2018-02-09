@@ -19,22 +19,22 @@ body {
     color: #35404f; }
 
 .content {
-  padding: 20px 30px;
-  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-  -ms-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-  margin-bottom: 30px; }
-  .content .title-header {
-    padding-bottom: 0;
-    border-bottom: 1px solid #f7f7f7;
-    margin-bottom: 20px; }
-    .content .title-header .title {
-      margin-bottom: 10px;
-      margin-top: -5px; }
-    @media (min-width: 767px) {
-      .content .title-header .form-horizontal div[class^="col-"] {
-        padding-right: 0; } }
+padding: 20px 30px;
+-webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+-moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+-ms-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+margin-bottom: 30px; }
+.content .title-header {
+padding-bottom: 0;
+border-bottom: 1px solid #f7f7f7;
+margin-bottom: 20px; }
+.content .title-header .title {
+margin-bottom: 10px;
+margin-top: -5px; }
+@media (min-width: 767px) {
+.content .title-header .form-horizontal div[class^="col-"] {
+padding-right: 0; } }
 
 /*fullscreen*/
 .fullscreen {
@@ -45,6 +45,21 @@ body {
 
 .section.fullscreen {
   padding: 0px; }
+@media (min-width:991px) {
+    div.box-banner-img img.height{
+      height: 25rem;
+      width: 100%;
+      position: relative;
+    }
+}
+
+@media (min-width:750px) {
+  div.box-banner-img img.height{
+    height: 20rem;
+    position: relative;
+  }
+}
+
 
 /*middle*/
 .middle {
@@ -438,57 +453,66 @@ body {
 ====middleBar========
 ===================*/
 .middleBar {
-  padding: 10px 0 0 0;
-  margin: 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08); }
-  .middleBar .header-items {
-    text-align: right; }
-    @media (max-width: 767px) {
-      .middleBar .header-items {
-        text-align: center; } }
-    .middleBar .header-items .header-item {
-      display: inline-block; }
-      .middleBar .header-items .header-item a {
-        position: relative;
-        display: block;
-        border: 1px solid rgba(0, 0, 0, 0.08);
-        width: 40px;
-        height: 40px;
-        line-height: 40px;
-        -webkit-border-radius: 100%;
-        -moz-border-radius: 100%;
-        -ms-border-radius: 100%;
-        border-radius: 100%;
-        text-align: center;
-        color: #35404f; }
-        .middleBar .header-items .header-item a sub {
-          position: absolute;
-          bottom: -8px;
-          right: -8px;
-          width: 20px;
-          height: 20px;
-          line-height: 20px;
-          text-align: center;
-          background-color: #0cd4d2;
-          -webkit-border-radius: 100%;
-          -moz-border-radius: 100%;
-          -ms-border-radius: 100%;
-          border-radius: 100%;
-          color: #ffffff;
-          font-size: 9px;
-          -webkit-transition: all 0.2s ease-in;
-          -moz-transition: all 0.2s ease-in;
-          -ms-transition: all 0.2s ease-in;
-          -o-transition: all 0.2s ease-in;
-          transition: all 0.2s ease-in; }
-        .middleBar .header-items .header-item a:hover {
-          background-color: #0cd4d2;
-          color: #ffffff; }
-          .middleBar .header-items .header-item a:hover sub {
-            bottom: 5px;
-            right: 5px;
-            visibility: hidden;
-            opacity: 0; }
+padding: 10px 0 0 0;
+border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+height: 8rem;
+margin-top: 2rem; }
+
+.form-control.input-lg{
+  padding: 0;
+}
+
+div.middleBar div.container{
+margin-bottom: 2rem;
+}
+.middleBar .header-items {
+text-align: right; }
+@media (max-width: 767px) {
+.middleBar .header-items {
+text-align: center; } }
+.middleBar .header-items .header-item {
+display: inline-block; }
+.middleBar .header-items .header-item a {
+position: relative;
+display: block;
+border: 1px solid rgba(0, 0, 0, 0.08);
+width: 40px;
+height: 40px;
+line-height: 40px;
+-webkit-border-radius: 100%;
+-moz-border-radius: 100%;
+-ms-border-radius: 100%;
+border-radius: 100%;
+text-align: center;
+color: #35404f; }
+.middleBar .header-items .header-item a sub {
+position: absolute;
+bottom: -8px;
+right: -8px;
+width: 20px;
+height: 20px;
+line-height: 20px;
+text-align: center;
+background-color: #0cd4d2;
+-webkit-border-radius: 100%;
+-moz-border-radius: 100%;
+-ms-border-radius: 100%;
+border-radius: 100%;
+color: #ffffff;
+font-size: 9px;
+-webkit-transition: all 0.2s ease-in;
+-moz-transition: all 0.2s ease-in;
+-ms-transition: all 0.2s ease-in;
+-o-transition: all 0.2s ease-in;
+transition: all 0.2s ease-in; }
+.middleBar .header-items .header-item a:hover {
+background-color: #0cd4d2;
+color: #ffffff; }
+.middleBar .header-items .header-item a:hover sub {
+bottom: 5px;
+right: 5px;
+visibility: hidden;
+opacity: 0; }
 
 /*===================
 =====Navbar==========
@@ -1863,16 +1887,6 @@ figure {
 .table tbody tr.danger td {
   background-color: #e55e5a;
   color: #ffffff; }
-.table.table-bordered {
-  border-color: rgba(0, 0, 0, 0.02); }
-  .table.table-bordered thead tr th {
-    border-color: rgba(0, 0, 0, 0.02); }
-  .table.table-bordered tbody tr th {
-    border-color: rgba(0, 0, 0, 0.02); }
-  .table.table-bordered tbody tr td {
-    border-color: rgba(0, 0, 0, 0.02); }
-.table.no-border td, .table.no-border th {
-  border: none; }
 .table.table-striped tbody tr:nth-of-type(odd) {
   background-color: rgba(0, 0, 0, 0.03); }
 .table.table-hover tbody tr:hover {
@@ -2306,6 +2320,35 @@ input[type="radio"] .styled:checked + label::before {
 input[type="checkbox"] .styled:checked + label::after,
 input[type="radio"] .styled:checked + label::after {
   color: #fff; }
+
+/**MemberShip**/
+
+.table-bordered {
+border: 1px solid #111;
+}
+.table thead tr th {
+    color: #35404f;
+    padding: 18px;
+    line-height: 1.42857143;
+    vertical-align: middle;
+    border-color: #111;
+}
+
+.table tbody tr.border td {
+    padding: 18px;
+    line-height: 1.42857143;
+    vertical-align: middle;
+    border-color: #111;
+}
+
+td.light, th.light{
+background-color: rgba(0, 0, 0, 0.03);
+}
+
+th.dark,td.dark{
+background-color: rgba(0, 0, 0, 0.16);
+}
+
 
 /*===================
 =====Member==========

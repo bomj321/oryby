@@ -34,15 +34,13 @@ error_reporting(0);
                        
                            
                         <!-- end li dropdown -->    
-                        <!-- Features -->
-						  
+                        <!-- Features -->					  
 						   
                          <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Buyer<i class="fa fa-angle-down ml-5"></i></a>
                             <ul role="menu" class="dropdown-menu">
                                 <li><a href="allproduct.php">View Product</a></li>
                                 <li><a href="startBuying.php">Start Buying</a></li>
-								 <li><a href="howToBuying.php">How to Buy</a></li>
-                                <li><a href="buysecurtly.php">How to Buy Securetly</a></li>
+                                <li><a href="buysecurtly.php">How to Buy Safely</a></li>
 								 <li><a href="considerateToImport.php">What to Considerate for Import</a></li>
                                 
                                 
