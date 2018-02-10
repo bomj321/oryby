@@ -329,7 +329,7 @@ $(document).ready(function(){
 						</div><!--.row-->
                         </div><!--.item-->     
 <!-- ////////////////////////////////////// -->
-                     <div class="item" style="padding-right:50px; padding-left:50px; background-color:#ffffff;">
+                     <div class="item" style="padding-right:70px; padding-left:70px; background-color:#ffffff;">
                             <div class="row" style="background-color:#ffffff;">
 												 <?php
 			 $sql="SELECT * FROM products  INNER JOIN categories ON(products.catid = categories.catid)Where productstatus=1 AND productaction = 1 AND (productType='Innovation' OR productType='Eco Friendly') LIMIT 5,10";
@@ -392,8 +392,8 @@ $(document).ready(function(){
                      
                     </div><!--.carousel-inner--> 
 					
-                  <a data-slide="prev" href="#Carousel2" class="left carousel-control" style="padding-top:70px;"><img src="img/prev.png" style="height:100px; width:100px;  "></a>
-                  <a data-slide="next" href="#Carousel2" class="right carousel-control" style="padding-top:70px; "><img src="img/next.png" style="height:100px; width:100px; float:right; "></a>
+                  <a data-slide="prev" href="#Carousel2" class="left carousel-control" style="padding-top:70px; padding-right:300px;"><img src="img/prev.png" style="height:100px; width:100px;  "></a>
+                  <a data-slide="next" href="#Carousel2" class="right carousel-control" style="padding-top:70px; padding-left:150px;"><img src="img/next.png" style="height:100px; width:100px; float:right; "></a>
                 
 				
 				</div><!--.Carousel-->
