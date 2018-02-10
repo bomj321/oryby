@@ -4,11 +4,11 @@ include('head.php');
 ?>
     <body>
      <!-- start topBar -->
-
      <?php include('topbar.php');  
 	include('middlebar.php');
 	  include('navh.php');
 	   ?>
+	   
 	
         
         <!-- start section -->
