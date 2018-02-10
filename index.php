@@ -392,8 +392,8 @@ $(document).ready(function(){
                      
                     </div><!--.carousel-inner--> 
 					
-                  <a data-slide="prev" href="#Carousel2" class="left carousel-control" style="padding-top:70px; padding-right:300px;"><img src="img/prev.png" style="height:100px; width:100px;  "></a>
-                  <a data-slide="next" href="#Carousel2" class="right carousel-control" style="padding-top:70px; padding-left:150px;"><img src="img/next.png" style="height:100px; width:100px; float:right; "></a>
+                  <a data-slide="prev" href="#Carousel2" class="left carousel-control" style="padding-top:70px; padding-right:100px;"><img src="img/prev.png" style="height:100px; width:100px;  "></a>
+                  <a data-slide="next" href="#Carousel2" class="right carousel-control" style="padding-top:70px; padding-left:100px;"><img src="img/next.png" style="height:100px; width:100px; float:right; "></a>
                 
 				
 				</div><!--.Carousel-->
