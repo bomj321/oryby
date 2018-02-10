@@ -2,7 +2,7 @@
 include('Connect.php');
 include('head.php');
 ?>
-
+//cambio
     <body>
      <!-- start topBar -->
 
