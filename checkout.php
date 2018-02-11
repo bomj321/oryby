@@ -21,15 +21,15 @@ window.location.href="singlelogin.php";
 ?>
 
     <body>
-        
+
         <!-- start topBar -->
         <?php require 'topbar.php'; ?>
         <!-- end topBar -->
-        
+
         <!-- start navbar -->
-      
-      
-        
+
+
+
         <!-- start section -->
         <section class="section white-backgorund">
             <div class="container">
@@ -44,9 +44,9 @@ window.location.href="singlelogin.php";
                                 <h2 class="title">Checkout</h2>
                             </div><!-- end col -->
                         </div><!-- end row -->
-                        
+
                         <hr class="spacer-5"><hr class="spacer-20 no-border">
-                        
+
                         <div class="row">
                             <div class="col-sm-12">
                                 <ul class="nav nav-pills style2 nav-justified">
@@ -78,7 +78,7 @@ window.location.href="singlelogin.php";
 
                                 <div class="tab-content pills">
                                     <div class="tab-pane active" id="shopping-cart">
-                                        <div class="table-responsive">    
+                                        <div class="table-responsive">
                                             <table class="table table-striped">
                                                 <thead>
                                                     <tr>
@@ -89,7 +89,7 @@ window.location.href="singlelogin.php";
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-		<?php 
+		<?php
 
       if($_SESSION['cart'] !=""){
                 // $id =0;
@@ -100,15 +100,15 @@ window.location.href="singlelogin.php";
                                                 <td>
                                                     <a href="#">
                                                         <img width="60px" src="images/<?php echo $item['p_image'];?>" alt="product">
-                                                    </a> 
+                                                    </a>
                                                 </td>
-												
+
                                                 <td>
                                                     <h6 class="regular"><?php echo $item['p_title'];?></h6>
                                                     <p><?php echo $item['p_fulldesc'];?></p>
                                                 </td>
                                                 <td>
-                                                    <span>$<?php echo $item['p_price'];?></span>
+                                                    <span>$<?php echo $item['p_price'] * $item['p_qty'];?></span>
                                                 </td>
                                              <!--   <td>
                                                     <select class="form-control" name="qty">
@@ -120,93 +120,93 @@ window.location.href="singlelogin.php";
                                                     </select>
                                                 </td>  -->
                                                 <td>
-                                                    <span class="text-primary">$<?php echo $item['p_price'];?></span>
+                                                    <span class="text-primary">$<?php echo $item['p_price'] * $item['p_qty'];?></span>
                                                 </td>
                                                 <td>
-					<?php 
-                    
-					$tot =$tot+$item['p_price'];
+					<?php
+
+					$tot =$tot+$item['p_price']* $item['p_qty'];
 					$_SESSION['toatl']= $tot;
-					
+
 				//	if($_GET['code'])
 					//{
 				// echo $pid = $_GET['code'];
 					//	unset($_SESSION['cart'][$pid]);
                      // if(empty($_SESSION['cart'])) unset($_SESSION['cart']);
 												?>
-											
+
                                     <!--    <td><a href="cart.php?code=<?php// echo $id ?>">Delete from cart</a></td> -->
                                                 </td>
                                             </tr>
-                                                 
+
 		  <?php  }
-		  
+
 		  } $_SESSION['toatl']=$tot;
 		  ?>
-		  
-												 
+
+
                                                 </tbody>
                                             </table><!-- end table -->
                                         </div><!-- end table-responsive -->
                                     </div><!-- end tab-pane -->
-                                    
+
 									<div class="tab-pane" id="billing-info">
                                         <div class="row">
 										<div class="col-md-3">  </div>
 								<?php   $quryid="SELECT * FROM users";
-                            $resld=mysqli_query($connection,$quryid);	
-                            $rowid=mysqli_fetch_array($resld);	
-                            $user_id=$rowid['user_id'];	 ?>		
+                            $resld=mysqli_query($connection,$quryid);
+                            $rowid=mysqli_fetch_array($resld);
+                            $user_id=$rowid['user_id'];	 ?>
 							<?php	if(isset($_POST['btninfo'])){
-							
-							//$userid=$_POST['userid'];	
-							$phone=$_POST['phone'];	
+
+							//$userid=$_POST['userid'];
+							$phone=$_POST['phone'];
 							$address1=$_POST['address1'];
 						    $city=$_POST['city'];
 						    $zip=$_POST['zip'];
 						    $buydesc=$_POST['buydesc'];
 							$country=$_POST['countryName'];
-							
-						 $sqlQuery = "INSERT INTO buyers (user_id,phone,address,city,zipcode,buydescription) VALUES (' $user_id','$phone', '$address1','$city', '$zip','$buydesc')";		
-						
-                       
+
+						 $sqlQuery = "INSERT INTO buyers (user_id,phone,address,city,zipcode,buydescription) VALUES (' $user_id','$phone', '$address1','$city', '$zip','$buydesc')";
+
+
                        if (mysqli_query($connection,$sqlQuery)) {
-						   
-						echo "<div class='alert alert-success'> Submitted!  </div> ";    
-                       }	
+
+						echo "<div class='alert alert-success'> Submitted!  </div> ";
+                       }
 							}
                            ?>
 										<form method="POST">
                                             <div class="col-md-6">
                                                 <h5 class="thin subtitle"> Your information</h5>
-                           <?php 
+                           <?php
 								$email=$_SESSION['uemail'];
 							    $qry="SELECT * FROM users  Where email='$email'";
 								$resl=mysqli_query($connection,$qry);
 								$rw=mysqli_fetch_array($resl);
-								
+
 			 ?>
-											
-									
-										  
-										  
+
+
+
+
                                                 <div class="row" style="background:#f7f7f7;padding:20px;">
-                                                    
+
 													 <div class="form-group">
                                                             <input id="country" type="text" value="<?php echo $rw['countryName']; ?>"  name="countryName" class="form-control input-md required">
                                                         </div><!-- end form-group -->
                                                         <div class="form-group">
                                                             <input id="fname" type="text" value="<?php echo $rw['firstName']; ?>"  name="firstname" class="form-control input-md required">
                                                         </div><!-- end form-group -->
-                                                         <div class="form-group"> 
+                                                         <div class="form-group">
                                                             <input id="surname" type="text" value="<?php echo $rw['lastName']; ?>" name="lastname" class="form-control input-md required">
                                                         </div>
                                                     <!-- end col -->
-                                                    
+
                                                        <!-- end form-group -->
-														
+
 			<?php  $user_id=$rw['user_id']; ?>
-			<?php 
+			<?php
 								$email=$_SESSION['uemail'];
 							   $sql="SELECT * FROM buyers  WHERE user_id='$user_id'";
 						       $stmt=mysqli_query($connection,$sql);
@@ -215,12 +215,12 @@ window.location.href="singlelogin.php";
 				               }
 				    $nr=mysqli_num_rows($stmt);
 
-								
-			 ?>										
+
+			 ?>
 										<div class="form-group">
                                             <input id="phone" type="tel" value="<?php echo $rows['phone']; ?>"  placeholder="Phone" name="phone" class="form-control input-md required">
                                             </div><!-- end form-group -->
-                                                   
+
                                                 <!-- end row -->
 												<div class="form-group">
                                                             <input id="email" type="text" value="<?php echo $rw['email']; ?>"  name="email" class="form-control input-md required email">
@@ -228,7 +228,7 @@ window.location.href="singlelogin.php";
                                                 <div class="form-group">
                                                     <input id="billingAddress" type="text" value="<?php echo $address =$rows['address']; ?>" placeholder="Address" name="address1" class="form-control input-md required">
                                                 </div><!-- end form-group -->
-                                               
+
                                                 <div class="row">
                                                     <div class="col-sm-6">
                                                         <div class="form-group">
@@ -241,13 +241,13 @@ window.location.href="singlelogin.php";
 										<input  type="hidden" value="<?php echo $user_id;?>"  name="userid" class="form-control input-md required">
                                                         </div><!-- end form-group -->
                                                     </div><!-- end col -->
-													 
+
 												<div class="form-group">
                                                     <textarea rows="6" class="form-control" placeholder="Your Description here..."  value="<?php echo $rows['buydesc'];?>"name="buydesc"></textarea>
                                                 </div><!-- end form-group -->
 </div>
                                             <?php if($address == ""  OR $address == NULL ){
-												
+
 											?>
 											<div class="form-group">
 									<center>	   <input type="submit" class="btn btn-success" value="Submit" name="btninfo"> </center>
@@ -258,7 +258,7 @@ window.location.href="singlelogin.php";
 												</div><!-- end row -->
                                             </div><!-- end col -->
 
-                                           
+
                                         </div><!-- end row -->
                                    </form>
 								   </div><!-- end tab-pane -->
@@ -277,12 +277,12 @@ window.location.href="singlelogin.php";
                                                         </div><!-- end panel-heading -->
                                                         <div id="collapsePayment1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingPayment1">
                                                             <div class="panel-body">
-                                                      
-                                                             
+
+
                                                                 <div class="form-group">
                                                                     <div class="row">
                                                                         <div class="col-sm-offset-4 col-sm-8 text-right">
-																		
+
 																		<a href="orderInsert.php" class="btn btn-default btn-md round">Pay With Pay Pal <i class="fa fa-arrow-circle-right ml-5"></i></a>
                                                                         </div><!-- end col -->
                                                                     </div><!-- end row -->
@@ -295,7 +295,7 @@ window.location.href="singlelogin.php";
                                                         <div class="panel-heading" role="tab" id="headingPayment2">
                                                             <h4 class="panel-title">
                                                                 <a class="collapsed" data-toggle="collapse" data-parent="#accordionPayment" href="#collapsePayment2" aria-expanded="false" aria-controls="collapsePayment2">
-                                                                  
+
                                                                 </a>
                                                             </h4>
                                                         </div><!-- end panel-heading -->
@@ -303,10 +303,10 @@ window.location.href="singlelogin.php";
                                                             <div class="panel-body">
                                                                 <div class="form-group">
                                                                     <div class="checkbox-input checkbox-primary mb-10">
-                                                                        
+
                                                                         </div><!-- end checkbox-input -->
                                                                 </div><!-- end form-group -->
-                                                       
+
                                                             </div><!-- end panel-body -->
                                                         </div><!-- end collapse -->
                                                     </div><!-- end panel -->
@@ -364,7 +364,7 @@ window.location.href="singlelogin.php";
                                         </div><!-- end row -->
                                     </div><!-- end tab-pane -->
                                 </div><!-- end pills content -->
-                        
+
                                 <hr class="spacer-30">
 
                                 <div class="row">
@@ -373,18 +373,18 @@ window.location.href="singlelogin.php";
                                             <div class="form-group">
                                                 <input class="form-control input-md" type="text" placeholder="Coupon code">
                                             </div>
-                                           <button class="btn btn-default btn-md round" type="submit">Apply</button>  
+                                           <button class="btn btn-default btn-md round" type="submit">Apply</button>
                                         </form>
                                     </div> end col -->
 
                                     <div class="col-sm-5">
-                                        <div class="table-responsive"> 
+                                        <div class="table-responsive">
                                             <table class="table no-border">
                                                 <tr>
                                                     <th>Cart Subtotal</th>
                                                     <td><?php echo '$'.$tot;?></td>
                                                 </tr>
-                                               
+
                                                 <tr>
                                                     <th>Order Total</th>
                                                <td><?php echo '$'.$tot;?></td>
@@ -396,16 +396,16 @@ window.location.href="singlelogin.php";
                             </div><!-- end col -->
                         </div><!-- end row -->
                     </div><!-- end col -->
-                </div><!-- end row -->                
+                </div><!-- end row -->
             </div><!-- end container -->
         </section>
         <!-- end section -->
-               
+
         <!-- start footer -->
         <?php require 'footer.php'; ?>
         <!-- end footer -->
-        
-        
+
+
         <!-- JavaScript Files -->
         <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
@@ -420,6 +420,6 @@ window.location.href="singlelogin.php";
         <script type="text/javascript" src="js/gmaps.js"></script>
         <script type="text/javascript" src="js/swiper.min.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
-        
+
     </body>
 </html>

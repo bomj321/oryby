@@ -21,7 +21,7 @@ $_SESSION['dtym']=$dtym;
 //$show=0;
 /* if(isset($_POST['requestSend']))
 	{
-$usertype=$_SESSION['utype'];		
+$usertype=$_SESSION['utype'];
 $user =$_SESSION['uemail'];
 $prod_name=$_POST['pname'];
 $description=$_POST['description'];
@@ -29,7 +29,7 @@ $qry="SELECT * FROM `users_profile` WHERE `userid`='$user' and `usertype`='$user
 $result01=mysqli_query($connection,$qry);
 $count = mysqli_num_rows($result01);
 if($count<=0){
-	   header("location: profileComplete.php");  
+	   header("location: profileComplete.php");
 }
 else{
 $target_dir = "ReqImages/";
@@ -41,7 +41,7 @@ move_uploaded_file($temp, $filelocation);
 
  $query = "INSERT INTO buyerrequests(BuyerName,prod_name,bmessage,image,buyer_id) VALUES ('$user', '$prod_name','$description' ,'$image',0)";
  //echo $query;
- $result=mysqli_query($connection,$query); 
+ $result=mysqli_query($connection,$query);
   	 if($result){
 		 ?>
 		 <script>
@@ -49,7 +49,7 @@ move_uploaded_file($temp, $filelocation);
 				       window.location.href="index.php";
 		 </script>
 		 <?php
-		 
+
 	 }
 	 else{
 			 ?>
@@ -59,12 +59,12 @@ move_uploaded_file($temp, $filelocation);
 		 </script>
 		 <?php
 	 }
-		
-	} */	
 
- 
- 
+	} */
+
+
+
 ?>
        <script>
 	   window.location.href="FinalRequest.php";
-		 </script>	
+		 </script>

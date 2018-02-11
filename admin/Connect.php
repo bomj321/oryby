@@ -1,12 +1,12 @@
 <?php
 
 
-   $connection = mysqli_connect('localhost', 'adminhtt_btbuser', 'sp13bcs019_','adminhtt_btb');
+$connection = mysqli_connect('localhost', 'root', '','joryan_adminhtt_btb');
 if (!$connection){
-    die("Database Connection Failed" . mysqli_error($connection));
+ die("Database Connection Failed" . mysqli_error($connection));
 }
-$select_db = mysqli_select_db($connection, 'adminhtt_btb');
+$select_db = mysqli_select_db($connection, 'joryan_adminhtt_btb');
 if (!$select_db){
-    die("Database Selection Failed" . mysqli_error($connection));
+ die("Database Selection Failed" . mysqli_error($connection));
 }
 ?>

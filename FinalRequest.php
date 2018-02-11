@@ -17,9 +17,16 @@ $filelocation = $target_dir.$image;
 $temp = $_FILES['pimage']['tmp_name'];
 move_uploaded_file($temp, $filelocation);
 
-$query = "INSERT INTO buyerrequests(BuyerName,prod_name,bmessage,image,catename,quantity,unit,dtym) VALUES ('$user', '$prod_name','$desc' ,'$image','$dropcat','$quantity','$dropunit','$dtym')";
+// INSERTAR FECHA FINAL PARA USARLA Y ASI BORRAR LOS REGISTROS DE 2 DIAS O MAS ANTIGUOS A ESOS
+  $date1 = $dtym;
+  $date = date($date1);
+  $mod_date = strtotime($date."+ 2 days");
+  $fechafinal = date("Y-m-d",$mod_date);
+
+
+$query = "INSERT INTO buyerrequests(BuyerName,prod_name,bmessage,image,catename,quantity,unit,dtym, tiempo) VALUES ('$user', '$prod_name','$desc' ,'$image','$dropcat','$quantity','$dropunit','$dtym', '$fechafinal')";
  //echo $query;
- $result=mysqli_query($connection,$query); 
+ $result=mysqli_query($connection,$query);
  if($result){
 	 $suc='<div class="alert alert-success" id="#suc">Successfuly Requested !</div>';
 	 echo $suc;
@@ -37,11 +44,11 @@ $query = "INSERT INTO buyerrequests(BuyerName,prod_name,bmessage,image,catename,
     <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	
+
     <!--Favicon-->
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
-    
+
     <!-- css files -->
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
@@ -49,10 +56,10 @@ $query = "INSERT INTO buyerrequests(BuyerName,prod_name,bmessage,image,catename,
     <link rel="stylesheet" type="text/css" href="css/owl.theme.default.min.css" />
     <link rel="stylesheet" type="text/css" href="css/animate.css" />
     <link rel="stylesheet" type="text/css" href="css/swiper.css" />
-    
+
     <!-- this is default skin you can replace that with: dark.css, yellow.css, red.css ect -->
     <link id="pagestyle" rel="stylesheet" type="text/css" href="css/default.css" />
-    
+
     <!-- Google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i&subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700" rel="stylesheet">
@@ -72,16 +79,17 @@ $query = "INSERT INTO buyerrequests(BuyerName,prod_name,bmessage,image,catename,
                          <div class="form-group">
                           <label for="pimage">Product Image</label>
                           <input type="file" name="pimage"   required class="form-control input-lg">
-                          </div> 
-                            
+                          </div>
+
                         <div class="form-group">
-                          <label class="control-label" for="message" name="description">Descirption</label>
+
+                          <label class="control-label" for="message" name="description">Description</label>
                           <textarea id="message" rows="5" class="form-control" required placeholder="Description ..." name="description"></textarea>
-                       </div> 
+                       </div>
 					 <div class="form-group">
                                 <input type="submit"  class="btn btn-success round btn-md"  value="Request">
-                     </div>  
-	</form> 
+                     </div>
+	</form>
 </div>
 </div>
 </div>

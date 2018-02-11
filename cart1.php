@@ -12,7 +12,7 @@ if(isset($_POST['btn_save_updates']))
 
 	  $pid=$_GET['pid'];
 	 $qty=$_POST['qty'];
-	 
+
 
  $query="SELECT * from products where pid=$pid";
 $res=mysqli_query($connection,$query);
@@ -22,13 +22,13 @@ $cl = explode(',', $myString);
  //$row['price'];
  //$row['ntitle'];
  $_SESSION['pid']=$pid;
- 
+
  $_SESSION['image']=$cl[0];
  $_SESSION['qty'] =$qty;
- $_SESSION['ntitle']=$row['ntitle']; 
+ $_SESSION['ntitle']=$row['ntitle'];
  $_SESSION['price']=$row['price'];
  $_SESSION['fulldesc']=$row['fulldescription'];
- 
+
 $cart = array (
     'pid'  =>$_SESSION['pid'],
     'p_image' => $_SESSION['image'],
@@ -43,11 +43,11 @@ $cart = array (
 
 $_SESSION['cart'][$val]=$cart;
 ?>
-<script> 
+<script>
 window.location.href="cart.php";  </script>
 <?php
 }
 
 }
-  
+
 ?>
