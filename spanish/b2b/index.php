@@ -534,7 +534,7 @@ $(document).ready(function(){
 
 							</div>
 
-          			
+
 
                            <!-- <div class="form-group">
                                 <label for="pimage">Product Image</label>
@@ -762,7 +762,7 @@ $nr=mysqli_num_rows($stmt);
 						</div><!--.row-->
                         </div><!--.item-->
 <!-- ////////////////////////////////////// -->
-                     <div class="item" style="padding-right:50px; padding-left:50px;">
+                     <div class="item" style="padding-right:70px; padding-left:70px;">
                             <div class="row">
 												 <?php
 			 $sql="SELECT * FROM products  INNER JOIN categories ON(products.catid = categories.catid) WHERE productType='Normal Product'  AND productstatus=1 AND productaction = 1 LIMIT 5,10";
@@ -823,8 +823,8 @@ $userId=$row['user_id'];
                         </div><!--.item-->
 
                     </div><!--.carousel-inner-->
-                    <a data-slide="prev" href="#Carousel" class="left carousel-control" style="padding-top:70px;"><img src="img/prev.png" style="height:100px; width:100px;  "></a>
-                  <a data-slide="next" href="#Carousel" class="right carousel-control" style="padding-top:70px; "><img src="img/next.png" style="height:100px; width:100px; float:right; "></a>
+                    <a data-slide="prev" href="#Carousel" class="left carousel-control" style="padding-top:70px; padding-right:100px;"><img src="img/prev.png" style="height:100px; width:100px;  "></a>
+                  <a data-slide="next" href="#Carousel" class="right carousel-control" style="padding-top:70px; padding-left:100px; "><img src="img/next.png" style="height:100px; width:100px; float:right; "></a>
                  <!-- Carousel items -->
 
 
@@ -895,7 +895,7 @@ $userId=$row['user_id'];
 						</div><!--.row-->
                         </div><!--.item-->
 <!-- ////////////////////////////////////// -->
-                     <div class="item" style="padding-right:50px; padding-left:50px;">
+                     <div class="item" style="padding-right:70px; padding-left:70px;">
                             <div class="row">
 												 <?php
 			 $sql="SELECT * FROM products  INNER JOIN categories ON(products.catid = categories.catid) WHERE productType='Normal Product' AND productstatus=1 AND productaction = 1 LIMIT 5,10";
@@ -957,8 +957,8 @@ $userId=$row['user_id'];
                         </div><!--.item-->
 
                     </div><!--.carousel-inner-->
-                   <a data-slide="prev" href="#Carousel1" class="left carousel-control" style="padding-top:70px;"><img src="img/prev.png" style="height:100px; width:100px;  "></a>
-                  <a data-slide="next" href="#Carousel1" class="right carousel-control" style="padding-top:70px; "><img src="img/next.png" style="height:100px; width:100px; float:right; "></a>
+                   <a data-slide="prev" href="#Carousel1" class="left carousel-control" style="padding-top:70px; padding-right:100px;"><img src="img/prev.png" style="height:100px; width:100px;  "></a>
+                  <a data-slide="next" href="#Carousel1" class="right carousel-control" style="padding-top:70px; padding-left:100px; "><img src="img/next.png" style="height:100px; width:100px; float:right; "></a>
                  <!-- Carousel items -->
 
 
