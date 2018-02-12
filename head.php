@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Orybu.com - Conecting business around the world</title>
+    <title>Orybu.com - Conecting Business Around the World</title>
     <meta charset="utf-8">
     <meta name="description" content="Plus E-Commerce Template">
     <meta name="author" content="Diamant Gjota" />
@@ -11,8 +11,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	
     <!--Favicon-->
-    <link rel="shortcut icon" href="img/IMG-20180208-WA0037.jpg" type="image/x-icon">
-    <link rel="icon" href="img/IMG-20180208-WA0037.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="img/favi.png" type="image/x-icon">
+    <link rel="icon" href="img/favi.png" type="image/x-icon">
       
     <!-- css files -->
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
