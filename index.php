@@ -23,9 +23,8 @@ include('head.php');
                                 </li>
 								<?php
 								$sql='Select * from `categories`Where title !="Eco Friendly" AND  title !="Innovation"';
-							$result=mysqli_query($connection,$sql);
-							while($row=mysqli_fetch_array($result)){
-
+								$result=mysqli_query($connection,$sql);
+								while($row=mysqli_fetch_array($result)){
 								$title=$row['title'];
 								$catid=$row['catid'];
 
@@ -469,7 +468,7 @@ $(document).ready(function(){
 							 <option value="cubic meter">Cubic meter</option>
 						     <option value="20 ft conteiner">20 ft conteiner</option>
                              <option value="40 ft conteiner">40 ft conteiner</option>
-                             <option value="litter">Litter</option>
+                             <option value="litter">Liter</option>
                              <option value="others">Others</option>
                          </select>
 
@@ -1171,7 +1170,7 @@ if($queryResult){
         </section>
 	   <?php
 		include('footer.php');
-  ?>
+		?>
 
         <!-- JavaScript Files -->
         <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>

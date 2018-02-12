@@ -26,7 +26,7 @@ echo $row['Field']."<br>";
         <!-- start section -->
         <section class="section white-backgorund" style="margin-top:5px;padding-top:8px;"> 
 		<div class="container" style="margin-top:0px;padding-top:0px;">
-		       <h3 style="padding-left:16px;"> My orybu </h3>
+		       <h3 style="padding-left:16px;"> My Orybu </h3>
 			   <hr  style="height:19px;color:black;">
                 <div class="row" style="margin-top:0px;padding-top:0px;">
 				
@@ -168,7 +168,7 @@ else{
      <?php echo $percentage.'%';?>
     </div>
   </div>
-		<a style="margin-left:35px;" class="btn btn-success btn-sm" href="profile.php?<?php echo $getmail; ?>"> Update Profile </a>
+		<a class="btn btn-success" href="profile.php?<?php echo $getmail; ?>">Update Profile </a>
 		</div>  
 		
 

@@ -1,8 +1,8 @@
-<?php session_start(); 
+<?php 
 include('Connect.php');
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
- $email = mysqli_real_escape_string( $connection, $_POST['email']);
- $chkqury="SELECT * FROM confirm WHERE email = '$email' AND  chkstatus ='1' ";
+$email = mysqli_real_escape_string( $connection, $_POST['email']);
+$chkqury="SELECT * FROM confirm WHERE email = '$email' AND  chkstatus ='1' ";
 $rsl=mysqli_query($connection,$chkqury);
 $nr=mysqli_num_rows($rsl);
 $row =mysqli_fetch_array($rsl); 
@@ -11,36 +11,32 @@ if($nr > 0){
 
 	  $password = mysqli_real_escape_string($connection, $_POST['password']);        
       $sql = "SELECT * FROM users WHERE email = '$email' AND password = '$password' ";
-      $result = mysqli_query($connection,$sql);
-     
-        $count = mysqli_num_rows($result);
-        $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+      $result = mysqli_query($connection,$sql);     
+      $count = mysqli_num_rows($result);
+      $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 	    $usertype=$row['userType'];
 	    $userstatus=$row['userStatus'];
-		$checkemail=$row['email'];
+		  $checkemail=$row['email'];
 			$name=$row['firstName'];
 			$_SESSION['fname']=$name;
-		$checkpassword=$row['email'];
- 
+		  $checkpassword=$row['email']; 
       if($userstatus=='0')
    {
    ?>
    <script>
    alert("Contact Admin ! Profile in Pending..");
    window.location.href="logoff.php";
-
-   </script><?php
+   </script>
+   <?php
    }
        if($count > 0 && $usertype=='supplier') {
          $_SESSION['uemail']=$email;
-		 $_SESSION['utype']=$usertype;
-			 
-		 
-         header("location: index.php");
+		     $_SESSION['utype']=$usertype;
+		     header("location: index.php");
       }
 	    else if($count > 0  && $usertype=='buyer'){
-	     $_SESSION['uemail']=$email;
-         $_SESSION['utype']=$usertype;
+	      $_SESSION['uemail']=$email;
+        $_SESSION['utype']=$usertype;
 		 ?>
  <script>
   
@@ -70,7 +66,6 @@ if($nr > 0){
       }
 	  $_SESSION['firstName']=$name;
 	  $now= date("Y-m-d h:i:s");
-
 	 $updatequery="update `users` set `status`='online', `lastactiveon`='$now' where `email`='$email' ";
 	mysqli_query($connection,$updatequery);
    

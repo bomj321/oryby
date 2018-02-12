@@ -2344,18 +2344,22 @@ border: 1px solid #111;
     border-color: #111;
 }
 
-table.border tbody tr.border td {
-    padding: 18px;
+table{
+  border-color: #f7f7f7;
+}
+
+table.member tbody tr.border td {
+    padding: 50px;
     line-height: 1.42857143;
     vertical-align: middle;
     border-color: #111;
 }
 
-table.border td.light, th.light{
+table.member td.light, th.light{
 background-color: rgba(0, 0, 0, 0.03);
 }
 
-table.border th.dark,td.dark{
+table.member th.dark,td.dark{
 background-color: rgba(0, 0, 0, 0.16);
 }
 
