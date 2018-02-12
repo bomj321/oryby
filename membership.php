@@ -18,7 +18,7 @@ include('head.php');
       <br>
     <div class="row">                       
       <div class="responsive">          
-            <table class="table table-responsive table-hover table-bordered border">
+            <table class="table table-responsive table-hover memb">
               <thead >
                 <tr>        
                 <th class="dark">Main Features</th>
