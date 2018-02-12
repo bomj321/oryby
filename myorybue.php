@@ -1,15 +1,7 @@
 <?php session_start();
 include('Connect.php');
 include('head.php');
-/*$sql = "SHOW COLUMNS FROM seller";
-$result = mysqli_query($connection,$sql);
-while($row = mysqli_fetch_array($result)){
-echo $row['Field']."<br>";
-}
-*/
- $getmail=$_SESSION['uemail'];
-
-
+$getmail=$_SESSION['uemail'];
 ?>
 <html>
 
@@ -26,7 +18,7 @@ echo $row['Field']."<br>";
         <!-- start section -->
         <section class="section white-backgorund" style="margin-top:5px;padding-top:8px;"> 
 		<div class="container" style="margin-top:0px;padding-top:0px;">
-		       <h3 style="padding-left:16px;"> My orybu </h3>
+		       <h3 style="padding-left:16px;"> My Orybu </h3>
 			   <hr  style="height:19px;color:black;">
                 <div class="row" style="margin-top:0px;padding-top:0px;">
 				
@@ -150,25 +142,21 @@ $logorow=mysqli_fetch_array($logoresult);  ?>
 		<h5 style="text-align:center;"> My Profile </h5>
 		<img src="images/<?php echo $logorow['companylogo'];?>" style="height:100px; width:100px;margin-left:35px; " alt="Logo not set">
 		<hr>
-		<!--<p style="text-align:center;" class="progress-bar" role="progressbar"> 80% Complete </p> -->
 		<?php 
 		$percentage=50;
 		if((($logorow['email']!='')&&($logorow['company_name']!='')) ||(($logorow['companylogo']!='')&&($logorow['businessType']!=''))){
-			$percentage=100;
+		$percentage=100;
 		}
-else{
-	$percentage=50;
-}		
-		  		
-
-
-			?>
+        else{
+            $percentage=50;
+        }
+		?>
 		<div class="progress">
     <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:<?php echo $percentage.'%';?>">
      <?php echo $percentage.'%';?>
     </div>
   </div>
-		<a style="margin-left:35px;" class="btn btn-success btn-sm" href="profile.php?<?php echo $getmail; ?>"> Update Profile </a>
+		<a  class="btn btn-success" href="profile.php?<?php echo $getmail;?>">Update Profile </a>
 		</div>  
 		
 
