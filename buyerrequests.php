@@ -1,5 +1,5 @@
 <?php session_start();
-require 'Connect.php';  
+require 'Connect.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,11 +12,11 @@ require 'Connect.php';
     <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	
+
     <!--Favicon-->
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
-    
+
     <!-- css files -->
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
@@ -24,22 +24,22 @@ require 'Connect.php';
     <link rel="stylesheet" type="text/css" href="css/owl.theme.default.min.css" />
     <link rel="stylesheet" type="text/css" href="css/animate.css" />
     <link rel="stylesheet" type="text/css" href="css/swiper.css" />
-    
+
     <!-- this is default skin you can replace that with: dark.css, yellow.css, red.css ect -->
     <link id="pagestyle" rel="stylesheet" type="text/css" href="css/default.css" />
-    
+
     <!-- Google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i&subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800&amp;subset=latin-ext" rel="stylesheet">
-    
+
 </head>
     <body>
-        
+
         <!-- start topBar -->
        <?php require 'topbar.php' ?>
         <!-- end topBar -->
-        
+
         <!-- start navbar -->
         <div class="navbar yamm navbar-default">
             <div class="container">
@@ -57,47 +57,47 @@ require 'Connect.php';
                     <ul class="nav navbar-nav">
                         <!-- Home -->
                         <li class="dropdown"><a href="index.php">Home</a>
-                           
-                        </li><!-- end li dropdown -->    
+
+                        </li><!-- end li dropdown -->
                         <!-- Features -->
                     <!--    <li class="dropdown left"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Buyers<i class="fa fa-angle-down ml-5"></i></a>
                             <ul class="dropdown-menu">
                                 <li><a href="buyerrequests.php">My Requests</a></li>
-                                
+
                             </ul><!-- end ul dropdown-menu -->
                       <!--  </li>   -->
                         <!-- Pages -->
-           
-                        
+
+
                         <!-- Collections -->
               <!-- end dropdown -->
                     </ul><!-- end navbar-nav -->
-                    
+
                 </div><!-- end navbar collapse -->
             </div><!-- end container -->
         </div><!-- end navbar -->
-        
-    
-        
-		     
+
+
+
+
         <!-- start section -->
         <section class="section white-backgorund">
             <div class="container">
-			
-			
-			
-			<?php 
+
+
+
+			<?php
 			$email=$_SESSION['uemail'];
 			$reqid=$_GET['reqid'];
-		
-			
+
+
 			$querygetrequest="SELECT * FROM `buyerrequests` where `buyreq_id`='$reqid'";
 			$resultrequests=mysqli_query($connection,$querygetrequest);
 			while($rowreq=mysqli_fetch_array($resultrequests)){
 			?>
-			
-			
-			
+
+
+
                 <div class="row" style="background-color:#f7f7f7;">
                     <!-- start sidebar -->
                     <div class="col-sm-4">
@@ -108,12 +108,12 @@ require 'Connect.php';
                    <img src='ReqImages/<?php echo $rowreq['image']; ?>' alt='Product Image'/>
                                     </figure>
                                 </div><!-- end item -->
-                              
 
-                               
+
+
                             </div><!-- end carousel-inner -->
 
-                          
+
                         </div><!-- end carousel -->
                     </div><!-- end col -->
                     <!-- end sidebar -->
@@ -124,20 +124,19 @@ require 'Connect.php';
                                    <p class="text-gray alt-font">Date Added: <?php echo date("Y-m-d"); ?></p>
 								  <p class="text-gray alt-font">Category: <?php echo $rowreq['catename']; ?></p>
 								  <p class="text-red alt-font" style="color:red;">Deadline: <?php echo $rowreq['dtym']; ?></p>
-								   <a class="text-gray alt-font" style="color:blue;"> Buyer: <?php echo $rowreq['BuyerName']; ?></a><br> <br>
-                                   <a href="contactbuyer.php?buyermail=<?php echo $rowreq['BuyerName']; ?>" class="btn btn-success"> Contact me </a> 
+                                   <a href="contactbuyer.php?buyermail=<?php echo $rowreq['BuyerName']; ?>" class="btn btn-success"> Contact me </a>
 							</div><!-- end col -->
-                        </div><!-- end row --> 
-                        
+                        </div><!-- end row -->
+
                         <hr class="spacer-5"><hr class="spacer-10 no-border">
-                        
+
                         <div class="row">
                             <div class="col-sm-12">
 							  <h6> Description  </h6>
                                 <p><?php echo $rowreq['bmessage']; ?></p>
-                                
-                               
-                          
+
+
+
                             </div><!-- end col -->
                         </div><!-- end row -->
                     </div><!-- end col -->
@@ -145,21 +144,21 @@ require 'Connect.php';
 				    <hr class="spacer-60">
 					<br>
                 <?php } ?>
-            
-                
 
-               
-              
-             
+
+
+
+
+
             </div><!-- end container -->
         </section>
         <!-- end section -->
-       
-        
+
+
         <!-- start footer -->
         <?php require 'footer.php'; ?>
         <!-- end footer -->
-        
+
         <!-- JavaScript Files -->
         <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>

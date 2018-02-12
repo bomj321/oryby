@@ -6,13 +6,13 @@ u<?php  session_start();
     if($_SESSION["loggedin"]=="F")
     {
     	   header("Location: login.php?status=Unauthorized Access Attempt!");
-   
+
     }
 	include('header.php');
 include('Connect.php');
  $id =$_GET['id'];
  $sql="SELECT * FROM aboutus  Where id='$id'";
- 
+
 $stmt=mysqli_query($connection,$sql);
 if($stmt == false) {
 trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
@@ -21,61 +21,110 @@ $nr=mysqli_num_rows($stmt);
 
 $row=mysqli_fetch_assoc($stmt);
      $title = $row['title'];// item name
-			
-		
-			
-		    $description = $row['description'];// item name
-			 $elementname = $row['elementname'];// item name
-			$image = $row['picture'];// item name 
-		    $hreflink = $row['hreflink'];// item name
-		
- 
+
+
+
+		      $description = $row['description'];// item name
+			    $elementname = $row['elementname'];// item name
+			    $image = $row['picture'];// item name
+		      $hreflink = $row['hreflink'];// item name
+
+
 
 if(isset($_POST['btn_save_updates']))
 	{
      $title = $_POST['title'];// item name
-			
-		 
-			
+
+
+
 		    $description = $_POST['description'];// item name
 			 $elementname = $_POST['elementname'];// item name
-			 
+
 		    $hreflink = $_POST['hreflink'];// item name
-		
-		
+
+
 			$target_dir = "../images/";
-	
+
 		 		$target_file = $target_dir . basename($_FILES["file1"]["name"]);
 				$image=$_FILES['file1']['name'];
 			$filelocation = $target_dir.$image;
         $temp = $_FILES['file1']['tmp_name'];
 		 move_uploaded_file($temp, $filelocation);
-	
-	
-$sql="UPDATE aboutus  SET  title='".$title."',hreflink='".$hreflink."',picture='".$image."', description='".$description."'  WHERE (id='$id')";
- mysqli_query($connection,$sql);
-	 $stmt = $connection->prepare($sql);
-     if($stmt === false) {
-trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
-}
- 
-	
-			if($stmt->execute())
-			{
-			
-				?>
-                <script>
-				        alert("About Us Updated!");  //not showing an alert box.
-		window.location.href="manageAboutus.php";
-				</script>
-                <?php
-			}
-			else{
-		
-		}
-		
-	
-		
+     // PARA COMPROBAR SI HAY IMAGENES CARGADAS EN LA BASE DE DATOS
+     if ($image = ' ' or $image=$_FILES['file1']['name'] = ' ') {
+       $description = $_POST['description'];// item name
+      $elementname = $_POST['elementname'];// item name
+       $hreflink = $_POST['hreflink'];// item name
+     $target_dir = "../images/";
+
+       $target_file = $target_dir . basename($_FILES["file1"]["name"]);
+       $image=$_FILES['file1']['name'];
+     $filelocation = $target_dir.$image;
+       $temp = $_FILES['file1']['tmp_name'];
+        move_uploaded_file($temp, $filelocation);
+       $sql="UPDATE aboutus  SET  title='".$title."',hreflink='".$hreflink."',picture='".$image."', description='".$description."'  WHERE (id='$id')";
+        mysqli_query($connection,$sql);
+          $stmt = $connection->prepare($sql);
+            if($stmt === false) {
+       trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
+       }
+
+
+             if($stmt->execute())
+             {
+
+               ?>
+                       <script>
+                       alert("About Us Updated!");  //not showing an alert box.
+           window.location.href="manageAboutus.php";
+               </script>
+                       <?php
+             }
+             else{
+
+           }
+
+
+     }else{
+
+       $description = $_POST['description'];// item name
+        $elementname = $_POST['elementname'];// item name
+       $hreflink = $_POST['hreflink'];// item name
+       $sql="UPDATE aboutus  SET  title='".$title."',hreflink='".$hreflink."', description='".$description."'  WHERE (id='$id')";
+        mysqli_query($connection,$sql);
+         $stmt = $connection->prepare($sql);
+            if($stmt === false) {
+       trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
+       }
+
+
+            if($stmt->execute())
+            {
+
+              ?>
+                       <script>
+                      alert("About Us Updated!");  //not showing an alert box.
+          window.location.href="manageAboutus.php";
+              </script>
+                       <?php
+            }
+            else{
+
+          }
+
+
+
+
+
+
+     }
+
+     //FIN DEL IF ANIDADO DE LA IMAGEN
+
+
+
+
+
 	}
 
   ?>
@@ -85,10 +134,10 @@ trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERR
 			<!-- RIBBON -->
 			<div id="ribbon">
 
-				<span class="ribbon-button-alignment"> 
+				<span class="ribbon-button-alignment">
 					<span id="refresh" class="btn btn-ribbon" data-action="resetWidgets" data-title="refresh"  rel="tooltip" data-placement="bottom" data-original-title="<i class='text-warning fa fa-warning'></i> Warning! This will reset all your widget settings." data-html="true">
 						<i class="fa fa-refresh"></i>
-					</span> 
+					</span>
 				</span>
 
 				<!-- breadcrumb -->
@@ -129,7 +178,7 @@ trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERR
 							<!-- NEW WIDGET START -->
 						<article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
-						
+
 								<!-- Widget ID (each widget will need unique ID)-->
 								<div class="jarviswidget" id="wid-id-5" data-widget-colorbutton="false"	data-widget-editbutton="false" data-widget-deletebutton="false" data-widget-sortable="false">
 									<!-- widget options:
@@ -166,44 +215,44 @@ trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERR
 
 
 											<fieldset>
-													
+
 													<div class="form-group">
 														<label>Element Name</label>
 														<input type="text" class="form-control" name="elementname" disabled value="<?php echo $elementname ?>" />
 													</div>
 												</fieldset>
-												
+
 											<fieldset>
-													
+
 													<div class="form-group">
 														<label>Title</label>
 														<input type="text" class="form-control" name="title" value="<?php echo $title ?>" />
 													</div>
 												</fieldset>
-													
+
 													<fieldset>
-													
+
 													<div class="form-group">
 														<label>Description</label>
 														<input type="text" class="form-control" name="description" value="<?php echo $description ?>" />
 													</div>
 												</fieldset>
 												<fieldset>
-													
+
 													<div class="form-group">
 														<label>Link</label>
 														<input type="text" class="form-control" name="hreflink" value="<?php echo $hreflink ?>" />
 													</div>
 												</fieldset>
 												<fieldset>
-													
+
 													<div class="form-group">
 														<label>Picture</label>
 														<img style="height:150px; width:150px;"src="../images/<?php echo $image ?>">
 														<input type="file" class="form-control" name="file1"  />
 													</div>
 												</fieldset>
-												
+
 
 												<div class="form-actions">
 													<div class="row">
@@ -216,7 +265,7 @@ trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERR
 													</div>
 												</div>
 											</form>
-											
+
 
 										</div>
 										<!-- end widget content -->
@@ -228,7 +277,7 @@ trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERR
 								<!-- end widget -->
 
 
-				
+
 
 						</article>
 					</div>
@@ -241,13 +290,13 @@ trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERR
 
 						<article class="col-sm-12 col-md-12 col-lg-6">
 
-			
+
 
 						</article>
 
 						<article class="col-sm-12 col-md-12 col-lg-6">
 
-				
+
 
 						</article>
 
@@ -371,7 +420,7 @@ trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERR
 		<script src="js/app.config.js"></script>
 
 		<!-- JS TOUCH : include this plugin for mobile drag / drop touch events-->
-		<script src="js/plugin/jquery-touch/jquery.ui.touch-punch.min.js"></script> 
+		<script src="js/plugin/jquery-touch/jquery.ui.touch-punch.min.js"></script>
 
 		<!-- BOOTSTRAP JS -->
 		<script src="js/bootstrap/bootstrap.min.js"></script>
@@ -425,19 +474,19 @@ trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERR
 		<!-- SmartChat UI : plugin -->
 		<script src="js/smart-chat-ui/smart.chat.ui.min.js"></script>
 		<script src="js/smart-chat-ui/smart.chat.manager.min.js"></script>
-		
+
 		<!-- PAGE RELATED PLUGIN(S) -->
-		
+
 		<!-- Flot Chart Plugin: Flot Engine, Flot Resizer, Flot Tooltip -->
 		<script src="js/plugin/flot/jquery.flot.cust.min.js"></script>
 		<script src="js/plugin/flot/jquery.flot.resize.min.js"></script>
 		<script src="js/plugin/flot/jquery.flot.time.min.js"></script>
 		<script src="js/plugin/flot/jquery.flot.tooltip.min.js"></script>
-		
+
 		<!-- Vector Maps Plugin: Vectormap engine, Vectormap language -->
 		<script src="js/plugin/vectormap/jquery-jvectormap-1.2.2.min.js"></script>
 		<script src="js/plugin/vectormap/jquery-jvectormap-world-mill-en.js"></script>
-		
+
 		<!-- Full Calendar -->
 		<script src="js/plugin/moment/moment.min.js"></script>
 		<script src="js/plugin/fullcalendar/jquery.fullcalendar.min.js"></script>
