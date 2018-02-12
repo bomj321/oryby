@@ -7,10 +7,10 @@ session_start();
     if($_SESSION["loggedin"]=="F")
     {
     	   header("Location: login.php?status=Unauthorized Access Attempt!");
-   
+
     } include('header.php');
 include('Connect.php');
- 
+
   ?>
 		<!-- MAIN PANEL -->
 		<div id="main" role="main">
@@ -18,10 +18,10 @@ include('Connect.php');
 			<!-- RIBBON -->
 			<div id="ribbon">
 
-				<span class="ribbon-button-alignment"> 
+				<span class="ribbon-button-alignment">
 					<span id="refresh" class="btn btn-ribbon" data-action="resetWidgets" data-title="refresh"  rel="tooltip" data-placement="bottom" data-original-title="<i class='text-warning fa fa-warning'></i> Warning! This will reset all your widget settings." data-html="true">
 						<i class="fa fa-refresh"></i>
-					</span> 
+					</span>
 				</span>
 
 				<!-- breadcrumb -->
@@ -62,7 +62,7 @@ include('Connect.php');
 							<!-- NEW WIDGET START -->
 						<article class="col-xs-12 col-sm-8 col-md-12 col-lg-12">
 
-						
+
 								<!-- Widget ID (each widget will need unique ID)-->
 								<div class="jarviswidget" id="wid-id-5" data-widget-colorbutton="false"	data-widget-editbutton="false" data-widget-deletebutton="false" data-widget-sortable="false">
 									<!-- widget options:
@@ -98,49 +98,36 @@ include('Connect.php');
 										<form method="post" action="faq_add_action.php" enctype="multipart/form-data" class="form-horizontal">
 
 										<fieldset>
-													
+
 													<div class="form-group">
-														<select class="form-control" name="elementName"> 
-														<option class="form-control" value="" >Select Element Name</option>		
-														<option class="form-control" value="faqquestion1" >FAQ Question 1</option>
-														<option class="form-control" value="faqquestion2">FAQ Question 2</option>
-														<option class="form-control" value="faqquestion3">FAQ  Question 3</option>
-														<option class="form-control" value="faqquestion4">FAQ  Question 4</option>
-														<option class="form-control" value="faqquestion5">FAQ  Question 5</option>
-														<option class="form-control" value="faqquestion6">FAQ  Question 6</option>
-														
-														<option class="form-control" value="considerateimportquestion1" >Considerate To Import Question 1</option>
-														<option class="form-control" value="considerateimportquestion2">Considerate To Import Question 2</option>
-														<option class="form-control" value="considerateimportquestion3">Considerate To Import Question 3</option>
-														<option class="form-control" value="considerateimportquestion4">Considerate To Import Question 4</option>
-														<option class="form-control" value="considerateimportquestion5">Considerate To Import Question 5</option>
-														<option class="form-control" value="considerateimportquestion6">Considerate To Import Question 6</option>	
-														<option class="form-control" value="considerateexportquestion1" >Considerate To Export Question 1</option>
-														<option class="form-control" value="considerateexportquestion2">Considerate To Export Question 2</option>
-														<option class="form-control" value="considerateexportquestion3">Considerate To Export Question 3</option>
-														<option class="form-control" value="considerateexportquestion4">Considerate To Export Question 4</option>
-														<option class="form-control" value="considerateexportquestion5">Considerate To Export Question 5</option>
-														<option class="form-control" value="considerateexportquestion6">Considerate To Export Question 6</option>
-														
-														</select>
+                           <select class="form-control" name="elementName">
+                             <!--POSIBLE MEJOR FORMA-->
+                             <!--  <label>Select Element Name</label>
+                               <input type="text" class="form-control" name="elementName" placeholder="Enter Name" />	-->
+														<option class="form-control" value="" >Select Element Name</option>
+														<option class="form-control" value="faqquestion" >FAQ Question</option>
+														<option class="form-control" value="considerateimportquestion" >Considerate To Import Question </option>
+
+
+                          </select>
 													</div>
 												</fieldset>
-												
+
 											<fieldset>
-													
+
 													<div class="form-group">
 														<label>QUESTION</label>
 														<input type="text" class="form-control" name="question" placeholder="Enter Question" />
 													</div>
 												</fieldset>
 													<fieldset>
-													
+
 													<div class="form-group">
 														<label>ANSWER</label>
 														<input type="text" class="form-control" name="answer" placeholder="Enter Answer" />
 													</div>
 												</fieldset>
-												
+
 
 												<div class="form-actions">
 													<div class="row">
@@ -164,7 +151,7 @@ include('Connect.php');
 								<!-- end widget -->
 
 
-				
+
 
 						</article>
 					</div>
@@ -177,13 +164,13 @@ include('Connect.php');
 
 						<article class="col-sm-12 col-md-12 col-lg-6">
 
-			
+
 
 						</article>
 
 						<article class="col-sm-12 col-md-12 col-lg-6">
 
-				
+
 
 						</article>
 
@@ -307,7 +294,7 @@ include('Connect.php');
 		<script src="js/app.config.js"></script>
 
 		<!-- JS TOUCH : include this plugin for mobile drag / drop touch events-->
-		<script src="js/plugin/jquery-touch/jquery.ui.touch-punch.min.js"></script> 
+		<script src="js/plugin/jquery-touch/jquery.ui.touch-punch.min.js"></script>
 
 		<!-- BOOTSTRAP JS -->
 		<script src="js/bootstrap/bootstrap.min.js"></script>
@@ -361,19 +348,19 @@ include('Connect.php');
 		<!-- SmartChat UI : plugin -->
 		<script src="js/smart-chat-ui/smart.chat.ui.min.js"></script>
 		<script src="js/smart-chat-ui/smart.chat.manager.min.js"></script>
-		
+
 		<!-- PAGE RELATED PLUGIN(S) -->
-		
+
 		<!-- Flot Chart Plugin: Flot Engine, Flot Resizer, Flot Tooltip -->
 		<script src="js/plugin/flot/jquery.flot.cust.min.js"></script>
 		<script src="js/plugin/flot/jquery.flot.resize.min.js"></script>
 		<script src="js/plugin/flot/jquery.flot.time.min.js"></script>
 		<script src="js/plugin/flot/jquery.flot.tooltip.min.js"></script>
-		
+
 		<!-- Vector Maps Plugin: Vectormap engine, Vectormap language -->
 		<script src="js/plugin/vectormap/jquery-jvectormap-1.2.2.min.js"></script>
 		<script src="js/plugin/vectormap/jquery-jvectormap-world-mill-en.js"></script>
-		
+
 		<!-- Full Calendar -->
 		<script src="js/plugin/moment/moment.min.js"></script>
 		<script src="js/plugin/fullcalendar/jquery.fullcalendar.min.js"></script>
