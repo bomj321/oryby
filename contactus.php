@@ -4,7 +4,7 @@ include('head.php');
 ?>
     <body>
      <!-- start topBar -->
-     <?php include('topbar.php');  
+     <?php include('topbar.php');
 	include('middlebar.php');
 	 ?>
 	 <!-- end topBar -->
@@ -13,17 +13,18 @@ include('head.php');
 
   <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-	
+
 							$query="Select * from `users` Where userType='Admin'";
 							$resultt=mysqli_query($connection,$query);
 						$rows=mysqli_fetch_array($resultt);
 					 $email =$rows['email'];
-							
-								
+
+
 
 $headers = "MIME-Version: 1.0" . "\r\n";
+//VARIABLE TO A QUIEN SE DEBE ENVIAR LOS MENSAJES
 //$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-$to="$email";
+$to='info@orybu.com';
 $uzername=$_POST['uzername'];
 $email=$_POST['email'];
 $msg=$_POST['msg'];
@@ -39,8 +40,8 @@ if($result){
 }
 
 }
-?>  
-   
+?>
+
         <!-- end section -->
         <html>
 		<body>
@@ -52,9 +53,9 @@ if($result){
                         <div class="title-wrap">
                             <h2 class="title lines">Contact Us</h2>
                         </div>
-                    </div><!-- end col -->    
+                    </div><!-- end col -->
                 </div><!-- end row -->
-                
+
                 <div class="row column-3">
                     <div class="col-sm-6 col-md-4">
                         <div class="icon-boxes style1">
@@ -66,7 +67,7 @@ if($result){
                                 <h5 class="text-warning">Use our chat!</h5>
                             </div>
                         </div><!-- icon-box -->
-                    </div><!-- end col -->   
+                    </div><!-- end col -->
                     <div class="col-sm-6 col-md-4">
                         <div class="icon-boxes style1">
                             <div class="icon">
@@ -77,7 +78,7 @@ if($result){
                                 <h5 class="text-info">Call - + 56 9 57087442 !</h5>
                             </div>
                         </div><!-- icon-box -->
-                    </div><!-- end col -->   
+                    </div><!-- end col -->
                     <div class="col-sm-6 col-md-4">
                         <div class="icon-boxes style1">
                             <div class="icon">
@@ -88,11 +89,11 @@ if($result){
                                 <h5 class="text-success">info@orybu.com</h5>
                             </div>
                         </div><!-- icon-box -->
-                    </div><!-- end col --> 
+                    </div><!-- end col -->
                 </div><!-- end row -->
-                
+
                 <hr class="spacer-40 no-border">
-                
+
                 <div class="row">
                     <div class="col-sm-10 col-sm-offset-1">
                         <form method="POST">
@@ -114,17 +115,17 @@ if($result){
                         </form>
                     </div><!-- end col -->
                 </div><!-- end row -->
-                
+
             </div><!-- end container -->
         </section>
         <!-- end section -->
-               
-   <?php 
+
+   <?php
    include("footer.php");
    ?>
         <!-- end footer -->
-        
-        
+
+
         <!-- JavaScript Files -->
         <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
@@ -139,15 +140,15 @@ if($result){
         <script type="text/javascript" src="js/gmaps.js"></script>
         <script type="text/javascript" src="js/swiper.min.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
-        
+
         <script>
 $(document).ready(function(){
- 
-       
+
+
         $("#suc").fadeIn("8000");
-        $("#suc").fadeOut("slow");  
+        $("#suc").fadeOut("slow");
 });
 </script>
-        
+
     </body>
 </html>

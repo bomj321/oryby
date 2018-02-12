@@ -1,13 +1,13 @@
 <a href="chatuser.php" class="btn btn-primary" style="position: fixed;    bottom: 3px;    left: 3px;	background-color:##6495ED;	color:white;	font-size:16px;font-weight:bold;" >Chats with Different Users</a>
     <footer class="footer">
-        <div class="container">                
+        <div class="container">
             <div class="row">
                 <div class="col-sm-3">
                     <h5 class="title">Más</h5>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin suscipit, libero a molestie consectetur, sapien elit lacinia mi.</p>
-                    
+
                     <hr class="spacer-10 no-border">
-                    
+
                     <ul class="social-icons">
                         <li class="facebook"><a href="javascript:void(0);"><i class="fa fa-facebook"></i></a></li>
                         <li class="twitter"><a href="javascript:void(0);"><i class="fa fa-twitter"></i></a></li>
@@ -20,10 +20,10 @@
                 <div class="col-sm-3">
                     <h5 class="title">Mi cuenta</h5>
                     <ul class="list alt-list">
-                        <li><a href="#"><i class="fa fa-angle-right"></i>Mi cuenta</a></li>
+                        <li><a href="buyeraccount.php"><i class="fa fa-angle-right"></i>Mi cuenta</a></li>
                         <li><a href="#"><i class="fa fa-angle-right"></i>Deseados</a></li>
-                        <li><a href="#"><i class="fa fa-angle-right"></i>Mi carrito</a></li>
-                        <li><a href="#"><i class="fa fa-angle-right"></i>Revisa</a></li>
+                        <li><a href="cart.php"><i class="fa fa-angle-right"></i>Mi carrito</a></li>
+                        <li><a href="checkout.php"><i class="fa fa-angle-right"></i>Revisa</a></li>
                     </ul>
                 </div><!-- end col -->
                 <div class="col-sm-3">
@@ -48,6 +48,3 @@
             </div><!-- end row -->
         </div><!-- end container -->
     </footer>
-
-	
-	
