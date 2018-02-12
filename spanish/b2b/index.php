@@ -684,7 +684,7 @@ $nr=mysqli_num_rows($stmt);
 
 			<div class="col-sm-12">
                         <div class="title-wrap">
-                            <h2 class="title"> PARTE SUPERIOR <span class="text-primary"> SELECCIONADO </span>PRODUCTO</h2>
+                            <h2 class="title">PRODUCTOS<span class="text-primary"> SELECCIONADOS</span></h2>
 							</div>
 			</div>
 

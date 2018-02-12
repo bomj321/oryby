@@ -4,15 +4,15 @@
     <title>Orybu.com - Conectando Negocios Alrededor del Mundo</title>
     <meta charset="utf-8">
     <meta name="description" content="Plus E-Commerce Template">
-    <meta name="author" content="Diamant Gjota" />
+    <meta name="author" content="Alemar y Jose"/>
     <meta name="keywords" content="plus, html5, css3, template, ecommerce, e-commerce, bootstrap, responsive, creative" />
     <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	
     <!--Favicon-->
-    <link rel="shortcut icon" href="img/favi.png" type="image/x-icon">
-    <link rel="icon" href="img/favi.png" type="image/x-icon">
+    <link rel="shortcut icon" href="images/favi.png" type="image/x-icon">
+    <link rel="icon" href="images/favi.png" type="image/x-icon">
     
       
     <!-- css files -->

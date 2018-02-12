@@ -12,12 +12,12 @@ include('head.php');
 <!-- start section -->
 <section class="section white-backgorund ">
   <div class="container">
-      <h2 class="text-center">Solicitar el envío del miembro</h2>
+      <h2 class="text-center">Solicitar el envío de Membresias</h2>
       <br>
       <br>
     <div class="row">                       
       <div class="responsive">          
-            <table class="table table-responsive table-hover table-bordered">
+            <table class="table table-responsive table-hover table-bordered border">
               <thead >
                 <tr>        
                 <th class="dark">Principales características</th>

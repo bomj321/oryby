@@ -38,20 +38,19 @@ error_reporting(0);
 						   
                          <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Comprador<i class="fa fa-angle-down ml-5"></i></a>
                             <ul role="menu" class="dropdown-menu">
-                                <li><a href="allproduct.php">Página de la tienda</a></li>
-                                <li><a href="startBuying.php">Comience a comprar</a></li>
-                                <li><a href="buysecurtly.php">Cómo comprar Securetly</a></li>
-								 <li><a href="considerateToImport.php">Qué considerar para la importación</a></li>
+                                <li><a href="allproduct.php">Ver Productos</a></li>
+                                <li><a href="startBuying.php">¿Cómo comenzar a comprar?</a></li>
+                                <li><a href="buysecurtly.php">¿Cómo comprar de forma segura?</a></li>
+								 <li><a href="considerateToImport.php">¿Qué considerar para la importación?</a></li>
                                 
                                 
                             </ul><!-- end ul dropdown-menu -->
                         </li><!-- end li dropdown -->  
 					 <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Proveedor<i class="fa fa-angle-down ml-5"></i></a>
                             <ul role="menu" class="dropdown-menu">
-                                <li><a href="startSelling.php">Empieza a vender</a></li>
-                                <li><a href="learnIncreaseSale.php">Cómo aumentar las ventas</a></li>
-                               
-								 <li><a href="considerateToExport.php">Qué saber para exportar</a></li>
+                                <li><a href="startSelling.php">¿Cómo empezar a vender?</a></li>
+                                <li><a href="learnIncreaseSale.php">¿Cómo aumentar las ventas?</a></li>                               
+								 <li><a href="considerateToExport.php">¿Qué saber para exportar?</a></li>
                                 
                                 
                             </ul><!-- end ul dropdown-menu -->
@@ -60,7 +59,7 @@ error_reporting(0);
 							<li class="dropdown left"><a href="membership.php">Afiliación</a> </li>
 								<li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Ayuda<i class="fa fa-angle-down ml-5"></i></a>
                             <ul role="menu" class="dropdown-menu">
-                                <li><a href="faq.php">Preguntas más frecuentes</a></li>
+                                <li><a href="faq.php">Preguntas frecuentes</a></li>
                                 <li><a href="aboutus.php">Sobre nosotros</a></li>
                                
 								 <li><a href="contactus.php">Contáctenos</a></li>
