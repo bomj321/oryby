@@ -21,6 +21,7 @@ include('head.php');
 		<?php
 
 		$qry1="SELECT * FROM aboutus WHERE elementname='content1'";
+
        $res1=mysqli_query($connection,$qry1);
 	   //echo $va=mysqli_num_rows($res1);
 	   $rw=mysqli_fetch_array($res1);
