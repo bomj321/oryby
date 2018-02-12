@@ -46,7 +46,7 @@
                       </div><!-- end col -->
                        <div class="col-sm-2 vertical-align header-items hidden-xs" style="margin-top:10px; ">
                         <div class="header-item mr-5">
-                            <a href="cart.php" data-toggle="tooltip" data-placement="top" title="carts"  onmouseover="this.style.backgroundColor='#5cb85c'" onmouseout="this.style.backgroundColor='' ">
+                            <a href="cart.php" data-toggle="tooltip" data-placement="top" title="Carro"  onmouseover="this.style.backgroundColor='#5cb85c'" onmouseout="this.style.backgroundColor='' ">
                                 <i class="fa fa-shopping-cart" ></i>
                              	<sub>	<?php 
 									 echo "".sizeof($_SESSION['cart'])." ";
@@ -56,10 +56,10 @@
                             </a>
 							
                         </div>
-						 <div  class="header-item mr-5">  <a href="#" data-toggle="tooltip" data-placement="top" title="Notification"  onmouseover="this.style.backgroundColor='#5cb85c'" onmouseout="this.style.backgroundColor='' ">
+						 <div  class="header-item mr-5">  <a href="#" data-toggle="tooltip" data-placement="top" title="Notificaciones"  onmouseover="this.style.backgroundColor='#5cb85c'" onmouseout="this.style.backgroundColor='' ">
 							 <i class="fa fa-bell-o"></i>    </a>  
 				    </div>
-                     <div  class="header-item mr-5">  <a href="#" data-toggle="tooltip" data-placement="top" title="Favorites" onmouseover="this.style.backgroundColor='#5cb85c'" onmouseout="this.style.backgroundColor='' ">
+                     <div  class="header-item mr-5">  <a href="#" data-toggle="tooltip" data-placement="top" title="Favoritos" onmouseover="this.style.backgroundColor='#5cb85c'" onmouseout="this.style.backgroundColor='' ">
 							 <i class="fa fa-heart-o"></i>    </a>  
 				    </div>
 					

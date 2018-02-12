@@ -112,64 +112,32 @@ $(document).ready(function(){
 
                             <div class="item-inner">
                                 <div class="carousel-caption">
-                                    <h3 class="text-white"><?php echo $title; ?></h3>
-                                    <p class="lead"><?php echo $description; ?></p>
-                                    <h5 class="text-white">Comienza desde <span class="text-primary"><?php echo $subtitle; ?></span></h5>
-
-                                    <hr class="spacer-10 no-border"/>
-
-                                    <a href="<?php echo $hreflink; ?>" class="btn btn-default semi-circle">Ver colección</a>
                                 </div><!-- end carousel-caption -->
                             </div><!-- end item-inner -->
                         </div><!-- end item -->
 						  <?php
 							$sqll="Select * from `aboutus` Where elementname='slider2'";
-						$resultt=mysqli_query($connection,$sqll);
+							$resultt=mysqli_query($connection,$sqll);
 							$rows=mysqli_fetch_array($resultt);
-								$hreflink =$rows['hreflink'];
-							 	$picture=$rows['picture'];
-								$title=$rows['title'];
-								$subtitle=$rows['subtitle'];
-								$description=$rows['description'];
-
-
-								?>
+							$picture=$rows['picture'];
+							?>
                         <div class="item" style="background-image: url(images/<?php echo $picture; ?>); margin-left:-4px;margin-right:-4px; height:456px; ">
 
                             <div class="item-inner">
                                 <div class="carousel-caption">
-                                    <h3 class="text-white"><?php echo $title; ?></h3>
-                                    <p class="lead"><?php echo $description; ?></p>
-                                    <h5 class="text-white">Comienza desde<span class="text-primary"><?php echo $subtitle; ?></span></h5>
-
-                                    <hr class="spacer-10 no-border"/>
-
-                                    <a href="<?php echo $hreflink; ?>" class="btn btn-default semi-circle">Ver colección</a>
                                 </div><!-- end carousel-caption -->
                             </div><!-- end item-inner -->
                         </div><!-- end item -->
                     <?php
-							$sqlll="Select * from `aboutus` Where elementname='slider3'";
+						$sqlll="Select * from `aboutus` Where elementname='slider3'";
 						$resulttt=mysqli_query($connection,$sqlll);
-							$rows=mysqli_fetch_array($resulttt);
-								$hreflink =$rows['hreflink'];
-							 	$picture=$rows['picture'];
-								$title=$rows['title'];
-								$subtitle=$rows['subtitle'];
-								$description=$rows['description'];
-
-
-								?>
+						$rows=mysqli_fetch_array($resulttt);
+						$picture=$rows['picture'];
+					?>
 				        <div class="item" style="background-image: url(images/<?php echo $picture; ?>); margin-left:-4px;margin-right:-4px; height:456px; ">
 
                             <div class="item-inner">
                                 <div class="carousel-caption">
-                                    <h3 class="text-white"><?php echo $title; ?></h3>
-                                    <p class="lead"><?php echo $description; ?></p>
-                                    <h5 class="text-white">Comienza desde <span class="text-primary"><?php echo $subtitle; ?></span></h5>
-
-                                    <hr class="spacer-10 no-border"/>
-                                    <a href="<?php echo $hreflink; ?>" class="btn btn-default semi-circle">Ver colección</a>
                                 </div><!-- end carousel-caption -->
                             </div><!-- end item-inner -->
                         </div><!-- end item -->
@@ -684,7 +652,7 @@ $nr=mysqli_num_rows($stmt);
 
 			<div class="col-sm-12">
                         <div class="title-wrap">
-                            <h2 class="title"> PARTE SUPERIOR <span class="text-primary"> SELECCIONADO </span>PRODUCTO</h2>
+                            <h2 class="title">PRODUCTOS<span class="text-primary"> SELECCIONADOS</span></h2>
 							</div>
 			</div>
 

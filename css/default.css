@@ -5,6 +5,16 @@ html, body, .fullscreen {
   height: 100%;
   width: 100%; }
 
+/*Top*/
+
+.topBar ul.topBarNav li ul li a.top{
+  display: block;
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: 1.2rem;
+}
+
+
 body {
   font-family: 'Roboto', sans-serif;
   color: #878c94;
@@ -2334,18 +2344,18 @@ border: 1px solid #111;
     border-color: #111;
 }
 
-.table tbody tr.border td {
+table.border tbody tr.border td {
     padding: 18px;
     line-height: 1.42857143;
     vertical-align: middle;
     border-color: #111;
 }
 
-td.light, th.light{
+table.border td.light, th.light{
 background-color: rgba(0, 0, 0, 0.03);
 }
 
-th.dark,td.dark{
+table.border th.dark,td.dark{
 background-color: rgba(0, 0, 0, 0.16);
 }
 

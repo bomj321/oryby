@@ -110,13 +110,6 @@ $(document).ready(function(){
 
                             <div class="item-inner">
                                 <div class="carousel-caption">
-                                    <h3 class="text-white"><?php echo $title; ?></h3>
-                                    <p class="lead"><?php echo $description; ?></p>
-                                    <h5 class="text-white">Starts From <span class="text-primary"><?php echo $subtitle; ?></span></h5>
-
-                                    <hr class="spacer-10 no-border"/>
-
-                                    <a href="<?php echo $hreflink; ?>" class="btn btn-default semi-circle">See Collection</a>
                                 </div><!-- end carousel-caption -->
                             </div><!-- end item-inner -->
                         </div><!-- end item -->
@@ -136,39 +129,19 @@ $(document).ready(function(){
 
                             <div class="item-inner">
                                 <div class="carousel-caption">
-                                    <h3 class="text-white"><?php echo $title; ?></h3>
-                                    <p class="lead"><?php echo $description; ?></p>
-                                    <h5 class="text-white">Starts From <span class="text-primary"><?php echo $subtitle; ?></span></h5>
-
-                                    <hr class="spacer-10 no-border"/>
-
-                                    <a href="<?php echo $hreflink; ?>" class="btn btn-default semi-circle">See Collection</a>
                                 </div><!-- end carousel-caption -->
                             </div><!-- end item-inner -->
                         </div><!-- end item -->
                     <?php
-							$sqlll="Select * from `aboutus` Where elementname='slider3'";
+						$sqlll="Select * from `aboutus` Where elementname='slider3'";
 						$resulttt=mysqli_query($connection,$sqlll);
-							$rows=mysqli_fetch_array($resulttt);
-								$hreflink =$rows['hreflink'];
-							 	$picture=$rows['picture'];
-								$title=$rows['title'];
-								$subtitle=$rows['subtitle'];
-								$description=$rows['description'];
-
-
-								?>
+						$rows=mysqli_fetch_array($resulttt);
+						$picture=$rows['picture'];
+					?>
 				        <div class="item" style="background-image: url(images/<?php echo $picture; ?>); margin-left:-4px;margin-right:-4px; height:456px; ">
 
                             <div class="item-inner">
                                 <div class="carousel-caption">
-                                    <h3 class="text-white"><?php echo $title; ?></h3>
-                                    <p class="lead"><?php echo $description; ?></p>
-                                    <h5 class="text-white">Starts From <span class="text-primary"><?php echo $subtitle; ?></span></h5>
-
-                                    <hr class="spacer-10 no-border"/>
-
-                                    <a href="<?php echo $hreflink; ?>" class="btn btn-default semi-circle">See Collection</a>
                                 </div><!-- end carousel-caption -->
                             </div><!-- end item-inner -->
                         </div><!-- end item -->
@@ -183,27 +156,6 @@ $(document).ready(function(){
                         <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                         <span class="sr-only">Next</span>
                     </a>
-                          <!--  <div class="item">
-                                <figure>
-                                    <a href="javascript:void(0);">
-                                        <img style="width:900px; height:462px" src="img/slider/slider_10.jpg" alt=""/>
-                                    </a>
-                                </figure>
-                            </div><!-- end item -->
-                        <!--    <div class="item">
-                                <figure>
-                                    <a href="javascript:void(0);">
-                                        <img style="width:900px; height:420px"  src="img/slider/slider_09.jpg" alt=""/>
-                                    </a>
-                                </figure>
-                            </div><!-- end item -->
-                         <!--   <div class="item">
-                                <figure>
-                                    <a href="javascript:void(0);">
-                                        <img style="width:900px; height:420px"  src="img/slider/slider_08.jpg" alt=""/>
-                                    </a>
-                                </figure>
-                            </div><!-- end item -->
                         </div><!-- end owl carousel -->
                     </div><!-- end col -->
                 </div><!-- end row -->
@@ -524,40 +476,14 @@ $(document).ready(function(){
 						 </div>
                           	</div>
 							</div>
-                           <div class="form-group">
-
-                              <!--  <input name="dtym" type="date" id="dtime" class="form-control input-lg" required placeholder="Enter Deadline"> -->
+                           <div class="form-group">                
 								<input name="dtym" type="text" id="dtime" class="form-control input-lg" required placeholder="Deadline to be send" onfocus="(this.type='date')">
-
 							</div>
-
-
-                           <!-- <div class="form-group">
-                                <label for="pimage">Product Image</label>
-                                <input type="file" name="pimage"   required class="form-control input-lg">
-
-							   </div> -->
-
-                           <!-- <div class="form-group">
-                                <label class="control-label" for="message" name="description">Descirption</label>
-                                <textarea id="message" rows="5" class="form-control" required placeholder="Description ..." name="description"></textarea>
-                            </div>  -->
                        <center>
-
-
                          <input type="submit" class="btn btn-success round btn-md"  name="requestSend" value="Submit">
-
                         </form>
-
 						</center>
 							</div>
-			<!--	<div style="width:100%;margin-top:10px"  >
-				<a href="buyerrequests.php" class="btn btn-default btn-lg" style="width:100%" >
-						Show Buying Request
-				</a>
-
-				</div>	  -->
-
 				<div style="width:100%;margin-top:18px"  >
 				<a href="breq.php" class="btn btn-success round btn-lg" style="width:100%" >
 						Show Buying Request
@@ -1262,12 +1188,5 @@ if($queryResult){
         <script type="text/javascript" src="js/gmaps.js"></script>
         <script type="text/javascript" src="js/swiper.min.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
-        <script>
-			$(document).ready(function(){
-					$("#suc").fadeIn("slow");
-					$("#suc").fadeOut("slow");
-
-			});
-		</script>
     </body>
 </html>
