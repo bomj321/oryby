@@ -1,6 +1,6 @@
 <?php session_start();
  if (!($_SESSION["loggedin"])) {
-        header("Location: login.php?status=Unauthorized Access Attempt!");
+        header("Location: login.php");
     }
 
     if($_SESSION["loggedin"]=="F")

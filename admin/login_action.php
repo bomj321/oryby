@@ -8,7 +8,7 @@ $password=$_POST["password"];
 $result=mysqli_query($connection,$sql);
  if($result == false) { 
  trigger_error('Wrong SQL: ' . $sql. ' Error: ' . $connection->error, E_USER_ERROR); 
- } /* Bind parameters. Types: s=string, i=integer, d=double,  b=blob */ 
+ } 
 
 $nr= mysqli_num_rows($result);
 $loginsucceful=False;
