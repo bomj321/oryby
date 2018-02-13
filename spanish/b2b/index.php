@@ -152,27 +152,6 @@ $(document).ready(function(){
                         <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                         <span class="sr-only">Siguiente</span>
                     </a>
-                          <!--  <div class="item">
-                                <figure>
-                                    <a href="javascript:void(0);">
-                                        <img style="width:900px; height:462px" src="img/slider/slider_10.jpg" alt=""/>
-                                    </a>
-                                </figure>
-                            </div><!-- end item -->
-                        <!--    <div class="item">
-                                <figure>
-                                    <a href="javascript:void(0);">
-                                        <img style="width:900px; height:420px"  src="img/slider/slider_09.jpg" alt=""/>
-                                    </a>
-                                </figure>
-                            </div><!-- end item -->
-                         <!--   <div class="item">
-                                <figure>
-                                    <a href="javascript:void(0);">
-                                        <img style="width:900px; height:420px"  src="img/slider/slider_08.jpg" alt=""/>
-                                    </a>
-                                </figure>
-                            </div><!-- end item -->
                         </div><!-- end owl carousel -->
                     </div><!-- end col -->
                 </div><!-- end row -->
@@ -496,24 +475,8 @@ $(document).ready(function(){
                           	</div>
 							</div>
                            <div class="form-group">
-
-                              <!--  <input name="dtym" type="date" id="dtime" class="form-control input-lg" required placeholder="Enter Deadline"> -->
 								<input name="dtym" type="text" id="dtime" class="form-control input-lg" required placeholder="Fecha límite para enviar" onfocus="(this.type='date')">
-
 							</div>
-
-
-
-                           <!-- <div class="form-group">
-                                <label for="pimage">Product Image</label>
-                                <input type="file" name="pimage"   required class="form-control input-lg">
-
-							   </div> -->
-
-                           <!-- <div class="form-group">
-                                <label class="control-label" for="message" name="description">Descirption</label>
-                                <textarea id="message" rows="5" class="form-control" required placeholder="Description ..." name="description"></textarea>
-                            </div>  -->
                        <center>
 
 
@@ -523,12 +486,6 @@ $(document).ready(function(){
 
 						</center>
 							</div>
-			<!--	<div style="width:100%;margin-top:10px"  >
-				<a href="buyerrequests.php" class="btn btn-default btn-lg" style="width:100%" >
-						Show Buying Request
-				</a>
-
-				</div>	  -->
 
 				<div style="width:100%;margin-top:18px"  >
 				<a href="breq.php" class="btn btn-success round btn-lg" style="width:100%" >
@@ -661,142 +618,6 @@ $nr=mysqli_num_rows($stmt);
                        <div class="row">
 
                 </div><!-- end row -->
-
-
-
-
-<div id="Carousel" class="carousel slide">
-                              <!-- Carousel items -->
-
-                    <div class="carousel-inner">
-                        <div class="item active" style="padding-right:70px; padding-left:70px;">
-                            <div class="row">
-												 <?php
-				  $sql="SELECT * FROM products  INNER JOIN categories ON(products.catid = categories.catid) WHERE productType='Normal Product' AND productstatus=1 AND productaction = 1 LIMIT 6";
-
-				$stmt=mysqli_query($connection,$sql);
-				if($stmt == false) {
-				trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
-				}
-				  $nr=mysqli_num_rows($stmt);
-
-				?>
-					<?php while($row=$stmt->fetch_assoc())
-    {
-	$userId=$row['user_id'];
-	$title =$row['title'];
-	$ntitle =$row['ntitle'];
-	$pid =$row['pid'];
-	$quantity =$row['miniorder'];
-	 $myString = $row['image'];
-	$cl = explode(',', $myString);
-
-
-
-			  $sqll="SELECT seller.company_name,seller.email FROM users  INNER JOIN seller ON(users.email = seller.email) Where users.user_id='$userId'";
-
-				$stmtt=mysqli_query($connection,$sqll);
-				if($stmtt == false) {
-				trigger_error('Wrong SQL: ' . $sqll . ' Error: ' . $connection->error, E_USER_ERROR);
-				}
-				  $rows=mysqli_fetch_array($stmtt);
-
-
-
-
-	?>
-
-                              <div class="col-md-2"><a href="Shopsingle.php?pid=<?php echo $pid ?>" class="thumbnail" id="carousel2-selector-0"><img src="images/<?php echo $cl[0];?>" alt="Image" style="width:150px;height:150px;"></a>
-
-							  <center>
-							  <span class="amount text-default"><?php echo $ntitle?></span>
-							  </br>
-
-							  <span class="amount text-primary">Dólar estadounidense $ <?php echo $price = $row['price'];  ?></span>
-							  </br>
-							  <span class="amount text-default">La orden mínima:<?php echo $quantity?></span>
-							  </br>
-
-							  <span class="amount text-default">nombre de empresa:<?php echo $companyName=$rows['company_name'];?></span>
-							  	   </br>
-								     <a href="contactsupplier.php?supplieremail=<?php echo $rows['email']; ?>"></i>Contactar al proveedor</a>
-									 </br>
-                                        <a href="Shopsingle.php?pid=<?php echo $pid ?>"><i class="fa fa-cart-plus mr-5"></i>Añadir a la cesta</a>
-							  </center>
-							  </div>
-							     <?php
-				}
-				?>
-						</div><!--.row-->
-                        </div><!--.item-->
-<!-- ////////////////////////////////////// -->
-                     <div class="item" style="padding-right:70px; padding-left:70px;">
-                            <div class="row">
-												 <?php
-			 $sql="SELECT * FROM products  INNER JOIN categories ON(products.catid = categories.catid) WHERE productType='Normal Product'  AND productstatus=1 AND productaction = 1 LIMIT 5,10";
-
-				$stmt=mysqli_query($connection,$sql);
-				if($stmt == false) {
-				trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
-				}
-				  $nr=mysqli_num_rows($stmt);
-
-				?>
-					<?php while($row=$stmt->fetch_assoc())
-    {
-$userId=$row['user_id'];
-	$title =$row['title'];
-	$ntitle =$row['ntitle'];
-	$pid =$row['pid'];
-	$quantity =$row['miniorder'];
-	 $myString = $row['image'];
-	$cl = explode(',', $myString);
-
-
-			  $sqll="SELECT seller.company_name,seller.email FROM users  INNER JOIN seller ON(users.email = seller.email) Where users.user_id='$userId'";
-
-				$stmtt=mysqli_query($connection,$sqll);
-				if($stmtt == false) {
-				trigger_error('Wrong SQL: ' . $sqll . ' Error: ' . $connection->error, E_USER_ERROR);
-				}
-				  $rows=mysqli_fetch_array($stmtt);
-
-
-
-
-	?>
-
-                              <div class="col-md-2"><a href="Shopsingle.php?pid=<?php echo $pid ?>" class="thumbnail" id="carousel2-selector-0"><img src="images/<?php echo $cl[0];?>" alt="Image" style="width:150px;height:150px;"></a>
-
-							  <center>
-							  <span class="amount text-default"><?php echo $ntitle?></span>
-							  </br>
-
-							  <span class="amount text-primary">Dólar estadounidense $ <?php echo $price = $row['price'];  ?></span>
-							  </br>
-							  <span class="amount text-default">La orden mínima:<?php echo $quantity?></span>
-							  </br>
-
-							  <span class="amount text-default">Nombre de empresa:<?php echo $companyName=$rows['company_name'];?></span>
-							  	   </br>
-								     <a href="contactsupplier.php?supplieremail=<?php echo $rows['email']; ?>"></i>Contactar al proveedor</a>
-									 </br>
-                                        <a href="Shopsingle.php?pid=<?php echo $pid ?>"><i class="fa fa-cart-plus mr-5"></i>Añadir a la cesta</a>
-							  </center>
-							  </div>
-							     <?php
-				}
-				?>
-						</div><!--.row-->
-                        </div><!--.item-->
-
-                    </div><!--.carousel-inner-->
-                    <a data-slide="prev" href="#Carousel" class="left carousel-control" style="padding-top:70px; padding-right:100px;"><img src="img/prev.png" style="height:100px; width:100px;  "></a>
-                  <a data-slide="next" href="#Carousel" class="right carousel-control" style="padding-top:70px; padding-left:100px; "><img src="img/next.png" style="height:100px; width:100px; float:right; "></a>
-                 <!-- Carousel items -->
-
-
-                </div><!--.Carousel-->
 <hr>
 <div id="Carousel1" class="carousel slide">
                               <!-- Carousel items -->
