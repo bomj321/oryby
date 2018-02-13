@@ -408,7 +408,7 @@ require 'Connect.php';
                           <?php echo $rowreq['country'];?>
                           </td>
                                                 <td style="width:120px;">
-                                                   <img style="height:40px; width:50px; margin-top:-10px;margin-bottom:-8px; " src="ReqImages/<?php echo $rowreq['image']; ?>" alt="productImage">
+                                                   <img style="height:40px; width:50px; margin-top:-10px;margin-bottom:-8px; " src="../../ReqImages/<?php echo $rowreq['image']; ?>" alt="productImage">
                                                 </td>
 
 
