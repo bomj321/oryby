@@ -51,7 +51,7 @@
 							<?php
 							include('Connect.php');
  $sql="SELECT * FROM `users` WHERE userAlert  ='0'";
- 
+
 $stmt=mysqli_query($connection,$sql);
 if($stmt == false) {
 trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
@@ -78,7 +78,7 @@ $nr=mysqli_num_rows($stmt);
 														<?php
 							include('Connect.php');
  $sql="SELECT * FROM `products` INNER JOIN categories ON(products.catid= categories.catid) WHERE products.productAlert  ='0'";
- 
+
 $stmt=mysqli_query($connection,$sql);
 if($stmt == false) {
 trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
@@ -96,23 +96,23 @@ $nr=mysqli_num_rows($stmt);
 								<?php
 								}
 								?>
-								
+
 								<div class="sparkline txt-color-purple hidden-mobile hidden-md hidden-sm">
 									110,150,300,130,400,240,220,310,220,300, 270, 210
 								</div>
 							</li>
 							<li class="sparks-info">
 							<?php
-						
+
  $sql="SELECT * FROM `orders` WHERE orderAlert  ='0'";
- 
+
 $stmt=mysqli_query($connection,$sql);
 if($stmt == false) {
 trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
 }
 $nr=mysqli_num_rows($stmt);
-						
-							
+
+
 					if($nr >0) {
 								?>
 
@@ -125,7 +125,7 @@ $nr=mysqli_num_rows($stmt);
 								<?php
 								}
 								?>
-							
+
 								<div class="sparkline txt-color-greenDark hidden-mobile hidden-md hidden-sm">
 									110,150,300,130,400,240,220,310,220,300, 270, 210
 								</div>

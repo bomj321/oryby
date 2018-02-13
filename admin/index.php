@@ -6,16 +6,16 @@
     if($_SESSION["loggedin"]=="F")
     {
     	   header("Location: login.php?status=Unauthorized Access Attempt!");
-   
+
     }
-		
+
 include('Connect.php');
 $userType=$_SESSION["userType"];
 if($userType !='Admin')
 {
 $email =$_SESSION["email"];
   $sqll="SELECT * FROM `users` WHERE email ='$email' ";
- 
+
 $stmtt=mysqli_query($connection,$sqll);
 if($stmtt == false) {
 trigger_error('Wrong SQL: ' . $sqll . ' Error: ' . $connection->error, E_USER_ERROR);
@@ -25,7 +25,7 @@ $nr=mysqli_num_rows($stmtt);
 $row=mysqli_fetch_array($stmtt);
  $user_id =$row['user_id'];
   $sql="SELECT * FROM users INNER JOIN access  ON  (users.user_id = access.user_id) INNER JOIN page  ON  (access.pageId = page.pageId) WHERE  access.status ='1'  AND access.pageId='1' AND access.user_id='$user_id' ";
- 
+
 $stmt=mysqli_query($connection,$sql);
 if($stmt == false) {
 trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
@@ -33,18 +33,18 @@ trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERR
  $nr =mysqli_num_rows($stmt);
 if($nr > 0)
 {
-		
+
 }
 else
 {
 
 			?>
-		
+
 			    <script>
-		     
+
 				window.location.href='NotAccess.php';
 				</script>
-  <?php 
+  <?php
 }
 }
 include('header.php');
@@ -56,10 +56,10 @@ include('header.php');
 			<!-- RIBBON -->
 			<div id="ribbon">
 
-				<span class="ribbon-button-alignment"> 
+				<span class="ribbon-button-alignment">
 					<span id="refresh" class="btn btn-ribbon" data-action="resetWidgets" data-title="refresh"  rel="tooltip" data-placement="bottom" data-original-title="<i class='text-warning fa fa-warning'></i> Warning! This will reset all your widget settings." data-html="true">
 						<i class="fa fa-refresh"></i>
-					</span> 
+					</span>
 				</span>
 
 				<!-- breadcrumb -->
@@ -85,7 +85,7 @@ include('header.php');
 			<!-- MAIN CONTENT -->
 			<div id="content">
 
-			<?php 
+			<?php
 			include('adminmenu.php');
 			?>
 				<!-- widget grid -->
@@ -146,8 +146,8 @@ include('header.php');
 													<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
 														<span class="demo-liveupdate-1"> <span class="onoffswitch-title">Live switch</span> <span class="onoffswitch">
 																<input type="checkbox" name="start_interval" class="onoffswitch-checkbox" id="start_interval">
-																<label class="onoffswitch-label" for="start_interval"> 
-																	<span class="onoffswitch-inner" data-swchon-text="ON" data-swchoff-text="OFF"></span> 
+																<label class="onoffswitch-label" for="start_interval">
+																	<span class="onoffswitch-inner" data-swchon-text="ON" data-swchoff-text="OFF"></span>
 																	<span class="onoffswitch-switch"></span> </label> </span> </span>
 														<div id="updating-chart" class="chart-large txt-color-blue"></div>
 
@@ -304,7 +304,7 @@ include('header.php');
 														<label for="gra-2" class="checkbox">
 															<input type="checkbox" name="gra-2" id="gra-2" checked="checked">
 															<i></i> Signups </label>
-															
+
 													</div>
 
 													<div class="btn-group hidden-phone pull-right">
@@ -318,46 +318,46 @@ include('header.php');
 															</li>
 														</ul>
 													</div>
- 
+
 												</div>
 
-					<?php $qery1="SELECT * FROM categories"; 
+					<?php $qery1="SELECT * FROM categories";
 						  $res=mysqli_query($connection,$qery1);
 						  $nrcategory=mysqli_num_rows($res);
-						  
-						  $qery2="SELECT * FROM subcategories"; 
+
+						  $qery2="SELECT * FROM subcategories";
 						  $rezlt=mysqli_query($connection,$qery1);
 						  $nrsubcategory=mysqli_num_rows($rezlt);
 					$insrStat1="UPDATE statdata SET numofcatsub='$nrcategory' WHERE csnames='Category'" ;
 					  mysqli_query($connection,$insrStat1);
-					  
+
 					  $insrStat2="UPDATE statdata SET numofcatsub='$nrsubcategory' WHERE csnames='Subcategory'" ;
 					  mysqli_query($connection,$insrStat2);
-					 
+
 					 $finalqryData="SELECT * FROM statdata";
 					  $res=mysqli_query($connection,$finalqryData);
-					 
-													?>		
 
-<!--- Script and Logic FOR GR PIE CHART ---->				
+													?>
+
+<!--- Script and Logic FOR GR PIE CHART ---->
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
 google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
 
-function drawChart() {  //  will draw pie chart 
+function drawChart() {  //  will draw pie chart
 
     var data = google.visualization.arrayToDataTable([
       ['csnames', 'numofcatsub'],
       <?php
       if(mysqli_num_rows($res) > 0){
-          while($rowd = mysqli_fetch_array($res)){  
+          while($rowd = mysqli_fetch_array($res)){
           echo "['".$rowd['csnames']."=".$rowd['numofcatsub']."', ".$rowd['numofcatsub']."],"; //fetched data for drawing piechart
           }
-      } 
+      }
       ?>
     ]);
-    
+
     var options = {
         title: 'Statistics of Category and Subcategory',
         width: 460,
@@ -376,19 +376,19 @@ legend: {
     }
 },
     };
-    
+
     var chart = new google.visualization.PieChart(document.getElementById('flot12'));
-    
+
     chart.draw(data, options);
 }
-</script> 
-													
-												
+</script>
+
+
 												<div class="padding-10" id="flot12">
 													<div id="flotcontainer" class="chart-large has-legend-unique">
-													
-													
-													
+
+
+
 													</div>
 												</div>
 											</div>
@@ -690,9 +690,9 @@ legend: {
 							<!-- end widget -->
 
 							<!-- new widget -->
-				
+
 							</div>
-						
+
 						</article>
 
 					</div>
@@ -702,7 +702,7 @@ legend: {
 				</section>
 				<!-- end widget grid -->
 
-			
+
 				<!-- end widget grid -->
 
 			</div>

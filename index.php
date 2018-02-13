@@ -475,7 +475,7 @@ $(document).ready(function(){
 						 </div>
                           	</div>
 							</div>
-                           <div class="form-group">                
+                           <div class="form-group">
 								<input name="dtym" type="text" id="dtime" class="form-control input-lg" required placeholder="Deadline to be send" onfocus="(this.type='date')">
 							</div>
                        <center>
@@ -686,7 +686,7 @@ $nr=mysqli_num_rows($stmt);
                      <div class="item" style="padding-right:70px; padding-left:70px;">
                             <div class="row">
 												 <?php
-			 $sql="SELECT * FROM products  INNER JOIN categories ON(products.catid = categories.catid) WHERE productType='Normal Product'  AND productstatus=1 AND productaction = 1 LIMIT 5,10";
+			 $sql="SELECT * FROM products  INNER JOIN categories ON(products.catid = categories.catid) WHERE productType='Normal Product'  AND productstatus=1 AND productaction = 1 ";
 
 				$stmt=mysqli_query($connection,$sql);
 				if($stmt == false) {
@@ -706,7 +706,7 @@ $userId=$row['user_id'];
 	$cl = explode(',', $myString);
 
 
-			  $sqll="SELECT seller.company_name,seller.email FROM users  INNER JOIN seller ON(users.email = seller.email) Where users.user_id='$userId'";
+			  $sqll="SELECT seller.company_name,seller.email FROM users  INNER JOIN seller ON(users.email = seller.email) Where users.user_id='$userId'  ";
 
 				$stmtt=mysqli_query($connection,$sqll);
 				if($stmtt == false) {
@@ -758,7 +758,7 @@ $userId=$row['user_id'];
                         <div class="item active" style="padding-right:70px; padding-left:70px;">
                             <div class="row">
 												 <?php
-				  $sql="SELECT * FROM products  INNER JOIN categories ON(products.catid = categories.catid) WHERE productType='Normal Product' AND productstatus=1 AND productaction = 1 LIMIT 6";
+				  $sql="SELECT * FROM products  INNER JOIN categories ON(products.catid = categories.catid) WHERE productType='Normal Product' AND productstatus=1 AND productaction = 1";
 
 				$stmt=mysqli_query($connection,$sql);
 				if($stmt == false) {
@@ -779,7 +779,7 @@ $userId=$row['user_id'];
 
 
 
-			  $sqll="SELECT seller.company_name,seller.email FROM users  INNER JOIN seller ON(users.email = seller.email) Where users.user_id='$userId'";
+			  $sqll="SELECT seller.company_name,seller.email FROM users  INNER JOIN seller ON(users.email = seller.email) Where users.user_id='$userId' ";
 
 				$stmtt=mysqli_query($connection,$sqll);
 				if($stmtt == false) {

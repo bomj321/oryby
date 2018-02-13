@@ -7,10 +7,10 @@ session_start();
     if($_SESSION["loggedin"]=="F")
     {
     	   header("Location: login.php?status=Unauthorized Access Attempt!");
-   
+
     } include('header.php');
 include('Connect.php');
- 
+
   ?>
 		<!-- MAIN PANEL -->
 		<div id="main" role="main">
@@ -18,10 +18,10 @@ include('Connect.php');
 			<!-- RIBBON -->
 			<div id="ribbon">
 
-				<span class="ribbon-button-alignment"> 
+				<span class="ribbon-button-alignment">
 					<span id="refresh" class="btn btn-ribbon" data-action="resetWidgets" data-title="refresh"  rel="tooltip" data-placement="bottom" data-original-title="<i class='text-warning fa fa-warning'></i> Warning! This will reset all your widget settings." data-html="true">
 						<i class="fa fa-refresh"></i>
-					</span> 
+					</span>
 				</span>
 
 				<!-- breadcrumb -->
@@ -62,7 +62,7 @@ include('Connect.php');
 							<!-- NEW WIDGET START -->
 						<article class="col-xs-12 col-sm-8 col-md-12 col-lg-12">
 
-						
+
 								<!-- Widget ID (each widget will need unique ID)-->
 								<div class="jarviswidget" id="wid-id-5" data-widget-colorbutton="false"	data-widget-editbutton="false" data-widget-deletebutton="false" data-widget-sortable="false">
 									<!-- widget options:
@@ -98,44 +98,45 @@ include('Connect.php');
 										<form method="post" action="about_add_action.php" enctype="multipart/form-data" class="form-horizontal">
 
 										<fieldset>
-													
+
 													<div class="form-group">
-														<select class="form-control" name="elementname"> 
-														<option class="form-control" value="" >Select Element Name</option>														<option class="form-control" value="content1" >Content 1</option>
+														<select class="form-control" name="elementname">
+														<option class="form-control" value="" >Select Element Name</option>
+                            <option class="form-control" value="content1" >Content 1</option>
 														<option class="form-control" value="content2">Content 2</option>
 														</select>
 													</div>
 												</fieldset>
 											<fieldset>
-													
+
 													<div class="form-group">
 														<label>Title</label>
 														<input type="text" class="form-control" name="title" placeholder="Enter Title" />
 													</div>
 												</fieldset>
-													
+
 													<fieldset>
-													
+
 													<div class="form-group">
 														<label>Description</label>
 														<input type="text" class="form-control" name="description" placeholder="Enter Desc" />
 													</div>
 												</fieldset>
 												<fieldset>
-													
+
 													<div class="form-group">
 														<label>Link</label>
 														<input type="text" class="form-control" name="hreflink" placeholder="Enter Link" />
 													</div>
 												</fieldset>
 												<fieldset>
-													
+
 													<div class="form-group">
 														<label>Picture</label>
 														<input type="file" class="form-control" name="file1"  />
 													</div>
 												</fieldset>
-												
+
 
 												<div class="form-actions">
 													<div class="row">
@@ -159,7 +160,7 @@ include('Connect.php');
 								<!-- end widget -->
 
 
-				
+
 
 						</article>
 					</div>
@@ -172,13 +173,13 @@ include('Connect.php');
 
 						<article class="col-sm-12 col-md-12 col-lg-6">
 
-			
+
 
 						</article>
 
 						<article class="col-sm-12 col-md-12 col-lg-6">
 
-				
+
 
 						</article>
 
@@ -302,7 +303,7 @@ include('Connect.php');
 		<script src="js/app.config.js"></script>
 
 		<!-- JS TOUCH : include this plugin for mobile drag / drop touch events-->
-		<script src="js/plugin/jquery-touch/jquery.ui.touch-punch.min.js"></script> 
+		<script src="js/plugin/jquery-touch/jquery.ui.touch-punch.min.js"></script>
 
 		<!-- BOOTSTRAP JS -->
 		<script src="js/bootstrap/bootstrap.min.js"></script>
@@ -356,19 +357,19 @@ include('Connect.php');
 		<!-- SmartChat UI : plugin -->
 		<script src="js/smart-chat-ui/smart.chat.ui.min.js"></script>
 		<script src="js/smart-chat-ui/smart.chat.manager.min.js"></script>
-		
+
 		<!-- PAGE RELATED PLUGIN(S) -->
-		
+
 		<!-- Flot Chart Plugin: Flot Engine, Flot Resizer, Flot Tooltip -->
 		<script src="js/plugin/flot/jquery.flot.cust.min.js"></script>
 		<script src="js/plugin/flot/jquery.flot.resize.min.js"></script>
 		<script src="js/plugin/flot/jquery.flot.time.min.js"></script>
 		<script src="js/plugin/flot/jquery.flot.tooltip.min.js"></script>
-		
+
 		<!-- Vector Maps Plugin: Vectormap engine, Vectormap language -->
 		<script src="js/plugin/vectormap/jquery-jvectormap-1.2.2.min.js"></script>
 		<script src="js/plugin/vectormap/jquery-jvectormap-world-mill-en.js"></script>
-		
+
 		<!-- Full Calendar -->
 		<script src="js/plugin/moment/moment.min.js"></script>
 		<script src="js/plugin/fullcalendar/jquery.fullcalendar.min.js"></script>
