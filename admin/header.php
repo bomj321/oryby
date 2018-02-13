@@ -374,10 +374,6 @@
 							<li class="">
 								<a href="manageSupplier.php" title="Dashboard"><i class="fa fa-lg fa-fw fa-gear"></i> <span class="menu-item-parent">Manages Users</span></a>
 							</li>
-							<li>
-								<a href="viewUser.php"><i class="fa fa-cube"></i>View Users</a>
-							</li>
-
 						</ul>
 					</li>
 
