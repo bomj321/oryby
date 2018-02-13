@@ -2,6 +2,31 @@
 require 'Connect.php';
 include 'head.php';
 echo $email=$_SESSION['uemail'];
+// //////////////////////////// CONSULTA A CHECKOUT///////////////////////////////////////////////
+
+$sql1="SELECT * FROM checkout WHERE id = 1 ";
+$stmt1=mysqli_query($connection,$sql1);
+if($stmt1 == false) {
+trigger_error('Wrong SQL: ' . $sql1 . ' Error: ' . $connection->error, E_USER_ERROR);
+}
+$row1 =mysqli_fetch_assoc($stmt1);
+
+$sql2="SELECT * FROM checkout WHERE id = 2 ";
+$stmt2=mysqli_query($connection,$sql2);
+if($stmt2 == false) {
+trigger_error('Wrong SQL: ' . $sql1 . ' Error: ' . $connection->error, E_USER_ERROR);
+}
+$row2 =mysqli_fetch_assoc($stmt2);
+
+
+$sql3="SELECT * FROM checkout WHERE id = 3 ";
+$stmt3=mysqli_query($connection,$sql3);
+if($stmt3 == false) {
+trigger_error('Wrong SQL: ' . $sql3 . ' Error: ' . $connection->error, E_USER_ERROR);
+}
+$row3 =mysqli_fetch_assoc($stmt3);
+
+// ////////////////////////////FIN CONSULTA A CHECKOUT ////////////////////////////////////
  $sql = "SELECT * FROM users WHERE email='$email'";
 $stmt=mysqli_query($connection,$sql);
 if($stmt == false) {
@@ -325,7 +350,7 @@ window.location.href="singlelogin.php";
                                                         </div><!-- end panel-heading -->
                                                         <div id="collapseQuestionOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="questionOne">
                                                             <div class="panel-body">
-                                                                <p>Lorem ipsum dolor sit amet, link adipisicing elit. Dicta voluptatem, tenetur eum tempore minus libero voluptates eos doloremque. Dolore minima rem consequuntur exercitationem quaerat deleniti repellendus enim necessitatibus mollitia tenetur?</p>
+                                                                <p><?php echo $row1['descripcion'] ; ?></p>
                                                             </div><!-- end panel-body -->
                                                         </div><!-- end collapse -->
                                                     </div><!-- end panel -->
@@ -340,7 +365,7 @@ window.location.href="singlelogin.php";
                                                         </div><!-- end panel-heading -->
                                                         <div id="collapseQuestionTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="questionTwo">
                                                             <div class="panel-body">
-                                                                <p>Lorem ipsum dolor sit amet, link adipisicing elit. Dicta voluptatem, tenetur eum tempore minus libero voluptates eos doloremque. Dolore minima rem consequuntur exercitationem quaerat deleniti repellendus enim necessitatibus mollitia tenetur?</p>
+                                                                <p><?php echo $row2['descripcion'] ; ?></p>
                                                             </div><!-- end panel-body -->
                                                         </div><!-- end collapse -->
                                                     </div><!-- end panel -->
@@ -355,7 +380,7 @@ window.location.href="singlelogin.php";
                                                         </div><!-- end panel-heading -->
                                                         <div id="collapseQuestionThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="questionThree">
                                                             <div class="panel-body">
-                                                                <p>Lorem ipsum dolor sit amet, link adipisicing elit. Dicta voluptatem, tenetur eum tempore minus libero voluptates eos doloremque. Dolore minima rem consequuntur exercitationem quaerat deleniti repellendus enim necessitatibus mollitia tenetur?</p>
+                                                                <p><?php echo $row1['descripcion'] ; ?></p>
                                                             </div><!-- end panel-body -->
                                                         </div><!-- end collapse -->
                                                     </div><!-- end panel -->
