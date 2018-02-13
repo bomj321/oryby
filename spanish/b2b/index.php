@@ -260,17 +260,14 @@ $(document).ready(function(){
 							  <span class="amount text-default"><?php echo $ntitle?></span>
 							  </br>
 
-							  <span class="amount text-primary">Dólar estadounidense $ <?php echo $price = $row['price'];  ?></span>
+							  <span class="amount text-primary">USD <?php echo $price = $row['price'];  ?></span>
 							  </br>
-							  <span class="amount text-default">La orden mínima:<?php echo $quantity?></span>
+							  <span class="amount text-default">Orden min:<?php echo $quantity?></span>
 							  </br>
-
-							  <span class="amount text-default">nombre de empresa:<?php echo $companyName=$rows['company_name'];?></span>
-							  	   </br>
-								     <a href="contactsupplier.php?supplieremail=<?php echo $rows['email']; ?>"></i>Contactar al proveedor</a>
-									 </br>
-                                        <a href="Shopsingle.php?pid=<?php echo $pid ?>"><i class="fa fa-cart-plus mr-5"></i>Añadir a la cesta</a>
+								<a href="contactsupplier.php?supplieremail=<?php echo $rows['email']; ?>"></i>Contactar al proveedor</a>
+							</br>
 							  </center>
+							  </br>
 							  </div>
 							     <?php
 				}
@@ -321,17 +318,14 @@ $(document).ready(function(){
 							  <span class="amount text-default"><?php echo $ntitle?></span>
 							  </br>
 
-							  <span class="amount text-primary">Dólar estadounidense $ <?php echo $price = $row['price'];  ?></span>
+							  <span class="amount text-primary">USD<?php echo $price = $row['price'];  ?></span>
 							  </br>
-							  <span class="amount text-default">La orden mínima:<?php echo $quantity?></span>
-							  </br>
-
-							  <span class="amount text-default">Nombre de empresa:<?php echo $companyName=$rows['company_name'];?></span>
-							  	   </br>
-								     <a href="contactsupplier.php?supplieremail=<?php echo $rows['email']; ?>"></i>Contactar al proveedor</a>
-									 </br>
-                                        <a href="Shopsingle.php?pid=<?php echo $pid ?>"><i class="fa fa-cart-plus mr-5"></i>Añadir a la cesta</a>
+							  <span class="amount text-default">orden mín:<?php echo $quantity?></span>
+							  </br>							  
+							<a href="contactsupplier.php?supplieremail=<?php echo $rows['email']; ?>"></i>Contactar al proveedor</a>							
+                
 							  </center>
+							  </br>
 							  </div>
 							     <?php
 				}
@@ -772,7 +766,7 @@ $nr=mysqli_num_rows($stmt);
 
 							  <div class="row column-3">
 							  <hr>
-							  <h2 class="title"><span class="text-primary"> HECHO</span> EN<span class="text-primary">CHILE</span></h2>
+							  <h2 class="title"><span class="text-primary"> HECHO</span> EN <span class="text-primary">CHILE</span></h2>
                   <?php
 				  $count=0;
     while($row=$stmt->fetch_assoc())
