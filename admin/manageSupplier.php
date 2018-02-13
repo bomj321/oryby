@@ -6,6 +6,7 @@
     if($_SESSION["loggedin"]=="F")
     {
     	   header("Location: login.php?status=Unauthorized Access Attempt!");
+//HOLA
 
     }
 include('Connect.php');
@@ -44,7 +45,7 @@ if($userType !='Admin')
 					<?php
 
 					}
-          
+
 }
 include('header.php');
 ?>
