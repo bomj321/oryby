@@ -128,8 +128,9 @@ if($nr >0)
 													<th>User Type</th>
 													<th>Name</th>
 													<th>Last Name</th>
-													<th>Email</th>
 													<th>Country Name</th>
+													<th>Email</th>
+													<th>Membership Type</th>
 													<th>Action</th>
 												</tr>
 											</thead>
@@ -145,11 +146,11 @@ if($nr >0)
 													<td><?php echo $row['userType']; ?></td>
 													<td><?php echo $row['firstName']; ?></td>
 													<td><?php echo $row['lastName']; ?></td>
-													<td><?php echo $row['email']; ?></td>
 													<td><?php echo $row['countryName']; ?>  <?php echo $row['lastName']; ?></td>
+													<td><?php echo $row['email']; ?></td>
+													<td><?php echo $row['Membership Type']; ?></td>
 													<td> <a href="updateSupplier.php?email=<?php echo $row['email'];?>"><i class="fa fa-eye"></i></a>
-
-														<?php  $userstatus =$row['userStatus'];
+													<?php  $userstatus =$row['userStatus'];
 
 													?>
 														<input type="hidden" name="userStatus" value="<?php echo $userstatus ?>" />

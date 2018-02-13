@@ -1,4 +1,4 @@
-<? session_start();
+<?php session_start();
  if (!($_SESSION["loggedin"])) {
         header("Location: login.php?status=Unauthorized Access Attempt!");
     }
