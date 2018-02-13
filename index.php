@@ -685,14 +685,13 @@ $nr=mysqli_num_rows($stmt);
                      <div class="item" style="padding-right:70px; padding-left:70px;">
                             <div class="row">
 												 <?php
-<<<<<<< HEAD
+
 			 $sql="SELECT * FROM products  INNER JOIN categories ON(products.catid = categories.catid) WHERE productType='Normal Product'  AND productstatus=1 AND productaction = 1 ";
 
 				$stmt=mysqli_query($connection,$sql);
-=======
 			 $sql="SELECT * FROM products  INNER JOIN categories ON(products.catid = categories.catid) WHERE productType='Normal Product'  AND productstatus=1 AND productaction = 1 LIMIT 5,10";
 			$stmt=mysqli_query($connection,$sql);
->>>>>>> 51e92737a215658336b920182a4581719dd06ce1
+ 
 				if($stmt == false) {
 				trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
 				}

@@ -190,7 +190,7 @@ if($nr >0)
 													</td>
 
 													<td><?php echo $row['price']; ?></td>
-													<td><?php echo $row['tota_price'] * $row['orderquantity']; ?></td>
+													<td><?php echo $row['price'] * $row['orderquantity']; ?></td>
 													<td>
 								<form method="POST" action="checkorderstatus.php" >
 								<input type="hidden" id="order_id " name="order_id" value="<?php echo $row['order_id']; ?>">

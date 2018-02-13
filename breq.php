@@ -1,4 +1,4 @@
-<?php 
+<?php
 include('Connect.php');
 include('head.php');
 ?>
@@ -8,7 +8,7 @@ include('head.php');
             include('middlebar.php');
             include('navh.php');
         ?>
-        <?php 
+        <?php
         //BORRAR PRIMERO REGISTROS DE MAS DE 2 DIAS o aun mas viejos
         $query = "SELECT tiempo FROM buyerrequests ";
         $fila=$connection->query($query);
@@ -97,25 +97,7 @@ include('head.php');
                                     </div><!-- end widget -->
                                 </div><!-- end col -->
 
-                                <div class="col-sm-3">
-                                    <div class="widget">
-                                        <h6 class="subtitle thin">Popular tags</h6>
-							<?php
-							$query1="SELECT * FROM `categories`INNER JOIN subcategories ON(categories.catid=subcategories.catid) WHERE categories.title='Chile' ";
-										$result1=mysqli_query($connection,$query1);
-										?>
-                                        <ul class="tags">
-                                            <?php while($row=mysqli_fetch_array($result1)){
-											?>
-
-											<li>
-                                                <a class="btn btn-gray-outline semi-circle btn-xs" href="breq1.php?title=<?php echo $row['subtitle']; ?>"><?php echo $row['subtitle']; ?></a>
-                                            </li>
-                                            <?php
-											}?>
-                                        </ul>
-                                    </div><!-- end widget -->
-                                </div><!-- end col -->
+                                
 								</form>
                             </div><!-- end row -->
 
