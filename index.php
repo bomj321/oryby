@@ -674,7 +674,6 @@ $nr=mysqli_num_rows($stmt);
 							  	   </br>
 								     <a href="contactsupplier.php?supplieremail=<?php echo $rows['email']; ?>"></i>Contact Supplier</a>
 									 </br>
-                                        <a href="Shopsingle.php?pid=<?php echo $pid ?>"><i class="fa fa-cart-plus mr-5"></i>Add to cart</a>
 							  </center>
 							  </div>
 							     <?php
@@ -733,8 +732,8 @@ $userId=$row['user_id'];
 							  	   </br>
 								     <a href="contactsupplier.php?supplieremail=<?php echo $rows['email']; ?>"></i>Contact Supplier</a>
 									 </br>
-                                        <a href="Shopsingle.php?pid=<?php echo $pid ?>"><i class="fa fa-cart-plus mr-5"></i>Add to cart</a>
 							  </center>
+							  </br>
 							  </div>
 							     <?php
 				}
@@ -776,11 +775,6 @@ if($queryResult){
                 <div class="container" >
 
                     <div class="col-sm-12" style=" margin-left:-12px; margin-right:2px;background-image: url(images/<?php echo $image; ?>); width:1050px height:206px; ">
-					<!--	<img style="width:1150px; height:370px" src="img/slider/slider_03.jpg" />
-					  <div class="title-wrap">
-                            <h2 style="position: absolute;   top: 150px;   left: 0;   width: 100%;   margin: 0 auto;" class="title text-white">Tell Us About Your Business</h2>
-
-                        </div> -->
 
 	<?php
 							$sql="Select * from `aboutus` Where elementname='QuestionHeading'";

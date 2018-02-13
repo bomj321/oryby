@@ -666,19 +666,14 @@ $userId=$row['user_id'];
 							  <span class="amount text-default"><?php echo $ntitle?></span>
 							  </br>
 
-							  <span class="amount text-primary">Dólar estadounidense $ <?php echo $price = $row['price'];  ?></span>
+							  <span class="amount text-primary">USD <?php echo $price = $row['price'];  ?></span>
 							  </br>
-							  <span class="amount text-default">La orden mínima:<?php echo $quantity?></span>
+							  <span class="amount text-default">orden mín:<?php echo $quantity?></span>
 							  </br>
-
-							  <span class="amount text-default">nombre de empresa:<?php echo $companyName=$rows['company_name'];?></span>
-							  	   </br>
-								     <a href="contactsupplier.php?supplieremail=<?php echo $rows['email']; ?>"></i>Contactar al proveedor</a>
-									 </br>
-                                        <a href="Shopsingle.php?pid=<?php echo $pid ?>"><i class="fa fa-cart-plus mr-5"></i>Añadir a la cesta</a>
+							<a href="contactsupplier.php?supplieremail=<?php echo $rows['email']; ?>"></i>Contactar al proveedor</a>
 							  </center>
 							  </div>
-							     <?php
+						<?php
 				}
 				?>
 						</div><!--.row-->
@@ -727,17 +722,14 @@ $userId=$row['user_id'];
 							  <span class="amount text-default"><?php echo $ntitle?></span>
 							  </br>
 
-							  <span class="amount text-primary">Dólar estadounidense $ <?php echo $price = $row['price'];  ?></span>
+							  <span class="amount text-primary">USD <?php echo $price = $row['price'];  ?></span>
 							  </br>
-							  <span class="amount text-default">La orden mínima:<?php echo $quantity?></span>
+							  <span class="amount text-default">Orden min:<?php echo $quantity?></span>
 							  </br>
-
-							  <span class="amount text-default">nombre de empresa:<?php echo $companyName=$rows['company_name'];?></span>
-							  	   </br>
-								     <a href="contactsupplier.php?supplieremail=<?php echo $rows['email']; ?>"></i>Contactar al proveedor</a>
-									 </br>
-                                        <a href="Shopsingle.php?pid=<?php echo $pid ?>"><i class="fa fa-cart-plus mr-5"></i>Añadir a la cesta</a>
+								<a href="contactsupplier.php?supplieremail=<?php echo $rows['email']; ?>"></i>Contactar al proveedor</a>
+								</br>
 							  </center>
+							  </br>
 							  </div>
 							     <?php
 				}
