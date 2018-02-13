@@ -4,7 +4,7 @@ if(!isset($_SESSION))
         session_start();
     }
 require 'Connect.php';
- $keyword = $_GET['pais'];
+ $keyword = $_POST['pais'];
 
 ?>
 <!DOCTYPE html>
@@ -360,6 +360,15 @@ require 'Connect.php';
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="table-responsive">
+                                  <?php
+                                  $email=$_SESSION['uemail'];
+                                   $querygetrequest="SELECT * FROM buyerrequests WHERE country ='$keyword'";
+                                  $resultrequests=mysqli_query($connection,$querygetrequest);
+                                  if(mysqli_num_rows($resultrequests)==0)
+                                            {
+                                            $mensaje="<h1>No hay registros que coincidan con sus criterios de búsqueda.</h1>";
+                                            }
+                                   ?>
 								<table class="table table-striped table-bordered" cellspacing="0" width="100%">
                                     <!--<table class="table table-striped"> -->
                                         <thead>
@@ -374,11 +383,6 @@ require 'Connect.php';
                                         </thead>
                                         <tbody>
 				<?php
-			$email=$_SESSION['uemail'];
-					$querygetrequest="SELECT * FROM buyerrequests   WHERE country ='$keyword'";
-
-
-			$resultrequests=mysqli_query($connection,$querygetrequest);
 			while($rowreq=mysqli_fetch_array($resultrequests)){
 			?>
 
@@ -422,6 +426,9 @@ require 'Connect.php';
 
                                         </tbody>
                                     </table><!-- end table -->
+                                    <?php
+                                    echo $mensaje;
+                                     ?>
                                 </div><!-- end table-responsive -->
 
                                 <hr class="spacer-10 no-border">

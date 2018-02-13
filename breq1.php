@@ -1,7 +1,12 @@
 
-<?php session_start();
+<?php
+ if(!isset($_SESSION))
+    {
+        session_start();
+    }
 include('Connect.php');
 include('head.php');
+ $keyword = $_POST['pais'];
 ?>
     <body>
      <!-- start topBar -->
@@ -294,7 +299,7 @@ include('head.php');
                     <!-- end sidebar -->
                     <div class="col-sm-9">
                         <div class="row">
-                            <div class="col-sm-12 text-left">
+                            <div class="col-sm-12 text-center">
                                 <h2 class="title">Buyings Requests</h2>
                             </div><!-- end col -->
                         </div><!-- end row -->
@@ -307,6 +312,16 @@ include('head.php');
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="table-responsive">
+                                  <?php
+                                  $email=$_SESSION['uemail'];
+                                   $querygetrequest="SELECT * FROM buyerrequests WHERE country ='$keyword'";
+                                  $resultrequests=mysqli_query($connection,$querygetrequest);
+                                  if(mysqli_num_rows($resultrequests)==0)
+                                            {
+                                            $mensaje="<h1>There are no records that match your search criteria.</h1>";
+                                            }
+
+                                   ?>
 								<table class="table table-striped table-bordered" cellspacing="0" width="100%">
                                     <!--<table class="table table-striped"> -->
                                         <thead>
@@ -321,34 +336,16 @@ include('head.php');
                                         </thead>
                                         <tbody>
 				<?php
-			$email=$_SESSION['uemail'];
 
-       $querygetrequest="SELECT * FROM buyerrequests WHERE country ='$keyword'";
-			$resultrequests=mysqli_query($connection,$querygetrequest);
 			while($rowreq=mysqli_fetch_array($resultrequests)){
 			?>
 
                                             <tr>
-											    <td>
-                                                    <a href="#">
-                                                        <?php echo $rowreq['buyreq_id'];?>
-                                                    </a>
-                                                </td>
-                                                <td>
-                                                    <a href="buyerrequests.php?reqid=<?php echo $rowreq['buyreq_id'];?>">
-                                                        <?php echo $rowreq['prod_name'];?>
-                                                    </a>
-                                                </td>
-                                                <td>
-                                             <?php echo $rowreq['quantity'];?>
-
-                                                </td>
-												<td>
-												 <?php echo $rowreq['dtym'];?>
-												 </td>
-                         <td>
-                          <?php echo $rowreq['country'];?>
-                          </td>
+											                                      <td><a href="#"><?php echo $rowreq['buyreq_id'];?></a></td>
+                                                            <td><a href="buyerrequests.php?reqid=<?php echo $rowreq['buyreq_id'];?>"><?php echo $rowreq['prod_name'];?></a></td>
+                                                            <td> <?php echo $rowreq['quantity'];?>  </td>
+                                                    	  		<td> <?php echo $rowreq['dtym'];?> </td>
+                                                            <td><?php echo $rowreq['country'];?>  </td>
                                                 <td style="width:120px;">
                                                    <img style="height:40px; width:50px; margin-top:-10px;margin-bottom:-8px; " src="ReqImages/<?php echo $rowreq['image']; ?>" alt="productImage">
                                                 </td>
@@ -359,15 +356,16 @@ include('head.php');
                           <?php
 
 
-                            }
-
-
-
+                        } //FIN DEL WHILE
 
                           ?>
 
                                         </tbody>
+
                                     </table><!-- end table -->
+                                    <?php
+                                    echo $mensaje;
+                                     ?>
                                 </div><!-- end table-responsive -->
 
                                 <hr class="spacer-10 no-border">
@@ -382,7 +380,7 @@ include('head.php');
         <!-- end section -->
         <?php
 		include('footer.php');
-		?>           
+		?>
 
 
         <!-- JavaScript Files -->
