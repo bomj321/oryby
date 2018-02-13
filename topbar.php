@@ -1,4 +1,7 @@
-<?php  session_start();
+<?php  if(!isset($_SESSION))
+    {
+        session_start();
+    } 
 require 'Connect.php';
 
 
@@ -83,7 +86,7 @@ require 'Connect.php';
 					?>
 					   <ul class="w-150">
 
-							<li><a href="buyeraccount.php">My Account</a></li> 
+							<li><a href="buyeraccount.php">My Account</a></li>
                             <li><a href="#">Message Center</a></li>
 							<li><a href="buyerorders.php">My Orders</a></li>
 										<li >

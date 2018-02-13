@@ -1,21 +1,24 @@
- <?php session_start();
-require 'Connect.php'; 
+ <?php if(!isset($_SESSION))
+     {
+         session_start();
+     } 
+require 'Connect.php';
 /*$query="select * from users";
 $result=mysqli_query($connection,$query);
 $row=mysqli_fetch_array($result);  */
 $usertype= $_SESSION['utype'];
 error_reporting(0);
 ?>
-<style>  
+<style>
 .navbar-default .navbar-nav>li>a {
-   
+
     color: #777;
     padding-top: 0px !important;
-	
-	
+
+
 }  </style>
  <div class="navbar yamm navbar-default" style="max-height:45px;min-height:44px;background:white">
- 
+
             <div class="container">
                 <div class="navbar-header" style="margin-top:-12px">
                     <button type="button" data-toggle="collapse" data-target="#navbar-collapse-3" class="navbar-toggle">
@@ -30,47 +33,47 @@ error_reporting(0);
                 <div id="navbar-collapse-3" class="navbar-collapse collapse" style="margin-left:40px;">
                     <ul class="nav navbar-nav" >
                         <!-- Home -->
-                       
-                           
-                        <!-- end li dropdown -->    
+
+
+                        <!-- end li dropdown -->
                         <!-- Features -->
-						  
-						   
+
+
                          <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Comprador<i class="fa fa-angle-down ml-5"></i></a>
                             <ul role="menu" class="dropdown-menu">
                                 <li><a href="allproduct.php">Ver Productos</a></li>
                                 <li><a href="startBuying.php">¿Cómo comenzar a comprar?</a></li>
                                 <li><a href="buysecurtly.php">¿Cómo comprar de forma segura?</a></li>
 								 <li><a href="considerateToImport.php">¿Qué considerar para la importación?</a></li>
-                                
-                                
+
+
                             </ul><!-- end ul dropdown-menu -->
-                        </li><!-- end li dropdown -->  
+                        </li><!-- end li dropdown -->
 					 <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Proveedor<i class="fa fa-angle-down ml-5"></i></a>
                             <ul role="menu" class="dropdown-menu">
                                 <li><a href="startSelling.php">¿Cómo empezar a vender?</a></li>
-                                <li><a href="learnIncreaseSale.php">¿Cómo aumentar las ventas?</a></li>                               
+                                <li><a href="learnIncreaseSale.php">¿Cómo aumentar las ventas?</a></li>
 								 <li><a href="considerateToExport.php">¿Qué saber para exportar?</a></li>
-                                
-                                
+
+
                             </ul><!-- end ul dropdown-menu -->
-                        </li><!-- end li dropdown -->          
-					 
+                        </li><!-- end li dropdown -->
+
 							<li class="dropdown left"><a href="membership.php">Afiliación</a> </li>
 								<li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Ayuda<i class="fa fa-angle-down ml-5"></i></a>
                             <ul role="menu" class="dropdown-menu">
                                 <li><a href="faq.php">Preguntas frecuentes</a></li>
                                 <li><a href="aboutus.php">Sobre nosotros</a></li>
-                               
+
 								 <li><a href="contactus.php">Contáctenos</a></li>
-								 
+
 								 <li><a href="Privacy.php">Política de privacidad</a></li>
-                                
-                                
+
+
                             </ul><!-- end ul dropdown-menu -->
-                        </li><!-- end li dropdown -->          
-										
-						
+                        </li><!-- end li dropdown -->
+
+
                     </ul><!-- end navbar-nav -->
                  <!--   <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown right">
@@ -78,37 +81,37 @@ error_reporting(0);
                                 <span class="hidden-sm">Categories</span><i class="fa fa-bars ml-5"></i>
                             </a>
                             <ul class="dropdown-menu">
-							
-							<?php 
+
+							<?php
 						/*	$sql="Select * from `categories`";
 							$result=mysqli_query($connection,$sql);
 							while($row=mysqli_fetch_array($result)){
-								
+
 								$title=$row['title'];
 								$pcat=$row['pcategory'];
 								$sql2="select * from `categories` where `pcategory`='$title'";
 								$result2=mysqli_query($connection,$sql2);
-								
-								
+
+
 								?>
-							
+
                    <li><a href="javascript:void(0);"><?php echo $title; ?></a> </li>
 															  <?php } */?>
-							 <!--   
+							 <!--
 								/*  $numofrows=mysqli_num_rows($result2);
 								  if($numofrows>0){
 								  while($row2=mysqli_fetch_array($result2)){
-								  ?>   
+								  ?>
 
 								  <ul class="dropdown-menu">
                                         <li><a href="category.html">//echo $row2['title']; </a></li>
-                                        
+
                                     </ul>
 
 								  */
-                               
-								
-							//		
+
+
+							//
                            <!--     <li class="dropdown-submenu"><a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Womens</a>
                                     <ul class="dropdown-menu">
                                         <li><a href="category.html">Bresses</a></li>
@@ -144,8 +147,8 @@ error_reporting(0);
                             </ul><!-- end ul dropdown-menu -->
                         </li><!-- end dropdown -->
                     </ul>
-					
-					
+
+
                 </div><!-- end navbar collapse -->
             </div><!-- end container -->
         </div>
