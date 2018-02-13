@@ -8,6 +8,7 @@ $dropunit=$_SESSION['dropunit'];
 $quantity=$_SESSION['quantity'];
 $dtym=$_SESSION['dtym'];
 $user =$_SESSION['uemail'];
+$pais= $_SESSION['pais'];
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 $desc=$_POST['description'];
 $target_dir = "ReqImages/";
@@ -24,7 +25,7 @@ move_uploaded_file($temp, $filelocation);
   $fechafinal = date("Y-m-d",$mod_date);
 
 
-$query = "INSERT INTO buyerrequests(BuyerName,prod_name,bmessage,image,catename,quantity,unit,dtym, tiempo) VALUES ('$user', '$prod_name','$desc' ,'$image','$dropcat','$quantity','$dropunit','$dtym', '$fechafinal')";
+$query = "INSERT INTO buyerrequests(BuyerName,prod_name,bmessage,image,catename,quantity,unit,dtym, tiempo,country) VALUES ('$user', '$prod_name','$desc' ,'$image','$dropcat','$quantity','$dropunit','$dtym', '$fechafinal', '$pais')";
  //echo $query;
  $result=mysqli_query($connection,$query);
  if($result){

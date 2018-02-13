@@ -37,8 +37,9 @@ mysqli_query($connection,$query2);
 
                         <div class="sidebarFilter collapse">
                             <div class="row">
-							 <form  action="breq1.php" method="POST">
-                                <div class="col-sm-3">
+							                       <form  action="breq1.php" method="POST">
+                                        <div class="col-sm-3">
+                                          <div class="widget">
                                   <select name="pais">
                                                     <option value="Elegir" id="AF">Elegir opción</option>
                                                     <option value="Afganistán" id="AF">Afganistán</option>
@@ -329,16 +330,13 @@ mysqli_query($connection,$query2);
                                         <tbody>
 				<?php
 			$email=$_SESSION['uemail'];
-
-
-
 			$querygetrequest="SELECT * FROM buyerrequests";
 			$resultrequests=mysqli_query($connection,$querygetrequest);
 			while($rowreq=mysqli_fetch_array($resultrequests)){
 			?>
 
                                             <tr >
-											    <td >
+											                        <td >
                                                     <a href="#">
                                                         <?php echo $rowreq['buyreq_id'];?>
                                                     </a>
@@ -351,15 +349,15 @@ mysqli_query($connection,$query2);
                                                 <td>
                                                  <?php echo $rowreq['quantity'];?>
 
-                                                </td>
-												<td>
-												 <?php echo $rowreq['dtym'];?>
-												 </td>
-                         <td>
- 												 <?php echo $rowreq['country'];?>
- 												 </td>
+                                                                      </td>
+                      												<td>
+                      												 <?php echo $rowreq['dtym'];?>
+                      												 </td>
+                                               <td>
+                       												 <?php echo $rowreq['country'];?>
+                       												 </td>
                                                 <td style="width:30px;">
-                                                   <img style="height:40px; width:50px; margin-top:-10px;margin-bottom:-8px; " src="ReqImages/<?php echo $rowreq['image']; ?>" alt="productImage">
+                                                   <img style="height:40px; width:50px; margin-top:-10px;margin-bottom:-8px; " src="../../ReqImages/<?php echo $rowreq['image']; ?>" alt="productImage">
                                                 </td>
 
 

@@ -1,12 +1,12 @@
  <?php if(!isset($_SESSION))
     {
         session_start();
-    } 
+    }
 require 'Connect.php';
 /*$query="select * from users";
 $result=mysqli_query($connection,$query);
 $row=mysqli_fetch_array($result);  */
-$usertype= $_SESSION['utype'];
+//$usertype= $_SESSION['utype'];
 error_reporting(0);
 ?>
 <style>

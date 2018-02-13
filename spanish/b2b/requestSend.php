@@ -15,6 +15,9 @@ $_SESSION['quantity']=$quantity;
 $dtym=$_POST['dtym'];
 $_SESSION['dtym']=$dtym;
 
+$pais=$_POST['pais'];
+$_SESSION['pais']=$pais;
+
 
 
 
