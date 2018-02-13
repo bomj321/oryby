@@ -65,18 +65,6 @@ include('header.php');
 				<ol class="breadcrumb">
 					<li>Home</li><li>Tables</li><li>Data Tables</li>
 				</ol>
-				<!-- end breadcrumb -->
-
-				<!-- You can also add more buttons to the
-				ribbon for further usability
-
-				Example below:
-
-				<span class="ribbon-button-alignment pull-right">
-				<span id="search" class="btn btn-ribbon hidden-xs" data-title="search"><i class="fa-grid"></i> Change Grid</span>
-				<span id="add" class="btn btn-ribbon hidden-xs" data-title="add"><i class="fa-plus"></i> Add</span>
-				<span id="search" class="btn btn-ribbon" data-title="search"><i class="fa-search"></i> <span class="hidden-mobile">Search</span></span>
-				</span> -->
 
 			</div>
 			<!-- END RIBBON -->
@@ -107,38 +95,20 @@ include('header.php');
 
 							<!-- Widget ID (each widget will need unique ID)-->
 							<div class="jarviswidget jarviswidget-color-darken responsive" id="wid-id-0" data-widget-editbutton="false">
-								<!-- widget options:
-								usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
-
-								data-widget-colorbutton="false"
-								data-widget-editbutton="false"
-								data-widget-togglebutton="false"
-								data-widget-deletebutton="false"
-								data-widget-fullscreenbutton="false"
-								data-widget-custombutton="false"
-								data-widget-collapsed="true"
-								data-widget-sortable="false"
-
-								-->
 								<header>
 									<span class="widget-icon"> <i class="fa fa-table"></i> </span>
-									<h2>List of Suppliers </h2>
-
+									<h2>List of Users</h2>
 								</header>
-
 								<!-- widget div-->
 								<div>
 
 									<!-- widget edit box -->
 									<div class="jarviswidget-editbox">
 										<!-- This area used as dropdown edit box -->
-
 									</div>
 									<!-- end widget edit box -->
-		<?php
-include('Connect.php');
- $sql='SELECT * FROM `users`INNER JOIN seller ON(users.email = seller.email) WHERE userType ="supplier" OR userType ="both"';
-
+<?php
+$sql='SELECT * FROM `users` ';
 $stmt=mysqli_query($connection,$sql);
 if($stmt == false) {
 trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
@@ -155,52 +125,29 @@ if($nr >0)
 											<thead>
 												<tr>
 													<th >Serial ID</th>
-
-
 													<th>User Type</th>
-													<th> Country Name</th>
-													<th> Email</th>
-													<th> Company Name</th>
-													<th>User Name</th>
-
-														<th>Membership Type</th>
-														<th>Available Top List</th>
-														<th>Available Show Case</th>
-														<th>Business Type</th>
+													<th>Name</th>
+													<th>Last Name</th>
+													<th>Email</th>
+													<th>Country Name</th>
 													<th>Action</th>
-
 												</tr>
 											</thead>
 											<tbody>
 											<?php
 											while($row =mysqli_fetch_assoc($stmt))
 											{
-											$email = $row['email'];
-											 $query="SELECT * FROM `membership` WHERE email ='$email'";
-
-										$stmtt=mysqli_query($connection,$query);
-										if($stmtt == false) {
-										trigger_error('Wrong SQL: ' . $query . ' Error: ' . $connection->error, E_USER_ERROR);
-										}
-										$rows =mysqli_fetch_assoc($stmtt)
-											?>
+											?>										
 
 												<tr>
 													<td><?php echo $user_id =$row['user_id']; ?></td>
 													<input type="hidden" name="user_id" value="<?php echo $user_id ?>" />
-
-
-												<td><?php echo $row['userType']; ?></td>
-													<td><?php echo $row['countryName']; ?></td>
+													<td><?php echo $row['userType']; ?></td>
+													<td><?php echo $row['firstName']; ?></td>
+													<td><?php echo $row['lastName']; ?></td>
 													<td><?php echo $row['email']; ?></td>
-														<td><?php echo $row['company_name']; ?></td>
-
-														<td><?php echo $row['firstName']; ?>  <?php echo $row['lastName']; ?></td>
-														<td> <?php echo $rows['membershiptype']; ?></td>
-														<td> <?php echo $row['limitTopList']; ?></td>
-														<td> <?php echo $row['limitShowCase']; ?></td>
-														<td><?php echo $row['businessType']; ?></td>
-														<td> <a    href="updateSupplier.php?email=<?php echo $row['email'];?>"><i class="fa fa-eye"></i></a>
+													<td><?php echo $row['countryName']; ?>  <?php echo $row['lastName']; ?></td>
+													<td> <a href="updateSupplier.php?email=<?php echo $row['email'];?>"><i class="fa fa-eye"></i></a>
 
 														<?php  $userstatus =$row['userStatus'];
 
@@ -251,145 +198,6 @@ if($nr >0)
 						<!-- WIDGET END -->
 
 					</div>
-					<!-- row -->
-					<div class="row">
-
-						<!-- NEW WIDGET START -->
-						<article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-
-							<!-- Widget ID (each widget will need unique ID)-->
-							<div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="false">
-								<!-- widget options:
-								usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
-
-								data-widget-colorbutton="false"
-								data-widget-editbutton="false"
-								data-widget-togglebutton="false"
-								data-widget-deletebutton="false"
-								data-widget-fullscreenbutton="false"
-								data-widget-custombutton="false"
-								data-widget-collapsed="true"
-								data-widget-sortable="false"
-
-								-->
-								<header>
-									<span class="widget-icon"> <i class="fa fa-table"></i> </span>
-									<h2>List of Buyers </h2>
-
-								</header>
-
-								<!-- widget div-->
-								<div>
-
-									<!-- widget edit box -->
-									<div class="jarviswidget-editbox">
-										<!-- This area used as dropdown edit box -->
-
-									</div>
-									<!-- end widget edit box -->
-		<?php
-include('Connect.php');
- $sql='SELECT * FROM `users` WHERE userType ="buyer" ';
-
-$stmt=mysqli_query($connection,$sql);
-if($stmt == false) {
-trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
-}
-$nr=mysqli_num_rows($stmt);
-if($nr >0)
-{
-  ?>
-									<!-- widget content -->
-									<div class="widget-body no-padding table-responsive">
-
-										<table id="dt_basic1" class="table table-striped table-bordered table-hover" width="100%">
-											<thead>
-												<tr>
-													<th >Serial ID</th>
-
-
-													<th>User Type</th>
-
-													<th> Country Name</th>
-													<th> User Name</th>
-													<th> Email</th>
-
-
-													<th>Action</th>
-
-												</tr>
-											</thead>
-											<tbody>
-											<?php
-											while($row =mysqli_fetch_assoc($stmt))
-											{
-
-											?>
-
-												<tr>
-													<td><?php echo $user_id =$row['user_id']; ?></td>
-													<input type="hidden" name="user_id" value="<?php echo $user_id ?>" />
-
-
-												<td><?php echo $row['userType']; ?></td>
-													<td><?php echo $row['countryName']; ?></td>
-													<td><?php echo $row['firstName']; ?> <?php echo $row['lastName']; ?></td>
-
-													<td><?php echo $row['email']; ?></td>
-
-
-														<td><a    href="updateBuyer.php?email=<?php echo $row['email'];?>"><i class="fa fa-eye"></i></a> <?php  $userstatus =$row['userStatus'];
-
-													?>
-														<input type="hidden" name="userStatus" value="<?php echo $userstatus ?>" />
-													<?php
-													if($userstatus =='1')
-													{
-
-													?>
-
-												  <a   class="btn btn-xs btn-danger" href="checkUser.php?userStatus=<?php echo $row['userStatus'];?> & user_id=<?php echo $row['user_id'] ?>& email=<?php echo $row['email'] ?>">De-Activate</a>
-
-
-													<?php
-													}
-													else if($userstatus =='0')
-													{
-
-													?>
-												  <a   class="btn btn-xs btn-primary" href="checkUser.php?userStatus=<?php echo $row['userStatus'];?> & user_id=<?php echo $row['user_id'] ?>& email=<?php echo $row['email'] ?>">Activate</a>
-
-
-
-													<?php
-													}?></td>
-
-												</tr>
-
-								<?php
-								}
-								}
-								?>
-
-											</tbody>
-										</table>
-
-									</div>
-									<!-- end widget content -->
-
-								</div>
-								<!-- end widget div -->
-
-							</div>
-							<!-- end widget -->
-
-						</article>
-						<!-- WIDGET END -->
-
-					</div>
-
-
-					<!-- end row -->
 
 					<!-- end row -->
 
