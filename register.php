@@ -4,11 +4,14 @@ include 'Connect.php';
 include 'head.php';
 ?>
 
+
     <body>
         
         <!-- start topBar -->
        <?php require 'topbar.php'; ?>
-        <!-- end topBar -->
+		<!-- end topBar -->
+		
+		<?php require 'middlebar.php'; ?>
         
         <!-- start navbar -->
        <?php require 'navh.php'; ?>
