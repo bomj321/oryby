@@ -176,10 +176,9 @@ else{
 
 					   </div>
 					   
-					   <div style="float:right;margin-top:80px;">
-					  
-					    <a href="Learn.php"  ><img src="images/htsale.png"></a>
-                      <a href="Learn.php" ><img src="images/htbuy.png"></a> 
+					   <div style="float:right;margin-top:80px;">					
+                      <a href="learnIncreaseSale.php"><img src="images/htsale.png"></a>
+                      <a href="startBuying.php" ><img src="images/htbuy.png"></a>  
 	                  </div>
 
 		

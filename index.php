@@ -624,7 +624,7 @@ $nr=mysqli_num_rows($stmt);
                     <div class="carousel-inner">
                         <div class="item active" style="padding-right:70px; padding-left:70px;">
                             <div class="row">
-												 <?php
+											<?php
 				  $sql="SELECT * FROM products  INNER JOIN categories ON(products.catid = categories.catid) WHERE productType='Normal Product' AND productstatus=1 AND productaction = 1 LIMIT 6";
 
 				$stmt=mysqli_query($connection,$sql);
@@ -674,7 +674,6 @@ $nr=mysqli_num_rows($stmt);
 							  	   </br>
 								     <a href="contactsupplier.php?supplieremail=<?php echo $rows['email']; ?>"></i>Contact Supplier</a>
 									 </br>
-                                        <a href="Shopsingle.php?pid=<?php echo $pid ?>"><i class="fa fa-cart-plus mr-5"></i>Add to cart</a>
 							  </center>
 							  </div>
 							     <?php
@@ -686,9 +685,14 @@ $nr=mysqli_num_rows($stmt);
                      <div class="item" style="padding-right:70px; padding-left:70px;">
                             <div class="row">
 												 <?php
+<<<<<<< HEAD
 			 $sql="SELECT * FROM products  INNER JOIN categories ON(products.catid = categories.catid) WHERE productType='Normal Product'  AND productstatus=1 AND productaction = 1 ";
 
 				$stmt=mysqli_query($connection,$sql);
+=======
+			 $sql="SELECT * FROM products  INNER JOIN categories ON(products.catid = categories.catid) WHERE productType='Normal Product'  AND productstatus=1 AND productaction = 1 LIMIT 5,10";
+			$stmt=mysqli_query($connection,$sql);
+>>>>>>> 51e92737a215658336b920182a4581719dd06ce1
 				if($stmt == false) {
 				trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
 				}
@@ -734,8 +738,8 @@ $userId=$row['user_id'];
 							  	   </br>
 								     <a href="contactsupplier.php?supplieremail=<?php echo $rows['email']; ?>"></i>Contact Supplier</a>
 									 </br>
-                                        <a href="Shopsingle.php?pid=<?php echo $pid ?>"><i class="fa fa-cart-plus mr-5"></i>Add to cart</a>
 							  </center>
+							  </br>
 							  </div>
 							     <?php
 				}
@@ -751,6 +755,7 @@ $userId=$row['user_id'];
 
                 </div><!--.Carousel-->
 <hr>
+<<<<<<< HEAD
 <div id="Carousel1" class="carousel slide">
                               <!-- Carousel items -->
 
@@ -886,6 +891,8 @@ $userId=$row['user_id'];
                 </div><!--.Carousel-->
 
 <hr>
+=======
+>>>>>>> 51e92737a215658336b920182a4581719dd06ce1
    <?php
   if(isset($_POST['vanswer'])){
 $quesno=$_POST['ques'];
@@ -912,11 +919,6 @@ if($queryResult){
                 <div class="container" >
 
                     <div class="col-sm-12" style=" margin-left:-12px; margin-right:2px;background-image: url(images/<?php echo $image; ?>); width:1050px height:206px; ">
-					<!--	<img style="width:1150px; height:370px" src="img/slider/slider_03.jpg" />
-					  <div class="title-wrap">
-                            <h2 style="position: absolute;   top: 150px;   left: 0;   width: 100%;   margin: 0 auto;" class="title text-white">Tell Us About Your Business</h2>
-
-                        </div> -->
 
 	<?php
 							$sql="Select * from `aboutus` Where elementname='QuestionHeading'";
