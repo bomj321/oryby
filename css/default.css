@@ -2333,15 +2333,10 @@ input[type="radio"] .styled:checked + label::after {
 
 /**MemberShip**/
 
-.table-bordered {
-border: 1px solid #111;
-}
 .table thead tr th {
-    color: #35404f;
     padding: 18px;
     line-height: 1.42857143;
-    vertical-align: middle;
-    border-color: #111;
+    vertical-align: middle;   
 }
 
 table{
