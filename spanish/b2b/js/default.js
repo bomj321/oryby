@@ -3,8 +3,7 @@ $(document).ready(function(){
     $('.example').DataTable();
     $("a.eliminar").on('click', function(e){
         var id = this.id;
-        alert(id);
-        console.log(this.id);        
+        alert("Este mensaje será eliminado");      
 		/*Eliminando*/
 		$.ajax({
             type: "GET",
