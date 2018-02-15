@@ -3,14 +3,9 @@
         return isset($_SERVER['HTTP_x_REQUESTED_WITH']) && $_SERVER['HTTP_x_REQUESTED_WITH'] == 'XMLHttpRequest'; 
     }
     $id = htmlspecialchars($_GET['id']);
-    echo $id;
-   try {    
-        require_once('connect.php');
-        $sql ="DELETE FROM `chatapp` WHERE `id` = '{$id}';";
-        $resultado = $conn->query($sql);
-        echo json_encode(array(
+    include('Connect.php');
+    $sql ="DELETE FROM `chatapp` WHERE `id` = '{$id}';";
+    $stmt=mysqli_query($connection,$sql);
+    echo json_encode(array(
             'respuesta' => 1));
-      }catch (Exception $e)
-  {$error = $e->getMessage();}
-   $conn->close();
 ?>

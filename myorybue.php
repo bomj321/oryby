@@ -120,8 +120,6 @@ include('navh.php');
         <script type="text/javascript" src="js/pace.min.js"></script>
         <script type="text/javascript" src="js/star-rating.min.js"></script>
         <script type="text/javascript" src="js/wow.min.js"></script>
-        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
-        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3"></script>
         <script type="text/javascript" src="js/gmaps.js"></script>
         <script type="text/javascript" src="js/swiper.min.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
