@@ -2343,6 +2343,10 @@ table{
   border-color: #f7f7f7;
 }
 
+table.datatable thead th, table.datatable thead td{
+  border-color: rgba(0, 0, 0, 0.02);
+}
+
 table.member tbody tr.border td {
     padding: 50px;
     line-height: 1.42857143;
