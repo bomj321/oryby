@@ -35,6 +35,12 @@ form#orybu{
 margin-left: 7rem;
 }
 
+/*update*/
+
+div#selectedFiles1 img{
+  width: 100%;
+}
+
 
 
 body {

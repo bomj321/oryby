@@ -1,28 +1,23 @@
 <?php session_start();
 include('Connect.php');
- $email=$_SESSION['uemail'];
+$email=$_SESSION['uemail'];
 if($email =="")
 {
 header("Location:membership.php");
 }
 include('head.php');
 include('topbar.php');
-include('middlebar.php');  
-
-
- ?>
- 
-
+include('middlebar.php');
+?>
 <?php
- $sql="SELECT * FROM users Where email='$email'";
- 
+ $sql="SELECT * FROM users Where email='$email'"; 
 $stmt=mysqli_query($connection,$sql);
 if($stmt == false) {
 trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
 }
 $nr=mysqli_num_rows($stmt);    
 $row=$stmt->fetch_assoc();
- $userId=$row['user_id'];
+$userId=$row['user_id'];
 ?>
        
         
@@ -116,7 +111,7 @@ $row=$stmt->fetch_assoc();
                         <div class="row">
                 <div class="row">
                     <div class="col-sm-12">
-                      <center> <h3>MY PROFILE</h3>		
+                      <center> <h3>My PROFILE</h3>		
     </center>
  <?php
 
@@ -140,11 +135,8 @@ if ($nr > 0)
         <th>First Name</th>
          <th>Last Name</th>
         <th>Email</th>
-		   <th>Password</th>
-		 <th>Country NAme</th>
-      
-         <th>Action</th>
-         
+		 <th>Country NAme</th>      
+         <th>Action</th>      
          
       </tr>
     </thead>
@@ -164,8 +156,6 @@ if ($nr > 0)
         <td></br><?php echo $row['lastName']; ?></td>
   
         <td></br><?php echo $row['email']; ?></td>
-   
-        <td></br><?php echo $row['password']; ?></td>
 		<td></br><?php echo $row['countryName']; ?></td>
 		
 	
