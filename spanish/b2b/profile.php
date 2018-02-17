@@ -1,28 +1,23 @@
 <?php session_start();
 include('Connect.php');
- $email=$_SESSION['uemail'];
+$email=$_SESSION['uemail'];
 if($email =="")
 {
 header("Location:membership.php");
 }
 include('head.php');
 include('topbar.php');
-include('middlebar.php');  
-
-
- ?>
- 
-
+include('middlebar.php');
+?>
 <?php
- $sql="SELECT * FROM users Where email='$email'";
- 
+ $sql="SELECT * FROM users Where email='$email'"; 
 $stmt=mysqli_query($connection,$sql);
 if($stmt == false) {
 trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
 }
 $nr=mysqli_num_rows($stmt);    
 $row=$stmt->fetch_assoc();
- $userId=$row['user_id'];
+$userId=$row['user_id'];
 ?>
        
         
@@ -116,7 +111,7 @@ $row=$stmt->fetch_assoc();
                         <div class="row">
                 <div class="row">
                     <div class="col-sm-12">
-                      <center> <h3>MY PROFILE</h3>		
+                      <center> <h3>Mi Perfil</h3>		
     </center>
  <?php
 
@@ -137,14 +132,11 @@ if ($nr > 0)
      <tr>
       
         <th>ID</th>
-        <th>First Name</th>
-         <th>Last Name</th>
+        <th>Nombre</th>
+         <th>Apellido</th>
         <th>Email</th>
-		   <th>Password</th>
-		 <th>Country NAme</th>
-      
-         <th>Action</th>
-         
+		 <th>País</th>      
+         <th>Editar</th>   
          
       </tr>
     </thead>
@@ -164,8 +156,6 @@ if ($nr > 0)
         <td></br><?php echo $row['lastName']; ?></td>
   
         <td></br><?php echo $row['email']; ?></td>
-   
-        <td></br><?php echo $row['password']; ?></td>
 		<td></br><?php echo $row['countryName']; ?></td>
 		
 	
@@ -199,7 +189,7 @@ else{
 </div>
            <div class="row">
                     <div class="col-sm-12">
-                      <center> <h3>MEMBERSHIP</h3>		
+                      <center> <h3>Membresia</h3>		
     </center>
  <?php
 
@@ -220,10 +210,10 @@ if ($nr > 0)
      <tr>
       
         <th>Serial No</th>
-        <th>Membership Type</th>
-         <th>Start Date</th>
-        <th>End Date</th>
-		   <th>Price</th>
+        <th>Tipo de Membresia</th>
+         <th>Comienzo</th>
+        <th>Finalización</th>
+		   <th>Precio</th>
 		   <th>Email</th>
 		  
       </tr>
@@ -286,7 +276,7 @@ $nr=mysqli_num_rows($stmt);
 $row=$stmt->fetch_assoc()?>
 <div class="row">
                     <div class="col-sm-10" style=" padding-left:200px;">
-<center><h2>COMPANY INFORMATION</h2>
+<center><h2>Información de la Compañia</h2>
 </center>
 
 
@@ -303,71 +293,60 @@ $row=$stmt->fetch_assoc()?>
 						<td></br><?php echo $row['email']; ?></td>
 						</tr>
 					<tr>
-			<th>	Company Name</th>
+			<th>	Nombre</th>
 			
 					<td></br><?php echo $row['company_name']; ?></td>
 			</tr>
 				<tr>
-			<th>	Company Legal Number</th>
+			<th>	Número Legal</th>
 			
 					<td></br><?php echo $row['companyLegalNo']; ?></td>
 			</tr>
 					
 					<tr>
-			<th>	Street</th>
+			<th>	Calle</th>
 			
 					<td></br><?php echo $row['street']; ?></td>
 					</tr>
 					<tr>
-			<th>	City</th>
+			<th>	Ciudad</th>
 			
 					<td></br><?php echo $row['city']; ?></td>
 					</tr>
 					<tr>
-			<th>	ZipCode</th>
+			<th>	Codigo Postal</th>
 			
 					<td></br><?php echo $row['zipCode']; ?></td>
 					</tr>
 					<tr>
-			<th>	Province</th>
+			<th>	Provincia</th>
 			
 					<td></br><?php echo $row['province']; ?></td>
 					</tr>
 					<tr>
-			<th>	BusinessType</th>
+			<th>	Tipo de Negocio</th>
 			
 					<td></br><?php echo $row['businessType']; ?></td>
 					</tr>
 					<tr>
-			<th>	No Of Employee</th>
+			<th>	Número de Empleados</th>
 			
 					<td></br><?php echo $row['noOfEmployee']; ?></td>
 					</tr>
 					<tr>
-			<th>	Company Description</th>
+			<th>	Descripción de la Compañia</th>
 			
 					<td></br><?php echo $row['companyDescription']; ?></td>
 					</tr>
 					<tr>
-			<th>	Company Logo</th>
+			<th>	Logo de la Compañia</th>
 			
 					<td></br><img style ="height:100px; width:100px;" src ="images/<?php echo $row['companylogo']; ?>" /></td>
 					</tr>
 					<tr>
-			<th>	Country Name</th>
+			<th>	País</th>
 			
 					<td></br><?php echo $row['countryName']; ?></td>
-					</tr>
-					<tr>
-			<th>	Company License</th>
-			<?php
-			$myString = $row['companylicense'];
-$cl = explode(',', $myString);
-
-			?>
-					<td><a href="images/<?php echo $cl[0];?> "><img style ="height:50px; width:50px;" src ="images/<?php echo $cl[0];?>" /> </a><a href="images/<?php echo $cl[1];?> "><img style ="height:50px; width:50px;" src ="images/<?php echo $cl[1];?> "/> </a><a href="images/<?php echo $cl[2];?> "><img style ="height:50px; width:50px;" src ="images/<?php echo $cl[2];?>" /></a>
-					<a href="images/<?php echo $cl[3];?> "><img style ="height:50px; width:50px;" src ="images/<?php echo $cl[3];?>" /></a>
-					<a href="images/<?php echo $cl[4];?> "><img style ="height:50px; width:50px;" src ="images/<?php echo $cl[4];?>" /></a></td>
 					</tr>
 					
 			
@@ -377,7 +356,7 @@ $cl = explode(',', $myString);
 		  <center>
 		  <tr >
 		  <td>
-         <a   style="float:right" class="btn btn-primary" href="updatesellerprofile.php?email=<?php echo $row['email'];?>">UPDATE </a>
+         <a   style="float:right" class="btn btn-primary" href="updatesellerprofile.php?email=<?php echo $row['email'];?>">Actualizar</a>
 		 </td>
 </center>
 		 </tr>

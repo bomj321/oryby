@@ -6,7 +6,6 @@ include "chatactiveusers.php";
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Plus - E-Commerce Template</title>
     <meta charset="utf-8">
     <meta name="description" content="Plus E-Commerce Template">
     <meta name="author" content="Diamant Gjota" />

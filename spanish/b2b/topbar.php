@@ -16,7 +16,7 @@ require 'Connect.php';
                      <li class="linkdown">
                         <a href="javascript:void(0);">
                             <i class="fa fa-usd mr-5"></i>
-                            $ USD
+                            USD
                         </a>
                     </li>
                     <li class="linkdown" >

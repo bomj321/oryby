@@ -17,8 +17,8 @@ include('navh.php');
         <div class="row">
             <div class="col-md-8 col-sm-8 col-xs-8">
                 <hr style="border-color: black;border-bottom: 1px solid">
-            </div>
-        </div> 
+            </div>        
+        </div>
             <div class="row">                	  	
                 <!-- Pending Purchases-->				
                 <div class="col-md-8 col-sm-8 col-xs-8">
@@ -73,20 +73,20 @@ include('navh.php');
                         <?php echo $percentage.'%';?>
                         </div>
                     </div>		        
-                    <a  class="btn btn-success btn-center" href="profile.php?<?php echo $getmail;?>">Update Profile</a>
+                    <a  class="btn btn-success btn-center" href="profile.php?<?php echo $getmail;?>">Actualizar Perfil</a>
 		        </div>  
             </div>
             <div class="row">            
                 <!-- Message-->
                 <div class="col-8 col-sm-8 col-xs-8">
-                    <h4 class="title text-center">Mensaje</h4> 
+                    <h4 class="title text-center">Mensajes</h4> 
                         <table class="table table-striped table-responsive example" cellspacing="0">
                             <thead>
                             <tr>
-                                <th>User</th>
+                                <th>Usuario</th>
                                 <th>Titulo</th>
                                 <th>Día</th>
-                                <th>Borrar</th>
+                                <th>Eliminar</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -112,6 +112,92 @@ include('navh.php');
                     <a href="startBuying.php" ><img src="images/htbuy.png"></a> 
 	            </div>
             </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-8 col-sm-8 col-xs-8">
+                    <h5>Cantidad Disponible:</h5>
+                    <?php
+                        $email =$_SESSION['uemail'];
+                        $query="SELECT * FROM  seller WHERE email='$email'";
+                        $result=mysqli_query($connection,$query);
+                        $row=mysqli_fetch_array($result);
+                    ?>
+                    <form class="form-inline" id="orybu">
+                        <div class="form-group has-success">
+                            <input type="text" class="form-control" placeholder="Top List:<?php echo $row['limitTopList'];?>" disabled>
+                        </div>
+                        <div class="form-group has-success">
+                            <input type="email" class="form-control" placeholder="Show Case:<?php echo $row['limitShowCase'];?>" disabled>
+                        </div>
+                        <button type="submit" class="btn btn-success" id="buy">Buy More</button>
+                    </form>
+                </div>       
+            </div>
+            <hr>
+            <div class="row"> 
+                <?php 
+                    $limit=8;
+                    $umail=$_SESSION['uemail'];
+                    if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { $page=1; }; 
+                    $start_from = ($page-1) * $limit;
+                    $q="SELECT * FROM users where email='$umail'";
+                    $rzld=mysqli_query($connection,$q);
+                    $rwz=mysqli_fetch_array($rzld);
+                    $uzrid=$rwz['user_id'];
+                    $qury="SELECT * FROM products where user_id='$uzrid' ORDER BY ntitle ASC LIMIT $start_from, $limit";
+                    $rsl=mysqli_query($connection,$qury);
+                ?>
+                <div class="col-sm-8 col-md-8">
+                    <h4>Articulos Publicados</h4>
+                    <?php while($rw=mysqli_fetch_array($rsl)){  ?>
+                    <div class="float-right col-md-3 col-sm-3">
+                        <a href="#"><img class="img-responsive" src="images/<?php echo $rw['image'];?>" style="height: 20rem"></a>                       
+                        <center>
+                            <span class="amount text-default"><?php echo $rw['ntitle'];?></span>
+                            </br>
+                            <span class="amount text-primary">$USD <?php echo $rw['price'];?></span>
+                            </br>
+                        </center>
+                    </br>
+                    </div>
+                    <?php } ?>
+                </div>
+                <div class="col-sm-4 col-md-4">
+                    <h4 class="pull-right">Mis Favoritos</h4> 
+                    <div class="widget pull-right">
+                            <?php $query="SELECT * FROM products INNER JOIN categories ON(products.catid=categories.catid) Limit 6 ";
+                            $result=mysqli_query($connection,$query);
+                            ?>
+                        <ul class="items">
+                                <?php 
+                                while( $row=mysqli_fetch_array($result)){ 
+                                $myString = $row['image'];
+                                $productType=$row['productType'];
+                                $cl = explode(',', $myString);
+                                ?>
+                            <li> 
+                                <a href="#" class="product-image"><img src="images/<?php echo $cl[0]; ?>" alt="<?php echo $row['ntitle']; ?> "></a>
+                                <div class="product-details"> 
+                                    <a href="#" class="product-name"><?php echo $row['ntitle']; ?></a> 
+                                    <span class="price text-primary">$<?php echo $row['price']; ?></span>
+                                    <div class="rate text-warning">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                </div>
+                            </li><!-- end item -->
+                            <?php
+                            }
+                            ?>
+                        </ul>
+                        <br>
+                        <a href="allproduct.php" class="btn btn-default btn-block semi-circle btn-md" style="margin-top:5px;">Todos los Productos</a>
+                    </div><!-- end widget -->                           
+                </div>
+            </div>                 
     </div>
 </section>
         <!-- end section -->

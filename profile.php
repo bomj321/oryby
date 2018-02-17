@@ -347,18 +347,7 @@ $row=$stmt->fetch_assoc()?>
 			<th>	Country Name</th>
 			
 					<td></br><?php echo $row['countryName']; ?></td>
-					</tr>
-					<tr>
-			<th>	Company License</th>
-			<?php
-			$myString = $row['companylicense'];
-$cl = explode(',', $myString);
-
-			?>
-					<td><a href="images/<?php echo $cl[0];?> "><img style ="height:50px; width:50px;" src ="images/<?php echo $cl[0];?>" /> </a><a href="images/<?php echo $cl[1];?> "><img style ="height:50px; width:50px;" src ="images/<?php echo $cl[1];?> "/> </a><a href="images/<?php echo $cl[2];?> "><img style ="height:50px; width:50px;" src ="images/<?php echo $cl[2];?>" /></a>
-					<a href="images/<?php echo $cl[3];?> "><img style ="height:50px; width:50px;" src ="images/<?php echo $cl[3];?>" /></a>
-					<a href="images/<?php echo $cl[4];?> "><img style ="height:50px; width:50px;" src ="images/<?php echo $cl[4];?>" /></a></td>
-					</tr>
+					</tr>	
 					
 			
 		  </tr>	

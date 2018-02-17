@@ -14,6 +14,34 @@ html, body, .fullscreen {
   margin-left: 1.2rem;
 }
 
+/*My Orybu*/
+
+button#buy{
+  color: #ffffff;
+  background-color: #5ed35e;
+  border: 1px solid #5ed35e;
+  border-radius: 33px;
+  float: right;
+}
+
+form#orybu input.form-control {
+  padding:0;
+  display: inline-block;
+  width: 63%;
+  vertical-align: middle; 
+}
+
+form#orybu{
+margin-left: 7rem;
+}
+
+/*update*/
+
+div#selectedFiles1 img{
+  width: 100%;
+}
+
+
 
 body {
   font-family: 'Roboto', sans-serif;
@@ -2333,29 +2361,32 @@ input[type="radio"] .styled:checked + label::after {
 
 /**MemberShip**/
 
-.table-bordered {
-border: 1px solid #111;
-}
 .table thead tr th {
-    color: #35404f;
     padding: 18px;
+    line-height: 1.42857143;
+    vertical-align: middle;   
+}
+
+table{
+  border-color: #f7f7f7;
+}
+
+table.datatable thead th, table.datatable thead td{
+  border-color: rgba(0, 0, 0, 0.02);
+}
+
+table.member tbody tr.border td {
+    padding: 50px;
     line-height: 1.42857143;
     vertical-align: middle;
     border-color: #111;
 }
 
-table.border tbody tr.border td {
-    padding: 18px;
-    line-height: 1.42857143;
-    vertical-align: middle;
-    border-color: #111;
-}
-
-table.border td.light, th.light{
+table.member td.light, th.light{
 background-color: rgba(0, 0, 0, 0.03);
 }
 
-table.border th.dark,td.dark{
+table.member th.dark,td.dark{
 background-color: rgba(0, 0, 0, 0.16);
 }
 

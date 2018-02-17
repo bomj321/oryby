@@ -57,7 +57,7 @@ include('navh.php');
                     $logorow=mysqli_fetch_array($logoresult);  ?>
                     <div style="float:right;background-color:#f7f7f7; border:2px;padding-left:50px;padding-right:50px;padding-bottom:5px;">
                         <h5>My Profile</h5>
-                        <img src="images/<?php echo $logorow['companylogo'];?>" style="height:100px; width:100px;margin-left:35px; " alt="Logo not set">
+                        <img src="images/<?php echo $logorow['companylogo'];?>" style="height:100px; width:100px;" alt="Logo not set">
                         <hr>
                     <?php 
                     $percentage=50;
