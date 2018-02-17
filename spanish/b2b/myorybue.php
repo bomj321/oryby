@@ -14,6 +14,11 @@ include('navh.php');
 <section class="section white-backgorund"> 
     <div class="container">
         <h3> My Orybu </h3>
+        <div class="row">
+            <div class="col-md-8 col-sm-8 col-xs-8">
+                <hr style="border-color: black;border-bottom: 1px solid">
+            </div>
+        </div> 
             <div class="row">                	  	
                 <!-- Pending Purchases-->				
                 <div class="col-md-8 col-sm-8 col-xs-8">

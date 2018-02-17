@@ -25,111 +25,11 @@ $getmail=$_SESSION['uemail'];
                        <div class="col-sm-4">
 <h4 class="title"> PendingGGG Purchases</h4>
                              <div class="table-responsive">    
-								<table id="example" class="table table-striped" cellspacing="0" width="100%">
-                                    <!--<table class="table table-striped"> -->
-                                        <thead>
-                                            <tr>
-											    <th>Order Id</th>
-                                                <th>Email</th>
-                                                <th>Total Price</th>
-											    <th>Order Status</th>
-                                               
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-				<?php 
-			$querygetrequest="SELECT * FROM `orders` where orderstatus='Pending'";
-			$resultrequests=mysqli_query($connection,$querygetrequest);
-			while($rowreq=mysqli_fetch_array($resultrequests)){
-			?>
-						
-                                            <tr>
-											    <td>
-                                                    <a href="#">
-                                                        <p><?php echo $rowreq['order_id'];?></p>
-                                                    </a> 
-                                                </td>
-                                                <td>
-                                                    <a href="#">
-                                                        <p><?php echo $rowreq['email'];?></p>
-                                                    </a> 
-                                                </td>
-                                                <td>
-                                                    <h6 class="regular">$<?php echo $rowreq['tota_price'];?></h6>
-                                                   
-                                                </td>
-												<td>
-												 <p><?php echo $rowreq['orderstatus'];?></p>
-												 </td>
-                                                
-                                               
-                                                
-                                              
-                                            </tr>
-                          <?php 
-
-                         
-                            } 
-
-  
-                          ?>
-                                            
-                                        </tbody>
-                                    </table><!-- end table -->
                                 </div>
 					   </div> 
 					   <div class="col-sm-4">
 <h4 class="title"> Messages</h4>
                              <div class="table-responsive">    
-								<table id="example1" class="table table-striped" cellspacing="0" width="100%">
-                                    <!--<table class="table table-striped"> -->
-                                        <thead>
-                                            <tr>
-											    <th>User</th>
-                                                <th>Title</th>
-                                                <th>Date</th>
-											    
-                                               
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-				<?php 
-			$querygetrequest="SELECT * FROM `chatapp`";
-			$resultrequests=mysqli_query($connection,$querygetrequest);
-			while($rowreq=mysqli_fetch_array($resultrequests)){
-			?>
-						
-                                            <tr>
-											    <td>
-                                                    <a href="#">
-                                                        <p><?php echo $rowreq['sender'];?></p>
-                                                    </a> 
-                                                </td>
-                                                <td>
-                                                    <a href="#">
-                                                        <p><?php echo $rowreq['msg'];?></p>
-                                                    </a> 
-                                                </td>
-                                                <td>
-                                                    <h6 class="regular">$<?php echo $rowreq['date'];?></h6>
-                                                   
-                                                </td>
-												
-                                                
-                                               
-                                                
-                                              
-                                            </tr>
-                          <?php 
-
-                         
-                            } 
-
-  
-                          ?>
-                                            
-                                        </tbody>
-                                    </table><!-- end table -->
                                 </div>
 
 					   </div>

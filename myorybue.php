@@ -14,6 +14,11 @@ include('navh.php');
 <section class="section white-backgorund"> 
     <div class="container">
         <h3> My Orybu </h3>
+        <div class="row">
+            <div class="col-md-8 col-sm-8 col-xs-8">
+                <hr style="border-color: black;border-bottom: 1px solid">
+            </div>        
+        </div>
             <div class="row">                	  	
                 <!-- Pending Purchases-->				
                 <div class="col-md-8 col-sm-8 col-xs-8">
@@ -107,6 +112,61 @@ include('navh.php');
                     <a href="startBuying.php" ><img src="images/htbuy.png"></a> 
 	            </div>
             </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-8 col-sm-8 col-xs-8">
+                    <h5>Quantity Availabe:</h5>
+                    <?php
+                        $email =$_SESSION['uemail'];
+                        $query="SELECT * FROM  seller WHERE email='$email'";
+                        $result=mysqli_query($connection,$query);
+                        $row=mysqli_fetch_array($result);
+                    ?>
+                    <form class="form-inline" id="orybu">
+                        <div class="form-group has-success">
+                            <input type="text" class="form-control" placeholder="Top List:<?php echo $row['limitTopList'];?>" disabled>
+                        </div>
+                        <div class="form-group has-success">
+                            <input type="email" class="form-control" placeholder="Show Case:<?php echo $row['limitShowCase'];?>" disabled>
+                        </div>
+                        <button type="submit" class="btn btn-success" id="buy">Buy More</button>
+                    </form>
+                </div>       
+            </div>
+            <hr>
+            <div class="row"> 
+		    <?php 
+                $limit=8;
+                $umail=$_SESSION['uemail'];
+                if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { $page=1; }; 
+                $start_from = ($page-1) * $limit;
+                $q="SELECT * FROM users where email='$umail'";
+                $rzld=mysqli_query($connection,$q);
+                $rwz=mysqli_fetch_array($rzld);
+                $uzrid=$rwz['user_id'];
+                $qury="SELECT * FROM products where user_id='$uzrid' ORDER BY ntitle ASC LIMIT $start_from, $limit";
+                $rsl=mysqli_query($connection,$qury);
+            ?>
+                <div class="col-sm-8">
+                    <h4> Published Articles</h4>
+                    <?php while($rw=mysqli_fetch_array($rsl)){  ?>
+                        <div class="item col-sm-3">
+                            <div class="thumbnail store style1">
+                                <div class="header">
+                                    <figure class="layer">
+                                        <a href="#"><img src="images/<?php echo $rw['image'];?>"></a>
+                                    </figure>
+                                </div>
+                                <div class="caption">
+                                    <div class="price" >
+                                        <h4 class="regular"><a href="#"><?php echo $rw['ntitle'];?></a></h4>
+                                        <span class="amount text-primary" style="padding-left:45px;">$<?php echo $rw['price'];?></span>  
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <?php } ?>
+                </div>
     </div>
 </section>
         <!-- end section -->

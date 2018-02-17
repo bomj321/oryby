@@ -14,6 +14,28 @@ html, body, .fullscreen {
   margin-left: 1.2rem;
 }
 
+/*My Orybu*/
+
+button#buy{
+  color: #ffffff;
+  background-color: #5ed35e;
+  border: 1px solid #5ed35e;
+  border-radius: 33px;
+  float: right;
+}
+
+form#orybu input.form-control {
+  padding:0;
+  display: inline-block;
+  width: 63%;
+  vertical-align: middle; 
+}
+
+form#orybu{
+margin-left: 7rem;
+}
+
+
 
 body {
   font-family: 'Roboto', sans-serif;
