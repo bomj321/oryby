@@ -6,7 +6,6 @@ include('head.php');?>
 include('topbar.php');
 include('middlebar.php');
 include('navh.php');
-
  $email=$_SESSION['uemail'];
  $usertype=$_SESSION['utype'];
 $qry="SELECT * FROM `seller` WHERE `email`='$email' ";
@@ -209,10 +208,7 @@ else if(trim($str1) ==trim($str3))
     
 	 
                 var keyword=$('#keyword').val();
- 
- 
- 
-// val="date="+val+"&day="+day+"&time="+time+"&emailpaypal="+emailpaypal;
+
      $.ajax({
                     type:'POST',
                     url:"saveval.php",
@@ -230,100 +226,68 @@ else if(trim($str1) ==trim($str3))
 			});
 		</script>
 	     <!-- start section -->
-        <section class="section white-backgorund">
             <div class="container">
 			 <!-- start Form -->
-                  <form action="addproduct.php" method="POST" enctype="multipart/form-data">
-				  
-			  <div class="row" style="padding-left:10px;">
-			  </br>
-				<center><h2>ADD PRODUCTS</h2>
-			
-				</center></br>
-                    <div class="col-sm-12" style=" background-color:white;">
-    
+                  <form action="addproduct.php" method="POST" enctype="multipart/form-data">				  
+			  <div class="row">
+				<h2 class="text-center">ADD PRODUCTS</h2>			
+					<div class="col-sm-8 col-sm-offset-2">  
+					<div class="form-inline">				
+						<?php  $membershipType ?>	
+						<?php
+							$sql="SELECT * FROM categories WHERE NOT title ='Eco Friendly' AND NOT title ='Innovation'";
+							$stmt=mysqli_query($connection,$sql);
+							if($stmt == false) {
+							trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $conn->error, E_USER_ERROR);
+							}
+							$nr=mysqli_num_rows($stmt);
 
-       
-		<div class="form-group col-sm-2">  </div>
-				<div class="form-group col-sm-4">
-				
-				
-	<?php  $membershipType ?>
-	
-								 <?php
-
-						$sql="SELECT * FROM categories WHERE NOT title ='Eco Friendly' AND NOT title ='Innovation'";
-						 $stmt=mysqli_query($connection,$sql);
-						if($stmt == false) {
-						trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $conn->error, E_USER_ERROR);
-						}
-						$nr=mysqli_num_rows($stmt);
-
-						if ($nr > 0)
-						 {
-						  ?>
-						 
-					<select  class="form-control"  id="catid" name="catid" required>
-					 <option  value="">SELECT Category</option>
-										 <?php
-						while($row=$stmt->fetch_assoc())
-						{
-			
-						
-			?>
-					  <option value="<?php echo $row['catid']; ?>"><?php echo $row['title']; ?></option>
-					  <?php
-					  }
-					  ?>
-				</select>
-				 <?php
-					  }
-					  ?>
-			</div>
-			<div class="form-group col-sm-4" id="ShowSubcategory"> <select id="Show" class="form-control"> <option value=""> Select Category first </option> </select></div>  
-		<!--	<div class="form-group col-sm-4" id="Show">
-
-            <select id="Show"> <option value=""> Select Category first </option> </select>			
-            </div> 
-			-->
-			</div>  
-			</div>  <!-- row  -->
+							if ($nr > 0)
+							{
+						?>
+							<div class="form-group">
+								<select class="form-control" id="catid" name="catid" required>
+								<option  value="">SELECT Category</option>
+									<?php while($row=$stmt->fetch_assoc()){ ?>
+										<option value="<?php echo $row['catid']; ?>"><?php echo $row['title']; ?></option>
+									<?php } ?>
+								</select>
+							</div>
+						<?php } ?>
+						<div class="form-group" id="ShowSubcategory"><select id="Show" class="form-control"> <option value=""> Select Category first </option> </select></div>  
+					</div>
+					</div>  
+				</div>  <!-- row  -->
 				<hr>
-				<div class="row">
-			  
-				<div class="col-sm-4" style="margin-left:200px;margin-top:0px;">
-				
-				<div class="form-group"><label> Product Title: </label></div> <br> 
-                <div class="form-group"><label> Keyword:</label> </div> <br> 
-				<div class="form-group"><label> Selected Keyword: </label></div> 
-				</div>
-				<div class="col-sm-4" style="margin-left:-200px;">
-				<div class="form-group">
-						<input type="text" class="form-control input-lg" required placeholder="Enter Title" name="title" id="title">
-				</div>
-				<div class="form-group">
-						<input type="text" class="form-control input-sm" required placeholder="Enter keyword" name="keyword" id="keyword" >
-				</div>
-				<div class="form-group">
-						<!--<input type="text" class="form-control" placeholder="Enter Quantity" name="quantity" id="quantity"> -->
-						<textarea class="form-control" placeholder="keyword" name="selectedkeyword" id="selectedkey">  </textarea>
-				</div>
-				</div>
-				<script>
-// AJAX call for autocomplete 
-
-
-</script>
+				<div class="row">			  
+					<div class="col-sm-4" style="margin-left:200px;margin-top:0px;">				
+						<div class="form-group"><label> Product Title: </label></div> <br> 
+						<div class="form-group"><label> Keyword:</label> </div> <br> 
+						<div class="form-group"><label> Selected Keyword: </label></div> 
+					</div>
+					<div class="col-sm-4" style="margin-left:-200px;">
+						<div class="form-group">
+							<input type="text" class="form-control input-lg" required placeholder="Enter Title" name="title" id="title">
+						</div>
+						<div class="form-group">
+							<input type="text" class="form-control input-sm" required placeholder="Enter keyword" name="keyword" id="keyword" >
+						</div>
+						<div class="form-group">
+							<textarea class="form-control" placeholder="keyword" name="selectedkeyword" id="selectedkey">  </textarea>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<img src="images/chile.png" alt="imagen"  class="img-responsive pull-right">
+					</div>
 				</div>
 				<!-- END of ROW -->
 		<div class="row"> 
-			    <h4 style="margin-left:90px;"> DETAILS:</h4> 
+				<h4 style="margin-left:90px;"> DETAILS:</h4> 
+				<br>
 				<div class="col-sm-4" style="margin-left:200px;margin-top:0px;">
 				<div class="row">
-				<div class="form-group col-sm-6"><label> Country: </label></div> 
-               
-				</div>
-				
+					<div class="form-group col-sm-6"><label> Country: </label></div>               
+				</div>				
 				<div class="form-group" style="margin-top:20px;"><label> Weight: </label></div>
 				<div class="form-group" style="margin-top:20px;"><label> Volume: </label></div> 
 				<div class="form-group" style="margin-top:35px;"><label> Dimensions: </label></div> 
@@ -342,10 +306,7 @@ else if(trim($str1) ==trim($str3))
 				<div class="form-group" style="margin-top:20px;"><label> Product Image: </label></div> 
 				<div class="form-group" style="margin-top:20px;"><label> FOB Price: </label></div> 
 				<div class="form-group" style="margin-top:20px;"><label> Minimum Order: </label></div> 
-				<div class="form-group" style="margin-top:20px;"><label> Delivery Details: </label></div>
-				
-				 
-			<!--	 -->
+				<div class="form-group" style="margin-top:20px;"><label> Delivery Details: </label></div>				
 				</div>
 				<div class="col-sm-4" style="margin-left:-200px;">
 				<div class="row">
@@ -648,7 +609,6 @@ else if(trim($str1) ==trim($str3))
 						 <input type="text" class="form-control input-sm" placeholder="Dimensions" name="dquantity" id="quantity"> 
 						 </div>
 				<div class="form-group col-sm-4" style="padding-left:0px;">
-						<!--<input type="text" class="form-control" placeholder="Enter Quantity" name="quantity" id="quantity"> -->
 						 <select class="form-control input-sm" id="unit" name="dropdimension">
 	                         <option value="feet">Feet</option>  
                              <option value="Inch">Inch</option>  
@@ -792,8 +752,11 @@ else if(trim($str1) ==trim($str3))
 						 <div class="form-group">
 								 <input type="text" class="form-control input-sm" required placeholder="3days" name="delivery_details" id="delivery_details">
 						 </div>	
-				</div>						  
-				
+						</div>	
+
+						<div class="col-sm-4 col-md-4">
+							<img src="images/chile.png" alt="imagen"  class="img-responsive pull-right">
+						</div>
 				
 				</div>	
 				<div class="row">
@@ -803,16 +766,6 @@ else if(trim($str1) ==trim($str3))
 			    <textarea   class="form-control" placeholder="Enter Description" name="description" id="txtEditor" rows="4" col="6"> </textarea>
 				</div>	
                 </div>				
-				<!--<div class="form-group">
-						<input type="text" class="form-control" placeholder="Enter Color" name="color" id="color">
-				</div>  -->
-				
-				
-			<!--	
-			<div class="form-group">
-			  <input class="form-control" type="file"  name="file2[]" multiple="multiple" required />
-			</div>
-		    -->
 		<div class="form-group col-sm-8">
 									<h3>Uploaded Picture Preview Area </h3>
 									 <div id="selectedFiles"></div>
@@ -833,7 +786,7 @@ else if(trim($str1) ==trim($str3))
        </div><!-- end col -->    
                 <!-- end row -->
             </div><!-- end container -->
-        </section>
+		</div>	
 		
 		<!-- Trigger the modal with a button -->
      	 <script>
