@@ -80,82 +80,53 @@ $(document).ready(function(){
                               </ul>
                         </div><!-- end navbar-vertical -->
                     </div><!-- end col -->
-					    <?php
-							$sql="Select * from `aboutus` Where elementname='slider1'";
-						$result=mysqli_query($connection,$sql);
-							$row=mysqli_fetch_array($result);
-								$hreflink =$row['hreflink'];
-							 	$picture=$row['picture'];
-								$title=$row['title'];
-								$subtitle=$row['subtitle'];
-								$description=$row['description'];
-
-
-								?>
                     <div class="col-sm-8 col-md-9">
-                        <div class="owl-carousel slider owl-theme">
-						<div id="carousel-example-generic" class="carousel home-slide" data-interval="false" data-ride="carousel">
-                    <!-- Indicators -->
-                    <ol class="carousel-indicators">
-                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-						 <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                    </ol>
+                    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                            <!-- Indicators -->
+                            <ol class="carousel-indicators">
+                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                            </ol>
 
-
-                    <!-- Wrapper for slides -->
-                    <div class="carousel-inner" role="listbox">
-                        <div class="item active" style="background-image: url(images/<?php echo $picture; ?>); margin-left:-4px;margin-right:-4px; height:456px; ">
-
-                            <div class="item-inner">
+                            <!-- Wrapper for slides -->
+                            <?php
+							$sql="Select * from `slider` where id='1'";
+						    $result=mysqli_query($connection,$sql);
+							$row=mysqli_fetch_array($result);
+							$picture=$row['image'];
+							?>
+                            <div class="carousel-inner" role="listbox">
+                                <div class="item active">
+                                <img src="images/<?php echo $picture;?>" style="width: 100%;height: 100%;" alt="...">
                                 <div class="carousel-caption">
-                                </div><!-- end carousel-caption -->
-                            </div><!-- end item-inner -->
-                        </div><!-- end item -->
-						  <?php
-							$sqll="Select * from `aboutus` Where elementname='slider2'";
-						$resultt=mysqli_query($connection,$sqll);
-							$rows=mysqli_fetch_array($resultt);
-								$hreflink =$rows['hreflink'];
-							 	$picture=$rows['picture'];
-								$title=$rows['title'];
-								$subtitle=$rows['subtitle'];
-								$description=$rows['description'];
+                                </div>
+                                </div>
 
-
-								?>
-                        <div class="item" style="background-image: url(images/<?php echo $picture; ?>); margin-left:-4px;margin-right:-4px; height:456px; ">
-
-                            <div class="item-inner">
+                            <?php
+                            $sqll="Select * from `slider` where id > '1' ";
+                            $result=mysqli_query($connection,$sqll);
+                            ?>
+                            <?php while ($results = $result->fetch_all(MYSQLI_ASSOC) ) { ?>
+                            <?php foreach($results as $resu): ?>
+                                <div class="item">
+                                <img src="images/<?php echo $resu['image'];?>" alt="..." style="width: 100%;height: 100%;">
                                 <div class="carousel-caption">
-                                </div><!-- end carousel-caption -->
-                            </div><!-- end item-inner -->
-                        </div><!-- end item -->
-                    <?php
-						$sqlll="Select * from `aboutus` Where elementname='slider3'";
-						$resulttt=mysqli_query($connection,$sqlll);
-						$rows=mysqli_fetch_array($resulttt);
-						$picture=$rows['picture'];
-					?>
-				        <div class="item" style="background-image: url(images/<?php echo $picture; ?>); margin-left:-4px;margin-right:-4px; height:456px; ">
+                                </div>
+                                </div>
+                            <?php endforeach;?>
+                            <?php }?>
 
-                            <div class="item-inner">
-                                <div class="carousel-caption">
-                                </div><!-- end carousel-caption -->
-                            </div><!-- end item-inner -->
-                        </div><!-- end item -->
-
-                    </div><!-- end carousel-inner -->
-                    <!-- Controls -->
-                    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                        </div><!-- end owl carousel -->
+                            <!-- Controls -->
+                            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                            </div>
                     </div><!-- end col -->
                 </div><!-- end row -->
             </div><!-- end container -->

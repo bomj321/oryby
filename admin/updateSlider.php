@@ -1,4 +1,4 @@
-u<?php  session_start();
+<?php  session_start();
  if (!($_SESSION["loggedin"])) {
         header("Location: login.php?status=Unauthorized Access Attempt!");
     }
@@ -11,7 +11,7 @@ u<?php  session_start();
 	include('header.php');
 include('Connect.php');
  $id =$_GET['id'];
- $sql="SELECT * FROM aboutus  Where id='$id'";
+ $sql="SELECT * FROM slider Where id='$id'";
  
 $stmt=mysqli_query($connection,$sql);
 if($stmt == false) {
@@ -20,15 +20,7 @@ trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERR
 $nr=mysqli_num_rows($stmt);
 
 $row=mysqli_fetch_assoc($stmt);
-     $title = $row['title'];// item name
-	   $subtitle = $row['subtitle'];// item name
-			
-		
-			
-		    $description = $row['description'];// item name
-			 $elementname = $row['elementname'];// item name
-			$image = $row['picture'];// item name 
-		    $hreflink = $row['hreflink'];// item name
+			$image = $row['image'];// item name 
 		
  
 
@@ -54,7 +46,7 @@ if(isset($_POST['btn_save_updates']))
 		 move_uploaded_file($temp, $filelocation);
 	
 	
-$sql="UPDATE aboutus  SET  title='".$title."', subtitle='".$subtitle."',hreflink='".$hreflink."',picture='".$image."', description='".$description."'  WHERE (id='$id')";
+$sql="UPDATE slider  SET image='".$image."' WHERE (id='$id')";
  mysqli_query($connection,$sql);
 	 $stmt = $connection->prepare($sql);
      if($stmt === false) {
@@ -97,18 +89,6 @@ trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERR
 				<ol class="breadcrumb">
 					<li>Home</li><li>Dashboard</li>
 				</ol>
-				<!-- end breadcrumb -->
-
-				<!-- You can also add more buttons to the
-				ribbon for further usability
-
-				Example below:
-
-				<span class="ribbon-button-alignment pull-right">
-				<span id="search" class="btn btn-ribbon hidden-xs" data-title="search"><i class="fa-grid"></i> Change Grid</span>
-				<span id="add" class="btn btn-ribbon hidden-xs" data-title="add"><i class="fa-plus"></i> Add</span>
-				<span id="search" class="btn btn-ribbon" data-title="search"><i class="fa-search"></i> <span class="hidden-mobile">Search</span></span>
-				</span> -->
 
 			</div>
 			<!-- END RIBBON -->
@@ -165,56 +145,12 @@ trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERR
 										<div class="widget-body">
 
 										<form method="post" enctype="multipart/form-data" class="form-horizontal">
-
-
-											<fieldset>
-													
-													<div class="form-group">
-														<label>Element Name</label>
-														<input type="text" class="form-control" name="elementname" disabled value="<?php echo $elementname ?>" />
-													</div>
-												</fieldset>
-												
-												
-											<fieldset>
-													
-													<div class="form-group">
-														<label>Title</label>
-														<input type="text" class="form-control" name="title" value="<?php echo $title ?>" />
-													</div>
-												</fieldset>
-												
-											<fieldset>
-													
-													<div class="form-group">
-														<label>Sub Title</label>
-														<input type="text" class="form-control" name="subtitle" value="<?php echo $subtitle ?>" />
-													</div>
-												</fieldset>
-													
-													<fieldset>
-													
-													<div class="form-group">
-														<label>Description</label>
-														<input type="text" class="form-control" name="description" value="<?php echo $description ?>" />
-													</div>
-												</fieldset>
-												<fieldset>
-													
-													<div class="form-group">
-														<label>Link</label>
-														<input type="text" class="form-control" name="hreflink" value="<?php echo $hreflink ?>" />
-													</div>
-												</fieldset>
-												<fieldset>
 													
 													<div class="form-group">
 														<label>Picture</label>
 														<img style="height:150px; width:150px;"src="../images/<?php echo $image ?>">
 														<input type="file" class="form-control" name="file1"  />
-													</div>
-												</fieldset>
-												
+													</div>											
 
 												<div class="form-actions">
 													<div class="row">

@@ -64,18 +64,6 @@ include('header.php');
 				<ol class="breadcrumb">
 					<li>Home</li><li>Tables</li><li>Data Tables</li>
 				</ol>
-				<!-- end breadcrumb -->
-
-				<!-- You can also add more buttons to the
-				ribbon for further usability
-
-				Example below:
-
-				<span class="ribbon-button-alignment pull-right">
-				<span id="search" class="btn btn-ribbon hidden-xs" data-title="search"><i class="fa-grid"></i> Change Grid</span>
-				<span id="add" class="btn btn-ribbon hidden-xs" data-title="add"><i class="fa-plus"></i> Add</span>
-				<span id="search" class="btn btn-ribbon" data-title="search"><i class="fa-search"></i> <span class="hidden-mobile">Search</span></span>
-				</span> -->
 
 			</div>
 			<!-- END RIBBON -->
@@ -94,31 +82,12 @@ include('header.php');
 						</h1>
 					</div>
 			</div>
-				
-				<!-- widget grid -->
+				<!-- Alemar -->
 				<section id="widget-grid" class="">
-				
-					<!-- row -->
 					<div class="row">
-				
-						<!-- NEW WIDGET START -->
 						<article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				
-							<!-- Widget ID (each widget will need unique ID)-->
+			
 							<div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="false">
-								<!-- widget options:
-								usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
-				
-								data-widget-colorbutton="false"
-								data-widget-editbutton="false"
-								data-widget-togglebutton="false"
-								data-widget-deletebutton="false"
-								data-widget-fullscreenbutton="false"
-								data-widget-custombutton="false"
-								data-widget-collapsed="true"
-								data-widget-sortable="false"
-				
-								-->
 		
 								<header>
 									<span class="widget-icon"> <i class="fa fa-table"></i> </span>
@@ -131,63 +100,41 @@ include('header.php');
 				
 									<!-- widget edit box -->
 									<div class="jarviswidget-editbox">
-										<!-- This area used as dropdown edit box -->
 				
 									</div>
-									<!-- end widget edit box -->
-		<?php
-include('Connect.php');
- $sql="SELECT * FROM aboutus Where elementname ='slider1' OR elementname='slider2' OR elementname ='slider3'";
- 
-$stmt=mysqli_query($connection,$sql);
-if($stmt == false) {
-trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
-}
-echo $nr=mysqli_num_rows($stmt);
-if($nr >0)
-{
-  ?>		
+							<?php
+					include('Connect.php');
+					$sql="SELECT * FROM slider";					
+					$stmt=mysqli_query($connection,$sql);
+					if($stmt == false) {
+					trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
+					}
+					echo $nr=mysqli_num_rows($stmt);
+					if($nr > 0)
+					{
+					?>		
 									<!-- widget content -->
 									<div class="widget-body no-padding table-responsive">
 				
 										<table id="dt_basic" class="table table-striped table-bordered table-hover" width="100%">
 											<thead>			                
 												<tr>
-													<th data-hide="phone">Serial ID</th>
-													<th > Element Name</th>
-													<th data
-													-class="expand"><i class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs"></i> Title</th>
-													
-												
-													<th > Picture</th>
-													<th > Description</th>
-													<th > Subtitle</th>
-													
-													<th > Link</th>
-														<th > Action</th>
-													
-													
-												
+													<th>ID</th>													
+													<th>Picture</th>
+													<th>Modify</th>
+													<th>Delete</th>	
 												</tr>
 											</thead>
 											<tbody>
 											<?php
 											while($row =mysqli_fetch_assoc($stmt))
-											{
-											
+											{											
 											?>
 												<tr>
 													<td><?php echo $row['id']; ?></td>
-													<td><?php echo $row['elementname']; ?></td>
-													
-													<td><?php echo $row['title']; ?></td>
-													
-													<td><a href="../images/<?php echo $row['picture']; ?>"><img style="height:50px; width:50px;"src="../images/<?php echo $row['picture']; ?>" /></a></td>
-													<td><?php echo $row['description']; ?></td>
-													<td><?php echo $row['subtitle']; ?></td>
-													<td><?php echo $row['hreflink']; ?></td>
-												<td> 
-         <a    href="javascript:contact_Id(<?php echo $row['id'];?>)"><i class="fa fa-trash-o fa-lw"></i></a> &nbsp; &nbsp;&nbsp; &nbsp; <a    href="updateSlider.php?id=<?php echo $row['id'];?>"><i class="fa fa-pencil fa-fw"></i></a></td>
+													<td class="expand"><img class="img-responsive" style="height: 20rem; width: 40rem;" src="../images/<?php echo $row['image']; ?>" /></td>
+													<td><a href="updateSlider.php?id=<?php echo $row['id'];?>"><i class="fa fa-pencil fa-fw"></a></td>
+													<td><a class="eliminar" id="<?php echo $row['id'];?>"><i class="fa fa-trash-o fa-lw"></a></td>												
 												</tr>
 								<?php
 								}
@@ -212,7 +159,7 @@ if($nr >0)
 	
 						</article>
 						<!-- WIDGET END -->
-				
+						<a href="newSlider.php">Agregar Nuevo Slider</a>				
 					</div>
 				
 					<!-- end row -->
@@ -357,6 +304,8 @@ if($nr >0)
 
 		<!-- JQUERY MASKED INPUT -->
 		<script src="js/plugin/masked-input/jquery.maskedinput.min.js"></script>
+
+		<script src="js/default.js"></script>
 
 		<!-- JQUERY SELECT2 INPUT -->
 		<script src="js/plugin/select2/select2.min.js"></script>
