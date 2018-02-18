@@ -1,8 +1,6 @@
 <?php session_start();
 include('Connect.php');
  $email=$_SESSION['uemail'];
-
-
  $sql="SELECT * FROM users Where email='$email'";
  
 $stmt=mysqli_query($connection,$sql);
@@ -36,7 +34,7 @@ $rows=mysqli_fetch_array($stmtt);
 		    $title = $_POST['title'];// item name
 			$keyword = $_POST['keyword'];
 	
-	 $catid = $_POST['catid'];// item name
+	 		$catid = $_POST['catid'];// item name
 		    $title = $_POST['title'];// item name
 			$keyword = $_POST['keyword'];
 			$slctedkeyword=$_POST['selectedkeyword'];
@@ -65,23 +63,16 @@ $rows=mysqli_fetch_array($stmtt);
             $description = $_POST['description'];
 			$fobprice=$_POST['fobprice'];
 			$oquantity=$_POST['oquantity'];
-			echo $dropminimum=$oquantity.' '.$_POST['dropminimum'];
-			
-	
+			$delivery_details=$_POST['delivery_details'];	
 			$showcaseid=$_POST['showcaseid'];
 			$showtoplist=$_POST['showtoplist'];
 			
 			
 			
-			
-	    	$description = $_POST['description'];// item name
-			$quantity = $_POST['quantity'];// item name
-			$color = $_POST['color'];// item name
-			
+	    	$description = $_POST['description'];// item name			
 			$subcatid = $_POST['subcatid'];// item name
 			if($_POST['showcaseid'] !="")
 			{
-			echo $productstatus=$_POST['showcaseid'];
 			}
 			else if($productstatus =="")
 			{
@@ -89,7 +80,6 @@ $rows=mysqli_fetch_array($stmtt);
 			}
 			if($_POST['showtoplist'] !="")
 			{
-			echo $producttoplist=$_POST['showtoplist'];
 			}
 		$productType = $_POST['productType'];// item name
 			
@@ -137,10 +127,8 @@ $rows=mysqli_fetch_array($stmtt);
 			$tempfile1 = $_FILES['file1']['tmp_name'];
 			move_uploaded_file($tempfile1, $filelocation); 
  }			 
-			//if($productstatus !="")
-			//{
-		//	  $query="INSERT INTO products(ntitle,price,fulldescription,image,catid,subcatid,productaction,user_id,producttoplist,quantity,productType) VALUES ('$title','$price','$description','$image1,$image2 ,$image3,$image4,$image5','$catid','$subcatid','$productstatus','$userId','$producttoplist','$quantity','$productType')";
-			  			 $query="INSERT INTO products(catid,subcatid,ntitle,keywords,selectedkeyword,country,port,weight,volume,dimension,capacity,energypower,rotationspeed,elaboration,puse,psize,packing,certification,price,miniorder,fulldescription,image,producttoplist,productType,productaction,user_id)VALUES('$catid','$subcatid','$title','$keyword','$slctedkeyword','$dropcountry','$port','$dropweight','$dropvolum','$dropdimension','$dropcapacity','$dropenergy','$rotation','$elobration','$use','$size','$packaging','$fileimage1','$fobprice','$dropminimum','$description','$image1,$image2,$image3,$image4','$showtoplist','$productType','$productstatus','$userId')";
+
+			  			 $query="INSERT INTO products(catid,subcatid,ntitle,keywords,selectedkeyword,country,port,weight,volume,dimension,capacity,energypower,rotationspeed,elaboration,puse,psize,packing,certification,price,miniorder,fulldescription,image,producttoplist,productType,productaction,user_id,delivery_details)VALUES('$catid','$subcatid','$title','$keyword','$slctedkeyword','$dropcountry','$port','$dropweight','$dropvolum','$dropdimension','$dropcapacity','$dropenergy','$rotation','$elobration','$use','$size','$packaging','$fileimage1','$fobprice','$dropminimum','$description','$image1,$image2,$image3,$image4','$showtoplist','$productType','$productstatus','$userId','$delivery_details')";
 			
 	
 		 
@@ -186,8 +174,8 @@ $rows=mysqli_fetch_array($stmtt);
 			$result3->execute();
 			?>
 			<script>
-			alert("ADD PRODUCT");
-			     window.location.href="suppliers.php";
+				alert("ADD PRODUCT");
+				window.location.href="suppliers.php";
 			</script>
 			
 			<?php
@@ -197,9 +185,8 @@ $rows=mysqli_fetch_array($stmtt);
 			else
 			{
 			?>
-			 <script >;
-                alert("Error in Insertion !");  //not showing an alert box.
-		       window.location.href="suppliers.php";
+			 <script >
+				 window.location.href="suppliers.php";
          </script>
 		<?php	}
 		}
