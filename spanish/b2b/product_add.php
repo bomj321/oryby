@@ -292,16 +292,13 @@ else if(trim($str1) ==trim($str3))
 				<div class="form-group" style="margin-top:20px;"><label> Volume: </label></div> 
 				<div class="form-group" style="margin-top:35px;"><label> Dimensions: </label></div> 
 				<div class="form-group" style="margin-top:30px;"><label> Capicity: </label></div> 
-				<div class="form-group" style="margin-top:20px;"><label> Energy Power: </label></div> 
-				 
+				<div class="form-group" style="margin-top:20px;"><label> Energy Power: </label></div> 				 
 				<div class="form-group" style="margin-top:40px;"><label> Rational Speed: </label></div> 
 				<div class="form-group" style="margin-top:20px;"><label> Elabortional Material: </label></div> 
 				<div class="form-group" style="margin-top:20px;"><label> Use: </label></div> 
 				<div class="form-group" style="margin-top:20px;"><label> Size: </label></div> 
 				<div class="form-group" style="margin-top:20px;"><label> Packing: </label></div>
-                <div class="form-group" style="margin-top:20px;"><label> Product type: </label></div> 
-				<div class="form-group" style="margin-top:20px;"><label> Show case: </label></div> 
-				<div class="form-group" style="margin-top:15px;"><label> Top list: </label></div> 				
+                <div class="form-group" style="margin-top:20px;"><label> Product type: </label></div> 				
 				<div class="form-group" style="margin-top:20px;"><label> Product Certification: </label></div> 
 				<div class="form-group" style="margin-top:20px;"><label> Product Image: </label></div> 
 				<div class="form-group" style="margin-top:20px;"><label> FOB Price: </label></div> 
@@ -653,10 +650,10 @@ else if(trim($str1) ==trim($str3))
 				</div>
 				</div>
 				<div class="form-group">
-						<input type="text" class="form-control input-sm" required placeholder="Rotation speed" name="rotation" id="rot">
+						<input type="text" class="form-control input-sm"placeholder="Rotation speed" name="rotation" id="rot">
 				</div>
 				<div class="form-group">
-						<input type="text" class="form-control input-sm" required placeholder="Elobration Material" name="elobration" id="elobration">
+						<input type="text" class="form-control input-sm" placeholder="Elobration Material" name="elobration" id="elobration">
 				</div>
 				<div class="form-group">
 						<input type="text" class="form-control input-sm" required placeholder="Use" name="use" id="use">
@@ -689,7 +686,7 @@ else if(trim($str1) ==trim($str3))
 						 
 						 <div class="form-group ">
 		
-			<select  required class="form-control input-sm" name="productType">
+			<select  class="form-control input-sm" name="productType">
 			<option  value="">Select Product Type</option>
 			<option value="Eco Friendly" >Eco Friendly </option>
 			<option value="Innovation" >Innovation</option>
@@ -699,29 +696,17 @@ else if(trim($str1) ==trim($str3))
 			
 			</div>
 	
-				<div class="form-group">
 
-			<select  class="form-control input-sm"  id="showcaseid" name="showcaseid" >
-			<option  value="" >Select Product </option>
-			<option value ="0">Show on Show Case</option>
-			</select>
-			</div>
-				<div class="form-group">
 
-			<select  class="form-control input-sm"  id="showtoplist" name="showtoplist" >
-			<option  value="" >Select For Top List</option>
-			<option value ="1">Set As Top List Product</option>
-			</select>
-			</div>
 
 						 
 						 
 						 <div class="form-group">
-						   <input id="files" class="form-control input-sm" type="file"  name="file1"  required />
+						   <input id="files" class="form-control input-sm" type="file"  name="file1"/>
                            	
 						 </div>
 						  <div class="form-group">
-						   <input  id="files1" class="form-control input-sm" type="file"  name="file2[]" multiple="multiple" required />
+						   <input  id="files1" class="form-control input-sm" type="file"  name="file2[]" multiple="multiple"/>
                            	
 						 </div>
 						 <div class="form-group">
@@ -750,7 +735,7 @@ else if(trim($str1) ==trim($str3))
 						 </div>
 						 </div>
 						 <div class="form-group">
-								 <input type="text" class="form-control input-sm" required placeholder="3days" name="delivery_details" id="delivery_details">
+								 <input type="text" class="form-control input-sm" placeholder="3days" name="delivery_details" id="delivery_details">
 						 </div>	
 						</div>	
 
