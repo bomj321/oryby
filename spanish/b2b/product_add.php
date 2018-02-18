@@ -108,13 +108,12 @@ $stmt=mysqli_query($connection,$sql);
 if($stmt == false) {
 trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
 }
-  $nr=mysqli_num_rows($stmt);    
+$nr=mysqli_num_rows($stmt);    
 $row=$stmt->fetch_assoc();
- $userId=$row['user_id'];
-  $totalproduct=$row['limitTotalProduct']; 
-
-  $producttoplist=$row['limitTopList']; 
-  $productshowcase=$row['limitShowCase']; 
+$userId=$row['user_id'];
+$totalproduct=$row['limitTotalProduct']; 
+$producttoplist=$row['limitTopList']; 
+$productshowcase=$row['limitShowCase']; 
 ?></br>
  <?php
  
@@ -343,6 +342,7 @@ else if(trim($str1) ==trim($str3))
 				<div class="form-group" style="margin-top:20px;"><label> Product Image: </label></div> 
 				<div class="form-group" style="margin-top:20px;"><label> FOB Price: </label></div> 
 				<div class="form-group" style="margin-top:20px;"><label> Minimum Order: </label></div> 
+				<div class="form-group" style="margin-top:20px;"><label> Delivery Details: </label></div>
 				
 				 
 			<!--	 -->
@@ -789,6 +789,9 @@ else if(trim($str1) ==trim($str3))
                          </select>         	
 						 </div>
 						 </div>
+						 <div class="form-group">
+								 <input type="text" class="form-control input-sm" required placeholder="3days" name="delivery_details" id="delivery_details">
+						 </div>	
 				</div>						  
 				
 				
