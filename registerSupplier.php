@@ -7,11 +7,11 @@ include('head.php');
 
     <body>
       <?php //include('topbar.php'); ?>
-       
+
      <?php include('navh.php'); ?><!-- end navbar -->
         <!-- End navbar -->
-       
- 
+
+
 		<div class="container">
     	<div class="row">
 			<div class="col-sm-10 col-sm-offset-2" >
@@ -19,29 +19,29 @@ include('head.php');
 				<div class="panel panel-login" style="background-color:#f7f7f7;">
 					<div class="panel-heading" style="background-color:#f2f2f2;">
 						<div class="row">
-						
+
 							<div class="col-sm-8  col-sm-offset-2" id="rg">
-					
+
 								<center><h3>COMPANY INFORMATION </h3>
-									
-									
-							</center> 
-								
-								
+
+
+							</center>
+
+
 						</div>
-						
+
 					</div>
 				<hr>
-									
-								
-				
+
+
+
 						<div class="col-sm-2 col-sm-offset-10">
-										
-											
+
+
 										<a href="sendconfirmation.php" >			<input type="submit" class="form-control btn btn-default" value="SKIP">
 										</br>
 											</div>
-											
+
 					</a>
 						<hr>
 					</br>
@@ -49,8 +49,8 @@ include('head.php');
 								<form id="register-form" action="registerSupplier_action.php"  enctype="multipart/form-data" method="post" role="form">
 								<div class="row">
 					<div class="col-sm-12" >
-								
-								
+
+
 										<div class="form-group">
 										<input type="text" name="companyName" id="comanyName" tabindex="3" class="form-control"  required placeholder="Company Name">
 									</div>
@@ -61,35 +61,35 @@ include('head.php');
                                                <input   type="text" name="street" tabindex="1" class="form-control"   required placeholder="Street ">
 									</div>
 										<div class="form-group">
-								
+
                                         <span>Phone Number:</span>
 											<input name="p1" type="text" size="10" placeholder="Code" required>
 											<input name="p2" type="text" size="16" placeholder="SSN #" required>
 											<input name="p3" type="text"  size="44"placeholder=" Number here" required>
-                                                             
-									</div> 
+
+									</div>
 						<div class="form-group">
-										
+
 					        <input  type="text" name="city" tabindex="1" class="form-control"  required placeholder="City">
-							
-										
+
+
 						</div>
 							<div class="form-group">
-										
+
 					        <input  type="text" name="province" tabindex="1" class="form-control"  required placeholder="Province">
 												        <input  type="hidden" name="email" value="<?php echo  $email;?>" >
-							
-										
+
+
 						</div>
 							<div class="form-group">
-										
+
 					        <input  type="text" name="zipCode" tabindex="1" class="form-control" required  placeholder="Zip Code">
-							
-										
+
+
 						</div>
 									<div class="form-group">
 										 <select name="selectcountryName" required class="form-control input">
-								 
+
 					<option value="">Select Country...</option>
 					<option value="Afganistan">Afghanistan</option>
 					<option value="Albania">Albania</option>
@@ -339,7 +339,7 @@ include('head.php');
 					<option value="Zambia">Zambia</option>
 					<option value="Zimbabwe">Zimbabwe</option>
 					</select>
-									</div>		
+									</div>
 									</br>
 									</br>
 									<h4>Described your Company </h4>
@@ -349,36 +349,35 @@ include('head.php');
                                              <option value="Manufacturer">Manufacturer</option>
                                              <option value="Distributor" >Distributor</option>
 											  <option value="Trading Company" >Trading Company </option>
-                                             <option value="Retailer" >Retailer</option>  <option value="other" >Other</option>      Trading Company                                       
+                                             <option value="Retailer" >Retailer</option>  <option value="other" >Other</option>      Trading Company
 											 </select>
 									</div>
 									<div class="form-group">
-										
+
 					        <input  type="text" name="noOfEmployee" tabindex="1" class="form-control"  required placeholder="Number of Employees">
-													
+
 							</div>
 							<div class="form-group">
-										
-					        <textarea  name="companyDescription" tabindex="1" class="form-control"  required rows="4" cols="50" >Described Here 
-							
-									</textarea>	
+
+					        <textarea  name="companyDescription" tabindex="1" class="form-control"  required rows="4" cols="50" placeholder="Described Here " >		
+									</textarea>
 						</div>
 										<div class="form-group">
 										<label> Your Company logo </label>
 					        <input id="files"  class="form-control" type="file" required name="file1" onchange="readURL(this);" />
-													
+
 						<div id="selectedFiles"></div>
 						</div>
 						<div="form-group">
-								<label> Your Company License </label>		
+								<label> Your Company License </label>
 					        <input  id="files1" class="form-control" type="file"  id="files" required name="file2[]" multiple="multiple"/>
-							
+
 						</div>
 								<div="form-group">
 										<h3>Uploaded Picture Preview Area </h3>
  <div id="selectedFiles1"></div>
 </div>
-								
+
 									<div class="form-group">
 										<div class="row">
 										</br>
@@ -389,23 +388,23 @@ include('head.php');
 											</div>
 										</div>
 									</div>
-							
-								
+
+
 							</div>
 						</div>
 						</div>
 							</form>
 					</div>
 				</div>
-			
-		
-		
-               
+
+
+
+
         <!-- start footer -->
        <?php require 'footer.php'; ?>
         <!-- end footer -->
-        
-        
+
+
         <!-- JavaScript Files -->
         <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
@@ -420,23 +419,23 @@ include('head.php');
         <script type="text/javascript" src="js/gmaps.js"></script>
         <script type="text/javascript" src="js/swiper.min.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
-		
+
 		<script>
 		$(function() {
-  
+
   // Get the form fields and hidden div
   var checkbox = $("#trigger");
- 
+
   var hidden = $("#hidden_fields");
   var populate = $("#populate");
-  
+
   // Hide the fields.
-  // Use JS to do this in case the user doesn't have JS 
+  // Use JS to do this in case the user doesn't have JS
   // enabled.
-  
+
     hidden.show();
-  
-  // Setup an event listener for when the state of the 
+
+  // Setup an event listener for when the state of the
   // checkbox changes.
   checkbox.change(function() {
     // Check to see if the checkbox is checked.
@@ -451,10 +450,10 @@ include('head.php');
       // Make sure that the hidden fields are indeed
       // hidden.
        hidden.show();
-      
-      // You may also want to clear the value of the 
-      // hidden fields here. Just in case somebody 
-      // shows the fields, enters data to them and then 
+
+      // You may also want to clear the value of the
+      // hidden fields here. Just in case somebody
+      // shows the fields, enters data to them and then
       // unticks the checkbox.
       //
       // This would do the job:
@@ -495,7 +494,7 @@ password.onchange = validatePassword;
 confirm_password.onkeyup = validatePassword;
 </script>
 		<script>
-		
+
 		$(function() {
 
     $('#login-form-link').click(function(e) {
@@ -528,81 +527,81 @@ confirm_password.onkeyup = validatePassword;
 								 var epas = document.getElementById('password');
 								 if(epas.value.length < 7){
                                  elem.innerHTML = "Password include the chrachers and numbers greater than 6";
-                                 elem.style.color="black";	
+                                 elem.style.color="black";
 								 }
-                              							 
+
 								}
-								
+
 									</script>
 												<!-- //////////////////////////////////////Start Image Uploader Js Script -->
 	 <script>
 	var selDiv = "";
-		
+
 	document.addEventListener("DOMContentLoaded", init, false);
-	
+
 	function init() {
 		document.querySelector('#files').addEventListener('change', handleFileSelect, false);
 		selDiv = document.querySelector("#selectedFiles");
 	}
-		
+
 	function handleFileSelect(e) {
-		
+
 		if(!e.target.files || !window.FileReader) return;
-		
+
 		selDiv.innerHTML = "";
-		
+
 		var files = e.target.files;
 		var filesArr = Array.prototype.slice.call(files);
 		filesArr.forEach(function(f) {
 			if(!f.type.match("image.*")) {
 				return;
 			}
-	
+
 			var reader = new FileReader();
 			reader.onload = function (e) {
 				var html = "<img src=\"" + e.target.result + "\">" + f.name + "<br clear=\"left\"/>";
-				selDiv.innerHTML += html;				
+				selDiv.innerHTML += html;
 			}
-			reader.readAsDataURL(f); 
-			
+			reader.readAsDataURL(f);
+
 		});
-		
-		
+
+
 	}
 	</script>
 	<script>
 	var selDiv = "";
-		
+
 	document.addEventListener("DOMContentLoaded", init1, false);
-	
+
 	function init1() {
 		document.querySelector('#files1').addEventListener('change', handleFileSelect, false);
 		selDiv = document.querySelector("#selectedFiles1");
 	}
-		
+
 	function handleFileSelect(e) {
-		
+
 		if(!e.target.files || !window.FileReader) return;
-		
+
 		selDiv.innerHTML = "";
-		
+
 		var files = e.target.files;
 		var filesArr = Array.prototype.slice.call(files);
 		filesArr.forEach(function(f) {
 			if(!f.type.match("image.*")) {
 				return;
 			}
-	
+
 			var reader = new FileReader();
 			reader.onload = function (e) {
 				var html = "<img src=\"" + e.target.result + "\">" + f.name + "<br clear=\"left\"/>";
-				selDiv.innerHTML += html;				
+				selDiv.innerHTML += html;
 			}
-			reader.readAsDataURL(f); 
-			
+			reader.readAsDataURL(f);
+
 		});
-		
-		
+
+
 	}
 	</script>
 

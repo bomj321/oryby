@@ -2,76 +2,56 @@
 include('Connect.php');
 include('head.php');
 
-
 ?>
-
-    <body>
-     <!-- start topBar -->
+<body>
+   <!-- start topBar -->
      <?php include('topbar.php');
-	include('middlebar.php');
-	 ?>
-	 <!-- end topBar -->
+         include('middlebar.php');
+   ?>
+   <!-- end topBar -->
 
 
 
 
        <?php include('navh.php');
-	   ?>
+     ?>
         <!-- start section -->
         <section class="section white-backgorund">
 
-		<?php
+    <?php
 
-		$qry1="SELECT * FROM aboutus WHERE elementname='content1'";
+    $qry1="SELECT * FROM aboutus WHERE elementname='content1'";
+
        $res1=mysqli_query($connection,$qry1);
-	   //echo $va=mysqli_num_rows($res1);
-	   $rw=mysqli_fetch_array($res1);
-	   $rw['description'];
-		?>
+     //echo $va=mysqli_num_rows($res1);
+     $rw=mysqli_fetch_array($res1);
+     $rw['description'];
+     $video= $rw['hreflink'];
+    ?>
             <div class="container">
                 <div class="row">
+                  <div class="col-sm-5" style="height:35rem; margin-top:8rem;">
+                      <iframe width="100%" height="100%" src="<?php echo  $video ?>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                  </div>
                     <div class="col-sm-7 vertical-align">
 
                         <h2 class="title"> <?php echo $rw['title'];?></h2>
-                        <p><?php echo $rw['description'];?>  </p></div><!-- end col -->
-                    <div class="col-sm-5 vertical-align">
+                        <p><?php echo $rw['description'];?>  </p>
+
                         <figure class="zoom-in">
-                            <img src="images/<?php echo $rw['picture'];?>" alt="">
+                            <img src="../../images/<?php echo $rw['picture'];?>" alt="">
                         </figure>
-                    </div><!-- end col -->
+
+                      </div><!-- end col -->
+
+
                 </div><!-- end row -->
+
                           <hr class="spacer-100">
-                          <?php
-		$qry2="SELECT * FROM aboutus WHERE elementname='content2'";
-       $res2=mysqli_query($connection,$qry2);
-	   $rw2=mysqli_fetch_array($res2);
-	    $nr =mysqli_num_rows($res2);
-		?>
-
-                <div class="container">
-                    <div class="row">
-                      <div class="col-sm-5" style="height:35rem; margin-top:8rem;">
-                          <iframe width="100%" height="100%" src="<?php echo  $video ?>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                      </div>
-                        <div class="col-sm-7 vertical-align">
-
-                            <h2 class="title"> <?php echo $rw['title'];?></h2>
-                            <p><?php echo $rw['description'];?>  </p>
-
-                            <figure class="zoom-in">
-                                <img src="images/<?php echo $rw['picture'];?>" alt="">
-                            </figure>
-
-                          </div><!-- end col -->
-
-
-                    </div><!-- end row -->
-
-                              <hr class="spacer-100">
 
 
 
-                    </div><!-- end row -->
+                </div><!-- end row -->
 
             </div><!-- end container -->
         </section>
