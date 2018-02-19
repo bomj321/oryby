@@ -71,7 +71,7 @@ include 'Connect.php';
    $qryresult=mysqli_query($connection,$q);
 
 	//	if($qryresult){	
-			header('Location:sendconfirmation.php');
+			header('Location:sendconfirmation2.php');
 			
 			
 		  } ?>

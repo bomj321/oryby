@@ -2,15 +2,14 @@
 include('Connect.php');
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
  $email = mysqli_real_escape_string( $connection, $_POST['email']);
- $chkqury="SELECT * FROM confirm WHERE email = '$email' AND  chkstatus ='1' ";
+ $chkqury="SELECT * FROM users WHERE confirmed = '1'";
 $rsl=mysqli_query($connection,$chkqury);
 $nr=mysqli_num_rows($rsl);
 $row =mysqli_fetch_array($rsl); 
-$status=$row['chkstatus'];
 if($nr > 0){ 
 
 	  $password = mysqli_real_escape_string($connection, $_POST['password']);        
-      $sql = "SELECT * FROM users WHERE email = '$email' AND password = '$password' ";
+      $sql = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
       $result = mysqli_query($connection,$sql);
      
         $count = mysqli_num_rows($result);

@@ -11,8 +11,9 @@ include 'Connect.php';
 	    $email = $_POST['email'];
 		$_SESSION['confemail']=$email;
         $password = $_POST['password'];
-	
-      $userType=$_POST['role'];
+	    $confirmcode = rand();
+		$_SESSION['code']= $confirmcode;
+      	$userType=$_POST['role'];
 		$countryName=$_POST['countryName'];
 		
 		if (!preg_match("|^[a-zA-Z ]{3,25}$|",$fname)) {
@@ -76,7 +77,9 @@ include 'Connect.php';
                       }
 					  
 			 else {
-			$sql = "INSERT INTO users (firstName,lastName,email,password,userType,countryName) VALUES ('$fname', '$lname','$email', '$password','$userType','$countryName')";
+
+			 	
+			$sql = "INSERT INTO users (firstName,lastName,email,password,userType,countryName,confirmed,confirmcode) VALUES ('$fname', '$lname','$email', '$password','$userType','$countryName', '0', $confirmcode)";
 		 
 		   $stmt = $connection->prepare($sql);
 					if($stmt === false) {
@@ -114,7 +117,7 @@ include 'Connect.php';
 			mysqli_query($connection,$keyquery);
 			if($userType == 'buyer')
 			{
-			header('Location:sendconfirmation.php');
+			header('Location:sendconfirmation2.php');
 			}
 			if($userType == 'supplier' OR $userType =='both')
 			{
