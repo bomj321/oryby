@@ -1,7 +1,8 @@
 <?php
 error_reporting(0);
 include 'Connect.php';
-
+    $email= $_SESSION['confemail'];
+    $confirmcode=$_SESSION['code'];
     $error =false;
  ?>
   <?php  if (isset($_POST['register-submit'])) {
@@ -22,7 +23,8 @@ include 'Connect.php';
 		  $businessType= $_POST['businessType'];
 		  $noOfEmployee= $_POST['noOfEmployee'];
 		  $companyDescription= $_POST['companyDescription'];
-		     $email = $_POST['email'];
+		  $email= $_SESSION['confemail'];
+		  $confirmcode=$_SESSION['code'];
 		  ///////////////////////////////////////////
 		 	
 			$target_dir = "images/";
@@ -69,14 +71,20 @@ include 'Connect.php';
 		 
 	 $q ="INSERT INTO seller(email,phoneNo,company_name,street,city,province,zipCode,countryName,businessType,noOfEmployee,companylogo,companyDescription,companylicense,companyLegalNo) VALUES ('$email','$phone','$companyName','$street','$city','$province','$zipCode','$countryName','$businessType','$noOfEmployee','$images','$companyDescription','$image1,$image2,$image3,$image4,$image5','$companyLegalNo')";
    $qryresult=mysqli_query($connection,$q);
-
-	//	if($qryresult){	
-			header('Location:sendconfirmation.php');
-			
-			
-		  } ?>
+   
+			 if (!$qryresult) {
+   	            echo "INSERCION NO EXITOSA";
+                        }else{
+                   	echo "
+                   	<script>
+                	window.location.href ='sendconfirmation2.php';
+                   </script>	";
+                            }
+            }
+		  ?>
 		
 	
 		
 		
            		
+

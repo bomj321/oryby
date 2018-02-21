@@ -3,7 +3,9 @@ error_reporting(0);
 include 'Connect.php';
 include('head.php');
  include('topbar.php');
-  $email=$_GET['email'];		?>
+  $email= $_SESSION['confemail'];
+$confirmcode=$_SESSION['code'];
+  ?>
 
     <body>
       <?php //include('topbar.php'); ?>
@@ -38,7 +40,7 @@ include('head.php');
 						<div class="col-sm-2 col-sm-offset-10">
 
 
-										<a href="sendconfirmation.php" >			<input type="submit" class="form-control btn btn-default" value="SKIP">
+										<a href="sendconfirmation2.php?userStatus=1" >			<input type="submit" class="form-control btn btn-default" value="SKIP">
 										</br>
 											</div>
 
@@ -608,3 +610,4 @@ confirm_password.onkeyup = validatePassword;
 	<!-- //////////////////////////////////////End Image Uploader Js Script -->
     </body>
 </html>
+

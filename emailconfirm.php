@@ -1,39 +1,60 @@
-
 <?php
 
 include 'Connect.php'; 
 
-
 $email = $_GET['email'];
 $code = $_GET['code'];
-
-$query = mysqli_query("SELECT * FROM `verificacion` WHERE `email`='$email'");
+$userStatus = $_GET['userStatus'];
+$query = mysqli_query("SELECT * FROM `users` WHERE `confirmcode`='$code'");
 while($row = mysqli_fetch_assoc($query))
 {
-	$db_code = $row['confirm-code'];
+    $db_code = $row['confirmcode'];
+    $userType = $row['userType'];
 }
-if($code == $db_code)
+if($db_code = $code)
 {
-	mysqli_query("UPDATE `verificacion` SET `confirmed`='1'");
-	mysqli_query("UPDATE `verificacion` SET `confirm-code`='0'");
+    
+    if($userType = 'buyer' or isset($userStatus)){
+        
+        $sql3 = "UPDATE users SET userStatus='1' WHERE confirmcode='$code'";
+        if(!mysqli_query($connection, $sql3)){
+    echo "ERROR: Could not able to execute $sql3. " . mysqli_error($connection);
+        
+}
+        
+        
+}
 
-	echo "<script>
+$sql = "UPDATE users SET confirmed='1' WHERE confirmcode='$code'";
+        if(!mysqli_query($connection, $sql)){
+    echo "ERROR: Could not able to execute $sql. " . mysqli_error($connection);
+
+}
+
+$sql2 = "UPDATE users SET confirmcode='0' WHERE confirmcode='$code'";
+if(!mysqli_query($connection, $sql2)){
+
+    echo "ERROR: Could not able to execute $sql2. " . mysqli_error($connection);
+
+} 
+
+echo "<script>
                 alert('Thank You. Your email has been confimed and you may now login');
                 window.location= 'singlelogin.php'
         </script>";
-	
-	
+
+    
+    
 
 }
 else
 {
-	echo "
-		<script>
+    echo "
+        <script>
                 alert('Email and code dont match');
                 window.location= 'index.php'
-        </script>";	
+        </script>"; 
 
 }
-
+mysqli_close($connection);
 ?>
-
