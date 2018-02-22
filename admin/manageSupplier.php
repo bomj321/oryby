@@ -116,8 +116,7 @@ trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERR
 $nr=mysqli_num_rows($stmt);
 if($nr >0)
 {
-
-  ?>
+?>
 									<!-- widget content -->
 									<div class="widget-body no-padding table-responsive">
 
@@ -146,7 +145,7 @@ if($nr >0)
 													<td><?php echo $row['userType']; ?></td>
 													<td><?php echo $row['firstName']; ?></td>
 													<td><?php echo $row['lastName']; ?></td>
-													<td><?php echo $row['countryName']; ?>  <?php echo $row['lastName']; ?></td>
+													<td><?php echo $row['countryName']; ?></td>
 													<td><?php echo $row['email']; ?></td>
 													<td><?php echo $row['Membership Type']; ?></td>
 													<td> <a href="updateSupplier.php?email=<?php echo $row['email'];?>"><i class="fa fa-eye"></i></a>

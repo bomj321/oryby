@@ -44,14 +44,13 @@ window.location.href="singlelogin.php";
 <?php
 }
 ?>
+<body>
+<!-- start topBar -->
 
-    <body>
-
-        <!-- start topBar -->
-        <?php require 'topbar.php'; ?>
-        <!-- end topBar -->
-
-        <!-- start navbar -->
+<?php include('topbar.php');
+include('middlebar.php');
+include('navh.php');
+?>
 
 
 

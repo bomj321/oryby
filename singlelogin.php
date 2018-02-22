@@ -1,15 +1,14 @@
-<?php
-error_reporting(0);
-include 'Connect.php';
+<?php session_start();
+include('Connect.php');
 include('head.php');
- include('topbar.php');
+?>
 
- ?>
-
-    <body>
-        
-        <!-- start topBar -->
-        <?php include('navh.php'); ?>
+<body>
+<!-- start topBar -->
+<?php include('topbar.php');
+include('middlebar.php');
+include('navh.php');
+?>
        
         
         <!-- start section -->

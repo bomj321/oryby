@@ -3,13 +3,13 @@ include('Connect.php');
 include('head.php');
 ?>
 
-    <body>
-     <!-- start topBar -->
+<body>
+<!-- start topBar -->
 
-     <?php include('topbar.php');
-	include('middlebar.php');
-	  include('navh.php');
-	   ?>
+<?php include('topbar.php');
+include('middlebar.php');
+include('navh.php');
+?>
 
 
         <!-- start section -->
@@ -113,7 +113,7 @@ $(document).ready(function(){
 							?>
                             <div class="carousel-inner" role="listbox">
                                 <div class="item active">
-                                <img src="images/<?php echo $picture;?>" style="width: 100%;height: 100%;" alt="...">
+                                <img src="images/<?php echo $picture;?>" style="width: 100%;height: 45rem;" alt="...">
                                 <div class="carousel-caption">
                                 </div>
                                 </div>
@@ -125,7 +125,7 @@ $(document).ready(function(){
                             <?php while ($results = $result->fetch_all(MYSQLI_ASSOC) ) { ?>
                             <?php foreach($results as $resu): ?>
                                 <div class="item">
-                                <img src="images/<?php echo $resu['image'];?>" alt="..." style="width: 100%;height: 100%;">
+                                <img src="images/<?php echo $resu['image'];?>" alt="..." style="width: 100%;height: 45rem;">
                                 <div class="carousel-caption">
                                 </div>
                                 </div>
