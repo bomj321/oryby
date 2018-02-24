@@ -228,12 +228,12 @@ else if(trim($str1) ==trim($str3))
 	     <!-- start section -->
             <div class="container">
 			 <!-- start Form -->
-            <form action="addproduct.php" method="POST" enctype="multipart/form-data">				  
+                  <form action="addproduct.php" method="POST" enctype="multipart/form-data">				  
 			  <div class="row">
 				<h2 class="text-center">ADD PRODUCTS</h2>			
 					<div class="col-sm-8 col-sm-offset-2">  
 					<div class="form-inline">				
-						<?php $membershipType ?>	
+						<?php  $membershipType ?>	
 						<?php
 							$sql="SELECT * FROM categories WHERE NOT title ='Eco Friendly' AND NOT title ='Innovation'";
 							$stmt=mysqli_query($connection,$sql);
@@ -276,9 +276,18 @@ else if(trim($str1) ==trim($str3))
 							<textarea class="form-control" placeholder="keyword" name="selectedkeyword" id="selectedkey">  </textarea>
 						</div>
 					</div>
-					<div class="col-sm-4">
-						<img src="images/chile.png" alt="imagen"  class="img-responsive pull-right">
-					</div>
+						<?php
+                            $sqll="Select * from `images` where id = '1'";
+                            $result=mysqli_query($connection,$sqll);
+                        ?>
+
+                        <?php while ($results = $result->fetch_all(MYSQLI_ASSOC) ) { ?>
+                        <?php foreach($results as $resu): ?>
+						<div class="col-sm-4 col-md-4">
+							<img src="../../images/<?php echo $resu['image'];?>" alt="imagen"  class="pull-right" style="width:20rem;height:17rem">
+						</div>
+						<?php endforeach;?>
+						<?php }?>
 				</div>
 				<!-- END of ROW -->
 		<div class="row"> 
@@ -663,7 +672,8 @@ else if(trim($str1) ==trim($str3))
 	                         <option value="Small">Small</option>  
                              <option value="Medium">Medium</option>  
 							 <option value="Large">Large</option>  
-							 <option value="Extra large">Extra large</option>								
+							 <option value="Extra large">Extra large</option>
+								
                              <option value="others">Others</option>							 
                          </select>
 				</div>
@@ -737,11 +747,18 @@ else if(trim($str1) ==trim($str3))
 								 <input type="text" class="form-control input-sm" placeholder="3days" name="delivery_details" id="delivery_details">
 						 </div>	
 						</div>	
+						<?php
+                            $sqll="Select * from `images` where id = '3' ";
+                            $result=mysqli_query($connection,$sqll);
+                        ?>
 
+                        <?php while ($results = $result->fetch_all(MYSQLI_ASSOC) ) { ?>
+                        <?php foreach($results as $resu): ?>
 						<div class="col-sm-4 col-md-4">
-							<img src="images/chile.png" alt="imagen"  class="img-responsive pull-right">
+							<img src="../../images/<?php echo $resu['image'];?>" alt="imagen"  class="pull-right" style="width:20rem;height:28rem">
 						</div>
-				
+						<?php endforeach;?>
+						<?php }?>				
 				</div>	
 				<div class="row">
 				<div class="form-group" style="margin-top:32px;margin-left:56px;"><h4><b> DESCRIPTION:</b> </h4></div> 
