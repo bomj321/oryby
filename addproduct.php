@@ -30,10 +30,9 @@ $rows=mysqli_fetch_array($stmtt);
 
 	   /////////////////////////////
 	        $catid = $_POST['catid'];// item name
-			    $subcatid = $_POST['subcatid'];// item name
+			$subcatid = $_POST['subcatid'];// item name
 		    $title = $_POST['title'];// item name
-			$keyword = $_POST['keyword'];
-	
+			$keyword = $_POST['keyword'];	
 	 		$catid = $_POST['catid'];// item name
 		    $title = $_POST['title'];// item name
 			$keyword = $_POST['keyword'];
@@ -41,14 +40,12 @@ $rows=mysqli_fetch_array($stmtt);
 			$dropcountry = $_POST['dropcountry'];//dropcountry
 			$port=$_POST['port'];
 			$wquantity=$_POST['wquantity'];
-			$dropweight =$wquantity.' '.$_POST['dropweight'];
-			
+			$dropweight =$wquantity.' '.$_POST['dropweight'];			
 			$vquantity=$_POST['vquantity'];
 			$dropvolum=$vquantity.' '.$_POST['dropvolum'];
 			$dquantity=$_POST['dquantity'];
 			$dropdimension=$dquantity.' '.$_POST['dropdimension'];
-			$cquantity=$_POST['cquantity'];
-			
+			$cquantity=$_POST['cquantity'];			
 			$dropcapacity=$cquantity.' '.$_POST['dropcapacity'];
 			$equantity=$_POST['equantity'];
 			$dropenergy= $equantity.' '.$_POST['dropenergy'];
@@ -58,6 +55,7 @@ $rows=mysqli_fetch_array($stmtt);
 		    $size=$_POST['size'];
 			$packaging=$_POST['packaging'];
 			$productType = $_POST['productType'];
+<<<<<<< HEAD
 			$productType2 = $_POST['productType'];
 
 			if ($productType = 'Eco Friendly' or $productType = 'Innovation') {
@@ -65,15 +63,14 @@ $rows=mysqli_fetch_array($stmtt);
 			}
 			//$showcaseid=$_POST['showcaseid'];
 			//$showtoplist=$_POST['showtoplist'];
+=======
+>>>>>>> 461d7ab250a39939b38a5284a2d0ef02104269da
             $description = $_POST['description'];
 			$fobprice=$_POST['fobprice'];
-			$oquantity=$_POST['oquantity'];
-			$delivery_details=$_POST['delivery_details'];	
+			$oquantity=$_POST['oquantity'];	
 			$showcaseid=$_POST['showcaseid'];
-			$showtoplist=$_POST['showtoplist'];
-			
-			
-			
+			$showtoplist=$_POST['showtoplist'];	
+			$delivery=$_POST['delivery_details'];				
 	    	$description = $_POST['description'];// item name			
 			$subcatid = $_POST['subcatid'];// item name
 			if($_POST['showcaseid'] !="")
@@ -133,7 +130,11 @@ $rows=mysqli_fetch_array($stmtt);
 			move_uploaded_file($tempfile1, $filelocation); 
  }			 
 
+<<<<<<< HEAD
 			  			 $query="INSERT INTO products(catid,subcatid,ntitle,keywords,selectedkeyword,country,port,weight,volume,dimension,capacity,energypower,rotationspeed,elaboration,puse,psize,packing,certification,price,miniorder,fulldescription,image,producttoplist,productType,productType2, productaction,user_id,delivery_details)VALUES('$catid','$subcatid','$title','$keyword','$slctedkeyword','$dropcountry','$port','$dropweight','$dropvolum','$dropdimension','$dropcapacity','$dropenergy','$rotation','$elobration','$use','$size','$packaging','$fileimage1','$fobprice','$dropminimum','$description','$image1,$image2,$image3,$image4','$showtoplist','$productType','$productType2','$productstatus','$userId','$delivery_details')";
+=======
+			$query="INSERT INTO products(catid,subcatid,ntitle,keywords,selectedkeyword,country,port,weight,volume,dimension,capacity,energypower,rotationspeed,elaboration,puse,psize,packing,certification,price,miniorder,fulldescription,image,producttoplist,productType,productaction,user_id,delivery_details)VALUES('$catid','$subcatid','$title','$keyword','$slctedkeyword','$dropcountry','$port','$dropweight','$dropvolum','$dropdimension','$dropcapacity','$dropenergy','$rotation','$elobration','$use','$size','$packaging','$fileimage1','$fobprice','$oquantity','$description','$image1 $image2 $image3 $image4','$showtoplist','$productType','$productstatus','$userId','$delivery')";
+>>>>>>> 461d7ab250a39939b38a5284a2d0ef02104269da
 			
 	
 		 

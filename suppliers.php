@@ -19,15 +19,7 @@ window.location.href="singlelogin.php";
 <?php
 }
 
-// $result01=mysqli_query($connection,$query01);
- //$rowd=mysqli_fetch_array($result01);
-// $umail=$rowd['userid'];
-//$utype=$rowd['usertype'];
-//if(($email!= $umail)&& ($usertype != $utype)){
-	 
-      //   header("location: profileComplete.php");
-	//}
- ?>
+?>
  
 	
 <?php
@@ -76,18 +68,16 @@ if ($nr > 0)
  <table id="example" class="display" cellspacing="0" class="table table-bordered table-striped" width="100%">
  <thead >
      <tr>
-      
-        <th>ID</th>
         <th>Title</th>
-         <th>price</th>
+        <th>price</th>
         <th>Description</th>
-		 <th>Category </th>
-		 <th>Product Type </th>
+		<th>Category </th>
+		<th>Product Type </th>
 		<th>Minimum Orders </th>
-	
-         <th>Image</th>
-        <th> <center>Top List    </center></th>
-       <th > <center>Actions    </center></th>
+        <th>Delivery Details</th>	
+        <th>Image</th>
+        <th>Top List</th>
+       <th >Actions</th>
          
       </tr>
     </thead>
@@ -101,25 +91,17 @@ if ($nr > 0)
 $myString = $row['image'];
 $cl = explode(',', $myString);
 
-	?>
+    ?>
 
-      <tr>
-       <td></br><?php echo $row['pid']; ?></td>
-       
-        <td></br><?php echo $row['ntitle']; ?></td>
-        <td></br><?php echo $row['price']; ?></td>
-  
-        <td></br><?php echo $row['fulldescription']; ?></td>
-   
-      <td></br><?php echo $row['title']; ?></td>
-	    <td></br><?php echo $row['productType']; ?></td>
-
-  
-        <td></br><?php echo $row['miniorder']; ?></td>
-		
-        <td>
-		
-	<img style="height:100px; width:100px;" src="images/<?php echo $cl[0]; ?>" />	</td>
+            <tr>    
+                <td></br><?php echo $row['ntitle']; ?></td>
+                <td></br><?php echo $row['price']; ?></td>  
+                <td></br><?php echo $row['fulldescription']; ?></td>
+                <td></br><?php echo $row['title']; ?></td>
+                <td></br><?php echo $row['productType']; ?></td>
+                <td></br><?php echo $row['miniorder']; ?></td>
+                <td></br><?php echo $row['delivery_details']; ?></td>		
+                <td><img style="height:100px; width:100px;" src="images/<?php echo $cl[0]; ?>" /></td>
 
         <td></br>
 		&nbsp;&nbsp;

@@ -19,15 +19,7 @@ window.location.href="singlelogin.php";
 <?php
 }
 
-// $result01=mysqli_query($connection,$query01);
- //$rowd=mysqli_fetch_array($result01);
-// $umail=$rowd['userid'];
-//$utype=$rowd['usertype'];
-//if(($email!= $umail)&& ($usertype != $utype)){
-	 
-      //   header("location: profileComplete.php");
-	//}
- ?>
+?>
  
 	
 <?php
@@ -48,15 +40,15 @@ $row=$stmt->fetch_assoc();
          {
            echo $_SESSION['suc']; }?>
             <div class="container">
-			<center> <a href="#chartid" class="btn btn-warning btn-lg" style="padding-top:0px">Estadísticas de vistas del producto</a> 
- <a href="product_add.php" class="btn btn-primary"><i class="fa fa-floppy"></i> AGREGAR PRODUCTO</a>
+			<center> <a href="#chartid" class="btn btn-warning btn-lg" style="padding-top:0px">Product Views Statistics</a> 
+ <a href="product_add.php" class="btn btn-primary"><i class="fa fa-floppy"></i> ADD PRODUCT</a>
            </br>
         
         </center>         
 		 <div class="row">
                     <div class="col-sm-12">
 </br>                   
-				   <center> <h3>LISTA DE PRODUCTOS</h3>		
+				   <center> <h3>LIST OF PRODUCTS</h3>		
     </center>
  <?php
 
@@ -76,18 +68,16 @@ if ($nr > 0)
  <table id="example" class="display" cellspacing="0" class="table table-bordered table-striped" width="100%">
  <thead >
      <tr>
-      
-        <th>CARNÉ DE IDENTIDAD</th>
-        <th>Título</th>
-         <th>precio</th>
-        <th>Descripción</th>
-		 <th>Categoría </th>
-		 <th>tipo de producto </th>
-		<th>Pedidos mínimos </th>
-	
-         <th>Imagen</th>
-        <th> <center>Lista superior   </center></th>
-       <th > <center>Comportamiento    </center></th>
+        <th>Title</th>
+        <th>price</th>
+        <th>Description</th>
+		<th>Category </th>
+		<th>Product Type </th>
+		<th>Minimum Orders </th>
+        <th>Delivery Details</th>	
+        <th>Image</th>
+        <th>Top List</th>
+       <th >Actions</th>
          
       </tr>
     </thead>
@@ -101,25 +91,17 @@ if ($nr > 0)
 $myString = $row['image'];
 $cl = explode(',', $myString);
 
-	?>
+    ?>
 
-      <tr>
-       <td></br><?php echo $row['pid']; ?></td>
-       
-        <td></br><?php echo $row['ntitle']; ?></td>
-        <td></br><?php echo $row['price']; ?></td>
-  
-        <td></br><?php echo $row['fulldescription']; ?></td>
-   
-      <td></br><?php echo $row['title']; ?></td>
-	    <td></br><?php echo $row['productType']; ?></td>
-
-  
-        <td></br><?php echo $row['miniorder']; ?></td>
-		
-        <td>
-		
-	<img style="height:100px; width:100px;" src="images/<?php echo $cl[0]; ?>" />	</td>
+            <tr>    
+                <td></br><?php echo $row['ntitle']; ?></td>
+                <td></br><?php echo $row['price']; ?></td>  
+                <td></br><?php echo $row['fulldescription']; ?></td>
+                <td></br><?php echo $row['title']; ?></td>
+                <td></br><?php echo $row['productType']; ?></td>
+                <td></br><?php echo $row['miniorder']; ?></td>
+                <td></br><?php echo $row['delivery_details']; ?></td>		
+                <td><img style="height:100px; width:100px;" src="../../images/<?php echo $cl[0]; ?>" /></td>
 
         <td></br>
 		&nbsp;&nbsp;
@@ -134,7 +116,7 @@ $cl = explode(',', $myString);
 												
 													?>
 												
-												  <a   class="btn btn-xs btn-danger" href="checkSellerActive.php?productaction=<?php echo $row['productaction'];?> & pid=<?php echo $row['pid'] ?>">Presumir</a>
+												  <a   class="btn btn-xs btn-danger" href="checkSellerActive.php?productaction=<?php echo $row['productaction'];?> & pid=<?php echo $row['pid'] ?>">Show off</a>
 
 												
 													<?php
@@ -143,7 +125,7 @@ $cl = explode(',', $myString);
 													{
 												
 													?>
-												  <a   class="btn btn-xs btn-primary" href="checkSellerActive.php?productaction=<?php echo $row['productaction'];?> & pid=<?php echo $row['pid'] ?>">Mostrar en</a>
+												  <a   class="btn btn-xs btn-primary" href="checkSellerActive.php?productaction=<?php echo $row['productaction'];?> & pid=<?php echo $row['pid'] ?>">Show on</a>
 
 												
 			
@@ -161,7 +143,7 @@ $cl = explode(',', $myString);
 												
 													?>
 												
-												  <a   class="btn btn-xs btn-danger" href="checktoplist.php?producttoplist=<?php echo $row['producttoplist'];?> & pid=<?php echo $row['pid'] ?>">No lista</a>
+												  <a   class="btn btn-xs btn-danger" href="checktoplist.php?producttoplist=<?php echo $row['producttoplist'];?> & pid=<?php echo $row['pid'] ?>">Not     List</a>
 
 												
 													<?php
@@ -170,7 +152,7 @@ $cl = explode(',', $myString);
 													{
 												
 													?>
-												  <a   class="btn btn-xs btn-primary" href="checktoplist.php?producttoplist=<?php echo $row['producttoplist'];?> & pid=<?php echo $row['pid'] ?>">Lista superior </a>
+												  <a   class="btn btn-xs btn-primary" href="checktoplist.php?producttoplist=<?php echo $row['producttoplist'];?> & pid=<?php echo $row['pid'] ?>">Top    List </a>
 
 												
 			
@@ -192,13 +174,13 @@ $cl = explode(',', $myString);
 <tfoot>
      <tr>
       
-        <th>CARNÉ DE IDENTIDAD</th>
-        <th>Nombre</th>
-        <th>Precio</th>
-        <th>Descripción</th>
-		<th>Categoría </th>
-         <th>Imagen</th>
-        <th> <center>Acción   </center></th>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Description</th>
+		<th>Category </th>
+         <th>Image</th>
+        <th> <center>Action   </center></th>
          
          
       </tr>
@@ -210,7 +192,7 @@ $cl = explode(',', $myString);
 }
 else{
   ?>
-   <th>¡La lista de productos está vacía! Por favor, agregue productos</th>
+   <th>Product List is Empty ! Please ADD Products</th>
 <?php
 }
 ?>

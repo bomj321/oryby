@@ -21,7 +21,7 @@
                     <h5 class="title">Mi cuenta</h5>
                     <ul class="list alt-list">
                         <li><a href="buyeraccount.php"><i class="fa fa-angle-right"></i>Mi cuenta</a></li>
-                        <li><a href="#"><i class="fa fa-angle-right"></i>Deseados</a></li>
+                        <li><a href="favoritos.php"><i class="fa fa-angle-right"></i>Favoritos</a></li>
                         <li><a href="cart.php"><i class="fa fa-angle-right"></i>Mi carrito</a></li>
                         <li><a href="checkout.php"><i class="fa fa-angle-right"></i>Revisa</a></li>
                     </ul>

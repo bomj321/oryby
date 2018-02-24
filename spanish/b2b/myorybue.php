@@ -149,9 +149,12 @@ include('navh.php');
                 ?>
                 <div class="col-sm-8 col-md-8">
                     <h4>Articulos Publicados</h4>
-                    <?php while($rw=mysqli_fetch_array($rsl)){  ?>
+                    <?php while($rw=mysqli_fetch_array($rsl)){ 
+                        $myString = $rw['image'];
+                        $cl = explode(',', $myString);                        
+                    ?>
                     <div class="float-right col-md-3 col-sm-3">
-                        <a href="#"><img class="img-responsive" src="images/<?php echo $rw['image'];?>" style="height: 20rem"></a>                       
+                        <a href="#"><img class="img-responsive" src="../../images/<?php echo $cl[0]; ?>" style="height: 20rem"></a>                       
                         <center>
                             <span class="amount text-default"><?php echo $rw['ntitle'];?></span>
                             </br>
