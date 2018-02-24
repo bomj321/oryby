@@ -73,9 +73,8 @@ require 'Connect.php';
                             <li><a href="chatuser.php">Message Center</a></li>
 							<li><a href="suppliers.php">Manage Products</a></li>
 							<li><a href="mysorders.php">My Orders</a></li>
-							<li><a href="myorybue.php">Favorites</a></li>
-								<li >
-					<a href="logoff.php">Logout</a></li>
+							<li><a href="favorites.php">Favorites</a></li>
+							<li><a href="logoff.php">Logout</a></li>
 
                         </ul>
                     </li>
@@ -107,7 +106,7 @@ require 'Connect.php';
 							<li><a href="suppliers.php">Manage Products</a></li>
 						<!--	<li><a href="mysorders.php"> Received Orders</a></li>
 							-->	<li><a href="buyerorders.php">My Orders</a></li>
-							<li><a href="myorybue.php">Favorites</a></li>
+							<li><a href="favorites.php">Favorites</a></li>
 								<li >
 					<a href="logoff.php">Logout</a></li>
 

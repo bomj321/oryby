@@ -21,7 +21,7 @@
                         <h5 class="title">My Account</h5>
                         <ul class="list alt-list">
                             <li><a href="buyeraccount.php"><i class="fa fa-angle-right"></i>My Account</a></li>
-                            <li><a href=""><i class="fa fa-angle-right"></i>Wishlist</a></li>
+                            <li><a href="favorites.php"><i class="fa fa-angle-right"></i>Favorites</a></li>
                             <li><a href="cart.php"><i class="fa fa-angle-right"></i>My Cart</a></li>
                             <li><a href="checkout.php"><i class="fa fa-angle-right"></i>Checkout</a></li>
                         </ul>

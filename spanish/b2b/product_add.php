@@ -228,12 +228,12 @@ else if(trim($str1) ==trim($str3))
 	     <!-- start section -->
             <div class="container">
 			 <!-- start Form -->
-                  <form action="addproduct.php" method="POST" enctype="multipart/form-data">				  
+            <form action="addproduct.php" method="POST" enctype="multipart/form-data">				  
 			  <div class="row">
 				<h2 class="text-center">ADD PRODUCTS</h2>			
 					<div class="col-sm-8 col-sm-offset-2">  
 					<div class="form-inline">				
-						<?php  $membershipType ?>	
+						<?php $membershipType ?>	
 						<?php
 							$sql="SELECT * FROM categories WHERE NOT title ='Eco Friendly' AND NOT title ='Innovation'";
 							$stmt=mysqli_query($connection,$sql);
@@ -663,8 +663,7 @@ else if(trim($str1) ==trim($str3))
 	                         <option value="Small">Small</option>  
                              <option value="Medium">Medium</option>  
 							 <option value="Large">Large</option>  
-							 <option value="Extra large">Extra large</option>
-								
+							 <option value="Extra large">Extra large</option>								
                              <option value="others">Others</option>							 
                          </select>
 				</div>
