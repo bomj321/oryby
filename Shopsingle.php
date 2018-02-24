@@ -1,10 +1,11 @@
 <?php session_start();
+    if(!isset($_SESSION['uemail'])):
+        header('location:singlelogin.php');
+    endif;
 require 'Connect.php';
 $pid=$_GET['pid'];
 $_SESSION['pid']=$pid;
-//$cartArray=array($pid);
-//$_SESSION['proid'][]=$cartArray;
-//print_r($_SESSION['proid']);
+
 $stquery1="SELECT * FROM products where pid='$pid'";
 $stres1=mysqli_query($connection,$stquery1);
 $r1=mysqli_fetch_array($stres1);
@@ -30,21 +31,17 @@ $cl = explode(',', $myString);
 require('head.php');
 ?>
 
-
     <body>
-
-        <!-- start topBar -->
-        <?php require 'topbar.php'; ?>
-        <!-- end topBar -->
-
-        <!-- start navbar -->
-		    <?php require 'navh.php'; ?>
-       <!-- end navbar -->
+    <!-- start topBar -->
+        <?php include('topbar.php');
+        include('middlebar.php');
+        include('navh.php');
+        ?>
 
 
 
         <!-- start section -->
-        <section class="section white-backgorund">
+        <section class="section">
             <div class="container">
                 <div class="row">
                     <!-- start sidebar -->

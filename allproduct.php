@@ -210,15 +210,15 @@ include('navh.php');
 	   <div class="content light-background">
                     <div class="row">
 					<?php $query="SELECT * FROM products INNER JOIN categories ON(products.catid=categories.catid) INNER JOIN subcategories  ON(products.subcatid = subcategories.subcatid) ";
-               $result=mysqli_query($connection,$query);
-			   ?>
+                        $result=mysqli_query($connection,$query);
+			         ?>
                         </div><!-- end row -->
                     <?php
-                  while( $row=mysqli_fetch_array($result)){ 
-				 $myString = $row['image'];
-				  $productType=$row['productType'];
-				 $cl = explode(',', $myString);
-							  ?>
+                        while( $row=mysqli_fetch_array($result)){ 
+                        $myString = $row['image'];
+                        $productType=$row['productType'];
+                        $cl = explode(',', $myString);
+					?>
 				 
          <div class="col-sm-6 col-md-3" style="padding:3px">
                         	<?php

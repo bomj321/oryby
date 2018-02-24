@@ -11,10 +11,7 @@ $res=mysqli_query($connection,$query);
 $row=mysqli_fetch_array($res);
 $myString = $row['image'];
 $cl = explode(',', $myString);
- //$row['price'];
- //$row['ntitle'];
- $_SESSION['pid']=$pid;
- 
+ $_SESSION['pid']=$pid; 
  $_SESSION['image']=$cl[0];
  $_SESSION['qty'] =$qty;
  $_SESSION['ntitle']=$row['ntitle']; 
