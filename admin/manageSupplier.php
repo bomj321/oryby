@@ -108,7 +108,7 @@ include('header.php');
 									</div>
 									<!-- end widget edit box -->
 <?php
-$sql='SELECT * FROM `users` ';
+$sql='SELECT * FROM users INNER JOIN membership ON users.user_id = membership.membershipid';
 $stmt=mysqli_query($connection,$sql);
 if($stmt == false) {
 trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
@@ -148,7 +148,7 @@ if($nr >0)
 													<td><?php echo $row['lastName']; ?></td>
 													<td><?php echo $row['countryName']; ?>  <?php echo $row['lastName']; ?></td>
 													<td><?php echo $row['email']; ?></td>
-													<td><?php echo $row['Membership Type']; ?></td>
+													<td><?php echo $row['membershiptype']; ?></td>
 													<td> <a href="updateSupplier.php?email=<?php echo $row['email'];?>"><i class="fa fa-eye"></i></a>
 													<?php  $userstatus =$row['userStatus'];
 

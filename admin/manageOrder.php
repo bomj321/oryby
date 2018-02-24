@@ -138,7 +138,7 @@ include('header.php');
 									<!-- end widget edit box -->
 		<?php
 include('Connect.php');
- $sql="SELECT * FROM orders INNER JOIN orderDetail ON(orders.order_id=orderDetail.order_id) INNER JOIN products ON (orderDetail.pid=products.pid)INNER JOIN payment ON(orders.paymentid = payment.paymentid)";
+ $sql="SELECT * FROM orders INNER JOIN orderdetail ON(orders.order_id=orderdetail.order_id) INNER JOIN products ON (orderdetail.did=products.pid)INNER JOIN payment ON(orders.paymentid = payment.paymentid)";
 
 $stmt=mysqli_query($connection,$sql);
 if($stmt == false) {

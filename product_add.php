@@ -688,9 +688,9 @@ else if(trim($str1) ==trim($str3))
 		
 			<select  class="form-control input-sm" name="productType">
 			<option  value="">Select Product Type</option>
-			<option value="Eco Friendly" >Eco Friendly </option>
+			<option value="Eco Friendly" >Eco Friendly</option>
 			<option value="Innovation" >Innovation</option>
-			<option value="Normal Product" >Normal Product </option>
+			<option value="Normal Product" >Normal Product</option>
 	
 			</select>
 			
