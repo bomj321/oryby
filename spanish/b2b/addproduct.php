@@ -55,6 +55,16 @@ $rows=mysqli_fetch_array($stmtt);
 		    $size=$_POST['size'];
 			$packaging=$_POST['packaging'];
 			$productType = $_POST['productType'];
+<<<<<<< HEAD
+			$productType2 = $_POST['productType'];
+
+			if ($productType = 'Eco Friendly' or $productType = 'Innovation') {
+				$productType = 'Normal Product';
+			}
+			//$showcaseid=$_POST['showcaseid'];
+			//$showtoplist=$_POST['showtoplist'];
+=======
+>>>>>>> 461d7ab250a39939b38a5284a2d0ef02104269da
             $description = $_POST['description'];
 			$fobprice=$_POST['fobprice'];
 			$oquantity=$_POST['oquantity'];	
@@ -73,7 +83,7 @@ $rows=mysqli_fetch_array($stmtt);
 			if($_POST['showtoplist'] !="")
 			{
 			}
-		$productType = $_POST['productType'];// item name
+		//$productType = $_POST['productType'];// item name
 			
 			 //////////////////////////////////////////
 	
@@ -120,7 +130,11 @@ $rows=mysqli_fetch_array($stmtt);
 			move_uploaded_file($tempfile1, $filelocation); 
  }			 
 
+<<<<<<< HEAD
+			  			 $query="INSERT INTO products(catid,subcatid,ntitle,keywords,selectedkeyword,country,port,weight,volume,dimension,capacity,energypower,rotationspeed,elaboration,puse,psize,packing,certification,price,miniorder,fulldescription,image,producttoplist,productType,productType2, productaction,user_id,delivery_details)VALUES('$catid','$subcatid','$title','$keyword','$slctedkeyword','$dropcountry','$port','$dropweight','$dropvolum','$dropdimension','$dropcapacity','$dropenergy','$rotation','$elobration','$use','$size','$packaging','$fileimage1','$fobprice','$dropminimum','$description','$image1,$image2,$image3,$image4','$showtoplist','$productType','$productType2','$productstatus','$userId','$delivery_details')";
+=======
 			$query="INSERT INTO products(catid,subcatid,ntitle,keywords,selectedkeyword,country,port,weight,volume,dimension,capacity,energypower,rotationspeed,elaboration,puse,psize,packing,certification,price,miniorder,fulldescription,image,producttoplist,productType,productaction,user_id,delivery_details)VALUES('$catid','$subcatid','$title','$keyword','$slctedkeyword','$dropcountry','$port','$dropweight','$dropvolum','$dropdimension','$dropcapacity','$dropenergy','$rotation','$elobration','$use','$size','$packaging','$fileimage1','$fobprice','$oquantity','$description','$image1 $image2 $image3 $image4','$showtoplist','$productType','$productstatus','$userId','$delivery')";
+>>>>>>> 461d7ab250a39939b38a5284a2d0ef02104269da
 			
 	
 		 
@@ -128,6 +142,7 @@ $rows=mysqli_fetch_array($stmtt);
 		$result = $connection->prepare($query);
 			if($result === false) {
 		trigger_error('Wrong SQL: ' . $query . ' Error: ' . $conn->error, E_USER_ERROR);
+		echo "Insercion no exitosa";
 	}
 	
 		

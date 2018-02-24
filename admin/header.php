@@ -376,6 +376,7 @@
 						<ul>
 							<li>
 								<a href="viewProduct.php">Manage Products</a>
+								<a href="acceptProduct.php">Products Eco/Innovation</a>
 							</li>
 
 						</ul>
