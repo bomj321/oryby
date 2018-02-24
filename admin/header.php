@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<!--<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">-->
 
-		<title> ADMIN PANEL</title>
+		<title>ADMIN PANEL</title>
 		<meta name="description" content="">
 		<meta name="author" content="">
 
@@ -21,12 +21,6 @@
 
 		<!-- SmartAdmin RTL Support  -->
 		<link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-rtl.min.css">
-
-		<!-- We recommend you use "your_style.css" to override SmartAdmin
-		     specific styles this will also ensure you retrain your customization with each SmartAdmin update.
-		<link rel="stylesheet" type="text/css" media="screen" href="css/your_style.css"> -->
-
-		<!-- Demo purpose only: goes with demo.js, you can delete this css when designing your own WebApp -->
 		<link rel="stylesheet" type="text/css" media="screen" href="css/demo.min.css">
 
 		<!-- FAVICONS -->
@@ -439,9 +433,8 @@
 					<li>
 						<a href="#"><i class="fa fa-lg fa-fw fa-table"></i> <span class="menu-item-parent">Pictures </span></a>
 						<ul>
-							<li>
-								<a href="manageChileImage.php">Manage Images</a>
-						</li>
+							<li><a href="manageChileImage.php">Manage Images</a></li>
+							<li><a href="manageProductImage.php">Images Add Product</a></li>
 
 						</ul>
 					</li>
