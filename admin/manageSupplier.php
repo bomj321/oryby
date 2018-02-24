@@ -108,7 +108,7 @@ include('header.php');
 									</div>
 									<!-- end widget edit box -->
 <?php
-$sql='SELECT * FROM users INNER JOIN membership ON users.user_id = membership.membershipid';
+$sql='SELECT * FROM users INNER JOIN membership ON users.id_membership = membership.memb_id';
 $stmt=mysqli_query($connection,$sql);
 if($stmt == false) {
 trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
