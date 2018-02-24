@@ -312,7 +312,8 @@ else if(trim($str1) ==trim($str3))
 				<div class="form-group" style="margin-top:20px;"><label> Product Image: </label></div> 
 				<div class="form-group" style="margin-top:20px;"><label> FOB Price: </label></div> 
 				<div class="form-group" style="margin-top:20px;"><label> Minimum Order: </label></div> 
-				<div class="form-group" style="margin-top:20px;"><label> Delivery Details: </label></div>				
+				<div class="form-group" style="margin-top:20px;"><label> Delivery Details: </label></div>
+				<div class="form-group" style="margin-top:20px;"><label> Payment: </label></div>				
 				</div>
 				<div class="col-sm-4" style="margin-left:-200px;">
 				<div class="row">
@@ -746,6 +747,13 @@ else if(trim($str1) ==trim($str3))
 						 <div class="form-group">
 								 <input type="text" class="form-control input-sm" placeholder="3days" name="delivery_details" id="delivery_details">
 						 </div>	
+						 <div class="form-group">
+							<select class="form-control input-sm" id="payment" name="payment">
+								<option value="Paypal">Paypal</option>  
+								<option value="WebPay">WebPay</option>  
+								<option value="Paypal and WebPay">Paypal and WebPay</option>  							 
+							</select>   
+						 </div>
 						</div>	
 						<?php
                             $sqll="Select * from `images` where id = '3' ";
