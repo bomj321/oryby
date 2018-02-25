@@ -84,7 +84,7 @@ require 'Connect.php';
 					{
 					?>
 					   <ul class="w-150">
-
+                            <li><a href="myorybue.php">My Orybu</a></li>
 							<li><a href="buyeraccount.php">My Account</a></li>
                             <li><a href="#">Message Center</a></li>
 							<li><a href="buyerorders.php">My Orders</a></li>
@@ -107,8 +107,7 @@ require 'Connect.php';
 						<!--	<li><a href="mysorders.php"> Received Orders</a></li>
 							-->	<li><a href="buyerorders.php">My Orders</a></li>
 							<li><a href="favorites.php">Favorites</a></li>
-								<li >
-					<a href="logoff.php">Logout</a></li>
+							<li ><a href="logoff.php">Logout</a></li>
 
 
                         </ul>

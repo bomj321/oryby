@@ -1,8 +1,8 @@
 <?php
 error_reporting(0);
 include 'Connect.php';
-    $email= $_SESSION['confemail'];
-    $confirmcode=$_SESSION['code'];
+    
+    
     $error =false;
  ?>
   <?php  if (isset($_POST['register-submit'])) {
@@ -63,24 +63,37 @@ include 'Connect.php';
 		$temp5 = $_FILES['file2']['tmp_name'][4];
 		
 		 move_uploaded_file($temp1, $filelocation);
- move_uploaded_file($temp2, $filelocation);
- move_uploaded_file($temp3, $filelocation); 
-  move_uploaded_file($temp4, $filelocation); 
-   move_uploaded_file($temp5, $filelocation); 
+		 move_uploaded_file($temp2, $filelocation);
+		 move_uploaded_file($temp3, $filelocation); 
+		  move_uploaded_file($temp4, $filelocation); 
+		   move_uploaded_file($temp5, $filelocation); 
 		 ////////////////////////////////////////////////
 		 
-	 $q ="INSERT INTO seller(email,phoneNo,company_name,street,city,province,zipCode,countryName,businessType,noOfEmployee,companylogo,companyDescription,companylicense,companyLegalNo) VALUES ('$email','$phone','$companyName','$street','$city','$province','$zipCode','$countryName','$businessType','$noOfEmployee','$images','$companyDescription','$image1,$image2,$image3,$image4,$image5','$companyLegalNo')";
+	 $q ="INSERT INTO seller(email,company_name,street,city,zipCode,province,businessType,noOfEmployee,companyDescription,companylogo,countryName,companylicense,phoneNo,companyLegalNo,limitTopList,limitShowCase) VALUES ('$email','$companyName','$street','$city','$zipCode','$province','$businessType','$noOfEmployee','$companyDescription','$images','$countryName','$image1,$imagen2,$imagen3,$imagen4,$imagen5','$phone','$companyLegalNo','7','5')";
    $qryresult=mysqli_query($connection,$q);
+   if (!$qryresult) {
    
-			 if (!$qryresult) {
-   	            echo "INSERCION NO EXITOSA";
-                        }else{
-                   	echo "
-                   	<script>
-                	window.location.href ='sendconfirmation2.php';
-                   </script>	";
-                            }
-            }
+   	echo "INSERCION NO EXITOSA";
+   }else{
+   	
+   	echo "
+				<script>
+				window.location.href ='sendconfirmation2.php';
+				</script>
+
+
+   	";
+
+   	
+   }
+
+    	
+   
+   
+        }
+        
+		
+		  
 		  ?>
 		
 	
