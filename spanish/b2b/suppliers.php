@@ -103,7 +103,7 @@ $cl = explode(',', $myString);
                 <td></br><?php echo $row['miniorder']; ?></td>
                 <td></br><?php echo $row['payment']; ?></td>
                 <td></br><?php echo $row['delivery_details']; ?></td>		
-                <td><img style="height:100px; width:100px;" src="../../images/<?php echo $cl[0]; ?>" /></td>
+                <td><img style="height:100px; width:100px;" src="images/<?php echo $cl[0]; ?>" /></td>
 
         <td></br>
 		&nbsp;&nbsp;
