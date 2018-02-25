@@ -74,6 +74,7 @@ if ($nr > 0)
 		<th>Category </th>
 		<th>Product Type </th>
 		<th>Minimum Orders </th>
+	    <th>Payment </th>
         <th>Delivery Details</th>	
         <th>Image</th>
         <th>Top List</th>
@@ -100,6 +101,7 @@ $cl = explode(',', $myString);
                 <td></br><?php echo $row['title']; ?></td>
                 <td></br><?php echo $row['productType']; ?></td>
                 <td></br><?php echo $row['miniorder']; ?></td>
+                <td></br><?php echo $row['payment']; ?></td>
                 <td></br><?php echo $row['delivery_details']; ?></td>		
                 <td><img style="height:100px; width:100px;" src="images/<?php echo $cl[0]; ?>" /></td>
 
@@ -174,13 +176,17 @@ $cl = explode(',', $myString);
 <tfoot>
      <tr>
       
-        <th>ID</th>
-        <th>Name</th>
-        <th>Price</th>
+         <th>Title</th>
+        <th>price</th>
         <th>Description</th>
 		<th>Category </th>
-         <th>Image</th>
-        <th> <center>Action   </center></th>
+		<th>Product Type </th>
+		<th>Minimum Orders </th>
+	    <th>Payment </th>
+        <th>Delivery Details</th>	
+        <th>Image</th>
+        <th>Top List</th>
+       <th >Actions</th>
          
          
       </tr>
