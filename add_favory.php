@@ -16,3 +16,4 @@ mysqli_query($connection,$sql);
 $stmt = $connection->prepare($sql);
 header("Location: index.php");
 ?>
+

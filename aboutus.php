@@ -50,7 +50,6 @@ include('head.php');
                           <hr class="spacer-100">
 
 
-
                 </div><!-- end row -->
 
             </div><!-- end container -->
