@@ -704,112 +704,44 @@ $(document).ready(function(){
 
 
 				   </div><!-- end col -->
-
-
-
-
-
-                        <?php
-
-
-						$str1 ='Clothing, Textile & Accessories';
-						$str1 = preg_replace('/\s+/', ' ', trim($str1));
-							 $sql="SELECT * FROM subcategories INNER JOIN categories ON(subcategories.catid = categories.catid) WHERE categories.title ='$str1' LIMIT 6" ;
-
-$stmt=mysqli_query($connection,$sql);
-if($stmt == false) {
-trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
-}
-$nr=mysqli_num_rows($stmt);
-
+<!------------ MADE IN CHILE ------------>  
+<?php
+   try {
+        require_once('connect.php');
+        $sql = "SELECT * FROM `categories` ";
+        $resultado = mysqli_query($connection,$sql);
+        }
+  catch (Exception $e)
+  { $error= $e->getMessage();}
 ?>
-				 <div class="col-sm-8">
-
-                        <div class="title-wrap">
 
 
-							  <div class="row column-3">
-							  <hr>
-							  <h2 class="title"><span class="text-primary"> MADE</span> IN <span class="text-primary">CHILE</span></h2>
-                  <?php
-				  $count=0;
-    while($row=$stmt->fetch_assoc())
-    {
-	 $id = $row['subcatid'];
-	if($id =='3')
-	{
-
-			 $query="SELECT * FROM aboutus WHERE elementname='chile1'";
-	}
-	else if($id =='4')
-	{
-
-						 $query="SELECT * FROM aboutus WHERE elementname='chile2'";
-	}
-	else if($id =='5')
-	{
-
-						 $query="SELECT * FROM aboutus WHERE elementname='chile3'";
-	}
-
-		else if($id =='6')
-	{
-
-						 $query="SELECT * FROM aboutus WHERE elementname='chile4'";
-	}
-
-		else if($id =='7')
-	{
-
-						 $query="SELECT * FROM aboutus WHERE elementname='chile5'";
-	}
-		else if($id =='8')
-	{
-
-						 $query="SELECT * FROM aboutus WHERE elementname='chile6'";
-	}
-
-
-				$result=mysqli_query($connection,$query);
-				if($result == false) {
-				trigger_error('Wrong SQL: ' . $query . ' Error: ' . $connection->error, E_USER_ERROR);
-				}
-
-
-
-
-		  $rows=$result->fetch_assoc();
-
-
-	?>
-                <div class="col-sm-4 col-md-4 col-xs-6">
-                        <div class="thumbnail store style1" style="height:172px; width:200px" >
-                            <div class="header">
-
-                                  <a href="chileAll.php?id=<?php echo $row['subcatid']; ?>">
-								  <figure class="layer">
-								  <img style="height:172px; width:200px;" src="images/<?php echo $rows['picture']; ?>" alt="">
+    <div class="col-sm-8">
+        <div class="title-wrap">
+            <div class="row column-3">
+                <hr>
+                <h2 class="title"><span class="text-primary"> MADE</span> IN <span class="text-primary">CHILE</span></h2>
+                <?php while ($categorias = $resultado->fetch_all(MYSQLI_ASSOC) ) { ?>
+                <?php foreach($categorias as $cate): ?>
+                <div class="col-sm-3 col-md-3 col-xs-3">
+                    <div class="thumbnail store style1">
+                        <div class="header">
+                            <a href="chileAll.php?id=<?php echo $cate['catid']; ?>">
+                                <figure class="layer">
+                                    <img  src="images/<?php echo $cate['catimage']; ?>" alt="" class="img-responsive" style="height: 15rem; width:20rem">
                                 </figure>
-								</a>
-
-                            </div>
-
-                        </div><!-- end thumbnail -->
-
-
-                    </div><!-- end col -->
-					<?php
-
-
-	}
-					?>
-
-                 </div><!-- end row -->
-                     <hr>
-
+                            </a>
                         </div>
-                    </div><!-- end col -->
-                </div><!-- end row -->
+                    </div><!-- end thumbnail -->
+                </div><!-- end col -->
+                <?php endforeach;?>
+                <?php }?>
+            </div><!-- end row -->
+        </div>
+    </div><!-- end col -->
+</div><!-- end row -->
+
+<!------------FIN MADE IN CHILE ------------> 
 
 
      <hr>

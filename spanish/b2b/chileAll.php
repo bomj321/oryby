@@ -4,6 +4,7 @@ error_reporting(0);
 
 $id=$_GET['id'];
 
+
 ?>
 <?php
 include('head.php');
@@ -25,7 +26,7 @@ include('navh.php');
 			</div>
                             <div class="col-sm-10 text-left">
 							<div style="margin-top:-50px; height:20px;"class="content white-background">
-                                <h6  style="margin-top:-10px; ">ALL PRODUCTS >Categories</h6>
+                                <h6  style="margin-top:-10px;">Hecho en Chile</h6>
 								</div>
                             </div><!-- end col -->
                   </div><!-- end row -->
@@ -34,8 +35,8 @@ include('navh.php');
                         
                 <div class="row" style="margin-top:-50px; ">
                     <!-- start sidebar -->
-                    <div class="col-sm-2">
-								<div class="widget">
+                     <div class="col-sm-2">
+					<div class="widget">
                             <div class="panel-group accordion" id="searchFilter">
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
@@ -122,7 +123,7 @@ include('navh.php');
 											  <li>
                                                 <div  style="font-size:10px;">
                                                     <input name="categorytitle[]"  value="Maxico"  type="checkbox" >
-                                                    <label > Maxico
+                                                    <label > Mexico
 												     <?php 
 														//echo $rowt['title'];?>
                                                     </label>
@@ -203,88 +204,40 @@ include('navh.php');
                        
                     </div><!-- end col -->
                     <!-- end sidebar -->
-                    <div class="col-sm-10">
-                       
-                    
-                            
-                            
-               
-      	 
-	   <div class="content light-background">
-                    <div class="row">
-					<?php $query="SELECT * FROM products INNER JOIN categories ON(products.catid=categories.catid) Where products.subcatid=$id ";
-               $result=mysqli_query($connection,$query);
-			   ?>
-                        </div><!-- end row -->
-                    <?php
-                  while( $row=mysqli_fetch_array($result)){ 
-				 $myString = $row['image'];
-				  $productType=$row['productType'];
-				 $cl = explode(',', $myString);
-							  ?>
-				 
-         <div class="col-sm-6 col-md-3" style="padding:3px">
-                        	<?php
-																	
-							 
-						
 
-							if($productType =="Eco Friendly"){
-									?>
-										   <span> <img style="height:35px; width:35px;float:right"src="images/ecofriendly.png" />
-                                       </span><?php
-										}
-										else if($productType =="Innovation"){
-										?>
-										   <span> <img style="height:35px; width:35px;float:right "src="images/innovation.png" />
-                                       </span><?php
-										}
-										?>  
-                            <div class="cat-item-style2">
-							   <div class="title">
-								 <?php echo '<h6> '.$row['title'].'</a></h6>'; ?>
-                                
-                                </div><!-- end title -->
-								<div class="price">
-                                  <center>  <span class="amount text-primary"><?php echo $row['subtitle']; ?></span>  </center> 
-										
-                                        </div>
-                                <figure>
-								
-                   <a href="Shopsingle.php?pid=<?php echo $row['pid'] ; ?>">                         		      
-										 <img style="height:200px; width:200px;" src="images/<?php echo $cl[0]; ?>" alt="" />
-										
-                                    </a>
-                                </figure>
-                                <div class="title">
-								 <?php echo '<h6><a href="Shopsingle.php?pid='.$row['pid'].'"> '.$row['ntitle'].'</a></h6>'; ?>
-                                
-                                </div><!-- end title -->
-								<div class="price">
-                                  <center>  <span class="amount text-primary">$<?php echo $row['price']; ?></span>  </center> 
-											<?php
-											
-											//$p = $price -10;
-	                                             ?>
-                                          <!--  <span class="amount text-primary">$<?php //echo $p ;?></span>  -->
-										    
-                                        </div>
-                            </div><!-- end cat-item-style2 -->
-                        <!-- end col -->
-                   
-                   <!-- end row -->
-				  
-				   </div>
-				   <?php  } ?>
-                    <div class="row">
-                        <div class="col-sm-12 text-center">
-                           
-                        </div><!-- end col -->
-                    </div><!-- end row -->
-                </div><!-- end content -->
-	  
+<!------PRODUCTOS-------->      	 
+                <div class="col-sm-10">               
+                        <div class="content light-background">
+                            <?php 
+                            $sql="SELECT * FROM `products`  WHERE catid = '{$id}' AND country= 'Chile'  ";
+                            $rsl=mysqli_query($connection,$sql);
+                            ?>  
+                            <div class="row">
+                                <?php while ($rw=mysqli_fetch_array($rsl) ) { 
+                                     $myString = $rw['image'];
+                                     $cl = explode(',', $myString); 
+                                    ?>                 
+                                <div class="col-sm-3 col-md-3 mt-5"> 
+                                    <h4><small><?php echo $resu['ntitle'];?></small></h4>                   
+                                    <a href="Shopsingle.php?pid=<?php echo $rw['pid']; ?>">
+                                        <img src="images/<?php echo $cl[0];?>" class="img-thumbnail" style="width: 20rem;height: 20rem;">
+                                    </a>                                    
+                                    <center>
+                                    <span class="amount text-primary">USD $ <?php echo $rw['price']; ?></span>
+                                    </br>
+                                    <span class="amount text-default">Min Order: <?php echo $rw['miniorder'];?></span>
+                                    </br>
+                                    <a href="#"></i>Contact Supplier</a> 
+                                    </center>
+                                </div>
+                                <?php }?>
+                            </div><!-- row-->
+                        </div><!-- content light-->
+                    </div><!-- end col -->
+                </div><!-- end row -->
+            </div><!-- end content -->	  
 	  </div>
-	  </section>
+	  </section> 
         
      <?php 
 	 include('footer.php');

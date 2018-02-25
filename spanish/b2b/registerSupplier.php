@@ -2,17 +2,16 @@
 error_reporting(0);
 include 'Connect.php';
 include('head.php');
- include('topbar.php');
-  $email= $_SESSION['confemail'];
+$email= $_SESSION['confemail'];
 $confirmcode=$_SESSION['code'];
-  ?>
-  
+?>
 
-    <body>
-      <?php //include('topbar.php'); ?>
-       
-     <?php include('navh.php'); ?><!-- end navbar -->
-        <!-- End navbar -->
+	<body>
+	<!-- start topBar -->
+	<?php include('topbar.php');
+	include('middlebar.php');
+	include('navh.php');
+	?>
        
  
 		<div class="container">

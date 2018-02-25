@@ -22,7 +22,7 @@ $nr=mysqli_num_rows($stmt);
 $row=mysqli_fetch_assoc($stmt);
 $catid =$row['catid']; 
 $title =$row['title']; 
-$image =$row['image']; 
+$image =$row['catimage']; 
  
 
 if(isset($_POST['btn_save_updates']))
