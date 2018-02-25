@@ -133,8 +133,8 @@ require('head.php');
                         </div><!-- end row -->
                         <hr class="spacer-15">
                         <ul class="list list-inline">
-                            <li><a class="btn btn-gray btn-md round"><i class="fa fa-heart mr-5"></i>Ask for a Sample</a></li>
-                            <li><a class="btn btn-gray btn-md round"><i class="fa fa-ask mr-5"></i>Contact Supplier</a></li>
+                            <li><a class="btn btn-gray btn-md round" href="#"><i class="fa fa-chat mr-5"></i>Contact Supplier</a></li>
+                            <li><a class="btn btn-gray btn-md round" href="add_favory.php?id=<?php echo $pid; ?>"><i class="fa fa-heart mr-5"></i>Add My Favory</a></li>
                             <li><button type="submit"  class="btn btn-default btn-md round"><i class="fa fa-shopping-basket mr-5"></i>Buy Now</button></li>
                         </ul>
                     </form>
@@ -142,9 +142,6 @@ require('head.php');
             </div><!-- end row -->
         </div><!-- end col -->
     </div><!-- end row -->
-
-
-
 <!--HASTA AQUI-->
 <?php	$pid =$_GET['pid'];
 $sql="SELECT * FROM  products  INNER JOIN users ON(products.user_id= users.user_id) INNER JOIN seller ON(users.email=seller.email) INNER JOIN categories ON (products.catid=categories.catid)Where products.pid ='$pid'";
