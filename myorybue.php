@@ -1,7 +1,16 @@
 <?php session_start();
+    if(!isset($_SESSION['uemail'])):
+        header('location:singlelogin.php');
+    endif;
 include('Connect.php');
 include('head.php');
 $getmail=$_SESSION['uemail'];
+
+$email = $_SESSION['uemail']; //email del usuario logueado
+$usuario="SELECT * FROM users where email='$email'";
+$datos_usuario=mysqli_query($connection,$usuario);
+$datos=mysqli_fetch_array($datos_usuario);
+$id_user=$datos['user_id'];//id del usuario logueado
 ?>
 <body>
 <!-- start topBar -->
@@ -169,8 +178,8 @@ include('navh.php');
                 <div class="col-sm-4 col-md-4">
                     <h4 class="pull-right">My Favourites</h4> 
                     <div class="widget pull-right">
-                            <?php $query="SELECT * FROM products INNER JOIN categories ON(products.catid=categories.catid) Limit 6 ";
-                            $result=mysqli_query($connection,$query);
+                            <?php $sql="SELECT * FROM `favorites` INNER JOIN `products` ON (favorites.id_product=products.pid) WHERE id_user = '{$id_user}' Limit 6";
+                            $result=mysqli_query($connection,$sql);
                             ?>
                         <ul class="items">
                                 <?php 

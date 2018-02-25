@@ -1,28 +1,240 @@
 <?php session_start();
-include('Connect.php');
-include('head.php');
+    if(!isset($_SESSION['uemail'])):
+        header('location:singlelogin.php');
+    endif;
+require 'Connect.php';
+$email = $_SESSION['uemail']; //email del usuario logueado
+$usuario="SELECT * FROM users where email='$email'";
+$datos_usuario=mysqli_query($connection,$usuario);
+$datos=mysqli_fetch_array($datos_usuario);
+$id_user=$datos['user_id'];//id del usuario logueado
 ?>
 <body>
-<!-- start topBar -->
-    <?php include('topbar.php');
-    include('middlebar.php');
-    include('navh.php');
-    ?>
-
-        <h2>My Favorites</h2>   
-    
-
-
-
     <?php
-    include('footer.php');
-    ?>
+        include('head.php');
+        include('topbar.php');
+        include('middlebar.php');
+        include('navh.php');
+    ?>	   
+                   
+        <!-- start section -->
+        <section class="section light-backgorund">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-2 text-left">
+                        <div style="margin-top:-50px; height:20px;"class="content white-background">
+                            <h6  style="margin-top:-10px; ">My Favorites</h6>
+                        </div>
+                    </div><!-- end col -->
+                </div><!-- end row -->                        
+                <div class="row">
+                    <!-- start sidebar -->
+                    <div class="col-sm-2">
+					<div class="widget">
+                        <div class="panel-group accordion" id="searchFilter">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#searchFilter" href="#searchFilterCollapse">
+                                            Search
+                                        </a>
+                                    </h3>
+                                </div>
+                                <div id="searchFilterCollapse" class="panel-collapse collapse in">
+                                    <div class="panel-body">										 
+                                        <form  action="searchallproduct.php" method="GET">
+                                            <input type="text" id="lastname" name="keyword" class="form-control input-md" placeholder="Search">
+                                        </form>                                          
+                                    </div><!-- end panel-body -->
+                                </div><!-- end panel-collapse -->
+                            </div><!-- end panel -->
+                        </div><!-- end accordion -->
+                    </div><!-- end widget -->                 
+                  
+                    <div class="widget">
+                        <div class="panel-group accordion" id="priceFilter">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#priceFilter" href="#priceFilterCollapse">
+                                            Prices
+                                        </a>
+                                    </h3>
+                                </div>
+                                <div id="priceFilterCollapse" class="panel-collapse collapse in">
+                                    <div class="panel-body">
+                                        <form method="post" action="filterbyprice.php" class="price-range" data-start-min="50" data-start-max="1000" data-min="10" data-max="2000" data-step="1">
+                            <div class="ui-range-values" >
+                                <div class="ui-range-value-min" name="max_value" id="ui-range-value-min">
+                                    $<span></span>
+                                    <input  name="min_value" value="data-step" type="hidden" >
+                                </div> -
+                                <div class="ui-range-value-max">
+                                    $<span></span>
+                                    <input  name="max_value" value="data-step" type="hidden">
+                                </div>
+                            </div>
+                            <div class="ui-range-slider"></div>
+                            <input type="submit" name="filter" class="btn btn-default btn-block btn-md" value="Filter">
+                        </form>
+                                    </div><!-- end panel-body -->
+                                </div><!-- end panel-collapse -->
+                            </div><!-- end panel -->
+                        </div><!-- end accordion -->
+                    </div><!-- end widget -->
+                        <form  action="searchallproduct.php" method="GET">
+						 <div class="widget">
+                            <div class="panel-group accordion" id="categoriesFilter">
+                                <div class="panel panel-danger">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#categoriesFilter" href="#categoriesFilterCollapse">
+                                                Country
+                                            </a>
+                                        </h3>
+                                    </div>
+                                    <div id="categoriesFilterCollapse" class="panel-collapse collapse in">
+                                        <div class="panel-body">
+                                                                <ul class="list list-unstyled">
+										<?php 
+								//		while($rowt=mysqli_fetch_array($rst)){ ?>
+                                            <li>
+                                                <div  style="font-size:10px;">
+                                                    <input name="categorytitle[]"  value="Chile"  type="checkbox" >
+                                                    <label > Chile
+												     <?php 
+														//echo $rowt['title'];?>
+                                                    </label>
+                                                </div>
+                                            </li>
+											  <li>
+                                                <div  style="font-size:10px;">
+                                                    <input name="categorytitle[]"  value="Maxico"  type="checkbox" >
+                                                    <label > Mexico
+												     <?php 
+														//echo $rowt['title'];?>
+                                                    </label>
+                                                </div>
+												</li>
+												  <li>
+                                                <div  style="font-size:10px;">
+                                                    <input name="categorytitle[]"  value="United State"  type="checkbox" >
+                                                    <label > United State
+												     <?php 
+														//echo $rowt['title'];?>
+                                                    </label>
+                                                </div>
+                                            </li>
+											  <li>
+                                                <div  style="font-size:10px;">
+                                                    <input name="categorytitle[]"  value="China"  type="checkbox" >
+                                                    <label > China
+												     <?php 
+														//echo $rowt['title'];?>
+                                                    </label>
+                                                </div>
+                                            </li>
+											  <li>
+                                                <div  style="font-size:10px;">
+                                                    <input name="categorytitle[]"  value="France"  type="checkbox" >
+                                                    <label > France
+												     <?php 
+														//echo $rowt['title'];?>
+                                                    </label>
+                                                </div>
+                                            </li>
+                                          
 
+											<?php
+										//	}?>
+										
+                                        </ul>
+                                        </div><!-- end panel-body -->
+										 <input type="submit" name="filter" class="btn btn-danger btn-block btn-md" value="Submit">
+                                    </div><!-- end panel-collapse -->
+                                </div><!-- end panel -->
+								
+                            </div><!-- end accordion -->
+                        </div><!-- end widget -->
+                     
+						</form>
+							<div class="widget">
+                            <div class="panel-group accordion" id="tagsFilter">
+                                <div class="panel panel-warning">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#tagsFilter" href="#tagsFilterCollapse">
+                                                Popular tags
+                                            </a>
+                                        </h3>
+                                    </div>
+                                    <div id="tagsFilterCollapse" class="panel-collapse collapse in">
+                                        <div class="panel-body">
+                                            <?php $query1="SELECT * FROM `categories`INNER JOIN subcategories ON(categories.catid=subcategories.catid) WHERE categories.title='Clothing, Textile & Accessories' ";
+										$result1=mysqli_query($connection,$query1);
+										?>		
+                                        <ul class="tags">
+                                            <?php while($row=mysqli_fetch_array($result1)){ 
+											?>										
+											
+											<li>
+                                                <a class="btn btn-gray-outline semi-circle btn-xs" href="searchallproduct.php?title=<?php echo $row['subtitle']; ?>"><?php echo $row['subtitle']; ?></a>
+                                            </li>
+                                            <?php
+											}?>
+                                        </ul>
+                                        </div><!-- end panel-body -->
+                                    </div><!-- end panel-collapse -->
+                                </div><!-- end panel -->
+                            </div><!-- end accordion -->
+                        </div><!-- end widget -->
+                       
+                    </div><!-- end col -->
+                    <!-- end sidebar -->
+
+                    <!--FAVORITOS-->
+                    <div class="col-sm-10">               
+                        <div class="content light-background">
+                            <?php 
+                            $sql="SELECT * FROM `favorites` INNER JOIN `products` ON (favorites.id_product=products.pid) WHERE id_user = '{$id_user}' ";
+                            $resultado = $connection->query($sql);
+                            ?>  
+                            <div class="row">
+                                <?php while ($results = $resultado->fetch_all(MYSQLI_ASSOC) ) { 
+                                    $myString = $results['image'];
+                                    $cl = explode(',', $myString);
+                                    ?>                 
+                                <?php foreach($results as $resu): ?>
+                                <div class="col-sm-3 col-md-3 mt-5"> 
+                                    <h4><small><?php echo $resu['ntitle'];?></small></h4>                   
+                                    <a href="Shopsingle.php?pid=<?php echo $resu['pid']; ?>">
+                                        <img src="images/<?php echo $resu['image'];?>" class="img-thumbnail" style="width: 20rem;height: 20rem;">
+                                    </a>                                    
+                                    <center>
+                                    <span class="amount text-primary">USD $ <?php echo $resu['price'];  ?></span>
+                                    </br>
+                                    <span class="amount text-default">Min Order: <?php echo $resu['miniorder'];?></span>
+                                    </br>
+                                    <a href="#"></i>Contact Supplier</a> 
+                                    </center>
+                                </div>
+                                <?php endforeach;?>
+                                <?php }?>
+                            </div><!-- row-->
+                        </div><!-- content light-->
+                    </div><!-- end col -->
+                </div><!-- end row -->
+            </div><!-- end content -->	  
+	  </div>
+	  </section>        
+     <?php 
+	 include('footer.php');
+	 ?>      
+        
         <!-- JavaScript Files -->
         <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
-		<script type="text/javascript" src="js/bootstrap.min_2.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script type="text/javascript" src="js/owl.carousel.min.js"></script>
-		 <script type="text/javascript" src="js/owl.carousel.min_1.js"></script>
         <script type="text/javascript" src="js/jquery.downCount.js"></script>
         <script type="text/javascript" src="js/nouislider.min.js"></script>
         <script type="text/javascript" src="js/jquery.sticky.js"></script>
@@ -32,6 +244,6 @@ include('head.php');
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
         <script type="text/javascript" src="js/gmaps.js"></script>
         <script type="text/javascript" src="js/swiper.min.js"></script>
-        <script type="text/javascript" src="js/main.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>        
     </body>
 </html>
