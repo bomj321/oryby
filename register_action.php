@@ -79,7 +79,7 @@ include 'Connect.php';
 			 else {
 
 			 	
-			$sql = "INSERT INTO users (firstName,lastName,email,password,userType,countryName,confirmed,confirmcode) VALUES ('$fname', '$lname','$email', '$password','$userType','$countryName', '0', $confirmcode)";
+			$sql = "INSERT INTO users (id_membership,firstName,lastName,email,password,userType,countryName,confirmed,confirmcode) VALUES ('1','$fname', '$lname','$email', '$password','$userType','$countryName', '0', $confirmcode)";
 		 
 		   $stmt = $connection->prepare($sql);
 					if($stmt === false) {

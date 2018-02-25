@@ -194,7 +194,7 @@ else{
  <?php
 
 
- $sql="SELECT * FROM  member INNER JOIN seller ON(member.email = seller.email) Where seller.email='$email'";
+ $sql="SELECT * FROM  membership INNER JOIN seller ON(membership.email = seller.email) Where seller.email='$email'";
  
 $stmt=mysqli_query($connection,$sql);
 if($stmt == false) {
