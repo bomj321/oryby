@@ -1,4 +1,10 @@
-<a href="chatuser.php" class="btn btn-primary" style="position: fixed;    bottom: 3px;    left: 3px;	background-color:##6495ED;	color:white;	font-size:16px;font-weight:bold;" >Chats with Different Users</a>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 col-md-offset-9"  style="position: fixed; bottom: 3px;left: 3px;background-color:##6495ED;color:white;font-size:16px;font-weight:bold;">
+            <a href="chatuser.php" class="btn btn-primary" style="bottom: 3px;left: 3px;background-color:##6495ED;color:white;font-size:16px;font-weight:bold;">Chat con diferentes Usuarios</a>
+        </div>
+    </div>
+</div>
     <footer class="footer">
         <div class="container">
             <div class="row">
