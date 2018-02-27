@@ -20,8 +20,10 @@ if($nr > 0){
 			$name=$row['firstName'];
 			$_SESSION['fname']=$name;
 		$checkpassword=$row['email'];
- 
+      $userid= $row['user_id'];
+      $_SESSION['user_id']= $userid;
       if($userstatus=='0')
+      $_SESSION['firstName'] = $name;
    {
    ?>
    <script>

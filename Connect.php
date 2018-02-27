@@ -22,6 +22,8 @@ $PayPalCancelURL 		= 'http://anitsolutions.com/Projects/b2b/checkout.php'; //Can
 
  
    $connection = mysqli_connect('localhost', 'root', '','joryan_adminhtt_btb');
+
+   
 if (!$connection){
     die("Database Connection Failed" . mysqli_error($connection));
 }
@@ -30,4 +32,6 @@ if (!$select_db){
     die("Database Selection Failed" . mysqli_error($connection));
     
 }
+
+
 ?>

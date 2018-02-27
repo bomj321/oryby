@@ -213,7 +213,7 @@ $(document).ready(function(){
 	$cl = explode(',', $myString);
 
 
-			  $sqll="SELECT * FROM users  INNER JOIN seller ON(users.email = seller.email) Where users.user_id='$userId'";
+			  $sqll="SELECT seller.company_name,seller.email FROM users  INNER JOIN seller ON(users.email = seller.email) Where users.user_id='$userId'";
 
 				$stmtt=mysqli_query($connection,$sqll);
 				if($stmtt == false) {
@@ -236,7 +236,7 @@ $(document).ready(function(){
 							  </br>
 							  <span class="amount text-default">Min Order:<?php echo $quantity?></span>
 							  </br>
-								<a href="chat2.php?sellerid=<?php echo $rows['user_id'];?>&pid=<?php echo $row['pid'];?>&name=<?php echo $rows['firstName']?>"></i>Contact Supplier</a>
+								<a href="contactsupplier.php?supplieremail=<?php echo $rows['email']; ?>"></i>Contact Supplier</a>
 							  </center>
 							  </br>
 							  </div>
@@ -270,7 +270,7 @@ $(document).ready(function(){
 
 
 
-			  $sqll="SELECT * FROM users  INNER JOIN seller ON(users.email = seller.email) Where users.user_id='$userId'";
+			  $sqll="SELECT seller.company_name,seller.email FROM users  INNER JOIN seller ON(users.email = seller.email) Where users.user_id='$userId'";
 
 				$stmtt=mysqli_query($connection,$sqll);
 				if($stmtt == false) {
@@ -293,7 +293,7 @@ $(document).ready(function(){
 							  </br>
 							  <span class="amount text-default">Min Order:<?php echo $quantity?></span>
 							  </br>
-								     <a href="chat2.php?sellerid=<?php echo $rows['user_id'];?>&pid=<?php echo $row['pid'];?>&name=<?php echo $rows['firstName']?>"></i>Contact Supplier</a> 
+								     <a href="contactsupplier.php?supplieremail=<?php echo $rows['email']; ?>"></i>Contact Supplier</a> 
 							  </center>
 							  </br>
 							  </div>
@@ -790,7 +790,7 @@ $(document).ready(function(){
 
 
 
-			  $sqll="SELECT * FROM users  INNER JOIN seller ON(users.email = seller.email) Where users.user_id='$userId'";
+			  $sqll="SELECT seller.company_name,seller.email FROM users  INNER JOIN seller ON(users.email = seller.email) Where users.user_id='$userId'";
 
 				$stmtt=mysqli_query($connection,$sqll);
 				if($stmtt == false) {
@@ -816,7 +816,7 @@ $(document).ready(function(){
 
 							  <span class="amount text-default">Company Name:<?php echo $companyName=$rows['company_name'];?></span>
 							  	   </br>
-								     <a href="chat2.php?sellerid=<?php echo $rows['user_id'];?>&pid=<?php echo $row['pid'];?>&name=<?php echo $rows['firstName']?>"></i>Contact Supplier</a>
+								     <a href="contactsupplier.php?supplieremail=<?php echo $rows['email']; ?>"></i>Contact Supplier</a>
 									 </br>
 							  </center>
 							  </div>
@@ -853,7 +853,7 @@ $userId=$row['user_id'];
 	$cl = explode(',', $myString);
 
 
-			  $sqll="SELECT * FROM users  INNER JOIN seller ON(users.email = seller.email) Where users.user_id='$userId'  ";
+			  $sqll="SELECT seller.company_name,seller.email FROM users  INNER JOIN seller ON(users.email = seller.email) Where users.user_id='$userId'  ";
 
 				$stmtt=mysqli_query($connection,$sqll);
 				if($stmtt == false) {
@@ -879,7 +879,7 @@ $userId=$row['user_id'];
 
 							  <span class="amount text-default">Company Name:<?php echo $companyName=$rows['company_name'];?></span>
 							  	   </br>
-								     <a href="chats2.php?sellerid=<?php echo $rows['user_id'];?>&pid=<?php echo $row['pid'];?>&name=<?php echo $rows['firstName']?>"></i>Contact Supplier</a>
+								     <a href="contactsupplier.php?supplieremail=<?php echo $rows['email']; ?>"></i>Contact Supplier</a>
 									 </br>
 							  </center>
 							  </br>
