@@ -40,7 +40,7 @@ $row=$stmt->fetch_assoc();
          {
            echo $_SESSION['suc']; }?>
             <div class="container">
-			<center> <a href="#chartid" class="btn btn-warning btn-lg" style="padding-top:0px">Product Views Statistics</a> 
+			<center> <a href="charts_user.php?id=<?php echo $userId; ?>" class="btn btn-warning btn-lg" style="padding-top:0px">Product Views Statistics</a> 
  <a href="product_add.php" class="btn btn-primary"><i class="fa fa-floppy"></i> ADD PRODUCT</a>
            </br>
         
@@ -74,7 +74,7 @@ if ($nr > 0)
 		<th>Category </th>
 		<th>Product Type </th>
 		<th>Minimum Orders </th>
-		<th>Payment </th>
+	    <th>Payment </th>
         <th>Delivery Details</th>	
         <th>Image</th>
         <th>Top List</th>
@@ -176,17 +176,18 @@ $cl = explode(',', $myString);
 <tfoot>
      <tr>
       
-        <th>Title</th>
+         <th>Title</th>
         <th>price</th>
         <th>Description</th>
 		<th>Category </th>
 		<th>Product Type </th>
 		<th>Minimum Orders </th>
-		<th>Payment </th>
+	    <th>Payment </th>
         <th>Delivery Details</th>	
         <th>Image</th>
         <th>Top List</th>
        <th >Actions</th>
+         
          
       </tr>
     </tfoot>
