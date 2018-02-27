@@ -48,12 +48,32 @@ include('header.php');
 
 ?>
 <?php 
-$meses=array('','2018','2019','2020','2021','2022');
+//Graficos del año
+$años=array('','2018','2019','2020','2021','2022');
 for ($x=1; $x <= 5; $x++) {
+      $visitantes[$x]=0;
+};
+
+$ano=date('Y');
+
+$sql="SELECT * FROM `chart_category_subcatego_admin` ";
+$datos=mysqli_query($connection,$sql);
+  while($row=mysqli_fetch_array($datos)){
+  $y=date("Y", strtotime ($row['visited_at'] ) );
+      if($y==$ano){
+        $visitantes[$x]=$visitantes[$x]+$row['visit'];
+      }
+}
+?>
+<?php 
+//Graficos del mes
+$meses=array('','Ene','Feb','Mar','Abr','May','Jun','Jul','Agost','Sept','Oct','Nov','Dic');
+for ($x=1; $x <= 12; $x++) {
       $dinero[$x]=0;
 };
 
 $ano=date('Y');
+
 
 $sql="SELECT * FROM `chart_category_subcatego_admin` ";
 $datos=mysqli_query($connection,$sql);
@@ -84,7 +104,7 @@ $datos=mysqli_query($connection,$sql);
 
 				<!-- breadcrumb -->
 				<ol class="breadcrumb">
-					<li>Home</li><li>Tables</li><li>Data Tables</li>
+					<li>Home</li><li>Tables</li><li>Data Tables <?php echo $ano;?></li>
 				</ol>
 
 			</div>
@@ -305,14 +325,14 @@ $datos=mysqli_query($connection,$sql);
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Visit'],
           <?php for ($x=1; $x <= 5; $x++) {  ?>
-          ['<?php echo $meses[$x];?>',<?php echo $dinero[$x];?>],
+          ['<?php echo $años[$x];?>',<?php echo $visitantes[$x];?>],
           <?php }; ?>
         ]);
 
         var options = {
           chart: {
-            title: 'Company Performance',
-            subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+            title: 'Orybu',
+            subtitle: 'Visit',
           },
           bars: 'horizontal' // Required for Material Bar Charts.
         };
@@ -322,6 +342,36 @@ $datos=mysqli_query($connection,$sql);
         chart.draw(data, google.charts.Bar.convertOptions(options));
       }
     </script>
+    <script type="text/javascript">
+    google.charts.load("current", {packages:['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ["Element", "Density", { role: "style" } ],
+        <?php for ($x=1; $x <= 12; $x++) {  ?>
+            ["<?php echo $meses[$x];?>",<?php echo $dinero[$x];?>, "#b87333"],
+        <?php }; ?>
+      ]);
+
+      var view = new google.visualization.DataView(data);
+      view.setColumns([0, 1,
+                       { calc: "stringify",
+                         sourceColumn: 1,
+                         type: "string",
+                         role: "annotation" },
+                       2]);
+
+      var options = {
+        title: "Visit by Month",
+        width: 600,
+        height: 400,
+        bar: {groupWidth: "95%"},
+        legend: { position: "none" },
+      };
+      var chart = new google.visualization.ColumnChart(document.getElementById("month"));
+      chart.draw(view, options);
+  }
+  </script>
 
 
 
