@@ -6,11 +6,26 @@ require 'Connect.php';
 $pid=$_GET['pid'];
 $_SESSION['pid']=$pid;
 
+
+//Inserción a la db para las estadisticas de los usuarios
+
+$date =  date('Y-m-d');// Tiempo
+$chart="INSERT INTO chart_basic_user (id,id_pid,visited_at,visit) VALUES ('NULL','{$pid}','{$date}','1')";
+mysqli_query($connection,$chart);
+
+//Fin de Inserción a la db para las estadisticas de los usuarios
+
 $stquery1="SELECT * FROM products where pid='$pid'";
 $stres1=mysqli_query($connection,$stquery1);
 $r1=mysqli_fetch_array($stres1);
- $uzerid=$r1['user_id'];
+$uzerid=$r1['user_id'];
+$catid=$r1['catid'];
+$subcatid=$r1['subcatid'];
 
+//Inserción a la db para las estadisticas de los administradores
+$chart_ad="INSERT INTO `chart_category_subcatego_admin` (id,id_catid,id_subcatid,visited_at,visit) VALUES ('NULL','{$catid}','{$subcatid}','{$date}','1')";
+mysqli_query($connection,$chart_ad);
+//Fin de Inserción a la db para las estadisticas de los administradores
 
  $stquery2="SELECT * FROM users where user_id='$uzerid'";
 $stres2=mysqli_query($connection,$stquery2);
