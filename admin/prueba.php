@@ -2,10 +2,6 @@
 include('Connect.php');
 $usuario="SELECT title FROM categories" ;
 $datos_usuario=mysqli_query($connection,$usuario);
-
-echo "HOLA";
-
-
 ?>
 <?php while ($titulo = $datos_usuario->fetch_all(MYSQLI_ASSOC) ) { ?>
     <?php foreach($titulo as $titu): ?>
@@ -24,9 +20,6 @@ echo "HOLA";
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Visit'],
           ['2014', 100,],
-          ['2015', 110,],
-          ['2016', 60,],
-          ['2017', 130,]
         ]);
 
         var options = {
