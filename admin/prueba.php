@@ -3,6 +3,8 @@ include('Connect.php');
 $usuario="SELECT title FROM categories" ;
 $datos_usuario=mysqli_query($connection,$usuario);
 
+echo "HOLA";
+
 
 ?>
 <?php while ($titulo = $datos_usuario->fetch_all(MYSQLI_ASSOC) ) { ?>
