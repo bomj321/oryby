@@ -22,8 +22,9 @@ if($nr > 0){
 		$checkpassword=$row['email'];
       $userid= $row['user_id'];
       $_SESSION['user_id']= $userid;
-      if($userstatus=='0')
       $_SESSION['firstName'] = $name;
+
+      if($userstatus=='0')
    {
    ?>
    <script>

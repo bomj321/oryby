@@ -230,7 +230,7 @@ $(document).ready(function(){
 	$cl = explode(',', $myString);
 
 
-			  $sqll="SELECT seller.company_name,seller.email FROM users  INNER JOIN seller ON(users.email = seller.email) Where users.user_id='$userId'";
+			  $sqll="SELECT * FROM users  INNER JOIN seller ON(users.email = seller.email) Where users.user_id='$userId'";
 
 				$stmtt=mysqli_query($connection,$sqll);
 				if($stmtt == false) {
@@ -253,7 +253,7 @@ $(document).ready(function(){
 							  </br>
 							  <span class="amount text-default">Orden min:<?php echo $quantity?></span>
 							  </br>
-								<a href="contactsupplier.php?supplieremail=<?php echo $rows['email']; ?>"></i>Contactar al proveedor</a>
+								<a href="chat2.php?sellerid=<?php echo $rows['user_id'];?>&pid=<?php echo $row['pid'];?>&name=<?php echo $rows['firstName']?>"></i>Contactar al proveedor</a>
 							</br>
 							  </center>
 							  </br>
@@ -288,7 +288,7 @@ $(document).ready(function(){
 
 
 
-			  $sqll="SELECT seller.company_name,seller.email FROM users  INNER JOIN seller ON(users.email = seller.email) Where users.user_id='$userId'";
+			  $sqll="SELECT * FROM users  INNER JOIN seller ON(users.email = seller.email) Where users.user_id='$userId'";
 
 				$stmtt=mysqli_query($connection,$sqll);
 				if($stmtt == false) {
@@ -311,7 +311,7 @@ $(document).ready(function(){
 							  </br>
 							  <span class="amount text-default">orden mín:<?php echo $quantity?></span>
 							  </br>							  
-							<a href="contactsupplier.php?supplieremail=<?php echo $rows['email']; ?>"></i>Contactar al proveedor</a>							
+							<a href="chat2.php?sellerid=<?php echo $rows['user_id'];?>&pid=<?php echo $row['pid'];?>&name=<?php echo $rows['firstName']?>"></i>Contactar al proveedor</a>							
                 
 							  </center>
 							  </br>
@@ -463,7 +463,7 @@ $(document).ready(function(){
 
 
 
-              <!--------------------------SELECT CON LOS PAISES--------------------------------------->
+              <!--SELECT CON LOS PAISES-->
               <div class="widget form-group">
                 <select name="pais">
                 <option value="Elegir" id="AF">Pais de Origen</option>
@@ -708,7 +708,7 @@ $(document).ready(function(){
               </div><!-- end widget -->
 
 
-              <!--------------------------FIN SELECT CON LOS PAISES--------------------------------------->
+              <!--FIN SELECT CON LOS PAISES-->
 
                        <center>
 
@@ -729,7 +729,7 @@ $(document).ready(function(){
 
 
 				   </div><!-- end col -->
-<!------------ MADE IN CHILE ------------>  
+<!-- MADE IN CHILE -->  
 <?php
    try {
         require_once('connect.php');
@@ -766,7 +766,7 @@ $(document).ready(function(){
     </div><!-- end col -->
 </div><!-- end row -->
 
-<!------------FIN MADE IN CHILE ------------> 
+<!--FIN MADE IN CHILE --> 
 
 
      <hr>
@@ -812,7 +812,7 @@ $userId=$row['user_id'];
 
 
 
-			  $sqll="SELECT seller.company_name,seller.email FROM users  INNER JOIN seller ON(users.email = seller.email) Where users.user_id='$userId'";
+			  $sqll="SELECT * FROM users  INNER JOIN seller ON(users.email = seller.email) Where users.user_id='$userId'";
 
 				$stmtt=mysqli_query($connection,$sqll);
 				if($stmtt == false) {
@@ -835,7 +835,7 @@ $userId=$row['user_id'];
 							  </br>
 							  <span class="amount text-default">orden mín:<?php echo $quantity?></span>
 							  </br>
-							<a href="contactsupplier.php?supplieremail=<?php echo $rows['email']; ?>"></i>Contactar al proveedor</a>
+							<a href="chat2.php?sellerid=<?php echo $rows['user_id'];?>&pid=<?php echo $row['pid'];?>&name=<?php echo $rows['firstName']?>"></i>Contactar al proveedor</a>
 							  </center>
 							  </div>
 						<?php
@@ -868,7 +868,7 @@ $userId=$row['user_id'];
 
 
 
-			  $sqll="SELECT seller.company_name,seller.email FROM users  INNER JOIN seller ON(users.email = seller.email) Where users.user_id='$userId'";
+			  $sqll="SELECT * FROM users  INNER JOIN seller ON(users.email = seller.email) Where users.user_id='$userId'";
 
 				$stmtt=mysqli_query($connection,$sqll);
 				if($stmtt == false) {
@@ -891,7 +891,7 @@ $userId=$row['user_id'];
 							  </br>
 							  <span class="amount text-default">Orden min:<?php echo $quantity?></span>
 							  </br>
-								<a href="contactsupplier.php?supplieremail=<?php echo $rows['email']; ?>"></i>Contactar al proveedor</a>
+								<a href="chats2.php?sellerid=<?php echo $rows['user_id'];?>&pid=<?php echo $row['pid'];?>&name=<?php echo $rows['firstName']?>"></i>Contactar al proveedor</a>
 								</br>
 							  </center>
 							  </br>

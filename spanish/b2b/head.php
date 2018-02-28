@@ -29,6 +29,8 @@
     <!-- Google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i&subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="css/estilos.css">
+
     <link href="https://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800&amp;subset=latin-ext" rel="stylesheet">
     
 	
@@ -46,6 +48,26 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     
+
+    <!--AJAX PARA EL CHAT-->
+  <script type="text/javascript">
+        function ajax(){
+            var req = new XMLHttpRequest();
+
+            req.onreadystatechange = function(){
+                if (req.readyState == 4 && req.status == 200) {
+                    document.getElementById('chat').innerHTML = req.responseText;
+                }
+            }
+
+            req.open('GET', 'chat_ajax.php?sellerid=<?php echo $para;?>&pid=<?php echo $pid;?>&de=<?php echo $para;?>', true);
+            req.send();
+        }
+
+        //linea que hace que se refreseque la pagina cada segundo
+        setInterval(function(){ajax();}, 1000);
+    </script>
+<!--AJAX PARA EL CHAT-->
 </head>
 <?php
 include "chatactiveusers.php";
