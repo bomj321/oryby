@@ -27,6 +27,7 @@ ini_set('error_reporting',0);
     $de = mysqli_real_escape_string($connection, $_SESSION['user_id']);
 
 
+
 //Consulta para buscar productos
 $sql="SELECT * FROM products Where pid = '$pid'";
 $resultado=$connection -> query($sql);
@@ -71,10 +72,17 @@ $usere = "SELECT * FROM users WHERE user_id ='$var'";
   $res12 =$connection->query($chat12);
   $fila32=$connection->query($res12);
 
-  if($fila['para'] == $para) {$var = $de;} else {$var = $para;}
-  $consulta2 = "SELECT * FROM users WHERE user_id ='$var'";
+
+//CONSULTA PARA EL VENDEDOR
+  $aside3 = "SELECT * FROM c_chats INNER JOIN products ON (c_chats.pid = products.pid) WHERE de ='$de' OR para ='$de'";
+$asideres3 = $connection->query($aside3);
+$fila =$asideres3->fetch_assoc();
+if($fila['de'] == $para) {$var2 = $de;} else {$var2 = $para;}
+  $consulta2 = "SELECT * FROM users WHERE user_id ='$var2'";
   $ejecutar2 = $connection->query($consulta2);
   $fila2 = $ejecutar2->fetch_array();
+
+  
  ?>
 
 <!--PROGRAMACION DEL ASIDE DEL CHAT-->
@@ -83,17 +91,17 @@ $usere = "SELECT * FROM users WHERE user_id ='$var'";
     
     
 
-      <a href="chat2.php?sellerid=<?php echo $var; ?>&pid=<?php echo $row['pid'];?>">
+      <a href="chat2.php?sellerid=<?php echo $var;?>&pid=<?php echo $row['pid'];?>">
       <div class="chats">
 
-        <div class="caja1"  style="width:50%;  float:left;">
+        <div class="caja1"  style="width:40%;  float:left;">
           <!--<p>NOMBRE DEL CHAT</p>-->
-          <img style="width: 60px; height: 60px;" src="images/<?php echo $row['image'];?>" alt="Producto imagen">
+          <img style="width: 50px; height: 50px;" src="images/<?php echo $row['image'];?>" alt="Producto imagen">
         </div>
 
 
-         <div class="caja2" id="producto" style="width:50%;  float:right;">
-             <h6><?php echo $row['ntitle'];?>&nbsp;&nbsp;&nbsp; Price: <?php echo $row['price']; ?>&nbsp;&nbsp;&nbsp; Seller:<?php echo $fila2['firstName']; ?></h6>
+         <div class="caja2" id="producto" style="width:60%;  float:right;">
+             <h6><?php echo $row['ntitle'];?>&nbsp;&nbsp;&nbsp; Price: <?php echo $row['price']; ?>&nbsp;&nbsp;&nbsp; </h6>
         </div>
 
       </div>
@@ -118,14 +126,14 @@ if (!empty($pid) AND !empty($para) ) {
 
  ?>
   <div  class="col-md-6 col-md-offset-2" id="contenedor">
-    <?php include_once('chat-header.php'); ?>
     <div id="caja-chat">
       <div id="chat"></div>
     </div>
 
-    <form method="POST" action="">
+    <form method="POST" action="" enctype="multipart/form-data">
       <!--<input type="hidden" name="nombre" value="<?php //echo "$name"; ?>">-->
       <textarea name="mensaje" placeholder="Ingresa tu mensaje"></textarea>
+    <input id="files" class="form-control input-sm" type="file"  name="imagen"/>
       <input type="submit" name="enviar" value="Enviar">
     </form>
      </div>
@@ -168,7 +176,6 @@ if (!empty($pid) AND !empty($para) ) {
          $para = mysqli_real_escape_string($connection,$_GET['sellerid']);
          $pid = mysqli_real_escape_string($connection, $_GET['pid']);
          $de = mysqli_real_escape_string($connection, $_SESSION['user_id']);
-          
             
         //$nombre = mysqli_real_escape_string($_POST['nombre']);
         $mensaje = mysqli_real_escape_string($connection,$_POST['mensaje']);
@@ -202,9 +209,11 @@ if (!empty($pid) AND !empty($para) ) {
            //CONSULTA PARA EL ID DEL CHAT
 
           //INSERTAR LOS MENSAJES
-         $leido = 0;
-          $image = 'nada';
-         $insert2 = "INSERT INTO chats(id_cch,de,para,pid,mensaje,leido,image) VALUES(".$id_cch.", ".$de.",".$para.", ".$pid.", '".$mensaje."', ".$leido.", '".$image."');";
+         
+          
+          include('datosimagen.php');
+          $nombre_imagen = $_FILES['imagen']['name'];
+         $insert2 = "INSERT INTO chats(id_cch,de,para,pid,mensaje,image) VALUES(".$id_cch.", ".$de.",".$para.", ".$pid.", '".$mensaje."','$nombre_imagen');";
          $resultado3 = $connection->query($insert2);
           if ($resultado3) {
           echo "SI INSERTO ALGO EN LOS MENSAJES";
@@ -214,12 +223,9 @@ if (!empty($pid) AND !empty($para) ) {
           //INSERTAR LOS MENSAJES
 
           if($resultado3){
-
-            
-
             echo "<embed loop='false' src='css/beep.mp3' hidden='true' autoplay='true'>";
            }
-
+          
         }else{
 
         //CONSULTA PARA EL ID DEL CHAT POR SEGUNDA VEZ
@@ -232,10 +238,12 @@ if (!empty($pid) AND !empty($para) ) {
           }
 
            //CONSULTA PARA EL ID DEL CHAT POR SEGUNDA VEZ        
-          $leido = 0;
+          
           $image = 'nada';
           $id_cch=$fila['id_cch'];
-          $insert3 = "INSERT INTO chats(id_cch,de,para,pid,mensaje,leido,image) VALUES(".$id_cch.", ".$de.",".$para.", ".$pid.", '".$mensaje."', ".$leido.", '".$image."');";
+          include('datosimagen.php');
+          $nombre_imagen = $_FILES['imagen']['name'];
+          $insert3 = "INSERT INTO chats(id_cch,de,para,pid,mensaje,image) VALUES(".$id_cch.", ".$de.",".$para.", ".$pid.", '".$mensaje."','$nombre_imagen');";
          $resultado4 = $connection->query($insert3);
         
 
@@ -245,8 +253,7 @@ if (!empty($pid) AND !empty($para) ) {
 
               }  
 
-
-
+                          
         }
 
 
