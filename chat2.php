@@ -46,7 +46,7 @@ $cl = explode(',', $imagen);
   <div class="row">
 
     <!---ASIDE DEL CHAT-->
-<div class="col-md-4" id="aside">
+<div class="col-md-4" id="aside" >
       <h6 style="text-align: center">MY CHATS</h6>
 
 <!--PROGRAMACION DEL ASIDE DEL CHAT-->
@@ -92,8 +92,8 @@ if($fila['de'] == $para) {$var2 = $de;} else {$var2 = $para;}
     
 
       <a href="chat2.php?sellerid=<?php echo $var;?>&pid=<?php echo $row['pid'];?>">
-      <div class="chats">
-
+      <div class="chats" >
+        <h6><?php echo $fila32['fecha']; ?></h6>
         <div class="caja1"  style="width:40%;  float:left;">
           <!--<p>NOMBRE DEL CHAT</p>-->
           <img style="width: 50px; height: 50px;" src="images/<?php echo $row['image'];?>" alt="Producto imagen">
