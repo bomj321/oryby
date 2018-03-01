@@ -1,11 +1,45 @@
 <?php 
 include('Connect.php');
-$usuario="SELECT title FROM categories" ;
-$datos_usuario=mysqli_query($connection,$usuario);
+
+$idProducto = 33;
+$charType = strtolower("y");
+$description = "";
+
+switch ($charType) {
+    case "y":
+        $description = "Año";
+        $visitas="Select n.id_pid, year(n.visited_at) AS periodo,
+        COUNT(n.id_pid) AS visitas FROM chart_basic_user n
+        WHERE n.id_pid = 33 GROUP BY year(n.visited_at),n.id_pid;";
+    break;
+    case "m":
+        $description = "Mes";
+        $visitas="Select n.id_pid, MONTHNAME(n.visited_at) AS periodo,
+        COUNT(n.id_pid) AS visitas FROM chart_basic_user n
+        WHERE n.id_pid = 33 GROUP BY MONTHNAME(n.visited_at),n.id_pid;";      
+    break;
+    case "d":
+        $description = "Día";
+        $visitas="Select n.id_pid, n.visited_at AS periodo,
+        COUNT(n.id_pid) AS visitas FROM chart_basic_user n
+        WHERE n.id_pid = 33 GROUP BY n.visited_at,n.id_pid";
+    break;
+}
+
+
+
+$datos_usuario=mysqli_query($connection,$visitas);
 ?>
+<script> var dataChart = [];</script>
+
 <?php while ($titulo = $datos_usuario->fetch_all(MYSQLI_ASSOC) ) { ?>
     <?php foreach($titulo as $titu): ?>
-        <?php echo $titu['title'];?>
+      <script> dataChart.push(
+                <?php echo "'$titu[periodo]'";?>,
+                <?php echo "'$titu[visitas]'";?>
+              );
+              console.log(dataChart);
+      </script>
     <?php endforeach;?>
 <?php }?>
 
@@ -17,10 +51,15 @@ $datos_usuario=mysqli_query($connection,$usuario);
       google.charts.setOnLoadCallback(drawChart);
 
       function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Year', 'Visit'],
-          ['2014', 100,],
-        ]);
+            var data = new google.visualization.DataTable();
+                data.addColumn('string', '<?php echo $description;?>'); // Implicit domain label col.
+                data.addColumn('number', 'Visit'); // Implicit series 1 data col.
+                data.addRows([
+                ['April',1000],
+                ['May',  1170],
+                ['June',  660],
+                ['July', 1030]
+            ]);
 
         var options = {
           chart: {
