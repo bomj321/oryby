@@ -2,7 +2,8 @@
 include('Connect.php');
 
 $idProducto = 33;
-$charType = strtolower("y");
+$periodo="y";
+$charType = strtolower($periodo);
 $description = "";
 
 switch ($charType) {
@@ -52,8 +53,8 @@ $datos_usuario=mysqli_query($connection,$visitas);
 
       function drawChart() {
             var data = new google.visualization.DataTable();
-                data.addColumn('string', '<?php echo $description;?>'); // Implicit domain label col.
-                data.addColumn('number', 'Visit'); // Implicit series 1 data col.
+                data.addColumn('string', '<?php echo $description;?>'); 
+                data.addColumn('number', 'Visit'); 
                 data.addRows([
                 ['April',1000],
                 ['May',  1170],
