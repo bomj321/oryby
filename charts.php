@@ -30,11 +30,15 @@
             
         $resultado = mysqli_query($connection,$sql);
         $dataChart = [];
+        $array = [
+            "foo" => "bar",
+            "bar" => "foo",
+        ];
         while ($grafica = $resultado->fetch_all(MYSQLI_ASSOC) ) {
             foreach($grafica as $grafi):?>
 
-        <?php    endforeach;
+        <?php endforeach;
         }
         echo json_encode(array(
-        'respuesta' => $dataChart)); 
+        'respuesta' => $array)); 
 ?>
