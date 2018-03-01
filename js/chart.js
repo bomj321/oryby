@@ -14,7 +14,7 @@ $(document).ready(function(){
             dataType:"json",
         })
         .done(function(response){
-			console.log(response);
+            console.log(response);
         });
         
 
