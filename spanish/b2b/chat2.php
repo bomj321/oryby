@@ -92,11 +92,11 @@ if($fila['de'] == $para) {$var2 = $de;} else {$var2 = $para;}
     
 
       <a href="chat2.php?sellerid=<?php echo $var;?>&pid=<?php echo $row['pid'];?>">
-      <div class="chats">
+      <div class="chats asidechats">
 
         <div class="caja1"  style="width:40%;  float:left;">
           <!--<p>NOMBRE DEL CHAT</p>-->
-          <img style="width: 50px; height: 50px;" src="images/<?php echo $row['image'];?>" alt="Producto imagen">
+          <img style="width: 50px; height: 50px;  margin-bottom: 5px;" src="images/<?php echo $row['image'];?>" alt="Producto imagen">
         </div>
 
 
@@ -107,6 +107,7 @@ if($fila['de'] == $para) {$var2 = $de;} else {$var2 = $para;}
       </div>
 
       </a>
+       <hr>
      
      
   
@@ -133,9 +134,8 @@ if (!empty($pid) AND !empty($para) ) {
     <form method="POST" action="" enctype="multipart/form-data">
       <!--<input type="hidden" name="nombre" value="<?php //echo "$name"; ?>">-->
       <textarea name="mensaje" placeholder="Ingresa tu mensaje"></textarea>
-    <input id="files" class="form-control input-sm" type="file"  name="imagen"/>
-      <input type="submit" name="enviar" value="Enviar">
-    </form>
+    <input class="filesenviar" id="files"  type="file"  name="imagen"/>
+    <input class="inputenviar" type="submit" name="enviar" value="Enviar">    </form>
      </div>
 
 <!--CHAT-->
@@ -272,6 +272,62 @@ if (!empty($pid) AND !empty($para) ) {
 
   </div> <!--END ROW-->
   </div><!--END CONTAINER-->
+
+  <!--SCRIPT PARA EL ASIDE-->
+<script type="text/javascript">
+  var x = document.getElementsByClassName("asidechats");
+ 
+    for (var i=0; i< x.length; i++) {
+        //Añades un evento a cada elemento
+        
+        x[i].addEventListener('mouseover',function() {
+          this.classList.toggle('amarillo');
+        });
+
+        x[i].addEventListener('mouseout',function() {
+                this.classList.remove('amarillo'); 
+        });
+    }
+</script>
+<!--SCRIPT PARA EL ASIDE-->
+
+<!--SCRIPT PARA EL INPUT ENVIAR-->
+<script type="text/javascript">
+  var x = document.getElementsByClassName("inputenviar");
+ 
+    for (var i=0; i< x.length; i++) {
+        //Añades un evento a cada elemento
+        
+        x[i].addEventListener('mouseover',function() {
+          this.classList.toggle('amarillo');
+        });
+
+        x[i].addEventListener('mouseout',function() {
+                this.classList.remove('amarillo'); 
+        });
+    }
+
+</script>
+<!--SCRIPT PARA EL INPUT ENVIAR-->
+
+<!--SCRIPT PARA EL INPUT SUBIR ARCHIVO-->
+<script type="text/javascript">
+  var x = document.getElementsByClassName("filesenviar");
+ 
+    for (var i=0; i< x.length; i++) {
+        //Añades un evento a cada elemento
+        
+        x[i].addEventListener('mouseover',function() {
+          this.classList.toggle('amarillo');
+        });
+
+        x[i].addEventListener('mouseout',function() {
+                this.classList.remove('amarillo'); 
+        });
+    }
+
+</script>
+<!--SCRIPT PARA EL INPUT SUBIR ARCHIVO-->
 </body>
 <?php require'footer.php'; ?>
 </html>

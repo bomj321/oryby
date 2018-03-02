@@ -53,18 +53,16 @@ input[type='text']{
 
 input[type='submit']{
 	width: 100%;
-	height: 40px;
-	border: 1px solid black;
-	border-radius: 5px;
+	height: 40px;	
+	border-radius: 12px;
 	cursor: pointer;
 	color: black;
 }
 
 textarea{
 	width: 100%;
-	height: 40px;
-	border: 1px solid black;
-	border-radius: 5px;
+	height: 80px;
+	border-radius: 12px;
 }
 
 input, textarea{
@@ -125,3 +123,24 @@ height: 5px;
 	-webkit-border-radius: 12px;
 
 }
+
+/*ESTILOS AGREGADOS CON JAVASCRIPT*/
+
+
+
+.amarillo{
+
+
+background: rgba(241,231,103,1) !important;
+background: -moz-linear-gradient(left, rgba(241,231,103,1) 0%, rgba(254,182,69,1) 100%) !important;
+background: -webkit-gradient(left top, right top, color-stop(0%, rgba(241,231,103,1)), color-stop(100%, rgba(254,182,69,1))) !important;
+background: -webkit-linear-gradient(left, rgba(241,231,103,1) 0%, rgba(254,182,69,1) 100%) !important;
+background: -o-linear-gradient(left, rgba(241,231,103,1) 0%, rgba(254,182,69,1) 100%) !important;
+background: -ms-linear-gradient(left, rgba(241,231,103,1) 0%, rgba(254,182,69,1) 100%) !important;
+background: linear-gradient(to right, rgba(241,231,103,1) 0%, rgba(254,182,69,1) 100%) !important;
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1e767', endColorstr='#feb645', GradientType=1 ) !important;
+
+
+}
+
+
