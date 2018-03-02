@@ -38,11 +38,11 @@ include('head.php');
 
                         <div class="sidebarFilter collapse">
                             <div class="row">
-							 <form  action="breq1.php" method="POST">
+							                <form  action="breq1.php" method="POST">
                                 <div class="col-sm-3">
                                     <div class="widget">
                                 <select name="pais">
-                                                  <option value="Elegir" id="AF">Elegir opción</option>
+                                                  <option value="Elegir" id="AF">Choose Option</option>
                                                   <option value="Afganistán" id="AF">Afganistán</option>
                                                   <option value="Albania" id="AL">Albania</option>
                                                   <option value="Alemania" id="DE">Alemania</option>
@@ -281,13 +281,68 @@ include('head.php');
                                                   <option value="Zambia" id="ZM">Zambia</option>
                                                   <option value="Zimbabue" id="ZW">Zimbabue</option>
                                         </select>
+                                            
                                     </div><!-- end widget -->
-                                    <button type="submit" name="button">Search</button>
+                                  </div><!-- end col -->
+                                     <!----------------------------------------------MAS FILTROS---------------------------------------->
+                                       <div class="col-sm-3 col-md-offset-1">
+                                    <div class="widget">
+                                                      <?php   $sql="SELECT * FROM `categories` WHERE NOT title ='Eco Friendly'  AND NOT title ='Innovation' LIMIT 5";
+                                                        $rst=mysqli_query($connection,$sql);    
+                                                        ?>                          
+                                        <h6 class="subtitle thin">Categories</h6>
 
+                                        <ul class="list list-unstyled">
+                                        <?php while($rowt=mysqli_fetch_array($rst)){ ?>
+                                            <li>
+                                                <div >
+                                                    <input name="categorytitle"  value="<?php echo $rowt['title'];?>"  type="checkbox" >
+                                                    <label >
+                                                        <?php echo $rowt['title'];?>
+                                                    </label>
+                                                </div>
+                                            </li>
+                                            <?php
+                                            }?>
+                                        
+                                        </ul>
+                                    </div><!-- end widget -->
                                 </div><!-- end col -->
 
-                            <!----------------------------------------------MAS FILTROS---------------------------------------->
+                                <div class="col-sm-3">
+                                    <div class="widget">
+                                <?php   $query="SELECT * FROM `categories` WHERE NOT title ='Eco Friendly'  AND NOT title ='Innovation' LIMIT 5 ,10";
+                                        $result=mysqli_query($connection,$query);   
+                                                        ?>                          
+                                       
+                                    </br>
+                                    </br>
+                                    </br>
+                                        <ul class="list list-unstyled">
+                                        <?php while($rowt=mysqli_fetch_array($result)){ ?>
+                                            <li>
+                                                <div>
+                                                    <input  name="categorytitle"  value="<?php echo $rowt['title'];?>"  type="checkbox" >
+                                                    <label >
+                                                        <?php echo $rowt['title'];?>
+                                                    </label>
+                                                </div>
+                                            </li>
+                                            <?php
+                                            }?>
+                                        
+                                        </ul>
+                                    </div><!-- end widget -->
+                                </div><!-- end col -->
+                               
 
+
+                            <!------------MAS FILTROS------------>
+                                    <button type="submit" name="button">Search</button>
+
+                                
+
+                           
 								</form>
                             </div><!-- end row -->
 
@@ -328,6 +383,7 @@ include('head.php');
                                                 <th>Quantity</th>
                       											    <th>Deadline</th>
                                                 <th>Country</th>
+                                                <th>Categorie</th>
                                                 <th>Image</th>
                                             </tr>
                                         </thead>
@@ -363,10 +419,13 @@ include('head.php');
                                                 </td>
 												<td>
 												 <?php echo $rowreq['dtym'];?>
+                         </td>
+
                          <td>
  												 <?php echo $rowreq['country'];?>
- 												 </td>
+ 												 
 												 </td>
+                         <td><?php echo $rowreq['catename']; ?></td>
                                                 <td style="width:30px;">
                                                    <img style="height:40px; width:50px; margin-top:-10px;margin-bottom:-8px; " src="ReqImages/<?php echo $rowreq['image']; ?>" alt="productImage">
                                                 </td>

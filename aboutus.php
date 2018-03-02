@@ -20,7 +20,7 @@ include('head.php');
 
 		<?php
 
-		$qry1="SELECT * FROM aboutus WHERE elementname='content1'";
+		$qry1="SELECT * FROM aboutus WHERE elementname='pageEnglish'";
 
        $res1=mysqli_query($connection,$qry1);
 	   //echo $va=mysqli_num_rows($res1);

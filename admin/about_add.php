@@ -102,8 +102,8 @@ include('Connect.php');
 													<div class="form-group">
 														<select class="form-control" name="elementname">
 														<option class="form-control" value="" >Select Element Name</option>
-                            <option class="form-control" value="content1" >Content 1</option>
-														<option class="form-control" value="content2">Content 2</option>
+                            <option class="form-control" value="content1" >PageEnglish</option>
+														<option class="form-control" value="content2">PageSpanish</option>
 														</select>
 													</div>
 												</fieldset>
