@@ -52,6 +52,7 @@ if(!isset($_SESSION))
 }
 
 		  ?>
+		  <hr>
 	</div>
 	
 	<?php endwhile; ?>

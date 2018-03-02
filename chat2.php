@@ -96,7 +96,7 @@ if($fila['de'] == $para) {$var2 = $de;} else {$var2 = $para;}
         <h6><?php echo $fila32['fecha']; ?></h6>
         <div class="caja1"  style="width:40%;  float:left;">
           <!--<p>NOMBRE DEL CHAT</p>-->
-          <img style="width: 50px; height: 50px;" src="images/<?php echo $row['image'];?>" alt="Producto imagen">
+          <img style="width: 50px; height: 50px; margin-bottom: 5px;" src="images/<?php echo $row['image'];?>" alt="Producto imagen">
         </div>
 
 
@@ -107,6 +107,7 @@ if($fila['de'] == $para) {$var2 = $de;} else {$var2 = $para;}
       </div>
 
       </a>
+      <hr>
      
      
   
@@ -133,7 +134,7 @@ if (!empty($pid) AND !empty($para) ) {
     <form method="POST" action="" enctype="multipart/form-data">
       <!--<input type="hidden" name="nombre" value="<?php //echo "$name"; ?>">-->
       <textarea name="mensaje" placeholder="Ingresa tu mensaje"></textarea>
-    <input id="files" class="form-control input-sm" type="file"  name="imagen"/>
+      <input id="files"  type="file"  name="imagen"/>
       <input type="submit" name="enviar" value="Enviar">
     </form>
      </div>
