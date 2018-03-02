@@ -45,6 +45,8 @@
 		<link rel="apple-touch-startup-image" href="img/splash/ipad-landscape.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape)">
 		<link rel="apple-touch-startup-image" href="img/splash/ipad-portrait.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)">
 		<link rel="apple-touch-startup-image" href="img/splash/iphone.png" media="screen and (max-device-width: 320px)">
+		    <link rel="stylesheet" type="text/css" href="css/estilos.css">
+
 
 	</head>
 
@@ -179,7 +181,7 @@
 							</li>
 							<li class="divider"></li>
 							<li>
-								<a href="logoff.php" class="padding-10 padding-top-5 padding-bottom-5" data-action="userLogout"><i class="fa fa-sign-out fa-lg"></i> <strong><u>L</u>ogout</strong></a>
+								<a href="logoff.php" class="padding-10 padding-top-5 padding-bottom-5" data-action="userLogout"><i class="fa fa-sign-out fa-lg"></i> <strong><u>L</u>Logout</strong></a>
 							</li>
 						</ul>
 					</li>
@@ -477,6 +479,17 @@
 						<ul>
 							<li>
 								<a href="chatuser.php"  >User Chat</a>
+						</li>
+
+
+						</ul>
+					</li>
+
+					<li>
+						<a href="#"><i class="fa fa-lg fa-fw fa-table"></i> <span class="menu-item-parent">My Chats</span></a>
+						<ul>
+							<li>
+								<a href="chatadmin.php"  >User Chats</a>
 						</li>
 
 

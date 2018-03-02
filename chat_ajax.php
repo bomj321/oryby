@@ -13,7 +13,7 @@ if(!isset($_SESSION))
     $de = mysqli_real_escape_string($connection, $_SESSION['user_id']);
 	//Formatear Fecha
 	function formatearFecha($fecha){
-	return date('Y M h:m:s:a', strtotime($fecha));
+	return date('Y d M h:i a', strtotime($fecha));
 }
 
 	
