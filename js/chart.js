@@ -3,18 +3,24 @@ $(document).ready(function(){
 
     $("a.chart").on('click', function(e){
         var periodo = $(this).attr('href');
-        console.log(periodo);
         var producto = $(this).parent().parent("ul");
         var id = producto.attr('id');
-        console.log(id);
+        var row = []  ;
         $.ajax({
             type: "POST",
             url: "charts.php",
             data:("id="+id+"&periodo="+periodo),
-            dataType:"json",
+            dataType:"text",
         })
         .done(function(response){
-            console.log(response);
+            var resultado = JSON.parse(response);
+            const dataChart = [];
+            for(let i = 0; i < resultado.length; i++){
+                dataChart.push([resultado[i].periodo, resultado[i].visitas])
+            }
+            console.log(dataChart);
+            // aqui ya pasarle el arreglo a la grafica
+
         });
         
 

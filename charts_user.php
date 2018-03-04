@@ -37,14 +37,7 @@ $id_user=$_GET['id'];//id del usuario logueado
 
                         <!-- Tab panes -->
                         <div class="tab-content">
-                            <div role="tabpanel" class="tab-pane active" id="year">
-                            
-                            </div>
-                            <div role="tabpanel" class="tab-pane" id="month">
-                            
-                            </div>
-                            <div role="tabpanel" class="tab-pane" id="day">
-                            
+                            <div role="tabpanel" class="tab-pane active" id="columnchart_material">                            
                             </div>
                         </div>
 
@@ -53,7 +46,7 @@ $id_user=$_GET['id'];//id del usuario logueado
             </div>
             <hr>
             <?php }?> 
-        <!--Cierre del Container-->    
+        <!--Cierre del Container--> 
         </div>
 
 	   <?php include('footer.php');?>
@@ -61,6 +54,69 @@ $id_user=$_GET['id'];//id del usuario logueado
         <!-- JavaScript Files -->
         <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
 		<script type="text/javascript" src="js/bootstrap.min_2.js"></script>
-        <script type="text/javascript" src="js/chart.js"></script>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                
+
+
+            $("a.chart").on('click', function(e){
+                var periodo = $(this).attr('href');
+                var producto = $(this).parent().parent("ul");
+                var id = producto.attr('id');
+                var row = []  ;
+                $.ajax({
+                    type: "POST",
+                    url: "charts.php",
+                    data:("id="+id+"&periodo="+periodo),
+                    dataType:"text",
+                })
+                .done(function(response){
+                    var resultado = JSON.parse(response);
+                    const dataChart = [];
+                    for(let i = 0; i < resultado.length; i++){
+                        dataChart.push([resultado[i].periodo, resultado[i].visitas])
+                    }
+                    google.charts.load('current', {'packages':['bar']});
+                    google.charts.setOnLoadCallback(drawChart);
+                    function drawChart() {
+                        console.log(dataChart);
+                            var data = new google.visualization.DataTable();
+                                data.addColumn('string', ''); 
+                                data.addColumn('number', 'Visit'); 
+                                data.addRows([
+                                ['2018',3],
+                                ['2019',1],                                
+                            ]);
+
+                        var options = {
+                        chart: {
+                            title: 'Company Performance',
+                            subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+                        }
+                        };
+
+                        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+
+                        chart.draw(data, google.charts.Bar.convertOptions(options));
+                    }
+
+
+
+                 });              
+            });
+
+
+
+            /*Cierre de Jquery*/   
+            }); 
+
+
+
+
+
+
+
+        </script>
     </body>
 </html>

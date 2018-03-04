@@ -6,8 +6,7 @@
     $periodo = htmlspecialchars($_POST['periodo']);
     $charType = strtolower($periodo);
     $description = "";
-    include('Connect.php');
-    {}
+    include('Connect.php');    
     switch ($charType) {
         case "y":
             $description = "Año";
@@ -31,8 +30,8 @@
             
         $resultado = mysqli_query($connection,$sql);
         $new_array = [];
-        while ($rows = $resultado->fetch_all(MYSQLI_ASSOC) ) { 
-            $new_array= $rows; // Inside while loop
+        while ($rows = $resultado->fetch_all(MYSQLI_ASSOC)) { 
+            $new_array= $rows; 
         }
         echo json_encode($new_array);
 ?>
