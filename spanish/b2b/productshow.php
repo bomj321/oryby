@@ -212,13 +212,13 @@ include('navh.php');
                                         </div>
                                 <figure>
 								
-                   <a href="Shopsingle.php?pid=<?php echo $row['pid'] ; ?>">                         		      
+                   <a href="Shopsingle.php?pid=<?php echo $row['pid'];?>&sellerid=<?php echo $row['user_id'];?>">                         		      
 										 <img style="height:200px; width:200px;" src="images/<?php echo $cl[0]; ?>" alt="" />
 										
                                     </a>
                                 </figure>
                                 <div class="title">
-								 <?php echo '<h6><a href="Shopsingle.php?pid='.$row['pid'].'"> '.$row['ntitle'].'</a></h6>'; ?>
+								 <?php echo '<h6><a href="Shopsingle.php?pid='.$row['pid'].'&sellerid='.$row['user_id'].'">'.$row['ntitle'].'</a></h6>'; ?>
                                 
                                 </div><!-- end title -->
 								<div class="price">

@@ -182,6 +182,16 @@ include('navh.php');
 				 $myString = $row['image'];
 				  $productType=$row['productType'];
 				 $cl = explode(',', $myString);
+                    //Seleccionar Usuarios. Por si acaso
+                 $sqll2="SELECT * FROM users  INNER JOIN seller ON(users.email = seller.email) Where users.user_id='$userId'";
+
+                $stmtt2=mysqli_query($connection,$sqll2);
+                if($stmtt2 == false) {
+                trigger_error('Wrong SQL: ' . $sqll2 . ' Error: ' . $connection->error, E_USER_ERROR);
+                }
+                  $rows2=mysqli_fetch_array($stmtt2);
+                  //Seleccionar Usuarios. Por si acaso
+
 							  ?>
 				 
          <div class="col-sm-6 col-md-3" style="padding:3px">
@@ -211,14 +221,14 @@ include('navh.php');
 										
                                         </div>
                                 <figure>
-								
-                   <a href="Shopsingle.php?pid=<?php echo $row['pid'] ; ?>">                         		      
+						<!--PRODUCTOS-->		
+                   <a href="Shopsingle.php?pid=<?php echo $row['pid'];?>&sellerid=<?php echo $row['user_id'];?>">                         		      
 										 <img style="height:200px; width:200px;" src="images/<?php echo $cl[0]; ?>" alt="" />
 										
                                     </a>
                                 </figure>
                                 <div class="title">
-								 <?php echo '<h6><a href="Shopsingle.php?pid='.$row['pid'].'"> '.$row['ntitle'].'</a></h6>'; ?>
+								 <?php echo '<h6><a href="Shopsingle.php?pid='.$row['pid'].'&sellerid='.$row['user_id'].'">'.$row['ntitle'].'</a></h6>'; ?>
                                 
                                 </div><!-- end title -->
 								<div class="price">
@@ -234,7 +244,8 @@ include('navh.php');
                         <!-- end col -->
                    
                    <!-- end row -->
-				  
+				                        <!--PRODUCTOS-->        
+
 				   </div>
 				   <?php  } ?>
                     <div class="row">

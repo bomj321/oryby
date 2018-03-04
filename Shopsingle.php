@@ -5,7 +5,8 @@
 require 'Connect.php';
 $pid=$_GET['pid'];
 $_SESSION['pid']=$pid;
-
+$sellerid = $_GET['sellerid'];
+$_SESSION['user_id'];
 //Inserción a la db para las estadisticas de los usuarios
 
 $date =  date('Y-m-d');// Tiempo
@@ -148,7 +149,7 @@ require('head.php');
                         </div><!-- end row -->
                         <hr class="spacer-15">
                         <ul class="list list-inline">
-                            <li><a class="btn btn-gray btn-md round" href="#"><i class="fa fa-chat mr-5"></i>Contact Supplier</a></li>
+                            <li><a class="btn btn-gray btn-md round" href="chat2.php?sellerid=<?php echo $sellerid;?>&pid=<?php echo $pid;?>"><i class="fa fa-chat mr-5"></i>Contact Supplier</a></li>
                             <li><a class="btn btn-gray btn-md round" href="add_favory.php?id=<?php echo $pid; ?>"><i class="fa fa-heart mr-5"></i>Add My Favory</a></li>
                             <li><button type="submit"  class="btn btn-default btn-md round"><i class="fa fa-shopping-basket mr-5"></i>Buy Now</button></li>
                         </ul>

@@ -64,6 +64,8 @@ if ($row['de']==$de) {
 $var = $row['de'];
 }
 $id_cch = $row["id_cch"];
+$firstimage = $row['image'];
+$valor = explode(',',$firstimage); 
 
   $usere = "SELECT * FROM users WHERE user_id ='$var'";
  $usere12 = $connection->query($usere);
@@ -98,7 +100,7 @@ if($fila['de'] == $para) {$var2 = $de;} else {$var2 = $para;}
          <hr style="width: 90%">
         <div class="caja1"  style="width:40%;  float:left;">
           <!--<p>NOMBRE DEL CHAT</p>-->
-          <img style="width: 50px; height: 50px;  margin-bottom: 5px;" src="images/<?php echo $row['image'];?>" alt="Producto imagen">
+          <img style="width: 50px; height: 50px;  margin-bottom: 5px;" src="images/<?php echo $valor[0];?>" alt="Producto imagen">
         </div>
 
 
