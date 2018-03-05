@@ -8,7 +8,7 @@
     	   header("Location: login.php?status=Unauthorized Access Attempt!");
    
     }
-include('Connect.php');
+	include('Connect.php');
 $userType=$_SESSION["userType"];
 if($userType !='Admin')
 {
@@ -23,7 +23,7 @@ trigger_error('Wrong SQL: ' . $sqll . ' Error: ' . $connection->error, E_USER_ER
 $nr=mysqli_num_rows($stmtt);
 $row=mysqli_fetch_array($stmtt);
  $user_id =$row['user_id'];
-  $sql="SELECT * FROM users INNER JOIN access  ON  (users.user_id = access.user_id) INNER JOIN page  ON  (access.pageId = page.pageId) WHERE  access.status ='1'  AND access.pageId='17' AND access.user_id='$user_id' ";
+  $sql="SELECT * FROM users INNER JOIN access  ON  (users.user_id = access.user_id) INNER JOIN page  ON  (access.pageId = page.pageId) WHERE  access.status ='1'  AND access.pageId='5' AND access.user_id='$user_id' ";
  
 $stmt=mysqli_query($connection,$sql);
 if($stmt == false) {
@@ -41,54 +41,12 @@ else
 			    <script>
 					window.location.href='NotAccess.php';
 				</script>
-<?php 
+  <?php 
 }
 }
 include('header.php');
-
+$id =$_GET['id'];
 ?>
-<?php 
-//Graficos del año
-$años=array('','2018','2019','2020','2021','2022');
-for ($x=1; $x <= 5; $x++) {
-      $visitantes[$x]=0;
-};
-
-$ano=date('Y');
-
-$sql="SELECT * FROM `chart_category_subcatego_admin` ";
-$datos=mysqli_query($connection,$sql);
-  while($row=mysqli_fetch_array($datos)){
-  $y=date("Y", strtotime ($row['visited_at'] ) );
-      if($y==$ano){
-        $visitantes[$x]=$visitantes[$x]+$row['visit'];
-      }
-}
-?>
-<?php 
-//Graficos del mes
-$meses=array('','Ene','Feb','Mar','Abr','May','Jun','Jul','Agost','Sept','Oct','Nov','Dic');
-for ($x=1; $x <= 12; $x++) {
-      $dinero[$x]=0;
-};
-
-$ano=date('Y');
-
-
-$sql="SELECT * FROM `chart_category_subcatego_admin` ";
-$datos=mysqli_query($connection,$sql);
-  while($row=mysqli_fetch_array($datos)){
-  $y=date("Y", strtotime ($row['visited_at'] ) );
-  $mes=(int)date("m", strtotime ($row['visited_at']));
-      if($y==$ano){
-        $dinero[$mes]=$dinero[$mes]+$row['visit'];
-      }
-}
-?>
-
-
-
-
 
 		<!-- MAIN PANEL -->
 		<div id="main" role="main">
@@ -104,7 +62,7 @@ $datos=mysqli_query($connection,$sql);
 
 				<!-- breadcrumb -->
 				<ol class="breadcrumb">
-					<li>Home</li><li>Tables</li><li>Data Tables <?php echo $ano;?></li>
+					<li>Home</li><li>Tables</li><li>Data Tables</li>
 				</ol>
 
 			</div>
@@ -114,31 +72,45 @@ $datos=mysqli_query($connection,$sql);
 			<div id="content">
 
 				<div class="row">
-          <div class="col-md-12"  >
-            <!-- Nav tabs -->
-            <ul class="nav nav-tabs" role="tablist">
-              <li role="presentation" class="active"><a href="#year" aria-controls="home" role="tab" data-toggle="tab">Year</a></li>
-              <li role="presentation"><a href="#month" aria-controls="profile" role="tab" data-toggle="tab">Month</a></li>
-              <li role="presentation"><a href="#day" aria-controls="messages" role="tab" data-toggle="tab">Day</a></li>
-            </ul>
-
-            <!-- Tab panes -->
-            <div class="tab-content">
-              <div role="tabpanel" class="tab-pane active" id="year" style="width: 100%; height: 100%;"></div>
-              <div role="tabpanel" class="tab-pane" id="month"></div>
-              <div role="tabpanel" class="tab-pane" id="day"></div>
-            </div>
-
-          </div>
-
-
-
-
-
+					<div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+						<h1 class="page-title txt-color-blueDark">
+							<i class="fa fa-table fa-fw "></i> 
+								Table 
+							<span>> 
+								Chart Categories
+							</span>
+						</h1>
 					</div>
 			</div>
-			
-				<!-- end widget grid -->
+		<!-- Graficas-->
+		<div class="container">
+            <div class="row">
+                <div class="col-md-12 content">
+                    <h3 class="text-center">Product Statistics</h3>
+                </div><!-- end col -->
+            </div><!-- end row -->               
+            <div class="row">
+                <div class="col-md-8 col-xs-8 col-lg-8">
+                    <div>
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs" role="tablist" id="<?php echo $id?>">   
+                            <li role="presentation" class="" style="background-color: #f0f1f1; border: none;"><a href="y" class="chart" aria-controls="home" role="tab" data-toggle="tab">Year</a></li>
+                            <li role="presentation" class="chart" style="background-color: #f0f1f1; border: none;"><a href="m" class="chart" aria-controls="profile" role="tab" data-toggle="tab">Month</a></li>
+                            <li role="presentation" class="chart" style="background-color: #f0f1f1; border: none;"><a href="d" class="chart" aria-controls="messages" role="tab" data-toggle="tab">Day</a></li>
+                        </ul>
+
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+							<div id='columnchart_material'></div>                                                      
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+        <!--Cierre del Container--> 
+        </div>
+
 
 			</div>
 			<!-- END MAIN CONTENT -->
@@ -199,12 +171,6 @@ $datos=mysqli_query($connection,$sql);
 				</div>
 			</div>
 		</div>
-		<!-- END PAGE FOOTER -->
-
-		<!-- SHORTCUT AREA : With large tiles (activated via clicking user name tag)
-		Note: These tiles are completely responsive,
-		you can add as many as you like
-		-->
 		<div id="shortcut">
 			<ul>
 				<li>
@@ -276,8 +242,6 @@ $datos=mysqli_query($connection,$sql);
 		<!-- JQUERY MASKED INPUT -->
 		<script src="js/plugin/masked-input/jquery.maskedinput.min.js"></script>
 
-		<script src="js/default.js"></script>
-
 		<!-- JQUERY SELECT2 INPUT -->
 		<script src="js/plugin/select2/select2.min.js"></script>
 
@@ -316,67 +280,8 @@ $datos=mysqli_query($connection,$sql);
 		<script src="js/plugin/datatables/dataTables.tableTools.min.js"></script>
 		<script src="js/plugin/datatables/dataTables.bootstrap.min.js"></script>
 		<script src="js/plugin/datatable-responsive/datatables.responsive.min.js"></script>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-      google.charts.load('current', {'packages':['bar']});
-      google.charts.setOnLoadCallback(drawChart);
-
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Year', 'Visit'],
-          <?php for ($x=1; $x <= 5; $x++) {  ?>
-          ['<?php echo $años[$x];?>',<?php echo $visitantes[$x];?>],
-          <?php }; ?>
-        ]);
-
-        var options = {
-          chart: {
-            title: 'Orybu',
-            subtitle: 'Visit',
-          },
-          bars: 'horizontal' // Required for Material Bar Charts.
-        };
-
-        var chart = new google.charts.Bar(document.getElementById('year'));
-
-        chart.draw(data, google.charts.Bar.convertOptions(options));
-      }
-    </script>
-    <script type="text/javascript">
-    google.charts.load("current", {packages:['corechart']});
-    google.charts.setOnLoadCallback(drawChart);
-    function drawChart() {
-      var data = google.visualization.arrayToDataTable([
-        ["Element", "Density", { role: "style" } ],
-        <?php for ($x=1; $x <= 12; $x++) {  ?>
-            ["<?php echo $meses[$x];?>",<?php echo $dinero[$x];?>, "#b87333"],
-        <?php }; ?>
-      ]);
-
-      var view = new google.visualization.DataView(data);
-      view.setColumns([0, 1,
-                       { calc: "stringify",
-                         sourceColumn: 1,
-                         type: "string",
-                         role: "annotation" },
-                       2]);
-
-      var options = {
-        title: "Visit by Month",
-        width: 600,
-        height: 400,
-        bar: {groupWidth: "95%"},
-        legend: { position: "none" },
-      };
-      var chart = new google.visualization.ColumnChart(document.getElementById("month"));
-      chart.draw(view, options);
-  }
-  </script>
-
-
-
-		
-
+		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+		<script type="text/javascript" src="js/chart.js"></script>
 
 	</body>
 
