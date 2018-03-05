@@ -47,6 +47,8 @@
 		<link rel="apple-touch-startup-image" href="img/splash/iphone.png" media="screen and (max-device-width: 320px)">
 		    <link rel="stylesheet" type="text/css" href="css/estilos.css">
 
+		  
+
 
 	</head>
 

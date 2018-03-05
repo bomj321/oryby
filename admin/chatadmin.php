@@ -53,18 +53,23 @@ else
 }
 include('header.php');
 
+    
+
 ?>
 
 
-  
-<body onload="ajax();">
+
+
+
+ 
+
+  <body >
 <div class="container chateo" id="body">
   <div class="row">
 
     <!---ASIDE DEL CHAT-->
 <div class="col-md-4" id="aside">
       <h6 style="text-align: center">MY CHATS</h6>
-
 
 <!--PROGRAMACION DEL ASIDE DEL CHAT-->
 <?php 
@@ -78,17 +83,17 @@ function formatearFecha($fecha){
 
 
 
-$aside1 = "SELECT * FROM c_chats INNER JOIN products ON (c_chats.pid = products.pid) ";
+$aside1 = "SELECT * FROM c_chats INNER JOIN products ON (c_chats.pid = products.pid)  ";
 $asideres1 = $connection->query($aside1);
 
 while ($row=mysqli_fetch_array($asideres1)) {
 //SELECION DE CADA CHAT
 
 $id_cch = $row["id_cch"];
+$firstimage = $row['image'];
+$valor = explode(',',$firstimage); 
 
-  $usere = "SELECT * FROM users ";
- $usere12 = $connection->query($usere);
-  $fila12=$usere12->fetch_assoc();
+ 
 
   $chat12= "SELECT * FROM chats WHERE id_cch='$id_cch' ORDER BY fecha DESC";
   $res12 =$connection->query($chat12);
@@ -99,9 +104,6 @@ $id_cch = $row["id_cch"];
   $aside3 = "SELECT * FROM c_chats INNER JOIN products ON (c_chats.pid = products.pid)";
 $asideres3 = $connection->query($aside3);
 $fila =$asideres3->fetch_assoc();
-  $consulta2 = "SELECT * FROM users";
-  $ejecutar2 = $connection->query($consulta2);
-  $fila2 = $ejecutar2->fetch_array();
 
  
  ?>
@@ -109,14 +111,16 @@ $fila =$asideres3->fetch_assoc();
 <!--PROGRAMACION DEL ASIDE DEL CHAT-->
 
 
+    
+    
 
-        <a href="chat2.php?sellerid=<?php echo $row['para'];?>&pid=<?php echo $row['pid'];?>&id_cch=<?php echo $row['id_cch']?>">
+      <a href="chatadmin2.php?user_id=<?php echo $row['de']?>&sellerid=<?php echo $row['para'];?>&pid=<?php echo $row['pid'];?>&id_cch=<?php echo $row['id_cch']?>">
       <div class="chats asidechats">
         <h6 style="text-align: center;"> LAST MESSAGE: <?php echo formatearFecha($fila32['fecha']); ?></h6>
          <hr style="width: 90%">
         <div class="caja1"  style="width:40%;  float:left;">
           <!--<p>NOMBRE DEL CHAT</p>-->
-          <img style="width: 50px; height: 50px;  margin-bottom: 5px;" src="../images/<?php echo $row['image'];?>" alt="Producto imagen">
+          <img style="width: 50px; height: 50px;  margin-bottom: 5px;" src="../images/<?php echo $valor[0];?>" alt="Producto imagen">
         </div>
 
 
@@ -124,52 +128,48 @@ $fila =$asideres3->fetch_assoc();
              <h6><?php echo $row['ntitle'];?>&nbsp;&nbsp;&nbsp; PRICE: <?php echo $row['price']; ?>&nbsp;&nbsp;&nbsp; </h6>
         </div>
 
-        
+      
 
       </div>
 
       </a>
        <hr>
+     
+     
+  
 
 <?php 
 };
 
+mysqli_close($connection);
  ?>
+</div>
 
-PROGRAMACION
+<!-------------------------------ASIDE DEL CHAT------------------------>
 
-
-     </div>
-
-      <div  class="col-md-6 col-md-offset-2" id="contenedor">
-    <div id="caja-chat">
-      <div id="chat"></div>
-    </div>
-
-    <form method="POST" action="" enctype="multipart/form-data">
-      <!--<input type="hidden" name="nombre" value="<?php //echo "$name"; ?>">-->
-      <textarea name="mensaje" placeholder="Enter your message"></textarea>
-    <input class="filesenviar" id="files"  type="file"  name="imagen"/>
-    <input class="inputenviar" type="submit" name="enviar" value="Send">    </form>
-     </div>
-
-
-
-PROGRAMACION
-
-
-
-<?php 
-
-        mysqli_close($connection);
- ?>
- 
-
-   
-
-  
 
   </div> <!--END ROW-->
   </div><!--END CONTAINER-->
-  </body>
-  </html>
+
+  <!--SCRIPT PARA EL ASIDE-->
+<script type="text/javascript">
+  var x = document.getElementsByClassName("asidechats");
+ 
+    for (var i=0; i< x.length; i++) {
+        //Añades un evento a cada elemento
+        
+        x[i].addEventListener('mouseover',function() {
+          this.classList.toggle('amarillo');
+        });
+
+        x[i].addEventListener('mouseout',function() {
+                this.classList.remove('amarillo'); 
+        });
+    }
+</script>
+<!--SCRIPT PARA EL ASIDE-->
+
+
+</body>
+<?php require'footer.php'; ?>
+</html>

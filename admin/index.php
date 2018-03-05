@@ -8,7 +8,6 @@
     	   header("Location: login.php?status=Unauthorized Access Attempt!");
 
     }
-
 include('Connect.php');
 $userType=$_SESSION["userType"];
 if($userType !='Admin')

@@ -46,7 +46,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<!--AJAX PARA EL CHAT-->
+  <!--AJAX PARA EL CHAT-->
   <script type="text/javascript">
         function ajax(){
             var req = new XMLHttpRequest();
@@ -57,7 +57,7 @@
                 }
             }
 
-            req.open('GET', 'chat_ajax.php?sellerid=<?php echo $para;?>&pid=<?php echo $pid;?>&de=<?php echo $para;?>', true);
+            req.open('GET', 'chat_ajax.php?user_id=<?php  echo $row['de'];?>&sellerid=<?php echo $para;?>&pid=<?php echo $pid;?>&de=<?php echo $para;?>', true);
             req.send();
         }
 
@@ -65,6 +65,7 @@
         setInterval(function(){ajax();}, 1000);
     </script>
 <!--AJAX PARA EL CHAT-->
+
 
 </head>
 <?php

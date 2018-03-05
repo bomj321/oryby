@@ -162,6 +162,7 @@ if (!empty($pid) AND !empty($para) ) {
             req.onreadystatechange = function(){
                 if (req.readyState == 4 && req.status == 200) {
                     document.getElementById('chat').innerHTML = req.responseText;
+                     $("#chat").animate({ scrollTop: $('#chat')[0].scrollHeight}, 1000);
                 }
             }
 
@@ -189,7 +190,7 @@ if (!empty($pid) AND !empty($para) ) {
             
         //$nombre = mysqli_real_escape_string($_POST['nombre']);
         $mensaje = mysqli_real_escape_string($connection,$_POST['mensaje']);
-        $comprobar = "SELECT * FROM c_chats WHERE (de = '$de'  AND pid ='$pid' AND vchata ='1' AND vchatb ='1') OR (de ='$para'   AND pid ='$pid' AND vchatb ='1' AND vchata ='1')";
+        $comprobar = "SELECT * FROM c_chats WHERE (de = '$de'   AND para='$para' AND pid ='$pid' AND vchata ='1' AND vchatb ='1') OR (de ='$para' AND para='$de'  AND pid ='$pid' AND vchatb ='1' AND vchata ='1')";
         $comprobacion = $connection->query($comprobar);
         $row=$comprobacion->fetch_assoc();
        
