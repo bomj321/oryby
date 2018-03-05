@@ -86,7 +86,6 @@ require 'Connect.php';
 					   <ul class="w-150">
 
 							<li><a href="buyeraccount.php">Mi cuenta</a></li>
-                            <li><a href="#">Centro de mensajes</a></li>
 							<li><a href="buyerorders.php">Mis ordenes</a></li>
 										<li >
                         <li><a href="adminchat.php?admin=63">Contacta al Admin</a></li>
@@ -102,7 +101,6 @@ require 'Connect.php';
 					?>
 					   <ul class="w-150">
 							<li><a href="myorybue.php">Mi Orybu</a></li>
-                            <li><a href="#">Centro de mensajes</a></li>
 							<li><a href="suppliers.php" class="top">Administrar productos</a></li>
                              <li><a href="chat2.php">Mis Chats</a></li>
                         <li><a href="adminchat.php?admin=63">Contacta al Admin</a></li>
