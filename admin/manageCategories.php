@@ -193,7 +193,7 @@ if($nr >0)
 							</div>
 							<!-- end widget -->
 		<a href="categories_add.php" class="btn btn-primary" style="float:right"><i class="fa fa-floppy"></i> Add Category</a>        
-		
+		<a href="chartscategories.php" class="btn btn-primary" style="float:right"><i class="fa fa-floppy"></i>See Charts</a>
            </br>         
         
 						</article>

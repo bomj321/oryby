@@ -157,7 +157,8 @@ if($nr >0)
 													
 													<th > Category Name</th>
 													<th data-class="expand"><i class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs"></i> Sub Category Image</th>
-														<th > Action</th>
+													<th>Action</th>
+													<th>Chart</th>
 													
 													
 												
@@ -170,7 +171,7 @@ if($nr >0)
 											
 											?>
 												<tr>
-													<td><?php echo $row['catid']; ?></td>
+													<td><?php echo $row['subcatid']; ?></td>
 													<td><?php echo $row['subtitle']; ?></td>
 													<td><?php echo $row['title']; ?></td>
 														<td>
@@ -186,6 +187,7 @@ if($nr >0)
 													?>	</td>
 												<td> 
          <a    href="javascript:contact_Id(<?php echo $row['subcatid'];?>)"><i class="fa fa-trash-o fa-lw"></i></a> &nbsp; &nbsp;&nbsp; &nbsp; <a    href="updateSubCategories.php?subcatid=<?php echo $row['subcatid'];?>"><i class="fa fa-pencil fa-fw"></i></a></td>
+		 <td><a href="charts_subcategories.php?id=<?php echo $row['subcatid']; ?>" class="btn btn-primary" style="float:right"><i class="fa fa-floppy"></i>See Charts</a></td>
 												</tr>
 								<?php
 								}
@@ -203,10 +205,11 @@ if($nr >0)
 				
 							</div>
 							<!-- end widget -->
-		<center><a href="sub_categories_add.php" class="btn btn-primary"><i class="fa fa-floppy"></i> Add Sub Category</a>
-           </br>
+		   <a href="sub_categories_add.php" class="btn btn-primary" style="float:right"><i class="fa fa-floppy"></i> Add Category</a>        
+		<a href="chartssubcategories.php" class="btn btn-primary" style="float:right"><i class="fa fa-floppy"></i>See Charts</a>
+           </br>   
          
-        </center>
+        
 						</article>
 						<!-- WIDGET END -->
 				
