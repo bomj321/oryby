@@ -43,8 +43,7 @@ ini_set('error_reporting',0);
 <!--CHAT-->
 
 <?php 
-if ( !empty($para) ) {
-  
+
 
  ?>
   <div  class="col-md-6 col-md-offset-2" id="contenedor">
@@ -68,7 +67,7 @@ if ( !empty($para) ) {
 <!--CHAT-->
 <?php 
 
-};
+
 
  ?>
 

@@ -732,7 +732,7 @@ $(document).ready(function(){
 <!-- MADE IN CHILE -->  
 <?php
    try {
-        require_once('connect.php');
+        include('connect.php');
         $sql = "SELECT * FROM `categories` ";
         $resultado = mysqli_query($connection,$sql);
         }

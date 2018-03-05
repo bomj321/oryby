@@ -21,6 +21,8 @@ $name =$row['firstName'];
 $email = $row['email'];
 $_SESSION["userType"]=$userType;
 $_SESSION["email"]=$email;
+ $userid= $row['user_id'];
+$_SESSION["user_id"]= $userid;
 }
 $loginsucceful=True;
   $_SESSION['firstName']=$name;

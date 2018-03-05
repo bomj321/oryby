@@ -488,7 +488,7 @@
 					</li>
 
 					<li>
-						<a href="#"><i class="fa fa-lg fa-fw fa-table"></i> <span class="menu-item-parent">My Chats</span></a>
+						<a href="#"><i class="fa fa-lg fa-fw fa-table"></i> <span class="menu-item-parent">All Chats</span></a>
 						<ul>
 							<li>
 								<a href="chatadmin.php"  >User Chats</a>

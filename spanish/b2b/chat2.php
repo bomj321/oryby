@@ -38,7 +38,7 @@ ini_set('error_reporting',0);
   <div class="row">
 
     <!---ASIDE DEL CHAT-->
-<div class="col-md-4" id="aside">
+<div class="col-md-4" id="aside" style="height: 628.383px">
       <h6 style="text-align: center">MY CHATS</h6>
 
 <!--PROGRAMACION DEL ASIDE DEL CHAT-->
