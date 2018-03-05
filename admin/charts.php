@@ -10,21 +10,22 @@
     switch ($charType) {
         case "y":
             $description = "Año";
-            $sql="Select n.id_pid, year(n.visited_at) AS periodo,
-            COUNT(n.id_pid) AS visitas FROM chart_basic_user n
-            WHERE n.id_pid = '$id' GROUP BY year(n.visited_at),n.id_pid;";
+            $sql="Select n.id_catid, year(n.visited_at) AS periodo, 
+                COUNT(n.id_catid) AS visitas FROM chart_category_subcatego_admin n
+                WHERE n.id_catid = '$id' GROUP BY year(n.visited_at),n.id_catid;";
         break;
         case "m":
             $description = "Mes";
-            $sql="Select n.id_pid, MONTHNAME(n.visited_at) AS periodo,
-            COUNT(n.id_pid) AS visitas FROM chart_basic_user n
-            WHERE n.id_pid = '$id' GROUP BY MONTHNAME(n.visited_at),n.id_pid;";      
+            $sql="Select n.id_catid, MONTHNAME(n.visited_at) AS periodo, 
+                COUNT(n.id_catid) AS visitas FROM chart_category_subcatego_admin n
+                WHERE n.id_catid = '$id' GROUP BY year(n.visited_at),n.id_catid;";
+      
         break;
         case "d":
             $description = "Día";
-            $sql="Select n.id_pid, n.visited_at AS periodo,
-            COUNT(n.id_pid) AS visitas FROM chart_basic_user n
-            WHERE n.id_pid = '$id' GROUP BY n.visited_at,n.id_pid";
+            $sql="Select n.id_catid, n.visited_at AS periodo,
+            COUNT(n.id_catid) AS visitas FROM chart_category_subcatego_admin n
+            WHERE n.id_catid = '$id' GROUP BY n.visited_at,n.id_catid";
         break;
     }
             

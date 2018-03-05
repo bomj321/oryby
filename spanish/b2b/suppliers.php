@@ -221,65 +221,7 @@ function myFunction1() {
 					   
                     </div><!-- end col -->    
                 </div><!-- end row -->
-				<div class="row">
-				<?php 
-				$sqlqry="SELECT * FROM users Where email='$email'";
-				$res=mysqli_query($connection,$sqlqry);
-				?>
-				<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script type="text/javascript">
-google.charts.load('current', {'packages':['corechart']});
-google.charts.setOnLoadCallback(drawChart);
-
-function drawChart() {  //  will draw pie chart 
-
-    var data = google.visualization.arrayToDataTable([
-	 ['Number of Views', 'productstat'],
-      
-      <?php
-	  //$viewstext;
-      if(mysqli_num_rows($res) > 0){
-          while($rowd = mysqli_fetch_array($res)){  
-          echo "['Number of Views =".$rowd['productstat']."', ".$rowd['productstat']."],"; //fetched data for drawing piechart
-//echo "['".$rowd['checkstatus']."=".$rowd['numofuser']."', ".$rowd['numofuser']."],"; //fetched data for drawing piechart
-         		 
-		 //echo "['".."Number of Views=".$rowd['numofuser']."', ".$rowd['numofuser']."],"; //fetched data for drawing piechart
-         
-          }
-      } 
-      ?>
-    ]);
-    
-    var options = {
-        title: 'Satistics of  Products views',
-        width: 1224,
-		backgroundColor: '#70263D',
-        height: 406,
-		is3D: true,
-        titleTextStyle: {
-        color: 'white',
-		fontSize:20,
-		bold:false,
-    },
-	
-
-legend: {
-    textStyle: {
-        color: 'white'
-    }
-},
-    };
-    
-    var chart = new google.visualization.PieChart(document.getElementById('chartid'));
-    
-    chart.draw(data, options);
-}
-</script> 
 				
-				<div id="chartid" class="col-sm-12" style="float:left;">
-				  
-				</div>
-				</div>
             </div><!-- end container -->
 			
 			

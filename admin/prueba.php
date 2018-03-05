@@ -2,7 +2,7 @@
 include('Connect.php');
 
 $idProducto = 33;
-$periodo="y";
+$periodo="m";
 $charType = strtolower($periodo);
 $description = "";
 
@@ -26,9 +26,6 @@ switch ($charType) {
         WHERE n.id_pid = 33 GROUP BY n.visited_at,n.id_pid";
     break;
 }
-
-
-
 $datos_usuario=mysqli_query($connection,$visitas);
 ?>
 <script> var dataChart = [];</script>
@@ -56,10 +53,8 @@ $datos_usuario=mysqli_query($connection,$visitas);
                 data.addColumn('string', '<?php echo $description;?>'); 
                 data.addColumn('number', 'Visit'); 
                 data.addRows([
-                ['April',1000],
-                ['May',  1170],
-                ['June',  660],
-                ['July', 1030]
+                ['2018',3],
+                ['2019',1],
             ]);
 
         var options = {

@@ -18,9 +18,6 @@ $(document).ready(function(){
             }
             google.charts.load('current', {'packages':['bar']});
             google.charts.setOnLoadCallback(drawChart);
-            var activado = document.getElementsByClassName(id);
-            var grafica = $( activado ).append( "<div id='columnchart_material'></div>" );
-
             function drawChart() {
                 console.log(dataChart);
                     var data = new google.visualization.DataTable();
@@ -41,14 +38,9 @@ $(document).ready(function(){
                 chart.draw(data, google.charts.Bar.convertOptions(options));
             }
 
-            //Elimina la grafica                    
-            setTimeout( function(){
-            $("#columnchart_material").fadeOut();
-            setTimeout(function(){
-                $("#columnchart_material").remove();
-            },500);
-            },2000);
 
+ 
+            
          });              
     });
 
