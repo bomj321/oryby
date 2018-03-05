@@ -201,11 +201,30 @@ if (!empty($pid) AND !empty($para) ) {
           //INSERTAR EL CHAT
           
 
-        $insert = "INSERT INTO c_chats(de,para,pid,sellerid,vchata, vchatb) VALUES (".$de.", ".$para.", ".$pid.", ".$para.", '1', '1');";  
+         //ACTUALIZAR CHAT 
+        $comprobarx3 = "SELECT * FROM c_chats WHERE (de = '$de'   AND para='$para' AND pid ='$pid' AND vchata ='0' AND vchatb ='1' ) OR (de ='$para' AND para='$de'  AND pid ='$pid' AND vchatb ='0' AND vchata ='1') OR (de = '$de'   AND para='$para' AND pid ='$pid' AND vchata ='1' AND vchatb ='0') OR (de ='$para' AND para='$de'  AND pid ='$pid' AND vchatb ='1' AND vchata ='0')";
+        $comprobacionx3 = $connection->query($comprobarx3);
+        $rowx3=$comprobacionx3->fetch_assoc();
+        $id_cchx3 = $rowx3['id_cch'];
+
+
+        if (mysqli_num_rows($comprobacionx3)==0) {
+           $insert = "INSERT INTO c_chats(de,para,pid,sellerid,vchata, vchatb) VALUES (".$de.", ".$para.", ".$pid.", ".$para.", '1', '1');";  
         $resultado = $connection->query($insert);
         if ($resultado) {
           echo "SI INSERTO ALGO";
         }
+
+
+        }else{
+          $sqlx3 = "UPDATE c_chats SET vchata='1' WHERE id_cch ='126'";
+          $connection->query($sqlx3);       
+          $sqlx4 = "UPDATE c_chats SET vchatb='1' WHERE id_cch ='126'";
+          $connection->query($sqlx4); 
+
+        }
+
+         //ACTUALIZAR CHAT 
 
 
 
