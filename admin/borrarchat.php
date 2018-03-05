@@ -29,8 +29,9 @@ if ($connection->query($sql) === TRUE) {
 } else {
     echo "Error updating record: " . $connection->error;
 }
-header ("Location: artistchat.php");
-
+echo "<script>
+                window.location= 'artistchat.php'
+        </script>";
 
   
 }elseif($row['para']==$de){
@@ -44,7 +45,9 @@ if ($connection->query($sql2) === TRUE) {
     echo "Error updating record: " . $connection->error;
 }
 
-header ("Location: artistchat.php");
+echo "<script>
+                window.location= 'artistchat.php'
+        </script>";
 }
 
 

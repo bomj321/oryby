@@ -29,7 +29,9 @@ if ($connection->query($sql) === TRUE) {
 } else {
     echo "Error updating record: " . $connection->error;
 }
-header ("Location: chat2.php");
+echo "<script>
+                window.location= 'chat2.php'
+        </script>";
 
 
   
@@ -44,7 +46,10 @@ if ($connection->query($sql2) === TRUE) {
     echo "Error updating record: " . $connection->error;
 }
 
-header ("Location: chat2.php");
+echo "<script>
+                window.location= 'chat2.php'
+        </script>";
+
 }
 
 
