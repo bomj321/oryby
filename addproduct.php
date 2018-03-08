@@ -64,9 +64,11 @@ $rows=mysqli_fetch_array($stmtt);
 			//$showcaseid=$_POST['showcaseid'];
 			//$showtoplist=$_POST['showtoplist'];
 
-            $description = $_POST['description'];
-			$fobprice=$_POST['fobprice'];
-			$oquantity=$_POST['oquantity'];	
+			$description = $_POST['description'];
+			$fob=$_POST['fobprice'];
+			$fobprice=$fob.' '.$_POST['dropminimum'];
+			$quantity=$_POST['oquantity'];
+			$oquantity=$quantity.' '.$_POST['dropminimum'];	
 			$showcaseid=$_POST['showcaseid'];
 			$showtoplist=$_POST['showtoplist'];	
 			$delivery=$_POST['delivery_details'];				

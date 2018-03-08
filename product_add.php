@@ -303,7 +303,7 @@ else if(trim($str1) ==trim($str3))
 				<div class="form-group" style="margin-top:30px;"><label> Capicity: </label></div> 
 				<div class="form-group" style="margin-top:20px;"><label> Energy Power: </label></div> 				 
 				<div class="form-group" style="margin-top:40px;"><label> Rational Speed: </label></div> 
-				<div class="form-group" style="margin-top:20px;"><label> Elabortional Material: </label></div> 
+				<div class="form-group" style="margin-top:20px;"><label> Elaboration Material: </label></div> 
 				<div class="form-group" style="margin-top:20px;"><label> Use: </label></div> 
 				<div class="form-group" style="margin-top:20px;"><label> Size: </label></div> 
 				<div class="form-group" style="margin-top:20px;"><label> Packing: </label></div>
@@ -663,7 +663,7 @@ else if(trim($str1) ==trim($str3))
 						<input type="text" class="form-control input-sm"placeholder="Rotation speed" name="rotation" id="rot">
 				</div>
 				<div class="form-group">
-						<input type="text" class="form-control input-sm" placeholder="Elobration Material" name="elobration" id="elobration">
+						<input type="text" class="form-control input-sm" placeholder="Elaboration Material" name="elobration" id="elobration">
 				</div>
 				<div class="form-group">
 						<input type="text" class="form-control input-sm" required placeholder="Use" name="use" id="use">
@@ -719,11 +719,26 @@ else if(trim($str1) ==trim($str3))
 						   <input  id="files1" class="form-control input-sm" type="file"  name="file2[]" multiple="multiple"/>
                            	
 						 </div>
-						 <div class="form-group">
-						   <input class="form-control input-sm" type="text"  name="fobprice"  required />
-                           	
-						 </div>
 						 <div class="row">
+						 <div class="form-group col-sm-8" style="padding-right:0px;"> <input class="form-control input-sm" type="text"   name="fobprice" required /></div>
+					   <div class="form-group col-sm-4"  style="padding-left:0px;">
+						   <select class="form-control input-sm" id="unit" name="dropminimum">
+	                         <option value="Unit">Unit</option>  
+                             <option value="Ton">Ton</option>  
+							 <option value="Gram">Gram</option>  
+							 <option value="Inch">Inch</option>
+							 <option value="ounace">ounce</option>  
+						     <option value="Gallon">Gallon</option>  
+                             <option value="Feet">Feet</option>
+                             <option value="Cubic Meter">Cubic Meter</option>
+							 <option value="Cubic Feet">Cubic Feet</option> 
+						     <option value="20 ft container">20 ft container</option>
+							 <option value="40 ft container">40 ft container</option>
+							<option value="Pallets">Pallets</option>	
+							<option value="Carton">Carton</option>	
+                            <option value="others">Others</option>							 
+                         </select>         	
+						 </div>
 					<div class="form-group col-sm-8" style="padding-right:0px;"> <input class="form-control input-sm" type="text"  name="oquantity" required /></div>
 					   <div class="form-group col-sm-4"  style="padding-left:0px;">
 						   <select class="form-control input-sm" id="unit" name="dropminimum">
@@ -731,7 +746,7 @@ else if(trim($str1) ==trim($str3))
                              <option value="Ton">Ton</option>  
 							 <option value="Gram">Gram</option>  
 							 <option value="Inch">Inch</option>
-							 <option value="ounace">ounace</option>  
+							 <option value="ounace">ounce</option>  
 						     <option value="Gallon">Gallon</option>  
                              <option value="Feet">Feet</option>
                              <option value="Cubic Meter">Cubic Meter</option>

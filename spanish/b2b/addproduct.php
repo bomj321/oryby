@@ -2,38 +2,38 @@
 include('Connect.php');
  $email=$_SESSION['uemail'];
  $sql="SELECT * FROM users Where email='$email'";
-
+ 
 $stmt=mysqli_query($connection,$sql);
 if($stmt == false) {
 trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
 }
-$nr=mysqli_num_rows($stmt);
+$nr=mysqli_num_rows($stmt);    
 $row=$stmt->fetch_assoc();
- $userId=$row['user_id'];
+ $userId=$row['user_id']; 
 
 if(isset($_POST['save']))
 	{
 
-
+	 
  $query="SELECT * FROM seller Where email='$email'";
-
+ 
 $stmtt=mysqli_query($connection,$query);
 if($stmtt == false) {
 trigger_error('Wrong SQL: ' . $query . ' Error: ' . $connection->error, E_USER_ERROR);
 }
- $nr=mysqli_num_rows($stmtt);
+ $nr=mysqli_num_rows($stmtt);    
 $rows=mysqli_fetch_array($stmtt);
- $totalproduct=$rows['limitTotalProduct'];
+ $totalproduct=$rows['limitTotalProduct']; 
 
- $producttopList=$rows['limitTopList'];
- $productshowcase=$rows['limitShowCase'];
+ $producttopList=$rows['limitTopList']; 
+ $productshowcase=$rows['limitShowCase']; 
 
 	   /////////////////////////////
-	      	$payment = $_POST['payment'];
+	   		$payment = $_POST['payment'];
 	        $catid = $_POST['catid'];// item name
 			$subcatid = $_POST['subcatid'];// item name
 		    $title = $_POST['title'];// item name
-			$keyword = $_POST['keyword'];
+			$keyword = $_POST['keyword'];	
 	 		$catid = $_POST['catid'];// item name
 		    $title = $_POST['title'];// item name
 			$keyword = $_POST['keyword'];
@@ -41,12 +41,12 @@ $rows=mysqli_fetch_array($stmtt);
 			$dropcountry = $_POST['dropcountry'];//dropcountry
 			$port=$_POST['port'];
 			$wquantity=$_POST['wquantity'];
-			$dropweight =$wquantity.' '.$_POST['dropweight'];
+			$dropweight =$wquantity.' '.$_POST['dropweight'];			
 			$vquantity=$_POST['vquantity'];
 			$dropvolum=$vquantity.' '.$_POST['dropvolum'];
 			$dquantity=$_POST['dquantity'];
 			$dropdimension=$dquantity.' '.$_POST['dropdimension'];
-			$cquantity=$_POST['cquantity'];
+			$cquantity=$_POST['cquantity'];			
 			$dropcapacity=$cquantity.' '.$_POST['dropcapacity'];
 			$equantity=$_POST['equantity'];
 			$dropenergy= $equantity.' '.$_POST['dropenergy'];
@@ -64,14 +64,15 @@ $rows=mysqli_fetch_array($stmtt);
 			//$showcaseid=$_POST['showcaseid'];
 			//$showtoplist=$_POST['showtoplist'];
 
-
-            $description = $_POST['description'];
-			$fobprice=$_POST['fobprice'];
-			$oquantity=$_POST['oquantity'];
+			$description = $_POST['description'];
+			$fob=$_POST['fobprice'];
+			$fobprice=$fob.' '.$_POST['dropminimum'];
+			$quantity=$_POST['oquantity'];
+			$oquantity=$quantity.' '.$_POST['dropminimum'];	
 			$showcaseid=$_POST['showcaseid'];
-			$showtoplist=$_POST['showtoplist'];
-			$delivery=$_POST['delivery_details'];
-	    	$description = $_POST['description'];// item name
+			$showtoplist=$_POST['showtoplist'];	
+			$delivery=$_POST['delivery_details'];				
+	    	$description = $_POST['description'];// item name			
 			$subcatid = $_POST['subcatid'];// item name
 			if($_POST['showcaseid'] !="")
 			{
@@ -84,9 +85,9 @@ $rows=mysqli_fetch_array($stmtt);
 			{
 			}
 		//$productType = $_POST['productType'];// item name
-
+			
 			 //////////////////////////////////////////
-
+	
 				$target_dir = "images/";
 	if($_FILES["file2"]["name"][0] !="" )
 {
@@ -104,13 +105,13 @@ $rows=mysqli_fetch_array($stmtt);
 			$temp2 = $_FILES['file2']['tmp_name'][1];
 }	if($_FILES["file2"]["name"][2] !="" )
 {
-
+		
 			$target_file = $target_dir . basename($_FILES["file2"]["name"][2]);
 			$image3=$_FILES['file2']['name'][2];
 			$filelocation = $target_dir.$image3;
 			$temp3 = $_FILES['file2']['tmp_name'][2];
-			move_uploaded_file($temp3, $filelocation);
- }
+			move_uploaded_file($temp3, $filelocation); 
+ }	
  if($_FILES["file2"]["name"][3] !="")
 {
 
@@ -118,7 +119,7 @@ $rows=mysqli_fetch_array($stmtt);
 			$image4=$_FILES['file2']['name'][3];
 			$filelocation = $target_dir.$image4;
 			$temp4 = $_FILES['file2']['tmp_name'][3];
-			move_uploaded_file($temp4, $filelocation);
+			move_uploaded_file($temp4, $filelocation); 
  } 	 ///////////////////////////////////////////////
 
 	if($_FILES["file1"]["name"] !="" )
@@ -127,23 +128,23 @@ $rows=mysqli_fetch_array($stmtt);
 			$fileimage1=$_FILES['file1']['name'];
 			$filelocation = $target_dir.$image3;
 			$tempfile1 = $_FILES['file1']['tmp_name'];
-			move_uploaded_file($tempfile1, $filelocation);
- }
+			move_uploaded_file($tempfile1, $filelocation); 
+ }			 
 
 			  			 //$query="INSERT INTO products(catid,subcatid,ntitle,keywords,selectedkeyword,country,port,weight,volume,dimension,capacity,energypower,rotationspeed,elaboration,puse,psize,packing,certification,price,miniorder,fulldescription,image,producttoplist,productType,productType2, productaction,user_id,delivery_details)VALUES('$catid','$subcatid','$title','$keyword','$slctedkeyword','$dropcountry','$port','$dropweight','$dropvolum','$dropdimension','$dropcapacity','$dropenergy','$rotation','$elobration','$use','$size','$packaging','$fileimage1','$fobprice','$dropminimum','$description','$image1,$image2,$image3,$image4','$showtoplist','$productType','$productType2','$productstatus','$userId','$delivery_details')";
 
 			$query="INSERT INTO products(catid,subcatid,ntitle,keywords,selectedkeyword,country,port,weight,volume,dimension,capacity,energypower,rotationspeed,elaboration,puse,psize,packing,certification,price,miniorder,fulldescription,image,producttoplist,productType,productaction,user_id,delivery_details, payment)VALUES('$catid','$subcatid','$title','$keyword','$slctedkeyword','$dropcountry','$port','$dropweight','$dropvolum','$dropdimension','$dropcapacity','$dropenergy','$rotation','$elobration','$use','$size','$packaging','$fileimage1','$fobprice','$oquantity','$description','$image1 $image2 $image3 $image4','$showtoplist','$productType','$productstatus','$userId','$delivery', '$payment')";
-
-
-
-
+			
+	
+		 
+	
 		$result = $connection->prepare($query);
 			if($result === false) {
 		trigger_error('Wrong SQL: ' . $query . ' Error: ' . $conn->error, E_USER_ERROR);
 		echo "Insercion no exitosa";
 	}
-
-
+	
+		
 
 			if($result->execute())
 			{
@@ -182,11 +183,11 @@ $rows=mysqli_fetch_array($stmtt);
 				alert("ADD PRODUCT");
 				window.location.href="suppliers.php";
 			</script>
-
+			
 			<?php
 
 			}
-
+	
 			else
 			{
 			?>
@@ -195,5 +196,5 @@ $rows=mysqli_fetch_array($stmtt);
          </script>
 		<?php	}
 		}
-
+	
 	?>

@@ -129,24 +129,6 @@ require('head.php');
                 <div class="col-sm-12">
                     <form action="mycartArry.php?pid=<?php echo $pid; ?>" method="post">
                         <hr class="spacer-15">
-                        <div class="row">
-                            <div class="col-md-4 col-sm-12">
-                                <select class="form-control" name="qty">
-                                    <option value="" selected>Cantidad</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value="10">10</option>
-                                </select>
-                            </div><!-- end col -->
-                        </div><!-- end row -->
-                        <hr class="spacer-15">
                         <ul class="list list-inline">
                             <li><a class="btn btn-gray btn-md round" href="#"><i class="fa fa-chat mr-5"></i>Contactar al Vendedor</a></li>
                             <li><a class="btn btn-gray btn-md round" href="add_favory.php?id=<?php echo $pid; ?>"><i class="fa fa-heart mr-5"></i>Agregar a favoritos</a></li>
