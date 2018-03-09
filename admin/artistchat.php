@@ -62,15 +62,16 @@ include('header.php');
 
 
  ?>
-
- 
+<!--ESTILOS CSS-->
+<link rel="stylesheet" type="text/css" href="css/estilos.css">
+<!--ESTILOS CSS-->
 
   <body onload="ajax();">
 <div class="container chateo" id="body">
   <div class="row">
 
     <!---ASIDE DEL CHAT-->
-<div class="col-md-4" id="aside" style="height: 800px;">
+<div class="col-md-4 col-md-offset-1" id="aside" style="height: 800px;">
       <h6 style="text-align: center">MY CHATS</h6>
 
 <!--PROGRAMACION DEL ASIDE DEL CHAT-->
