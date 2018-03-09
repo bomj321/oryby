@@ -69,6 +69,8 @@ $query = "INSERT INTO buyerrequests(BuyerName,prod_name,bmessage,image,catename,
 </head>
 <body>
 <?php require 'topbar.php' ?>
+<?php include('head.php'); ?>
+<?php include('middlebar.php');?>
 <?php require 'navh.php' ?>
 <div class="container">
 <div class="row">
