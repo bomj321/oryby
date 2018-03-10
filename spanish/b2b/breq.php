@@ -378,10 +378,10 @@ include('head.php');
                                     <!--<table class="table table-striped"> -->
                                         <thead>
                                             <tr>
-                                                                      <th>Id</th>
+                                                             <th>Id</th>
                                                 <th>Nombre del Producto</th>
                                                 <th>Cantidad</th>
-                                                                    <th>Fecha Tope</th>
+                                                      <th>Fecha Tope</th>
                                                 <th>Pais</th>
                                                 <th>Categoria</th>
                                                 <th>Imagen</th>

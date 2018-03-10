@@ -11,12 +11,15 @@ $user =$_SESSION['uemail'];
 $pais= $_SESSION['pais'];
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 $desc=$_POST['description'];
+
 $target_dir = "ReqImages/";
 $target_file = $target_dir . basename($_FILES["pimage"]["name"]);
 $image=$_FILES['pimage']['name'];
 $filelocation = $target_dir.$image;
 $temp = $_FILES['pimage']['tmp_name'];
 move_uploaded_file($temp, $filelocation);
+
+
 
 // INSERTAR FECHA FINAL PARA USARLA Y ASI BORRAR LOS REGISTROS DE 2 DIAS O MAS ANTIGUOS A ESOS
   $date1 = $dtym;
