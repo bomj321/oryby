@@ -121,6 +121,7 @@ include('header.php');
 													<th>ID</th>													
 													<th>Languague</th>
                                                     <th>Image</th>
+													<th>Url</th>
 													<th>Modify</th>
 												</tr>
 											</thead>
@@ -133,6 +134,7 @@ include('header.php');
 													<td><?php echo $row['id']; ?></td>
                                                     <td class="expand"><?php echo $row['lang']; ?></td>
 													<td class="expand"><img class="img-responsive" style="height: 20rem; width: 40rem;" src="../images/<?php echo $row['image']; ?>" /></td>
+													<td class="expand"><?php echo $row['url']; ?></td>
 													<td><a href="updateImage.php?id=<?php echo $row['id'];?>"><i class="fa fa-pencil fa-fw"></a></td>												
 												</tr>
 								<?php
