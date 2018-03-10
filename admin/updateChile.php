@@ -30,25 +30,23 @@ $row=mysqli_fetch_assoc($stmt);
 if(isset($_POST['btn_save_updates']))
 	{
      
-			 $elementname = $_POST['elementname'];// item name
-			 
-		
-		
-		
-			$target_dir = "../images/";
-	
-		 		$target_file = $target_dir . basename($_FILES["file1"]["name"]);
-				$image=$_FILES['file1']['name'];
-			$filelocation = $target_dir.$image;
-        $temp = $_FILES['file1']['tmp_name'];
-		 move_uploaded_file($temp, $filelocation);
-	
-	
-$sql="UPDATE aboutus  SET  picture='".$image."'  WHERE (id='$id')";
- mysqli_query($connection,$sql);
-	 $stmt = $connection->prepare($sql);
-     if($stmt === false) {
-trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
+		$elementname = $_POST['elementname'];// item name
+		$subcat = $_POST['subcat'];// item name		
+
+		$target_dir = "../images/";
+
+		$target_file = $target_dir . basename($_FILES["file1"]["name"]);
+		$image=$_FILES['file1']['name'];
+		$filelocation = $target_dir.$image;
+		$temp = $_FILES['file1']['tmp_name'];
+		move_uploaded_file($temp, $filelocation);
+
+
+		$sql="UPDATE aboutus  SET  picture='".$image."', hreflink='".$subcat."'  WHERE (id='$id')";
+		mysqli_query($connection,$sql);
+		$stmt = $connection->prepare($sql);
+		if($stmt === false) {
+		trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
 }
  
 	
@@ -154,19 +152,15 @@ trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERR
 										<!-- widget content -->
 										<div class="widget-body">
 
-										<form method="post" enctype="multipart/form-data" class="form-horizontal">
-													
-											<fieldset>
-													
+										<form method="post" enctype="multipart/form-data" class="form-horizontal">													
+											<fieldset>													
 													<div class="form-group">
 														<label>Element Name</label>
 														<input type="text" class="form-control" name="elementname" disabled value="<?php echo $elementname ?>" />
 													</div>
-												</fieldset>
+												</fieldset>											
 												
-												
-												<fieldset>
-													
+												<fieldset>													
 													<div class="form-group">
 														<label>Picture</label>
 														<img  id="blah" style="height:150px; width:250px;"src="../images/<?php echo $image ?>">
@@ -174,6 +168,20 @@ trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERR
 													
 													</div>
 												</fieldset>
+												<?php
+												$sql2="SELECT * FROM subcategories";
+												$resultado=mysqli_query($connection,$sql2);
+												?>
+												<div class="form-group">
+													<select class="form-control" id="subcat" name="subcat" required>
+														<option  value="">SELECT Subcategory</option>
+														<?php while ($subcategorias = $resultado->fetch_all(MYSQLI_ASSOC) ) { ?>
+														<?php foreach($subcategorias as $sub): ?>
+															<option value="<?php echo $sub['subcatid']; ?>"><?php echo $sub['subtitle']; ?></option>
+														<?php endforeach;?>
+														<?php }?>
+													</select>
+												</div>
 	<!-- //////////////////////////////////////Start Image Uploader Js Script -->
 													<script>
 										function readURL(input) {

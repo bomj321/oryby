@@ -206,10 +206,10 @@ include('navh.php');
                     <!-- end sidebar -->
 
 <!------PRODUCTOS-------->      	 
-                <div class="col-sm-10">               
+<div class="col-sm-10">               
                         <div class="content light-background">
                             <?php 
-                            $sql="SELECT * FROM `products`  WHERE catid = '{$id}' AND country= 'Chile'  ";
+                            $sql="SELECT * FROM `products`  WHERE subcatid = '{$id}' AND country= 'Chile' ";
                             $rsl=mysqli_query($connection,$sql);
                             ?>  
                             <div class="row">
@@ -220,7 +220,7 @@ include('navh.php');
                                 <div class="col-sm-3 col-md-3 mt-5"> 
                                     <h4><small><?php echo $resu['ntitle'];?></small></h4>                   
                                     <a href="Shopsingle.php?pid=<?php echo $rw['pid']; ?>">
-                                        <img src="images/<?php echo $cl[0];?>" class="img-thumbnail" style="width: 20rem;height: 20rem;">
+                                        <img src="../../images/<?php echo $cl[0];?>" class="img-thumbnail" style="width: 20rem;height: 20rem;">
                                     </a>                                    
                                     <center>
                                     <span class="amount text-primary">USD $ <?php echo $rw['price']; ?></span>

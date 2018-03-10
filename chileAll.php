@@ -209,7 +209,7 @@ include('navh.php');
                 <div class="col-sm-10">               
                         <div class="content light-background">
                             <?php 
-                            $sql="SELECT * FROM `products`  WHERE catid = '{$id}' AND country= 'Chile'  ";
+                            $sql="SELECT * FROM `products`  WHERE subcatid = '{$id}' AND country= 'Chile' ";
                             $rsl=mysqli_query($connection,$sql);
                             ?>  
                             <div class="row">

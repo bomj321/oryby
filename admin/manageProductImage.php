@@ -29,7 +29,7 @@ $stmt=mysqli_query($connection,$sql);
 if($stmt == false) {
 trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
 }
- $nr =mysqli_num_rows($stmt);
+$nr =mysqli_num_rows($stmt);
 if($nr > 0)
 {
 		
@@ -109,7 +109,7 @@ include('header.php');
 					if($stmt == false) {
 					trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
 					}
-					echo $nr=mysqli_num_rows($stmt);
+					$nr=mysqli_num_rows($stmt);
 					if($nr > 0)
 					{
 					?>		

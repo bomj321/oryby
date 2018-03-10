@@ -261,9 +261,9 @@ else if(trim($str1) ==trim($str3))
 				<hr>
 				<div class="row">			  
 					<div class="col-sm-4" style="margin-left:200px;margin-top:0px;">				
-						<div class="form-group"><label> Product Title: </label></div> <br> 
-						<div class="form-group"><label> Keyword:</label> </div> <br> 
-						<div class="form-group"><label> Selected Keyword: </label></div> 
+						<div class="form-group"><label> Product Title <span class="text-danger">*</span></label></div> <br> 
+						<div class="form-group"><label> Keyword <span class="text-danger">*</span></label> </div> <br> 
+						<div class="form-group"><label> Selected Keyword</label></div> 
 					</div>
 					<div class="col-sm-4" style="margin-left:-200px;">
 						<div class="form-group">
@@ -295,30 +295,30 @@ else if(trim($str1) ==trim($str3))
 				<br>
 				<div class="col-sm-4" style="margin-left:200px;margin-top:0px;">
 				<div class="row">
-					<div class="form-group col-sm-6"><label> Country: </label></div>               
+					<div class="form-group col-sm-6"><label> Country<span class="text-danger">*</span> </label></div>               
 				</div>				
-				<div class="form-group" style="margin-top:20px;"><label> Weight: </label></div>
+				<div class="form-group" style="margin-top:20px;"><label> Weight <span class="text-danger">*</span>  </label></div>
 				<div class="form-group" style="margin-top:20px;"><label> Volume: </label></div> 
 				<div class="form-group" style="margin-top:35px;"><label> Dimensions: </label></div> 
 				<div class="form-group" style="margin-top:30px;"><label> Capicity: </label></div> 
 				<div class="form-group" style="margin-top:20px;"><label> Energy Power: </label></div> 				 
 				<div class="form-group" style="margin-top:40px;"><label> Rational Speed: </label></div> 
 				<div class="form-group" style="margin-top:20px;"><label> Elaboration Material: </label></div> 
-				<div class="form-group" style="margin-top:20px;"><label> Use: </label></div> 
+				<div class="form-group" style="margin-top:20px;"><label> Use <span class="text-danger">*</span></label></div> 
 				<div class="form-group" style="margin-top:20px;"><label> Size: </label></div> 
-				<div class="form-group" style="margin-top:20px;"><label> Packing: </label></div>
+				<div class="form-group" style="margin-top:20px;"><label> Packing <span class="text-danger">*</span></label></div>
                 <div class="form-group" style="margin-top:20px;"><label> Product type: </label></div> 				
 				<div class="form-group" style="margin-top:20px;"><label> Product Certification: </label></div> 
 				<div class="form-group" style="margin-top:20px;"><label> Product Image: </label></div> 
-				<div class="form-group" style="margin-top:20px;"><label> FOB Price: </label></div> 
-				<div class="form-group" style="margin-top:20px;"><label> Minimum Order: </label></div> 
+				<div class="form-group" style="margin-top:20px;"><label> FOB Price <span class="text-danger">*</span></label></div> 
+				<div class="form-group" style="margin-top:20px;"><label> Minimum Order <span class="text-danger">*</span></label></div> 
 				<div class="form-group" style="margin-top:20px;"><label> Delivery Details: </label></div>
 				<div class="form-group" style="margin-top:20px;"><label> Payment: </label></div>				
 				</div>
 				<div class="col-sm-4" style="margin-left:-200px;">
 				<div class="row">
 				<div class="form-group col-sm-6">
-			<select class="form-control input-sm" id="unit" name="dropcountry">
+			<select class="form-control input-sm" id="unit" name="dropcountry" required>
 
 	                <option value="Chile">Chile</option>
 					<option value="Afganistan">Afghanistan</option>
@@ -570,7 +570,7 @@ else if(trim($str1) ==trim($str3))
 					<option value="Zimbabwe">Zimbabwe</option>						 
                          </select>
 				</div>
-				<div class="form-group col-sm-2"><label> Port: </label></div>  
+				<div class="form-group col-sm-2"><label> Port <span class="text-danger">*</span></label></div>  
 				
 				<div class="form-group col-sm-4" style="padding-right:0px;">
 				<input type="text" class="form-control input-sm" required placeholder="Port" name="port" id="port">
@@ -679,7 +679,7 @@ else if(trim($str1) ==trim($str3))
                          </select>
 				</div>
 				<div class="form-group">
-						 <select class="form-control input-sm" id="unit" name="packaging">
+						 <select class="form-control input-sm" id="unit" name="packaging" require>
 	                         <option value="Bag">Bag</option>  
                              <option value="Bottle">Bottle</option>  
 							 <option value="Can">Can</option>  

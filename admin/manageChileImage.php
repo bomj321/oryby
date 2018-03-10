@@ -103,23 +103,9 @@ include('header.php');
 				
 						<!-- NEW WIDGET START -->
 						<article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				
-							<!-- Widget ID (each widget will need unique ID)-->
+			
 							<div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="false">
-								<!-- widget options:
-								usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
-				
-								data-widget-colorbutton="false"
-								data-widget-editbutton="false"
-								data-widget-togglebutton="false"
-								data-widget-deletebutton="false"
-								data-widget-fullscreenbutton="false"
-								data-widget-custombutton="false"
-								data-widget-collapsed="true"
-								data-widget-sortable="false"
-				
-								-->
-									<center><a href="chile_add.php" class="btn btn-primary"><i class="fa fa-floppy"></i> Add  Image</a>
+									<center><a href="chile_add.php" class="btn btn-primary hide"><i class="fa fa-floppy"></i> Add  Image</a>
            </br>
          
         </center>
@@ -140,13 +126,13 @@ include('header.php');
 									<!-- end widget edit box -->
 		<?php
 include('Connect.php');
- $sql="SELECT * FROM aboutus WHERE elementname='innovation' OR elementname='ecofriendly' OR elementname='chile1' OR elementname='chile2' OR elementname='chile3' or elementname='chile4' OR elementname='chile5' OR elementname='chile6' OR elementname='b2bplatformimage' OR elementname='loginpanelpicture' OR elementname='logoimage'";
+ $sql="SELECT * FROM aboutus WHERE elementname='chile1' OR elementname='chile2' OR elementname='chile3' or elementname='chile4' OR elementname='chile5' OR elementname='chile6'";
  
 $stmt=mysqli_query($connection,$sql);
 if($stmt == false) {
 trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
 }
-echo $nr=mysqli_num_rows($stmt);
+$nr=mysqli_num_rows($stmt);
 if($nr >0)
 {
   ?>		
@@ -158,12 +144,9 @@ if($nr >0)
 												<tr>
 													<th data-hide="phone">Serial ID</th>
 													<th > Element Name</th>
-													<th > Picture</th>
-											
-														<th > Action</th>
-													
-													
-												
+													<th > Picture</th>											
+													<th > Action</th>							
+																					
 												</tr>
 											</thead>
 											<tbody>

@@ -437,7 +437,7 @@
 					<li>
 						<a href="#"><i class="fa fa-lg fa-fw fa-table"></i> <span class="menu-item-parent">Pictures </span></a>
 						<ul>
-							<li><a href="manageChileImage.php">Manage Images</a></li>
+							<li><a href="manageChileImage.php">Manage Made in Chile</a></li>
 							<li><a href="manageProductImage.php">Images Add Product</a></li>
 
 						</ul>

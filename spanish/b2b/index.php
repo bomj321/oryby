@@ -421,7 +421,7 @@ $(document).ready(function(){
 							$rst=mysqli_query($connection,$sql);
 								?>
 						   <select class="form-control input-lg" id="catid" name="dropcat">
-						    <option value=""> Categoría </option>
+						    <option value=""> Categoría * </option>
 							<?php while($rowt=mysqli_fetch_array($rst)){ ?>
                              <option value="<?php echo $rowt['title'];?>"><?php echo $rowt['title'];?></option>
 
@@ -431,13 +431,13 @@ $(document).ready(function(){
 						 </div>
 						   <div class="form-group">
 
-                                <input name="pname" type="text" id="firstname" class="form-control input-lg" required placeholder="nombre del producto">
+                                <input name="pname" type="text" id="firstname" class="form-control input-lg" required placeholder="Nombre del producto *">
                             </div>
 							<div class="row">
 							<div class="col-sm-6">
                             <div class="form-group">
 
-                           <input name="quantity" type="text" id="qty" class="form-control input-lg" required placeholder="Ingresa Cantidad">
+                           <input name="quantity" type="text" id="qty" class="form-control input-lg" required placeholder="Ingresa Cantidad *">
                             </div>
 							</div>
 							<div class="col-sm-6">
@@ -459,7 +459,7 @@ $(document).ready(function(){
                           	</div>
 							</div>
                            <div class="form-group">
-								<input name="dtym" type="text" id="dtime" class="form-control input-lg" required placeholder="Fecha límite para enviar" onfocus="(this.type='date')">
+								<input name="dtym" type="text" id="dtime" class="form-control input-lg" required placeholder="Fecha límite para enviar *" onfocus="(this.type='date')">
 							</div>
 
 
@@ -467,7 +467,7 @@ $(document).ready(function(){
               <!--SELECT CON LOS PAISES-->
               <div class="widget form-group">
                 <select name="pais">
-                <option value="Elegir" id="AF">Pais de Origen</option>
+                <option value="Elegir" id="AF">Pais de Origen *</option>
                 <option value="Afganistán" id="AF">Afganistán</option>
                 <option value="Albania" id="AL">Albania</option>
                 <option value="Alemania" id="DE">Alemania</option>
@@ -734,8 +734,8 @@ $(document).ready(function(){
 <?php
    try {
         include('connect.php');
-        $sql = "SELECT * FROM `categories` ";
-        $resultado = mysqli_query($connection,$sql);
+        $sql3="SELECT * FROM aboutus WHERE elementname='chile1' OR elementname='chile2' OR elementname='chile3' or elementname='chile4' OR elementname='chile5' OR elementname='chile6'";
+        $resultado = mysqli_query($connection,$sql3);
         }
   catch (Exception $e)
   { $error= $e->getMessage();}
@@ -746,15 +746,15 @@ $(document).ready(function(){
         <div class="title-wrap">
             <div class="row column-3">
                 <hr>
-                <h2 class="title"><span class="text-primary"> MADE</span> IN <span class="text-primary">CHILE</span></h2>
+                <h2 class="title"><span class="text-primary">HECHO</span> EN <span class="text-primary">CHILE</span></h2>
                 <?php while ($categorias = $resultado->fetch_all(MYSQLI_ASSOC) ) { ?>
                 <?php foreach($categorias as $cate): ?>
-                <div class="col-sm-3 col-md-3 col-xs-3">
-                    <div class="thumbnail store style1">
+                <div class="col-sm-4 col-md-4 col-xs-4">
+                    <div class="thumbnail store style1" style="height: 15rem; width:20rem">
                         <div class="header">
-                            <a href="chileAll.php?id=<?php echo $cate['catid']; ?>">
+                        <a href="chileAll.php?id=<?php echo $cate['hreflink']; ?>">
                                 <figure class="layer">
-                                    <img  src="../../images/<?php echo $cate['catimage']; ?>" alt="" class="img-responsive" style="height: 15rem; width:20rem">
+                                    <img  src="../../images/<?php echo $cate['picture']; ?>" alt="Hecho en Chile" class="img-responsive" style="height: 15rem; width:20rem">
                                 </figure>
                             </a>
                         </div>
