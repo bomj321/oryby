@@ -30,6 +30,9 @@ ini_set('error_reporting',0);
 
 
  ?>
+ <!--HOJA DE ESTILO-->
+<link rel="stylesheet" type="text/css" href="css/estilos.css">
+ <!--HOJA DE ESTILO-->
 
  
 
@@ -200,7 +203,7 @@ if (!empty($pid) AND !empty($para) ) {
       
 
         if (mysqli_num_rows($comprobacion)==0) {
-          echo "No hay columnas";
+          
           //INSERTAR EL CHAT
          
 
@@ -214,9 +217,7 @@ if (!empty($pid) AND !empty($para) ) {
         if (mysqli_num_rows($comprobacionx3)==0) {
            $insert = "INSERT INTO c_chats(de,para,pid,sellerid,vchata, vchatb) VALUES (".$de.", ".$para.", ".$pid.", ".$para.", '1', '1');";  
         $resultado = $connection->query($insert);
-        if ($resultado) {
-          echo "SI INSERTO ALGO";
-        }
+       
 
 
         }else{
@@ -242,9 +243,7 @@ if (!empty($pid) AND !empty($para) ) {
           $resultado2 = $connection->query($siguiente);
           $fila=$resultado2->fetch_assoc();
           $id_cch=$fila['id_cch'];
-          if ($resultado2) {
-            echo "CONSULTA REALIZADA CON EXITO";
-          }
+         
 
  //INSERTAR EL CHAT
           
@@ -258,11 +257,7 @@ if (!empty($pid) AND !empty($para) ) {
           $nombre_imagen = $_FILES['imagen']['name'];
          $insert2 = "INSERT INTO chats(id_cch,de,para,pid,mensaje,image) VALUES(".$id_cch.", ".$de.",".$para.", ".$pid.", '".$mensaje."','$nombre_imagen');";
          $resultado3 = $connection->query($insert2);
-          if ($resultado3) {
-          echo "SI INSERTO ALGO EN LOS MENSAJES";
-        }else{
-          echo "ERROR";
-        }
+         
           //INSERTAR LOS MENSAJES
 
           if($resultado3){
@@ -278,9 +273,7 @@ if (!empty($pid) AND !empty($para) ) {
           $resultado2 = $connection->query($siguiente);
           $fila=$resultado2->fetch_assoc();
           $id_cch=$fila['id_cch'];
-          if ($resultado2) {
-            echo "CONSULTA REALIZADA CON EXITO";
-          }
+         
 
            //CONSULTA PARA EL ID DEL CHAT POR SEGUNDA VEZ        
           

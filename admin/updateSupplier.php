@@ -69,8 +69,8 @@ trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERR
 	if(isset($_POST['btn_save']))
 	{
 	  
-	 $companyName= $_POST['companyName'];
-	echo  $companyLegalNo= $_POST['companyLegalNo'];
+		 $companyName= $_POST['companyName'];
+		echo  $companyLegalNo= $_POST['companyLegalNo'];
 		 $street= $_POST['street'];
 		  $city= $_POST['city'];
 		  $province= $_POST['province'];
@@ -137,14 +137,22 @@ trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERR
  }
 		 ////////////////////////////////////////////////
 	
-  $license = $image1 . ',' . $image2 . ',' . $image3. ',' . $image4. ',' . $image5;
+  
 
-	
- $sql="UPDATE seller  SET company_name ='".$companyName ."',street='".$street ."',city='".$city ."',zipCode='". $zipCode."',province='". $province."',businessType='".$businessType ."',noOfEmployee='".$noOfEmployee ."',companyDescription='". $companyDescription."',companylogo='".$images ."',countryName='".$countryName ."',companylicense='".$license."',companyLegalNo='".$companyLegalNo."',limitTopList='".$limitTopList."',limitShowCase='".$limitShowCase."'  WHERE email='$email' ";
+	if (empty($images)) {
+	$license = $image1 . ',' . $image2 . ',' . $image3. ',' . $image4. ',' . $image5;
+	$sqlimages="UPDATE seller  SET company_name ='".$companyName ."',street='".$street ."',city='".$city ."',zipCode='". $zipCode."',province='". $province."',businessType='".$businessType ."',noOfEmployee='".$noOfEmployee ."',companyDescription='". $companyDescription."',countryName='".$countryName ."',companylicense='".$license."',companyLegalNo='".$companyLegalNo."',limitTopList='".$limitTopList."',limitShowCase='".$limitShowCase."'  WHERE email='$email' ";
+	mysqli_query($connection,$sqlimages);
 
+	}elseif (empty($image1) and empty($image2) and empty($image3) and empty($image4) and empty($image5)) {
+		$sqllicense="UPDATE seller  SET company_name ='".$companyName ."',street='".$street ."',city='".$city ."',zipCode='". $zipCode."',province='". $province."',businessType='".$businessType ."',noOfEmployee='".$noOfEmployee ."',companyDescription='". $companyDescription."',companylogo='".$images ."',countryName='".$countryName ."',companyLegalNo='".$companyLegalNo."',limitTopList='".$limitTopList."',limitShowCase='".$limitShowCase."'  WHERE email='$email' ";
+			mysqli_query($connection,$sqllicense);
 
-	
- mysqli_query($connection,$sql);
+	}elseif(empty($image1) and empty($image2) and empty($image3) and empty($image4) and empty($image5) and empty($images)){
+$license = $image1 . ',' . $image2 . ',' . $image3. ',' . $image4. ',' . $image5;
+$sql="UPDATE seller  SET company_name ='".$companyName ."',street='".$street ."',city='".$city ."',zipCode='". $zipCode."',province='". $province."',businessType='".$businessType ."',noOfEmployee='".$noOfEmployee ."',companyDescription='". $companyDescription."',companylogo='".$images ."',countryName='".$countryName ."',companylicense='".$license."',companyLegalNo='".$companyLegalNo."',limitTopList='".$limitTopList."',limitShowCase='".$limitShowCase."'  WHERE email='$email' ";
+
+mysqli_query($connection,$sql);
  
 	 $stmt = $connection->prepare($sql);
      if($stmt === false) {
@@ -164,6 +172,11 @@ trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERR
 			else{
 		
 		}
+	}
+ 
+
+	
+ 
 		
 	}
 

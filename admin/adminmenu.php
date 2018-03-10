@@ -130,6 +130,41 @@ $nr=mysqli_num_rows($stmt);
 									110,150,300,130,400,240,220,310,220,300, 270, 210
 								</div>
 							</li>
+							
+<!--ALERTAS DE PRODUCTO INNO O ECO-->
+							<li class="sparks-info">
+												<?php
+							include('Connect.php');
+ $sql="SELECT * FROM products  INNER JOIN users ON(products.user_id = users.user_id) INNER JOIN categories ON(products.catid =categories.catid) Where products.productaction ='0' AND (products.productType2 = 'Eco Friendly' OR products.productType2 = 'Innovation') OR products.productaction ='1' AND (products.productType2 = 'Eco Friendly' OR products.productType2 = 'Innovation')";
+
+$stmt=mysqli_query($connection,$sql);
+if($stmt == false) {
+trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
+}
+$nr=mysqli_num_rows($stmt);
+
+					if($nr >0) {
+								?>
+<a href="acceptProduct.php" ><h5 class="tab blink"   style="color: #ef1233">  Eco-Frienly-Innovation <span class="txt-color-yellow"><i class="fa fa-arrow-circle-up"></i>&nbsp;<?php echo $nr ?></span></h5></a>								<?php
+								}
+								else
+								{
+								?>
+								<a href="acceptProduct.phpp" ><h5 style="color: #ef1233"> New Product <span class="txt-color-yellow"><i class="fa fa-arrow-circle-up"></i>&nbsp;<?php echo $nr ?></span></h5></a>
+								<?php
+								}
+								?>
+
+								<div class="sparkline txt-color-yellow hidden-mobile hidden-md hidden-sm">
+									110,150,300,130,400,240,220,310,220,300, 270, 210
+								</div>
+							</li>
+
+							<!--ALERTAS DE PRODUCTO INNO O ECO-->
+
 						</ul>
+
+
+
 					</div>
 				</div>

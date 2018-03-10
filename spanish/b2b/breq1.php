@@ -370,7 +370,7 @@ include('head.php');
                                 <div class="table-responsive">
                                   <?php
                                   $email=$_SESSION['uemail'];
-                                   $querygetrequest="SELECT * FROM buyerrequests WHERE country ='$keyword' AND catename='$categories'";
+                                   $querygetrequest="SELECT * FROM buyerrequests WHERE (country ='$keyword' AND catename='$categories') OR (country ='$keyword') OR (catename='$categories')";
                                   $resultrequests=mysqli_query($connection,$querygetrequest);
                                   if(mysqli_num_rows($resultrequests)==0)
                                             {
@@ -387,6 +387,7 @@ include('head.php');
                                                 <th>Cantidad</th>
                                                 <th>Fecha Tope</th>
                                                 <th>País</th>
+                                                <th>Categoria</th>
                                                 <th>Imagen</th>
                                             </tr>
                                         </thead>
@@ -397,12 +398,12 @@ include('head.php');
       ?>
 
                                             <tr>
-                                                            <td><a href="#"><?php echo $rowreq['buyreq_id'];?></a></td>
-                                                            <td><a href="buyerrequests.php?reqid=<?php echo $rowreq['buyreq_id'];?>"><?php echo $rowreq['prod_name'];?></a></td>
-                                                            <td> <?php echo $rowreq['quantity'];?>  </td>
-                                                            <td> <?php echo $rowreq['dtym'];?> </td>
-                                                            <td><?php echo $rowreq['country'];?>  </td>
-                                                <td style="width:120px;">
+                    <td><a href="#"><?php echo $rowreq['buyreq_id'];?></a></td>
+                    <td><a href="buyerrequests.php?reqid=<?php echo $rowreq['buyreq_id'];?>"><?php echo $rowreq['prod_name'];?></a></td>
+                    <td> <?php echo $rowreq['quantity'];?>  </td>
+                    <td> <?php echo $rowreq['dtym'];?> </td>
+                    <td><?php echo $rowreq['country'];?>  </td>                <td><?php echo $rowreq['catename']; ?></td>
+                    <td style="width:120px;">
                                                    <img style="height:40px; width:50px; margin-top:-10px;margin-bottom:-8px; " src="ReqImages/<?php echo $rowreq['image']; ?>" alt="productImage">
                                                 </td>
 

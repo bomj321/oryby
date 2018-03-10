@@ -59,7 +59,9 @@ include('header.php');
 
 
 
-
+<!--ESTILOS CSS-->
+<link rel="stylesheet" type="text/css" href="css/estilos.css">
+<!--ESTILOS CSS-->
 
  
 
@@ -68,7 +70,7 @@ include('header.php');
   <div class="row">
 
     <!---ASIDE DEL CHAT-->
-<div class="col-md-4" id="aside">
+<div class="col-md-4 col-md-offset-1" id="aside">
       <h6 style="text-align: center">MY CHATS</h6>
 
 <!--PROGRAMACION DEL ASIDE DEL CHAT-->
