@@ -207,18 +207,18 @@ include('navh.php');
                             
                
       	 
-	   <div class="content light-background">
-                    <div class="row">
-					<?php $query="SELECT * FROM products INNER JOIN categories ON(products.catid=categories.catid) INNER JOIN subcategories  ON(products.subcatid = subcategories.subcatid) ";
-               $result=mysqli_query($connection,$query);
-			   ?>
+<!--Comienza a imprimir-->	 
+<div class="row">
+					<?php $query="SELECT * FROM users INNER JOIN products ON(users.user_id = products.user_id) INNER JOIN seller ON(users.email = seller.email)";
+                        $result=mysqli_query($connection,$query);
+			         ?>
                         </div><!-- end row -->
                     <?php
-                  while( $row=mysqli_fetch_array($result)){ 
-				 $myString = $row['image'];
-				  $productType=$row['productType'];
-				 $cl = explode(',', $myString);
-							  ?>
+                        while( $row=mysqli_fetch_array($result)){ 
+                        $myString = $row['image'];
+                        $productType=$row['productType'];
+                        $cl = explode(',', $myString);
+					?>
 				 
          <div class="col-sm-6 col-md-3" style="padding:3px">
                         	<?php
@@ -228,44 +228,34 @@ include('navh.php');
 
 							if($productType =="Eco Friendly"){
 									?>
-										   <span> <img style="height:35px; width:35px;float:right"src="images/ecofriendly.png" />
+										   <span> <img style="height:35px; width:35px;float:right;position: absolute;z-index: 1;"src="images/ecofriendly.png" />
                                        </span><?php
 										}
 										else if($productType =="Innovation"){
 										?>
-										   <span> <img style="height:35px; width:35px;float:right "src="images/innovation.png" />
+										   <span> <img style="height:35px; width:35px;float:right;position: absolute;z-index: 1; "src="images/innovation.png" />
                                        </span><?php
 										}
 										?>  
-                            <div class="cat-item-style2">
-							   <div class="title">
-								 <?php echo '<h6> '.$row['title'].'</a></h6>'; ?>
-                                
-                                </div><!-- end title -->
-								<div class="price">
-                                  <center>  <span class="amount text-primary"><?php echo $row['subtitle']; ?></span>  </center> 
-										
-                                        </div>
                                 <figure>
 								
                    <a href="Shopsingle.php?pid=<?php echo $row['pid'] ; ?>">                         		      
-										 <img style="height:200px; width:200px;" src="images/<?php echo $cl[0]; ?>" alt="" />
+										 <img style="width: 100%;height: 20rem;" src="images/<?php echo $cl[0]; ?>" alt="" />
 										
                                     </a>
                                 </figure>
+                            <div class="cat-item-style2">
                                 <div class="title">
 								 <?php echo '<h6><a href="Shopsingle.php?pid='.$row['pid'].'"> '.$row['ntitle'].'</a></h6>'; ?>
                                 
                                 </div><!-- end title -->
 								<div class="price">
-                                  <center>  <span class="amount text-primary">$<?php echo $row['price']; ?></span>  </center> 
-											<?php
-											
-											//$p = $price -10;
-	                                             ?>
-                                          <!--  <span class="amount text-primary">$<?php //echo $p ;?></span>  -->
+                                  <center><span class="amount text-primary">USD $ <?php echo $row['price']; ?></span></center>
+                                  <center><span class="amount text-default">Min Order: <?php echo $row['miniorder']; ?></span></center>
+                                  <center><span class="amount text-default">Company Name: <?php echo $row['company_name']; ?></span></center>
+                                  <center><a href="chat2.php?sellerid=<?php echo $rows['user_id'];?>&pid=<?php echo $row['pid'];?>&name=<?php echo $row['firstName']?>"></i>Contact Supplier</a></center>
 										    
-                                        </div>
+                                </div>
                             </div><!-- end cat-item-style2 -->
                         <!-- end col -->
                    
@@ -273,11 +263,6 @@ include('navh.php');
 				  
 				   </div>
 				   <?php  } ?>
-                    <div class="row">
-                        <div class="col-sm-12 text-center">
-                           
-                        </div><!-- end col -->
-                    </div><!-- end row -->
                 </div><!-- end content -->
 	  
 	  </div>

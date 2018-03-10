@@ -37,12 +37,11 @@ $confirmcode=$_SESSION['code'];
 
 
 
-						<div class="col-sm-2 col-sm-offset-10">
-
-
-										<a href="sendconfirmation2.php?userStatus=1" >			<input type="submit" class="form-control btn btn-default" value="SKIP">
-										</br>
-											</div>
+						<div class="col-sm-8 col-sm-offset-2">
+							<a href="sendconfirmation2.php?userStatus=1" >
+								<input type="submit" class="btn btn-default round btn-md" value="SKIP">
+							</br>
+						</div>
 
 					</a>
 						<hr>
@@ -383,13 +382,19 @@ $confirmcode=$_SESSION['code'];
 									<div class="form-group">
 										<div class="row">
 										</br>
-										<div class="col-sm-2 col-sm-offset-9">
+										<div class="col-sm-8 col-sm-offset-2">
 											</br>
 											</br>
-												<input type="submit" name="register-submit" class="form-control btn btn-default" value="SAVE">
+												<input type="submit" name="register-submit" class="form-control btn btn-default round btn-md" value="SAVE">
 											</div>
 										</div>
 									</div>
+										<div class="row">
+										<div class="col-sm-8 col-sm-offset-2">
+										<a href="sendconfirmation2.php?userStatus=1" >
+										<input type="submit" class="btn btn-default round btn-md" value="SKIP">
+											</div>
+										</div>
 
 
 							</div>

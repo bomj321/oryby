@@ -11,14 +11,16 @@ trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERR
 $row = mysqli_fetch_array($stmt);
 
 
-    $user_id=$row['user_id'];
-	  $firstname = $row['firstName'];// item name
+	$user_id=$row['user_id'];
+	$firstname = $row['firstName'];// item name
 	$lastname = $row['lastName'];// item name
 	$email = $row['email'];// item name
-    $password=$row['password'];
-	 $address=$row['address'];
-	 include('topbar.php');
-	include('header.php'); 
+	$password=$row['password'];
+	$address=$row['countryName'];
+	include('head.php');
+	include('topbar.php');
+	include('middlebar.php');
+	include('navh.php');
 ?>   
 <?php
 

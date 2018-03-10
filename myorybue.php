@@ -31,12 +31,11 @@ include('navh.php');
             <div class="row">                	  	
                 <!-- Pending Purchases-->				
                 <div class="col-md-8 col-sm-8 col-xs-8">
-                    <h4 class="title text-center"> Pending Purchases</h4>   
+                    <h4 class="title text-center">Pending Purchases</h4>   
                         <table class="table table-striped table-responsive example" cellspacing="0">
                             <thead>
                             <tr>
                                 <th>Order Id</th>
-                                <th>Email</th>
                                 <th>Total Price</th>
                                 <th>Order Status</th>
                             </tr>
@@ -49,7 +48,6 @@ include('navh.php');
                             ?>
                             <tr>
                                 <td><a href="#"><?php echo $rowreq['order_id'];?></a></td>
-                                <td><a href="#"><?php echo $rowreq['email'];?></a></td>
                                 <td><a href="#">$<?php echo $rowreq['tota_price'];?></a></td>
                                 <td><a href="#"><?php echo $rowreq['orderstatus'];?></a></td>
                             </tr>
@@ -64,7 +62,7 @@ include('navh.php');
                     $logoquery="SELECT * FROM seller where email='$getmail'";
                     $logoresult=mysqli_query($connection,$logoquery);
                     $logorow=mysqli_fetch_array($logoresult);  ?>
-                    <div style="float:right;background-color:#f7f7f7; border:2px;padding-left:50px;padding-right:50px;padding-bottom:5px;">
+                    <div style="float: right; background-color: #f7f7f7;border: 2px;padding-left: 51px;padding-right: 50px;padding-bottom: 30px; margin-right:7rem;">
                         <h5>My Profile</h5>
                         <img src="images/<?php echo $logorow['companylogo'];?>" style="height:100px; width:100px;" alt="Logo not set">
                         <hr>
@@ -176,7 +174,7 @@ include('navh.php');
                     <?php } ?>
                 </div>
                 <div class="col-sm-4 col-md-4">
-                    <h4 class="pull-right">My Favourites</h4> 
+                    <h4 class="pull-right">My Favorites</h4> 
                     <div class="widget pull-right">
                             <?php $sql="SELECT * FROM `favorites` INNER JOIN `products` ON (favorites.id_product=products.pid) WHERE id_user = '{$id_user}' Limit 6";
                             $result=mysqli_query($connection,$sql);

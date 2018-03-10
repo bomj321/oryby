@@ -35,30 +35,7 @@ include 'Connect.php';
 				
         
         }	
-		/*if (!preg_match("|^[0-9]{11,15}$|",$phone)) {
-            $error = true;
-				$phone_error="PhoneNumber can only have numeric characters ";
-			echo "<script type='text/javascript'>alert('$phone_error');</script>";
-        
-        }
-		
-        if(!filter_var($email,FILTER_VALIDATE_EMAIL)) {
-            $error = true;
-			$email_error= "email in not proper format";
-			echo "$email_error";
-        }
-        if(strlen($password) < 6) {
-             $error = true;
-			 $password_error = "minimum 6 digits needed ";
-			 echo "$password_error";
-       }
-        if($password != $cpassword) {
-            $error = true;
-            $cpassword_error = "Password and Confirm Password doesn't match";
-        echo "$cpassword_error";
-		}
-       */ 
-        
+      
         
         if (!$error) {
 			  $sql = "SELECT * FROM users WHERE email = '$email'";

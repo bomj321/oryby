@@ -210,7 +210,7 @@ $(document).ready(function(){
                         <div class="item active" style="padding-right:70px; padding-left:70px; background-color:#ffffff;">
                             <div class="row" style="background-color:#ffffff;">
 												 <?php
-				  $sql="SELECT * FROM products Where productstatus=1 AND productaction = 1  OR productType='Eco Friendly' OR productType ='Innovation' LIMIT 6";
+				  $sql="SELECT * FROM products WHERE productType='Eco Friendly' OR productType ='Innovation' LIMIT 12";
 
 				$stmt=mysqli_query($connection,$sql);
 				if($stmt == false) {

@@ -38,7 +38,6 @@ include('navh.php');
                             <thead>
                             <tr>
                                 <th>Id</th>
-                                <th>Email</th>
                                 <th>Precio Total</th>
                                 <th>Estado</th>
                             </tr>
@@ -51,7 +50,6 @@ include('navh.php');
                             ?>
                             <tr>
                                 <td><a href="#"><?php echo $rowreq['order_id'];?></a></td>
-                                <td><a href="#"><?php echo $rowreq['email'];?></a></td>
                                 <td><a href="#">$<?php echo $rowreq['tota_price'];?></a></td>
                                 <td><a href="#"><?php echo $rowreq['orderstatus'];?></a></td>
                             </tr>
@@ -66,7 +64,7 @@ include('navh.php');
                     $logoquery="SELECT * FROM seller where email='$getmail'";
                     $logoresult=mysqli_query($connection,$logoquery);
                     $logorow=mysqli_fetch_array($logoresult);  ?>
-                    <div style="float:right;background-color:#f7f7f7; border:2px;padding-left:50px;padding-right:50px;padding-bottom:5px;">
+                    <div style="float: right; background-color: #f7f7f7;border: 2px;padding-left: 51px;padding-right: 50px;padding-bottom: 30px; margin-right:7rem;">
                         <h5>My Profile</h5>
                         <img src="images/<?php echo $logorow['companylogo'];?>" style="height:100px; width:100px;margin-left:35px; " alt="Logo not set">
                         <hr>

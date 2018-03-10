@@ -35,76 +35,16 @@ $userId=$row['user_id'];
                                     <a href="buyeraccount.php">My Account</a>
                                 </li>
                                 <li>
-                                    <a href="cart.php">My Cart <span class="text-primary">(3)</span></a>
+                                    <a href="cart.php">My Cart <span class="text-primary">
+                                    <?php echo "".sizeof($_SESSION['cart'])." "; ?></span></a>
                                 </li>
                                 <li class="active">
                                     <a href="buyerorders.php">My Order</a>
                                 </li>
                              
-                                <li>
-                                    <a href="buyeraccount.php">Settings</a>
-                                </li>
                             </ul>
                         </div><!-- end widget -->
                         
-                        <div class="widget">
-						<?php $query="SELECT * FROM products INNER JOIN categories ON(products.catid=categories.catid) Limit 2,3 ";
-                           $result=mysqli_query($connection,$query);
-						   $row=mysqli_fetch_array($result);
-						      
-							    $myString = $row['image'];
-								$productType=$row['productType'];
-								$cl = explode(',', $myString);
-			   ?>
-                            <h6 class="subtitle">New Collection</h6>
-                            <figure>
-                                <a href="javascript:void(0);">
-                                    <img  style="height: 301px; width:250px;" src="images/<?php echo $cl[0];?>" alt="><?php echo $row['ntitle']; ?>">
-                                </a>
-                            </figure>
-                        </div><!-- end widget -->
-                        
-                        <div class="widget">
-                            <h6 class="subtitle">Featured</h6>
-                            <?php $query="SELECT * FROM products INNER JOIN categories ON(products.catid=categories.catid) Limit 2 ";
-                           $result=mysqli_query($connection,$query);
-						      
-							  
-			   ?>
-                            <ul class="items">
-							<?php 
-							while( $row=mysqli_fetch_array($result)){ 
-							   $myString = $row['image'];
-								$productType=$row['productType'];
-								$cl = explode(',', $myString);
-								?>
-                                <li> 
-                                    <a href="shop-single-product-v1.html" class="product-image">
-                                        <img src="images/<?php echo $cl[0]; ?>" alt="<?php echo $row['ntitle']; ?> ">
-                                    </a>
-                                    <div class="product-details">
-                                        <p class="product-name"> 
-                                            <a href="shop-single-product-v1.html"><?php echo $row['ntitle']; ?></a> 
-                                        </p>
-                                        <span class="price text-primary">$<?php echo $row['price']; ?></span>
-                                        <div class="rate text-warning">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
-                                    </div>
-                                </li><!-- end item -->
-								<?php
-								}
-								?>
-                               
-                            </ul>
-
-                            <hr class="spacer-10 no-border">
-                            <a href="allproduct.php" class="btn btn-default btn-block semi-circle btn-md">All Products</a>
-                        </div><!-- end widget -->
                     </div><!-- end col -->
                     <!-- end sidebar -->
                     <div class="col-sm-9">
