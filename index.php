@@ -144,10 +144,10 @@ $(document).ready(function(){
 								$rows=mysqli_fetch_array($resultt);
 								$title =$rows['productType'];?>
 								<?php
-								$sql="Select * from `aboutus` Where elementname='innovation'";
+								$sql="Select * from `images` Where id='5'";
 								$result=mysqli_query($connection,$sql);
 								$row=mysqli_fetch_array($result);
-								$image=$row['picture'];
+								$image=$row['image'];
 								?>
 								<a href="premShop.php?title=<?php echo $title; ?>"><img class="img-responsive height" src="images/<?php echo $image ?>" alt=""/></a>
 							</div><!-- end box-banner-img -->
@@ -159,9 +159,14 @@ $(document).ready(function(){
 								$result=mysqli_query($connection,$sql);
 								$row=mysqli_fetch_array($result);
 								$hreflink =$row['hreflink'];
-								$picture=$row['picture'];
 								?>
-								<a href="<?php echo $hreflink ?>"><img class="img-responsive height" src="images/<?php echo $picture ?>"/></a>
+								<?php
+								$sql="Select * from `images` Where id='6'";
+								$result=mysqli_query($connection,$sql);
+								$row=mysqli_fetch_array($result);
+								$image=$row['image'];
+								?>
+								<a href="<?php echo $hreflink ?>"><img class="img-responsive height" src="images/<?php echo $image ?>"/></a>
 							</div>
 						</div><!-- end col -->
 						<div class="col-sm-3 col-md-3">
@@ -175,8 +180,13 @@ $(document).ready(function(){
 							$sql="Select * from `aboutus` Where elementname='ecofriendly'";
 							$result=mysqli_query($connection,$sql);
 							$row=mysqli_fetch_array($result);
-							$image=$row['picture'];
 							?>
+                            <?php
+                            $sql="Select * from `images` Where id='7'";
+                            $result=mysqli_query($connection,$sql);
+                            $row=mysqli_fetch_array($result);
+                            $image=$row['image'];
+                            ?>
 							<div class="box-banner-img">
 								<a href="premShop.php?title=<?php echo $title ?>"> <img class="img-responsive height" src="images/<?php echo $image ?>" alt=""/></a>
 							</div><!-- end box-banner-img -->
