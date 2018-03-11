@@ -761,7 +761,7 @@ $(document).ready(function(){
 
 
 
-
+<!--COMIENZO DEL CARRUSEL NUMERO 1-->
 <div id="Carousel" class="carousel slide">
                               <!-- Carousel items -->
 
@@ -769,7 +769,84 @@ $(document).ready(function(){
                         <div class="item active" style="padding-right:70px; padding-left:70px;">
                             <div class="row">
 											<?php
-				  $sql="SELECT * FROM products  INNER JOIN categories ON(products.catid = categories.catid) WHERE productType='Normal Product' AND productstatus=1 AND productaction = 1 LIMIT 6";
+				  $sql="SELECT * FROM products  INNER JOIN categories ON(products.catid = categories.catid) WHERE productType='Normal Product' AND productstatus=1 AND productaction = 1 LIMIT 0,4";
+
+				$stmt=mysqli_query($connection,$sql);
+				if($stmt == false) {
+				trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
+				}
+				  $nr=mysqli_num_rows($stmt);
+
+				?>
+					<?php while($row=$stmt->fetch_assoc())
+    {
+	$userId=$row['user_id'];
+	$title =$row['title'];
+	$ntitle =$row['ntitle'];
+	$pid =$row['pid'];
+	$quantity =$row['miniorder'];
+	 $myString = $row['image'];
+	$cl = explode(',', $myString);
+
+
+
+			  $sqll="SELECT * FROM users  INNER JOIN seller ON(users.email = seller.email) Where users.user_id='$userId'";
+
+				$stmtt=mysqli_query($connection,$sqll);
+				if($stmtt == false) {
+				trigger_error('Wrong SQL: ' . $sqll . ' Error: ' . $connection->error, E_USER_ERROR);
+				}
+				  $rows=mysqli_fetch_array($stmtt);
+
+
+
+
+	?>
+
+                              <div class="col-md-2"><a href="Shopsingle.php?pid=<?php echo $pid ?>" class="thumbnail" id="carousel2-selector-0"><img src="images/<?php echo $cl[0];?>" alt="Image" style="width:150px;height:150px;"></a>
+
+							  <center>
+							  <span class="amount text-default"><?php echo $ntitle?></span>
+							  </br>
+
+							  <span class="amount text-primary">USD $ <?php echo $price = $row['price'];  ?></span>
+							  </br>
+							  <span class="amount text-default">Min Order:<?php echo $quantity?></span>
+							  </br>
+
+							  <span class="amount text-default">Company Name:<?php echo $companyName=$rows['company_name'];?></span>
+							  	   </br>
+								     <a href="chat2.php?sellerid=<?php echo $rows['user_id'];?>&pid=<?php echo $row['pid'];?>&name=<?php echo $rows['firstName']?>"></i>Contact Supplier</a>
+									 </br>
+							  </center>
+							  </div>
+							     <?php
+				}
+				?>
+						</div><!--.row-->
+                        </div><!--.item-->
+<!-- ////////////////////////////////////// -->
+                     
+
+                    </div><!--.carousel-inner-->
+                    <a data-slide="prev" href="#Carousel" class="left carousel-control" style="padding-top:70px; padding-right:100px;"><img src="img/prev.png" style="height:100px; width:100px;  "></a>
+                  <a data-slide="next" href="#Carousel" class="right carousel-control" style="padding-top:70px; padding-left:100px; "><img src="img/next.png" style="height:100px; width:100px; float:right; "></a>
+                 <!-- Carousel items -->
+
+
+                </div><!--.Carousel-->
+<!--FIN DEL PRIMER CARRUSEL-->
+
+                <!--CARRUSEL NUMERO 2-->
+<hr>
+<div id="Carousel2" class="carousel slide">
+                              <!-- Carousel items -->
+
+                    <div class="carousel-inner">
+                        <div class="item active" style="padding-right:70px; padding-left:70px;">
+                            <div class="row">
+											<?php
+				  $sql="SELECT * FROM products  INNER JOIN categories ON(products.catid = categories.catid) WHERE productType='Normal Product' AND productstatus=1 AND productaction = 1 LIMIT 5,10";
 
 				$stmt=mysqli_query($connection,$sql);
 				if($stmt == false) {
@@ -830,9 +907,7 @@ $(document).ready(function(){
                             <div class="row">
 												 <?php
 
-			 $sql="SELECT * FROM products  INNER JOIN categories ON(products.catid = categories.catid) WHERE productType='Normal Product'  AND productstatus=1 AND productaction = 1 ";
-
-				$stmt=mysqli_query($connection,$sql);
+			
 			 $sql="SELECT * FROM products  INNER JOIN categories ON(products.catid = categories.catid) WHERE productType='Normal Product'  AND productstatus=1 AND productaction = 1 LIMIT 5,10";
 			$stmt=mysqli_query($connection,$sql);
 
@@ -891,14 +966,14 @@ $userId=$row['user_id'];
                         </div><!--.item-->
 
                     </div><!--.carousel-inner-->
-                    <a data-slide="prev" href="#Carousel" class="left carousel-control" style="padding-top:70px; padding-right:100px;"><img src="img/prev.png" style="height:100px; width:100px;  "></a>
-                  <a data-slide="next" href="#Carousel" class="right carousel-control" style="padding-top:70px; padding-left:100px; "><img src="img/next.png" style="height:100px; width:100px; float:right; "></a>
+                    <a data-slide="prev" href="#Carousel2" class="left carousel-control" style="padding-top:70px; padding-right:100px;"><img src="img/prev.png" style="height:100px; width:100px;  "></a>
+                  <a data-slide="next" href="#Carousel2" class="right carousel-control" style="padding-top:70px; padding-left:100px; "><img src="img/next.png" style="height:100px; width:100px; float:right; "></a>
                  <!-- Carousel items -->
 
 
                 </div><!--.Carousel-->
 <hr>
-
+<!--FIN DEL SEGUNDO CARRUSEL-->
    <?php
   if(isset($_POST['vanswer'])){
 $quesno=$_POST['ques'];

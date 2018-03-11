@@ -785,6 +785,8 @@ $(document).ready(function(){
 
                 </div><!-- end row -->
 <hr>
+<!--COMIENZO DEL CARRUSEL NUMERO 1-->
+
 <div id="Carousel1" class="carousel slide">
                               <!-- Carousel items -->
 
@@ -792,7 +794,7 @@ $(document).ready(function(){
                         <div class="item active" style="padding-right:70px; padding-left:70px;">
                             <div class="row">
 												 <?php
-				  $sql="SELECT * FROM products  INNER JOIN categories ON(products.catid = categories.catid) WHERE productType='Normal Product' AND productstatus=1 AND productaction = 1 LIMIT 6";
+				  $sql="SELECT * FROM products  INNER JOIN categories ON(products.catid = categories.catid) WHERE productType='Normal Product' AND productstatus=1 AND productaction = 1 LIMIT 0,4";
 
 				$stmt=mysqli_query($connection,$sql);
 				if($stmt == false) {
@@ -845,10 +847,28 @@ $userId=$row['user_id'];
 						</div><!--.row-->
                         </div><!--.item-->
 <!-- ////////////////////////////////////// -->
-                     <div class="item" style="padding-right:70px; padding-left:70px;">
+                     
+
+                    </div><!--.carousel-inner-->
+                   <a data-slide="prev" href="#Carousel1" class="left carousel-control" style="padding-top:70px; padding-right:100px;"><img src="img/prev.png" style="height:100px; width:100px;  "></a>
+                  <a data-slide="next" href="#Carousel1" class="right carousel-control" style="padding-top:70px; padding-left:100px; "><img src="img/next.png" style="height:100px; width:100px; float:right; "></a>
+                 <!-- Carousel items -->
+
+
+                </div><!--.Carousel-->
+                <!--FIN CARRUSEL NUMERO 2-->
+
+<hr>
+<!--COMIENZO DEL CARRUSEL NUMERO 1-->
+
+<div id="Carousel2" class="carousel slide">
+                              <!-- Carousel items -->
+
+                    <div class="carousel-inner">
+                        <div class="item active" style="padding-right:70px; padding-left:70px;">
                             <div class="row">
 												 <?php
-			 $sql="SELECT * FROM products  INNER JOIN categories ON(products.catid = categories.catid) WHERE productType='Normal Product' AND productstatus=1 AND productaction = 1 LIMIT 5,10";
+				  $sql="SELECT * FROM products  INNER JOIN categories ON(products.catid = categories.catid) WHERE productType='Normal Product' AND productstatus=1 AND productaction = 1 LIMIT 5,10";
 
 				$stmt=mysqli_query($connection,$sql);
 				if($stmt == false) {
@@ -890,26 +910,27 @@ $userId=$row['user_id'];
 
 							  <span class="amount text-primary">USD <?php echo $price = $row['price'];  ?></span>
 							  </br>
-							  <span class="amount text-default">Orden min:<?php echo $quantity?></span>
+							  <span class="amount text-default">orden mín:<?php echo $quantity?></span>
 							  </br>
-								<a href="chats2.php?sellerid=<?php echo $rows['user_id'];?>&pid=<?php echo $row['pid'];?>&name=<?php echo $rows['firstName']?>"></i>Contactar al proveedor</a>
-								</br>
+							<a href="chat2.php?sellerid=<?php echo $rows['user_id'];?>&pid=<?php echo $row['pid'];?>&name=<?php echo $rows['firstName']?>"></i>Contactar al proveedor</a>
 							  </center>
-							  </br>
 							  </div>
-							     <?php
+						<?php
 				}
 				?>
 						</div><!--.row-->
                         </div><!--.item-->
+<!-- ////////////////////////////////////// -->
+                     
 
                     </div><!--.carousel-inner-->
-                   <a data-slide="prev" href="#Carousel1" class="left carousel-control" style="padding-top:70px; padding-right:100px;"><img src="img/prev.png" style="height:100px; width:100px;  "></a>
-                  <a data-slide="next" href="#Carousel1" class="right carousel-control" style="padding-top:70px; padding-left:100px; "><img src="img/next.png" style="height:100px; width:100px; float:right; "></a>
+                   <a data-slide="prev" href="#Carousel2" class="left carousel-control" style="padding-top:70px; padding-right:100px;"><img src="img/prev.png" style="height:100px; width:100px;  "></a>
+                  <a data-slide="next" href="#Carousel2" class="right carousel-control" style="padding-top:70px; padding-left:100px; "><img src="img/next.png" style="height:100px; width:100px; float:right; "></a>
                  <!-- Carousel items -->
 
 
                 </div><!--.Carousel-->
+                <!--FIN CARRUSEL NUMERO 2-->
 
 <hr>
    <?php
