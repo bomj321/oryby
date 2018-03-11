@@ -22,7 +22,7 @@ $userId=$row['user_id'];
        
         
         <!-- start section -->
-        <section class="section white-backgorund">
+        <section class="section white-background">
             <div class="container">
                 <div class="row">
                     <!-- start sidebar -->

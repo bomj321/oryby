@@ -69,7 +69,7 @@ include 'Connect.php';
 		   move_uploaded_file($temp5, $filelocation); 
 		 ////////////////////////////////////////////////
 		 
-	 $q ="INSERT INTO seller(email,company_name,street,city,zipCode,province,businessType,noOfEmployee,companyDescription,companylogo,countryName,companylicense,phoneNo,companyLegalNo,limitTopList,limitShowCase) VALUES ('$email','$companyName','$street','$city','$zipCode','$province','$businessType','$noOfEmployee','$companyDescription','$images','$countryName','$image1,$imagen2,$imagen3,$imagen4,$imagen5','$phone','$companyLegalNo','7','5')";
+	 $q ="INSERT INTO seller(email,company_name,street,city,zipCode,province,businessType,noOfEmployee,companyDescription,companylogo,countryName,companylicense,phoneNo,companyLegalNo,limitTopList,limitShowCase) VALUES ('$email','$companyName','$street','$city','$zipCode','$province','$businessType','$noOfEmployee','$companyDescription','$images','$countryName','$image1,$image2,$image3,$image4,$image5','$phone','$companyLegalNo','7','5')";
    $qryresult=mysqli_query($connection,$q);
    if (!$qryresult) {
    

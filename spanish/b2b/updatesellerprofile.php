@@ -360,11 +360,14 @@
 										 <img style="height:100px; width:100px;" src="images/<?php echo $companylogo; ?>" />
 					        <input id="files" class="form-control" type="file" name="file1" />
 						</div>
-						<div class="form-group hidden">
+						<div="form-group">
 						<label>Company License</label>
+									 <img style="height:100px; width:100px;" src="images/<?php echo $cl[0]; ?>" />	<img style="height:100px; width:100px;" src="images/<?php echo $cl[1]; ?>" /><img style="height:100px; width:100px;" src="images/<?php echo $cl[2]; ?>" />
+									 <img style="height:100px; width:100px;" src="images/<?php echo $cl[3]; ?>" />
+									 <img style="height:100px; width:100px;" src="images/<?php echo $cl[4]; ?>" />
 					        <input id="files1" class="form-control" type="file" name="file2[]" multiple="multiple" />
 							</div>
-					<divclass="form-group">
+					<div class="form-group">
 					<h3>Imagen Cargada</h3>
 						<div id="selectedFiles1"></div>
 					</div>

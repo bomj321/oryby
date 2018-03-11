@@ -44,8 +44,54 @@ move_uploaded_file($temp2, $filelocation);
 move_uploaded_file($temp3, $filelocation); 
 move_uploaded_file($temp4, $filelocation); 
 move_uploaded_file($temp5, $filelocation); 	
-$license = $image1 . ',' . $image2 . ',' . $image3. ',' . $image4. ',' . $image5;	
-$sql="UPDATE seller  SET company_name ='".$companyName ."',street='".$street ."',city='".$city ."',zipCode='". $zipCode."',province='". $province."',businessType='".$businessType ."',noOfEmployee='".$noOfEmployee ."',companyDescription='". $companyDescription."',companylogo='".$images ."',countryName='".$countryName ."',companylicense='".$license."',companyLegalNo='".$companyLegalNo."'  WHERE email='$email' ";
+	
+
+
+if(empty($images)){
+$license = $image1 . ',' . $image2 . ',' . $image3. ',' . $image4. ',' . $image5;
+
+$sqlimages="UPDATE seller  SET company_name ='".$companyName ."',street='".$street ."',city='".$city ."',zipCode='". $zipCode."',province='". $province."',businessType='".$businessType ."',noOfEmployee='".$noOfEmployee ."',companyDescription='". $companyDescription."',countryName='".$countryName ."',companylicense='".$license."',companyLegalNo='".$companyLegalNo."'  WHERE email='$email' ";
+mysqli_query($connection,$sqlimages); 
+$stmtimages = $connection->prepare($sqlimages);
+if($stmtimages === false) 
+ {
+    trigger_error('Wrong SQL: ' . $sqlimages . ' Error: ' . $connection->error, E_USER_ERROR);
+}
+
+
+    if($stmtimages->execute())
+    {
+        header("Location:updatesellerprofile.php?email=echo $email");
+    }
+    else{
+//NADA
+}
+
+}elseif (empty($image1) and empty($image2) and empty($image3) and empty($image4) and empty($image5)) {
+	
+
+
+
+	$sqllicense="UPDATE seller  SET company_name ='".$companyName ."',street='".$street ."',city='".$city ."',zipCode='". $zipCode."',province='". $province."',businessType='".$businessType ."',noOfEmployee='".$noOfEmployee ."',companyDescription='". $companyDescription."',companylogo='".$images ."',countryName='".$countryName ."',companyLegalNo='".$companyLegalNo."'  WHERE email='$email' ";
+mysqli_query($connection,$sqllicense); 
+$stmtlicense = $connection->prepare($sqllicense);
+if($stmtlicense === false) 
+ {
+    trigger_error('Wrong SQL: ' . $sqllicense . ' Error: ' . $connection->error, E_USER_ERROR);
+}
+
+
+    if($stmtlicense->execute())
+    {
+        header("Location:updatesellerprofile.php?email=echo $email");
+    }
+    else{
+
+}
+
+}elseif (empty($image1) and empty($image2) and empty($image3) and empty($image4) and empty($image5) and empty($images)) {
+
+	$sql="UPDATE seller  SET company_name ='".$companyName ."',street='".$street ."',city='".$city ."',zipCode='". $zipCode."',province='". $province."',businessType='".$businessType ."',noOfEmployee='".$noOfEmployee ."',companyDescription='". $companyDescription."',companylogo='".$images ."',countryName='".$countryName ."',companylicense='".$license."',companyLegalNo='".$companyLegalNo."'  WHERE email='$email' ";
 mysqli_query($connection,$sql); 
 $stmt = $connection->prepare($sql);
 if($stmt === false) 
@@ -61,4 +107,13 @@ if($stmt === false)
     else{
 
 }
+
+}
+
+
+
+
+
+
+
 ?>
