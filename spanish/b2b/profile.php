@@ -216,7 +216,7 @@ trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERR
 $nr=mysqli_num_rows($stmt);
 $row=$stmt->fetch_assoc()?>
 <div class="row">
-                    <div class="col-sm-10" style=" padding-left:200px;">
+                    <div class="col-sm-10" >
 <center><h2>Información de la Compañia</h2>
 </center>
 
@@ -283,6 +283,17 @@ $row=$stmt->fetch_assoc()?>
 			<th>	Logo de la Compañia</th>
 			
 					<td></br><img style ="height:100px; width:100px;" src ="images/<?php echo $row['companylogo']; ?>" /></td>
+					</tr>
+					<tr>
+			<th>	Licencia de la Compañia</th>
+					<?php $imagen = $row['companylicense'];
+					$valor = explode(',',$imagen); 
+					 ?>
+					<td></br><img style ="height:100px; width:100px;" src ="images/<?php echo $valor[0]; ?>" /></td>
+					<td></br><img style ="height:100px; width:100px;" src ="images/<?php echo $valor[1]; ?>" /></td>
+					<td></br><img style ="height:100px; width:100px;" src ="images/<?php echo $valor[2]; ?>" /></td>
+					<td></br><img style ="height:100px; width:100px;" src ="images/<?php echo $valor[3]; ?>" /></td>
+					<td></br><img style ="height:100px; width:100px;" src ="images/<?php echo $valor[4]; ?>" /></td>
 					</tr>
 					<tr>
 			<th>	País</th>

@@ -27,8 +27,9 @@ $row = mysqli_fetch_array($stmt);
 		 $companylogo= $row['companylogo'];
 		  $myString = $row['companylicense'];
 $cl = explode(',', $myString);
-	
-	include('header.php');  
+	include('topbar.php');
+		include('middlebar.php');
+	  include('navh.php');  
 ?>   
 <style>
     #selectedFiles img {
