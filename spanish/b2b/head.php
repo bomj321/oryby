@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <title>Orybu.com - Conectando Negocios Alrededor del Mundo</title>
-    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="description" content="Plus E-Commerce Template">
     <meta name="author" content="Alemar y Jose"/>
     <meta name="keywords" content="plus, html5, css3, template, ecommerce, e-commerce, bootstrap, responsive, creative" />

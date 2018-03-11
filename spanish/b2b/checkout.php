@@ -1,16 +1,17 @@
 <?php session_start();
 require 'Connect.php';
 include 'head.php';
+$email=$_SESSION['uemail'];
 // //////////////////////////// CONSULTA A CHECKOUT///////////////////////////////////////////////
 
-$sql1="SELECT * FROM checkout WHERE id = 1 ";
+$sql1="SELECT * FROM checkout WHERE id = 4 ";
 $stmt1=mysqli_query($connection,$sql1);
 if($stmt1 == false) {
 trigger_error('Wrong SQL: ' . $sql1 . ' Error: ' . $connection->error, E_USER_ERROR);
 }
 $row1 =mysqli_fetch_assoc($stmt1);
 
-$sql2="SELECT * FROM checkout WHERE id = 2 ";
+$sql2="SELECT * FROM checkout WHERE id = 5 ";
 $stmt2=mysqli_query($connection,$sql2);
 if($stmt2 == false) {
 trigger_error('Wrong SQL: ' . $sql1 . ' Error: ' . $connection->error, E_USER_ERROR);
@@ -18,7 +19,7 @@ trigger_error('Wrong SQL: ' . $sql1 . ' Error: ' . $connection->error, E_USER_ER
 $row2 =mysqli_fetch_assoc($stmt2);
 
 
-$sql3="SELECT * FROM checkout WHERE id = 3 ";
+$sql3="SELECT * FROM checkout WHERE id = 6 ";
 $stmt3=mysqli_query($connection,$sql3);
 if($stmt3 == false) {
 trigger_error('Wrong SQL: ' . $sql3 . ' Error: ' . $connection->error, E_USER_ERROR);

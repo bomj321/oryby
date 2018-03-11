@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <title>Orybu.com - Conecting Business Around the World</title>
-    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="description" content="Plus E-Commerce Template">
     <meta name="author" content="Diamant Gjota" />
     <meta name="keywords" content="plus, html5, css3, template, ecommerce, e-commerce, bootstrap, responsive, creative" />

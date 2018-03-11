@@ -1,6 +1,8 @@
 <?php session_start();
 require 'Connect.php';
 include 'head.php';
+$email=$_SESSION['uemail'];
+
 // //////////////////////////// CONSULTA A CHECKOUT///////////////////////////////////////////////
 
 $sql1="SELECT * FROM checkout WHERE id = 1 ";
