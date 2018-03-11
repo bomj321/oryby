@@ -1,9 +1,16 @@
-
 <?php
  if(!isset($_SESSION))
     {
         session_start();
     }
+
+  if(!isset($_SESSION['user_id']))
+{
+  echo "<script>
+                alert('Please log in!!!');
+                window.location= 'singlelogin.php'
+        </script>";
+}
 include('Connect.php');
 include('head.php');
  $keyword = $_POST['pais'];
@@ -398,8 +405,10 @@ include('head.php');
 			?>
 
                                             <tr>
-										<td><a href="#"><?php echo $rowreq['buyreq_id'];?></a></td>
-                  <td><a href="buyerrequests.php?reqid=<?php echo $rowreq['buyreq_id'];?>"><?php echo $rowreq['prod_name'];?></a></td>
+										<td><a href="chatby.php?sellerid=<?php echo $rowreq['buyer_id'];?>&pid=<?php echo $rowreq['buyreq_id'] ?>"><?php echo $rowreq['buyreq_id'];?></a></td>
+                  <td><a href="chatby.php?sellerid=<?php echo $rowreq['buyer_id'];?>&pid=<?php echo $rowreq['buyreq_id'] ?>">
+                                                       <?php echo $rowreq['prod_name'];?>
+                                                    </a></td>
                                 <td> <?php echo $rowreq['quantity'];?>  </td>
                                 <td> <?php echo $rowreq['dtym'];?> </td>
                                 <td><?php echo $rowreq['country'];?>  </td>

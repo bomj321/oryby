@@ -420,7 +420,7 @@ $(document).ready(function(){
                      <?php   $sql="Select * from `categories` WHERE NOT title='Innovation' OR NOT title='Eco Friendly'";
 							$rst=mysqli_query($connection,$sql);
 								?>
-						   <select class="form-control input-lg" id="catid" name="dropcat">
+						   <select required class="form-control input-lg" id="catid" name="dropcat">
 						    <option value=""> Categoría * </option>
 							<?php while($rowt=mysqli_fetch_array($rst)){ ?>
                              <option value="<?php echo $rowt['title'];?>"><?php echo $rowt['title'];?></option>
@@ -431,19 +431,19 @@ $(document).ready(function(){
 						 </div>
 						   <div class="form-group">
 
-                                <input name="pname" type="text" id="firstname" class="form-control input-lg" required placeholder="Nombre del producto *">
+                                <input required name="pname" type="text" id="firstname" class="form-control input-lg" required placeholder="Nombre del producto *">
                             </div>
 							<div class="row">
 							<div class="col-sm-6">
                             <div class="form-group">
 
-                           <input name="quantity" type="text" id="qty" class="form-control input-lg" required placeholder="Ingresa Cantidad *">
+                           <input required name="quantity" type="text" id="qty" class="form-control input-lg" required placeholder="Ingresa Cantidad *">
                             </div>
 							</div>
 							<div class="col-sm-6">
                        <div class="form-group">
 
-						   <select class="form-control input-lg" id="unit" name="dropunit">
+						   <select required class="form-control input-lg" id="unit" name="dropunit">
 	                         <option value="kilogram">Kilogramo</option>
                              <option value="gram">Gramo</option>
 							 <option value="piece">Pieza</option>
@@ -459,14 +459,14 @@ $(document).ready(function(){
                           	</div>
 							</div>
                            <div class="form-group">
-								<input name="dtym" type="text" id="dtime" class="form-control input-lg" required placeholder="Fecha límite para enviar *" onfocus="(this.type='date')">
+								<input required name="dtym" type="text" id="dtime" class="form-control input-lg" required placeholder="Fecha límite para enviar *" onfocus="(this.type='date')">
 							</div>
 
 
 
               <!--SELECT CON LOS PAISES-->
               <div class="widget form-group">
-                <select name="pais">
+                <select required name="pais">
                 <option value="Elegir" id="AF">Pais de Origen *</option>
                 <option value="Afganistán" id="AF">Afganistán</option>
                 <option value="Albania" id="AL">Albania</option>

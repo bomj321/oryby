@@ -1,4 +1,11 @@
 <?php session_start();
+if(!isset($_SESSION['user_id']))
+{
+  echo "<script>
+                alert('Por Favor Logueate!!!');
+                window.location= 'singlelogin.php'
+        </script>";
+}
 include('Connect.php');
 $dropcat=$_POST['dropcat'];
 $_SESSION['dropcat']=$dropcat;

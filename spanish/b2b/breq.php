@@ -404,12 +404,12 @@ include('head.php');
 
                                             <tr >
                                                                         <td >
-                                                    <a href="#">
+                                                    <a href="buyerrequests.php?sellerid=<?php echo $rowreq['buyer_id'];?>&pid=<?php echo $rowreq['buyreq_id']?>&reqid=<?php echo $rowreq['buyreq_id'];?>">
                                                         <?php echo $rowreq['buyreq_id'];?>
                                                     </a>
                                                 </td>
                                                 <td>
-                                                    <a href="buyerrequests.php?reqid=<?php echo $rowreq['buyreq_id'];?>">
+                                                    <a href="buyerrequests.php?sellerid=<?php echo $rowreq['buyer_id'];?>&pid=<?php echo $rowreq['buyreq_id']?>&reqid=<?php echo $rowreq['buyreq_id'];?>">
                                                        <?php echo $rowreq['prod_name'];?>
                                                     </a>
                                                 </td>

@@ -398,8 +398,8 @@ include('head.php');
       ?>
 
                                             <tr>
-                    <td><a href="#"><?php echo $rowreq['buyreq_id'];?></a></td>
-                    <td><a href="buyerrequests.php?reqid=<?php echo $rowreq['buyreq_id'];?>"><?php echo $rowreq['prod_name'];?></a></td>
+                    <td><a href="buyerrequests.php?sellerid=<?php echo $rowreq['buyer_id'];?>&pid=<?php echo $rowreq['buyreq_id']?>&reqid=<?php echo $rowreq['buyreq_id'];?>>"><?php echo $rowreq['buyreq_id'];?></a></td>
+                    <td><a href="buyerrequests.php?sellerid=<?php echo $rowreq['buyer_id'];?>&pid=<?php echo $rowreq['buyreq_id']?>&reqid=<?php echo $rowreq['buyreq_id'];?>"><?php echo $rowreq['prod_name'];?></a></td>
                     <td> <?php echo $rowreq['quantity'];?>  </td>
                     <td> <?php echo $rowreq['dtym'];?> </td>
                     <td><?php echo $rowreq['country'];?>  </td>                <td><?php echo $rowreq['catename']; ?></td>
