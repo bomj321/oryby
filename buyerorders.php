@@ -30,7 +30,8 @@ echo $row['Field']."<br>";
                                     <a href="buyeraccount.php">My Account</a>
                                 </li>
                                 <li>
-                                    <a href="cart.php">My Cart <span class="text-primary">(3)</span></a>
+                                    <a href="cart.php">My Cart<span class="text-primary">
+                                    <?php echo "".sizeof($_SESSION['cart'])." "; ?></span></a>
                                 </li>
                                 <li class="active">
                                     <a href="buyerorders.php">My Order</a>
