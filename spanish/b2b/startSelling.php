@@ -44,8 +44,14 @@ include('head.php');
                         
                         <h5><?php echo $rw['title'];?></h5>
                         <p><?php echo $rw['description'];?></p>
+                        <?php
+                        $sql="Select * from `images` Where id='34'";
+                        $result=mysqli_query($connection,$sql);
+                        $row=mysqli_fetch_array($result);
+                        $image=$row['image'];
+                        ?>
 						<figure>
-                            <img style="height:300px;" src="images/<?php echo $rw['picture'];?>" alt="" />
+                            <img style="height:300px;" src="../../images/<?php echo $image;?>" alt="" />
                         </figure>
                     </div><!-- end col -->
 			<?php
@@ -59,8 +65,14 @@ include('head.php');
                         
                         <h5><?php echo $rw2['title'];?></h5>
                         <p><?php echo $rw2['description'];?></p>
+                        <?php
+                        $sql="Select * from `images` Where id='35'";
+                        $result=mysqli_query($connection,$sql);
+                        $row=mysqli_fetch_array($result);
+                        $image=$row['image'];
+                        ?>
 						<figure>
-                            <img style="height:300px;" src="images/<?php echo $rw2['picture'];?>" alt="" />
+                            <img style="height:300px;" src="../../images/<?php echo $image;?>" alt="" />
                         </figure>
                     </div><!-- end col -->
 						<?php
@@ -74,8 +86,14 @@ include('head.php');
                         
                         <h5><?php echo $rw3['title'];?></h5>
                         <p><?php echo $rw3['description'];?></p>
+                        <?php
+                        $sql="Select * from `images` Where id='36'";
+                        $result=mysqli_query($connection,$sql);
+                        $row=mysqli_fetch_array($result);
+                        $image=$row['image'];
+                        ?>
 						<figure>
-                            <img style="height:300px;" src="images/<?php echo $rw3['picture'];?>" alt="" />
+                            <img style="height:300px;" src="../../images/<?php echo $image;?>" alt="" />
                         </figure>
                     </div><!-- end col -->
                 </div><!-- end row -->

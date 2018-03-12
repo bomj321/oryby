@@ -114,9 +114,21 @@ include('navh.php');
                             </tbody>
                         </table>
                 </div>
-                <div class="col-md-4 col-sm-4 col-xs-4" style="float:right; margin-top:4rem">					  
-                    <a href="learnIncreaseSale.php"><img src="images/htsale.png"></a>
-                    <a href="startBuying.php" ><img src="images/htbuy.png"></a> 
+                <div class="col-md-4 col-sm-4 col-xs-4" style="float:right; margin-top:4rem">
+                    <?php
+                    $sql="Select * from `images` Where id='47'";
+                    $result=mysqli_query($connection,$sql);
+                    $row=mysqli_fetch_array($result);
+                    $image=$row['image'];
+                    ?>					  
+                    <a href="learnIncreaseSale.php"><img src="images/<?php echo $image;?>"></a>
+                    <?php
+                    $sql="Select * from `images` Where id='48'";
+                    $result=mysqli_query($connection,$sql);
+                    $row=mysqli_fetch_array($result);
+                    $image=$row['image'];
+                    ?>	
+                    <a href="startBuying.php" ><img src="images/<?php echo $image;?>"></a> 
 	            </div>
             </div>
             <hr>

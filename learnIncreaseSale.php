@@ -44,8 +44,14 @@ include('head.php');
                         <h2 class="title"> <?php echo $rw['title'];?></h2>
                         <p><?php echo $rw['description'];?>  </p></div><!-- end col -->
                     <div class="col-sm-5 vertical-align">
+                    <?php
+                    $sql="Select * from `images` Where id='37'";
+                    $result=mysqli_query($connection,$sql);
+                    $row=mysqli_fetch_array($result);
+                    $image=$row['image'];
+                    ?>
                         <figure class="zoom-in">
-                            <img src="images/<?php echo $rw['picture'];?>" alt="">
+                            <img src="images/<?php echo $image;?>" alt="">
                         </figure>
                     </div><!-- end col -->
                 </div><!-- end row -->
@@ -61,8 +67,14 @@ include('head.php');
                 
                 <div class="row">
 				<div class="col-sm-5 vertical-align">
+                    <?php
+                    $sql="Select * from `images` Where id='38'";
+                    $result=mysqli_query($connection,$sql);
+                    $row=mysqli_fetch_array($result);
+                    $image=$row['image'];
+                    ?>
                         <figure class="zoom-in">
-                            <img src="images/<?php echo $rw2['picture'];?>" alt="">
+                            <img src="images/<?php echo $image;?>" alt="">
                         </figure>
                     </div><!-- end col -->
                     <div class="col-sm-7 vertical-align">
@@ -85,8 +97,14 @@ include('head.php');
                         <h2 class="title"> <?php echo $rw3['title'];?></h2>
                         <p><?php echo $rw3['description'];?>  </p></div><!-- end col -->
                     <div class="col-sm-5 vertical-align">
+                    <?php
+                    $sql="Select * from `images` Where id='39'";
+                    $result=mysqli_query($connection,$sql);
+                    $row=mysqli_fetch_array($result);
+                    $image=$row['image'];
+                    ?>
                         <figure class="zoom-in">
-                            <img src="images/<?php echo $rw3['picture'];?>" alt="">
+                            <img src="images/<?php echo $image;?>" alt="">
                         </figure>
                     </div><!-- end col -->
                 </div><!-- end row -->

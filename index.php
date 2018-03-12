@@ -360,30 +360,39 @@ $(document).ready(function(){
 
 
 
-     <?php
-							$sql="Select * from `aboutus` Where elementname='banner1'";
-						$result=mysqli_query($connection,$sql);
-							$row=mysqli_fetch_array($result);
-								$hreflink =$row['hreflink'];
-							 	$picture=$row['picture'];
-
-								?>
+                    <?php
+                    $sql="Select * from `aboutus` Where elementname='banner1'";
+                    $result=mysqli_query($connection,$sql);
+                    $row=mysqli_fetch_array($result);
+                    $hreflink =$row['hreflink'];
+                    $picture=$row['picture'];
+                    ?>
+                    <?php
+                    $sql="Select * from `images` Where id='13'";
+                    $result=mysqli_query($connection,$sql);
+                    $row=mysqli_fetch_array($result);
+                    $image=$row['image'];
+                    ?>
 
     <div class="col-sm-6" style="margin-right:50px;">
-	<a href="<?php echo $hreflink ?>"><img style="width:600px;height:180px;" src="images/<?php echo $picture ?>" alt=""/></a>
+	<a href="<?php echo $hreflink ?>"><img style="width:600px;height:180px;" src="images/<?php echo $image?>" alt=""/></a>
 
     </div>
 
-	<?php
-							$sql="Select * from `aboutus` Where elementname='banner2'";
-						$result=mysqli_query($connection,$sql);
-							$row=mysqli_fetch_array($result);
-								$hreflink =$row['hreflink'];
-							 	$picture=$row['picture'];
-
-								?>
+                    <?php
+                    $sql="Select * from `aboutus` Where elementname='banner2'";
+                    $result=mysqli_query($connection,$sql);
+                    $row=mysqli_fetch_array($result);
+                    $hreflink =$row['hreflink'];
+                    ?>
+                    <?php
+                    $sql="Select * from `images` Where id='14'";
+                    $result=mysqli_query($connection,$sql);
+                    $row=mysqli_fetch_array($result);
+                    $image=$row['image'];
+                    ?>
 	 <div class="col-sm-4">
-	<a href="<?php echo $hreflink ?>"><img style="width:460px;height:180px;" src="images/<?php echo $picture ?>" alt=""/></a>
+	<a href="<?php echo $hreflink ?>"><img style="width:460px;height:180px;" src="images/<?php echo $image?>" alt=""/></a>
 
     </div>
 	<div class="col-sm-1">
@@ -999,14 +1008,13 @@ if($queryResult){
 
 }
 ?>
-<?php
-							$imagesql="Select * from `aboutus` Where elementname='QuestionBackgroundPicture'";
-						$imageresult=mysqli_query($connection,$imagesql);
-							$imagerow=mysqli_fetch_array($imageresult);
 
-							 	$image=$imagerow['picture'];
-
-								?>
+                    <?php
+                    $sql="Select * from `images` Where id='11'";
+                    $result=mysqli_query($connection,$sql);
+                    $row=mysqli_fetch_array($result);
+                    $image=$row['image'];
+                    ?>
                 <div class="container" >
 
                     <div class="col-sm-12" style=" margin-left:-12px; margin-right:2px;background-image: url(images/<?php echo $image; ?>); width:1050px height:206px; ">
@@ -1128,14 +1136,12 @@ if($queryResult){
                 <div class="container" >
 					<hr>
                <div>
-			         <?php
-							$imagesql="Select * from `aboutus` Where elementname='b2bplatformimage'";
-						$imageresult=mysqli_query($connection,$imagesql);
-							$imagerow=mysqli_fetch_array($imageresult);
-
-							 	$image=$imagerow['picture'];
-
-								?>
+                <?php
+                $sql="Select * from `images` Where id='12'";
+                $result=mysqli_query($connection,$sql);
+                $row=mysqli_fetch_array($result);
+                $image=$row['image'];
+                ?>
 			   <img class="hidden-xs img-responsive " style="width:1150px; height:1200px; margin-top:20px" src="images/<?php echo $image; ?>" />
 			  <img  class="visible-xs" style="width:360px; height:360px; margin-top:20px" src="images/<?php echo $image; ?>" />
 			   </div>

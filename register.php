@@ -37,22 +37,17 @@ include 'head.php';
                     <!-- start sidebar -->
                     <div class="col-sm-3">
                         <div class="widget">
-											<?php
+							<?php
 							include('Connect.php');
- $sql="SELECT * FROM aboutus WHERE elementname='loginpanelpicture'";
- 
-$stmt=mysqli_query($connection,$sql);
-if($stmt == false) {
-trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
-}
- $nr=mysqli_num_rows($stmt);
-$row=mysqli_fetch_array($stmt);
-?>
-                           
+							$sql="Select * from `images` Where id='45'";
+							$result=mysqli_query($connection,$sql);
+							$row=mysqli_fetch_array($result);
+							$image=$row['image'];
+							?>                          
                       
                              <figure>
                                 <a href="javascript:void(0);">
-                                    <img src="images/<?php echo $row['picture'];?>" alt="collection">
+                                    <img src="images/<?php echo $image;?>" alt="collection">
                                 </a>
                             </figure>
                         </div><!-- end widget -->

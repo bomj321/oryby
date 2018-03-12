@@ -143,14 +143,6 @@ require('head.php');
 						 <li  style="margin-left:90px;"><button type="button" class="btn btn-gray btn-md round" style="height:80px; "data-toggle="modal" data-target="#myModal"><i class="fa fa-heart mr-5"></i>  Ask   A </br>Supplier</button></li>
 						 
 						   <li style="margin-left:150px;"><a  href="mycartArry.php?pid=<?php echo $pid;?>" class="btn btn-default btn-md round"><i class="fa fa-shopping-basket mr-5"></i>Buy Now</a></li>
-																		 <!--  <li>Share this product: </li>
-														<li>
-                                        <ul class="social-icons style1">
-                                            <li class="facebook"><a href="javascript:void(0);"><i class="fa fa-facebook"></i></a></li>
-                                            <li class="twitter"><a href="javascript:void(0);"><i class="fa fa-twitter"></i></a></li>
-                                            <li class="pinterest"><a href="javascript:void(0);"><i class="fa fa-pinterest"></i></a></li>
-                                        </ul>
-                                    </li>-->
                                 </ul>
                     							
                             </div><!-- end col -->
