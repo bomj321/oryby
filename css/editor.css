@@ -9,7 +9,7 @@ You should have received a copy of the GNU General Public License along with thi
 */
 
 @charset "utf-8";
-/* base styles */
+
 .jumbotron {
    background-color: #67A754;
   background-image: url(images/radial_bg.png);

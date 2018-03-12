@@ -16,7 +16,7 @@
 						
 						 <div class="row grid-space-1">
                                 <div class="col-sm-6">
-                  <input class="form-control  input-lg" type="text" name="keyword" placeholder=" Search">
+                  <input class="form-control input-lg " type="text" name="keyword" placeholder=" Search">
                                 </div><!-- end col -->
 								<?php 
 								$sql='Select * from `categories`';

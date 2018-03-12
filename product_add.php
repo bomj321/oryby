@@ -1,7 +1,10 @@
 <?php session_start();
 error_reporting(0);
 include('Connect.php');
-include('head.php');?>
+
+include('head.php');
+
+?>
 <?php
 include('topbar.php');
 include('middlebar.php');
@@ -199,7 +202,6 @@ else if(trim($str1) ==trim($str3))
 
  ?>
 		<script src="editor.js"></script>
-		<link href="editor.css" type="text/css" rel="stylesheet"/>
 		<script>
 			$(document).ready(function() {
 				$("#txtEditor").Editor();
@@ -246,8 +248,8 @@ else if(trim($str1) ==trim($str3))
 							if ($nr > 0)
 							{
 						?>
-							<div class="form-group">
-								<select class="form-control" id="catid" name="catid" required>
+							<div class="form-group ">
+								<select class="form-control " id="catid" name="catid" required>
 								<option  value="">SELECT Category</option>
 									<?php while($row=$stmt->fetch_assoc()){ ?>
 										<option value="<?php echo $row['catid']; ?>"><?php echo $row['title']; ?></option>
@@ -255,7 +257,7 @@ else if(trim($str1) ==trim($str3))
 								</select>
 							</div>
 						<?php } ?>
-						<div class="form-group" id="ShowSubcategory"><select id="Show" class="form-control"> <option value=""> Select Category first </option> </select></div>  
+						<div class="form-group " id="ShowSubcategory"><select id="Show" class="form-control "> <option value=""> Select Category first </option> </select></div>  
 					</div>
 					</div>  
 				</div>  <!-- row  -->
@@ -662,7 +664,7 @@ else if(trim($str1) ==trim($str3))
                          </select>
 				</div>
 				</div>
-				<div class="form-group">
+				<div style="margin-top: 36px;" class="form-group">
 						<input required type="text" class="form-control input-sm" placeholder="Rotation" speed" name="rotation" id="rot">
 				</div>
 				<div class="form-group">
@@ -715,7 +717,7 @@ else if(trim($str1) ==trim($str3))
 						 
 						 
 						 <div class="form-group">
-						   <input id="files" class="form-control " type="file"  name="file1"/>
+						   <input style="margin-top: -5px;" id="files" class="form-control " type="file"  name="file1"/>
                            	
 						 </div>
 						  <div class="form-group">
@@ -786,13 +788,16 @@ else if(trim($str1) ==trim($str3))
 						<?php endforeach;?>
 						<?php }?>				
 				</div>	
+
+				<!------------------------------EDITOR---------------->
 				<div class="row">
-				<div class="form-group" style="margin-top:32px;margin-left:56px;"><h4><b> DESCRIPTION:</b> </h4></div> 
- <div class="form-group col-sm-2"> </div>        
-		<div class="form-group col-sm-8">
-			    <textarea   class="form-control" placeholder="Enter Description" name="description" id="txtEditor" rows="4" col="6"> </textarea>
-				</div>	
-                </div>				
+				<?php 
+				include('editor.php');
+				 ?>	
+				
+               </div>	
+                <!------------------------------EDITOR---------------->
+			
 		<div class="form-group col-sm-8">
 									<h3>Uploaded Picture Preview Area </h3>
 									 <div id="selectedFiles"></div>
