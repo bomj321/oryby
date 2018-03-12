@@ -21,41 +21,41 @@ include('head.php');
             <table class="table table-responsive table-hover memb">
               <thead >
                 <tr>        
-                <th class="dark">Main Features</th>
-                <th class="light">Basic Account</th>
-                <th class="light">Free Account</th>
+                <th style="background: #b7e8d1" class="dark">Main Features</th>
+                <th style="background: #def7eb" class="light">Basic Account</th>
+                <th style="background: #def7eb" class="light">Free Account</th>
                 </tr>
               </thead>
               <tbody>
                 <tr class="border">
-                  <td class="dark">Limits of published products</td>
-                  <td class="light">40</td>
-                  <td class="light">10</td>
+                  <td style="background: #b7e8d1" class="dark">Limits of published products</td>
+                  <td style="background: #def7eb" class="light">40</td>
+                  <td style="background: #def7eb" class="light">10</td>
                 </tr>
                 <tr class="border">
-                  <td class="dark">Top List</td>
-                  <td class="light">60</td>
-                  <td class="light">7</td>
+                  <td style="background: #b7e8d1" class="dark">Top List</td>
+                  <td style="background: #def7eb" class="light">60</td>
+                  <td style="background: #def7eb" class="light">7</td>
                 </tr>
                 <tr class="border">
-                  <td class="dark">Show Case</td>
-                  <td class="light">40</td>
-                  <td class="light">5</td>
+                  <td style="background: #b7e8d1" class="dark">Show Case</td>
+                  <td style="background: #def7eb" class="light">40</td>
+                  <td style="background: #def7eb" class="light">5</td>
                 </tr>
                 <tr class="border">
-                  <td class="dark">Comition Per Sale</td>
-                  <td class="light">5%</td>
-                  <td class="light">7%</td>
+                  <td style="background: #b7e8d1" class="dark">Comition Per Sale</td>
+                  <td style="background: #def7eb" class="light">5%</td>
+                  <td style="background: #def7eb" class="light">7%</td>
                 </tr>
                 <tr class="border">
-                  <td  class="dark">Recommended for Buying Request</td>
-                  <td class="light">Yes</td>
-                  <td class="light">No</td>
+                  <td  style="background: #b7e8d1" class="dark">Recommended for Buying Request</td>
+                  <td style="background: #def7eb" class="light">Yes</td>
+                  <td style="background: #def7eb" class="light">No</td>
                 </tr>
                 <tr class="border">
-                  <td class="dark">Price</td>
-                  <td class="light">USD $ 200</td>
-                  <td class="light">Free</td>
+                  <td style="background: #b7e8d1" class="dark">Price</td>
+                  <td style="background: #def7eb" class="light">USD $ 200</td>
+                  <td style="background: #def7eb" class="light">Free</td>
                 </tr>
                 <tr>
                   <td></td>
