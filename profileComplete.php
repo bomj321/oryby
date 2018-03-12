@@ -2,6 +2,7 @@
 require 'Connect.php';
 error_reporting(0);
 include('head.php');
+
  $email=$_SESSION['uemail'];
  $usertype=$_SESSION['utype'];
 
@@ -11,12 +12,13 @@ include('head.php');
     <body>
         
         <!-- start topBar -->
-   <?php require 'topbar.php' ?>
+   <?php require 'topbar.php' ;
+   include('middlebar.php');
+include('navh.php');
+   ?>
         <!-- end topBar -->
         
-        <!-- start navbar -->
-		   <?php include('header.php'); ?>
-    <!-- end navbar -->
+        
         
        
         

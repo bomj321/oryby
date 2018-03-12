@@ -24,8 +24,8 @@
 							
                                ?>
 							   <div class="col-sm-3 ">
-                                	<select  class="form-control input-lg" name="category">			
-	                                 	<option value="all">All Categories</option>
+                                	<select style=" text-align: center;" class="form-control input-lg" name="category">			
+	                                 	<option  value="all">All Categories</option>
 	                                	<?php while($row=mysqli_fetch_array($result)){
 										?>    
 		                              <option value="<?php echo $row['title'];?>"><?php echo $row['title'];?></option>

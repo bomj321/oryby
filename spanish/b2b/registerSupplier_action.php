@@ -38,35 +38,55 @@ include 'Connect.php';
 		 
 		 //////////////////////////////////////////
 	
-			$target_dir = "images/";
-	
-		 		$target_file = $target_dir . basename($_FILES["file2"]["name"][0]);
-				$target_file = $target_dir . basename($_FILES["file2"]["name"][1]);
-				$target_file = $target_dir . basename($_FILES["file2"]["name"][2]);
-		$target_file = $target_dir . basename($_FILES["file2"]["name"][3]);		$target_file = $target_dir . basename($_FILES["file2"]["name"][4]);				
+			///SUBIR IMAGENES
+		 foreach ($_FILES["file2"]["error"] as $key => $error) { 
+		$nombre_archivo = $_FILES["file2"]["name"][$key];   
+		$tipo_archivo = $_FILES["file2"]["type"][$key];   
+		$tamano_archivo = $_FILES["file2"]["size"][$key]; 
+		$temp_archivo = $_FILES["file2"]["tmp_name"][$key]; 
+ 
+		if (!((strpos($tipo_archivo, "gif") || strpos($tipo_archivo, "jpeg" ) || strpos($tipo_archivo, "png" ) || strpos($tipo_archivo, "jpg" )) && ($tamano_archivo < 1000000)))  
+		{  
+
+
+			echo "
+				<script>
+                alert('Maximo 1mb de tamaño y solo imagenes jpeg, jpg, png y git');
+                window.location= 'updatesellerprofile.php?email=echo $email'
+        		</script>
+        		";
+		
+    		
+		} 
+		else  
+		{   
+    		$nom_img = $nombre_archivo;      
+    		$directorio = 'images/'; // Directorio
+ 
+    		if (move_uploaded_file($temp_archivo,$directorio . "/" . $nom_img))  
+    		{  
+
+    			echo "
+    			<script>
+                alert('Las imagenes se han subido correctamente');
+                </script>
+        		";
+
+    		
+			}  
+		} 
+	} // Fin Foreach 		 
+
+		
+		 ///SUBIR IMAGENES
+						
 				$image1=$_FILES['file2']['name'][0];
 				$image2=$_FILES['file2']['name'][1];
 				$image3=$_FILES['file2']['name'][2];
 				$image4=$_FILES['file2']['name'][3];
 				$image5=$_FILES['file2']['name'][4];
-			$filelocation = $target_dir.$image1;
-			$filelocation = $target_dir.$image2;
-			$filelocation = $target_dir.$image3;
-				$filelocation = $target_dir.$image4;
-					$filelocation = $target_dir.$image5;
-        $temp1 = $_FILES['file2']['tmp_name'][0];
-		$temp2 = $_FILES['file2']['tmp_name'][1];
-		$temp3 = $_FILES['file2']['tmp_name'][2];
-		
-		$temp4 = $_FILES['file2']['tmp_name'][3];
-		
-		$temp5 = $_FILES['file2']['tmp_name'][4];
-		
-		 move_uploaded_file($temp1, $filelocation);
-		 move_uploaded_file($temp2, $filelocation);
-		 move_uploaded_file($temp3, $filelocation); 
-		  move_uploaded_file($temp4, $filelocation); 
-		   move_uploaded_file($temp5, $filelocation); 
+			 
+		 ////////////////////////////////////////////////
 		 ////////////////////////////////////////////////
 		 
 	 $q ="INSERT INTO seller(email,company_name,street,city,zipCode,province,businessType,noOfEmployee,companyDescription,companylogo,countryName,companylicense,phoneNo,companyLegalNo,limitTopList,limitShowCase) VALUES ('$email','$companyName','$street','$city','$zipCode','$province','$businessType','$noOfEmployee','$companyDescription','$images','$countryName','$image1,$image2,$image3,$image4,$image5','$phone','$companyLegalNo','7','5')";
@@ -77,6 +97,7 @@ include 'Connect.php';
    }else{
    	
    	echo "
+   	alert('Informacion Agregada Correctamente');
 				<script>
 				window.location.href ='sendconfirmation2.php';
 				</script>

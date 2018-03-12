@@ -230,7 +230,7 @@ else if(trim($str1) ==trim($str3))
 			 <!-- start Form -->
                   <form action="addproduct.php" method="POST" enctype="multipart/form-data">				  
 			  <div class="row">
-				<h2 class="text-center">ADD PRODUCTS</h2>			
+				<h2 class="text-center">Agregar Productos</h2>			
 					<div class="col-sm-8 col-sm-offset-2">  
 					<div class="form-inline">				
 						<?php  $membershipType ?>	
@@ -247,30 +247,30 @@ else if(trim($str1) ==trim($str3))
 						?>
 							<div class="form-group">
 								<select class="form-control" id="catid" name="catid" required>
-								<option  value="">SELECT Category</option>
+								<option  value="">Selecciona Categoria</option>
 									<?php while($row=$stmt->fetch_assoc()){ ?>
 										<option value="<?php echo $row['catid']; ?>"><?php echo $row['title']; ?></option>
 									<?php } ?>
 								</select>
 							</div>
 						<?php } ?>
-						<div class="form-group" id="ShowSubcategory"><select id="Show" class="form-control"> <option value=""> Select Category first </option> </select></div>  
+						<div class="form-group" id="ShowSubcategory"><select id="Show" class="form-control"> <option value=""> Selecciona la categoria primero </option> </select></div>  
 					</div>
 					</div>  
 				</div>  <!-- row  -->
 				<hr>
 				<div class="row">			  
 					<div class="col-sm-4" style="margin-left:200px;margin-top:0px;">				
-						<div class="form-group"><label> Product Title <span class="text-danger">*</span></label></div> <br> 
-						<div class="form-group"><label> Keyword <span class="text-danger">*</span></label> </div> <br> 
-						<div class="form-group"><label> Selected Keyword</label></div> 
+						<div required class="form-group"><label> Titulo del producto <span class="text-danger">*</span></label></div> <br> 
+						<div required class="form-group"><label> Palabra Clave <span class="text-danger">*</span></label> </div> <br> 
+						<div class="form-group"><label> Keyword Seleccionado</label></div> 
 					</div>
 					<div class="col-sm-4" style="margin-left:-200px;">
 						<div class="form-group">
-							<input type="text" class="form-control input-lg" required placeholder="Enter Title" name="title" id="title">
+							<input required type="text" class="form-control " required placeholder="Enter Title" name="title" id="title">
 						</div>
 						<div class="form-group">
-							<input type="text" class="form-control input-sm" required placeholder="Enter keyword" name="keyword" id="keyword" >
+							<input required type="text" class="form-control " required placeholder="Enter keyword" name="keyword" id="keyword" >
 						</div>
 						<div class="form-group">
 							<textarea class="form-control" placeholder="keyword" name="selectedkeyword" id="selectedkey">  </textarea>
@@ -291,34 +291,34 @@ else if(trim($str1) ==trim($str3))
 				</div>
 				<!-- END of ROW -->
 		<div class="row"> 
-				<h4 style="margin-left:90px;"> DETAILS:</h4> 
+				<h4 style="margin-left:90px;"> Detalles:</h4> 
 				<br>
 				<div class="col-sm-4" style="margin-left:200px;margin-top:0px;">
 				<div class="row">
-					<div class="form-group col-sm-6"><label> Country<span class="text-danger">*</span> </label></div>               
+					<div class="form-group col-sm-6"><label> Pais<span class="text-danger">*</span> </label></div>               
 				</div>				
-				<div class="form-group" style="margin-top:20px;"><label> Weight <span class="text-danger">*</span>  </label></div>
-				<div class="form-group" style="margin-top:20px;"><label> Volume: </label></div> 
-				<div class="form-group" style="margin-top:35px;"><label> Dimensions: </label></div> 
-				<div class="form-group" style="margin-top:30px;"><label> Capicity: </label></div> 
-				<div class="form-group" style="margin-top:20px;"><label> Energy Power: </label></div> 				 
-				<div class="form-group" style="margin-top:40px;"><label> Rational Speed: </label></div> 
-				<div class="form-group" style="margin-top:20px;"><label> Elaboration Material: </label></div> 
-				<div class="form-group" style="margin-top:20px;"><label> Use <span class="text-danger">*</span></label></div> 
-				<div class="form-group" style="margin-top:20px;"><label> Size: </label></div> 
-				<div class="form-group" style="margin-top:20px;"><label> Packing <span class="text-danger">*</span></label></div>
-                <div class="form-group" style="margin-top:20px;"><label> Product type: </label></div> 				
+				<div class="form-group" style="margin-top:20px;"><label> Peso<span class="text-danger">*</span></label></div>
+				<div class="form-group" style="margin-top:20px;"><label> Volumen: </label></div> 
+				<div class="form-group" style="margin-top:35px;"><label> Dimensiones<span class="text-danger">*</span></label></div> 
+				<div class="form-group" style="margin-top:30px;"><label> Capicity<span class="text-danger">*</span></label></div> 
+				<div class="form-group" style="margin-top:20px;"><label> Energy Power<span class="text-danger">*</span> </label></div> 				 
+				<div class="form-group" style="margin-top:40px;"><label> velocidad racional </label></div> 
+				<div required class="form-group" style="margin-top:20px;"><label> Material de Elaboracion<span class="text-danger">*</span></label></div> 
+				<div class="form-group" style="margin-top:20px;"><label> Uso <span class="text-danger">*</span></label></div> 
+				<div class="form-group" style="margin-top:20px;"><label> Tamaño</label></div> 
+				<div class="form-group" style="margin-top:20px;"><label> Empaque <span class="text-danger">*</span></label></div>
+                <div class="form-group" style="margin-top:20px;"><label> Tipo de Producto </label></div> 				
 				<div class="form-group" style="margin-top:20px;"><label> Product Certification: </label></div> 
-				<div class="form-group" style="margin-top:20px;"><label> Product Image: </label></div> 
-				<div class="form-group" style="margin-top:20px;"><label> FOB Price <span class="text-danger">*</span></label></div> 
-				<div class="form-group" style="margin-top:20px;"><label> Minimum Order <span class="text-danger">*</span></label></div> 
-				<div class="form-group" style="margin-top:20px;"><label> Delivery Details: </label></div>
-				<div class="form-group" style="margin-top:20px;"><label> Payment: </label></div>				
+				<div class="form-group" style="margin-top:20px;"><label> Imagen del Producto </label></div> 
+				<div required class="form-group" style="margin-top:20px;"><label> Precio FOB <span class="text-danger">*</span></label></div> 
+				<div required lass="form-group" style="margin-top:20px;"><label> Orden Minima <span class="text-danger">*</span></label></div> 
+				<div class="form-group" style="margin-top:20px;"><label> Detalles del envio</label></div>
+				<div class="form-group" style="margin-top:20px;"><label> Metodo de pago</label></div>				
 				</div>
 				<div class="col-sm-4" style="margin-left:-200px;">
 				<div class="row">
 				<div class="form-group col-sm-6">
-			<select class="form-control input-sm" id="unit" name="dropcountry" required>
+			<select required class="form-control " id="unit" name="dropcountry" required>
 
 	                <option value="Chile">Chile</option>
 					<option value="Afganistan">Afghanistan</option>
@@ -570,116 +570,116 @@ else if(trim($str1) ==trim($str3))
 					<option value="Zimbabwe">Zimbabwe</option>						 
                          </select>
 				</div>
-				<div class="form-group col-sm-2"><label> Port <span class="text-danger">*</span></label></div>  
+				<div  class="form-group col-sm-2"><label> Puerto<span class="text-danger">*</span></label></div>  
 				
 				<div class="form-group col-sm-4" style="padding-right:0px;">
-				<input type="text" class="form-control input-sm" required placeholder="Port" name="port" id="port">
+				<input required type="text" class="form-control " required placeholder="Puerto" name="port" id="port">
 				</div>
 				</div>
 				<div class="row">
 				     <div class="form-group col-sm-8" style="padding-right:0px;">
-						<input type="text" class="form-control input-sm" placeholder="Enter Weight" name="wquantity" id="wquantity"> 
+						<input type="text" class="form-control " placeholder="Ingrese Peso" name="wquantity" id="wquantity"> 
 						</div>
 							<div class="form-group col-sm-4" style="padding-left:0px;">
-							<select class="form-control input-sm" id="unit" name="dropweight" >
-	                         <option value="kilogram">Kilogram</option>  
-                             <option value="Gram">Gram</option>  
-							 <option value="piece">Piece</option>  
+							<select class="form-control " id="unit" name="dropweight" >
+	                         <option value="kilogram">Kilogramo</option>  
+                             <option value="Gram">Gramo</option>  
+							 <option value="piece">Pieza</option>  
 							 <option value="ton">Ton</option>
-							 <option value="cubic meter">Cubic meter</option>  
-						     <option value="20 ft conteiner">20 ft conteiner</option> 
-                             <option value="40 ft conteiner">40 ft conteiner</option>
-                             <option value="litter">Litter</option>		
-                             <option value="others">Others</option>							 
+							 <option value="cubic meter">Metro Cúbico</option>  
+						     <option value="20 ft conteiner">20 ft Envase</option> 
+                             <option value="40 ft conteiner">40 ft Envase</option>
+                             <option value="litter">Litro</option>		
+                             <option value="others">Otros</option>							 
                          </select>
 				         </div>
 						 </div>
 				<div class="row">
 				        <div class="form-group col-sm-8" style="padding-right:0px;">
-						<input type="text" class="form-control input-sm" placeholder="Volume" name="vquantity" id="quantity"> 
+						<input type="text" class="form-control " placeholder="Volumen" name="vquantity" id="quantity"> 
 						</div>
 						<div class="form-group col-sm-4" style="padding-left:0px;">
-						<select class="form-control input-sm" id="unit" name="dropvolum">
-	                         <option value="">Volume</option>  
-                             <option value="Cubic meter">Cubic meter</option>  
-							 <option value="Cubic feet">Cubic feet</option>  
-							 <option value="Cubic Centimeter">Cubic Centimeter</option>
-							 <option value="cubic meter">Cubic meter</option>  
+						<select class="form-control " id="unit" name="dropvolum">
+	                         <option value="">Volumen</option>  
+                             <option value="Cubic meter">Metro cúbico</option>  
+							 <option value="Cubic feet">Pie cúbico</option>  
+							 <option value="Cubic Centimeter">Centrimetro cúbico</option>
+							 <option value="cubic meter">Metro cúbico</option>  
 						    
-                             <option value="litter">Litter</option>		
-                             <option value="others">Others</option>							 
+                             <option value="litter">Litro</option>		
+                             <option value="others">Otros</option>							 
                          </select>
 				         </div>
 						 </div>
 						 <div class="row">
 						 <div class="form-group col-sm-8" style="padding-right:0px;">
-						 <input type="text" class="form-control input-sm" placeholder="Dimensions" name="dquantity" id="quantity"> 
+						 <input type="text" class="form-control " placeholder="Dimensiones" name="dquantity" id="quantity"> 
 						 </div>
 				<div class="form-group col-sm-4" style="padding-left:0px;">
 						 <select class="form-control input-sm" id="unit" name="dropdimension">
-	                         <option value="feet">Feet</option>  
-                             <option value="Inch">Inch</option>  
-							 <option value="Centimeter">Centimeter</option>  
-							 <option value="Meter">Meter</option>
+	                         <option value="feet">Pie</option>  
+                             <option value="Inch">Pulgada</option>  
+							 <option value="Centimeter">Centimetro</option>  
+							 <option value="Meter">Metro</option>
 							
-                             <option value="others">Others</option>							 
+                             <option value="others">Otros</option>							 
                          </select>
 				</div>
 				</div>
 				<div class="row">
 				<div class="form-group col-sm-8" style="padding-right:0px;">
-						<input type="text" class="form-control input-sm" placeholder="Enter Capicity" name="cquantity" id="quantity"> 
+						<input type="text" class="form-control " placeholder="Inserte Capacidad" name="cquantity" id="quantity"> 
 						 </div>
 						 <div class="form-group col-sm-4" style="padding-left:0px;">
-						 <select class="form-control input-sm" id="unit" name="dropcapacity">
+						 <select class="form-control " id="unit" name="dropcapacity">
 	                         <option value="Ton">Ton</option>  
-                             <option value="Kilogram">Kilogram</option>  
-							 <option value="Cubic Feet">Cubic Feet</option>  
-							 <option value="Cubic meter">Cubic meter</option>
-							 <option value="Pound">Pound</option>  
+                             <option value="Kilogram">Kilogramo</option>  
+							 <option value="Cubic Feet">Pie cúbico</option>  
+							 <option value="Cubic meter">Metro cúbico</option>
+							 <option value="Pound">Libra</option>  
 						     
 
-                             <option value="others">Others</option>							 
+                             <option value="others">Otros</option>							 
                          </select>
 				</div>
 				</div>
 				<div class="row">
 				<div class="form-group col-sm-8" style="padding-right:0px;">
-				<input type="text" class="form-control input-sm" placeholder="Enter Power" name="equantity" id="quantity">
+				<input type="text" class="form-control " placeholder="Fuente de poder" name="equantity" id="quantity">
 				</div>
 				<div class="form-group col-sm-4" style="padding-left:0px;">
 						<!--<input type="text" class="form-control" placeholder="Enter Quantity" name="quantity" id="quantity"> -->
-						 <select class="form-control input-sm" id="energy" name="dropenergy">
-	                         <option value="Volt">Volt</option>  
+						 <select class="form-control " id="energy" name="dropenergy">
+	                         <option value="Volt">Voltios</option>  
                              <option value="Ohm">Ohm</option>  
 							 <option value="Watt">Watt</option>  
-							 <option value="empere">empere</option>
+							 <option value="empere">Amperaje</option>
 									
-                             <option value="others">Others</option>							 
+                             <option value="others">Otros</option>							 
                          </select>
 				</div>
 				</div>
 				<div class="form-group">
-						<input type="text" class="form-control input-sm"placeholder="Rotation speed" name="rotation" id="rot">
+						<input type="text" class="form-control " placeholder="Velocidad de rotación" name="rotation" id="rot">
 				</div>
 				<div class="form-group">
-						<input type="text" class="form-control input-sm" placeholder="Elaboration Material" name="elobration" id="elobration">
+						<input type="text" class="form-control m" placeholder="Material de Elaboracion" name="elobration" id="elobration">
 				</div>
 				<div class="form-group">
-						<input type="text" class="form-control input-sm" required placeholder="Use" name="use" id="use">
+						<input type="text" class="form-control " required placeholder="Uso" name="use" id="use">
 				</div>
 				<div class="form-group">
-						 <select class="form-control input-sm" id="unit" name="size">
-	                         <option value="Small">Small</option>  
-                             <option value="Medium">Medium</option>  
-							 <option value="Large">Large</option>  
-							 <option value="Extra large">Extra large</option>
+						 <select class="form-control " id="unit" name="size">
+	                         <option value="Small">Pequeño</option>  
+                             <option value="Medium">Mediano</option>  
+							 <option value="Large">Grande</option>  
+							 <option value="Extra large">Extra Grande</option>
 								
-                             <option value="others">Others</option>							 
+                             <option value="others">Otros</option>							 
                          </select>
 				</div>
 				<div class="form-group">
-						 <select class="form-control input-sm" id="unit" name="packaging" require>
+						 <select class="form-control" id="unit" name="packaging" require>
 	                         <option value="Bag">Bag</option>  
                              <option value="Bottle">Bottle</option>  
 							 <option value="Can">Can</option>  
@@ -696,8 +696,8 @@ else if(trim($str1) ==trim($str3))
 						 
 						 <div class="form-group ">
 		
-			<select  class="form-control input-sm" name="productType">
-			<option  value="">Select Product Type</option>
+			<select  class="form-control " name="productType">
+			<option  value="">Selecciona el tipo de producto</option>
 			<option value="Eco Friendly" >Eco Friendly</option>
 			<option value="Innovation" >Innovation</option>
 			<option value="Normal Product" >Normal Product</option>
@@ -712,58 +712,58 @@ else if(trim($str1) ==trim($str3))
 						 
 						 
 						 <div class="form-group">
-						   <input id="files" class="form-control input-sm" type="file"  name="file1"/>
+						   <input id="files" class="form-control " type="file"  name="file1"/>
                            	
 						 </div>
 						  <div class="form-group">
-						   <input  id="files1" class="form-control input-sm" type="file"  name="file2[]" multiple="multiple"/>
+						   <input  id="files1" class="form-control " type="file"  name="file2[]" multiple="multiple"/>
                            	
 						 </div>
 						 <div class="row">
-						 <div class="form-group col-sm-8" style="padding-right:0px;"> <input class="form-control input-sm" type="text"   name="fobprice" required /></div>
+						 <div class="form-group col-sm-8" style="padding-right:0px;"> <input class="form-control " type="text"   name="fobprice" required /></div>
 					   <div class="form-group col-sm-4"  style="padding-left:0px;">
-						   <select class="form-control input-sm" id="unit" name="dropminimum">
-	                         <option value="Unit">Unit</option>  
+						   <select class="form-control " id="unit" name="dropminimum">
+	                         <option value="Unit">Unidad</option>  
                              <option value="Ton">Ton</option>  
-							 <option value="Gram">Gram</option>  
-							 <option value="Inch">Inch</option>
-							 <option value="ounace">ounce</option>  
-						     <option value="Gallon">Gallon</option>  
-                             <option value="Feet">Feet</option>
-                             <option value="Cubic Meter">Cubic Meter</option>
-							 <option value="Cubic Feet">Cubic Feet</option> 
-						     <option value="20 ft container">20 ft container</option>
-							 <option value="40 ft container">40 ft container</option>
+							 <option value="Gram">Gramo</option>  
+							 <option value="Inch">Pulgada</option>
+							 <option value="ounace">onza</option>  
+						     <option value="Gallon">Galón</option>  
+                             <option value="Feet">Pie</option>
+                             <option value="Cubic Meter">Metro Cúbico</option>
+							 <option value="Cubic Feet">Pie cúbico</option> 
+						     <option value="20 ft container">20 ft envase</option>
+							 <option value="40 ft container">40 ft envase</option>
 							<option value="Pallets">Pallets</option>	
 							<option value="Carton">Carton</option>	
                             <option value="others">Others</option>							 
                          </select>         	
 						 </div>
-					<div class="form-group col-sm-8" style="padding-right:0px;"> <input class="form-control input-sm" type="text"  name="oquantity" required /></div>
+					<div class="form-group col-sm-8" style="padding-right:0px;"> <input class="form-control " type="text"  name="oquantity" required /></div>
 					   <div class="form-group col-sm-4"  style="padding-left:0px;">
-						   <select class="form-control input-sm" id="unit" name="dropminimum">
-	                         <option value="Unit">Unit</option>  
+						   <select class="form-control " id="unit" name="dropminimum">
+	                         <option value="Unit">Unidad</option>  
                              <option value="Ton">Ton</option>  
-							 <option value="Gram">Gram</option>  
-							 <option value="Inch">Inch</option>
-							 <option value="ounace">ounce</option>  
-						     <option value="Gallon">Gallon</option>  
-                             <option value="Feet">Feet</option>
-                             <option value="Cubic Meter">Cubic Meter</option>
-							 <option value="Cubic Feet">Cubic Feet</option> 
-						     <option value="20 ft container">20 ft container</option>
-							 <option value="40 ft container">40 ft container</option>
-							<option value="Pallets">Pallets</option>	
-							<option value="Carton">Carton</option>	
-                            <option value="others">Others</option>							 
+							 <option value="Gram">Gramo</option>  
+							 <option value="Inch">Pulgada</option>
+							 <option value="ounace">Onza</option>  
+						     <option value="Gallon">Galón</option>  
+                             <option value="Feet">Pie</option>
+                             <option value="Cubic Meter">Metro cúbico</option>
+							 <option value="Cubic Feet">Pie cúbico</option> 
+						     <option value="20 ft container">20 ft envase</option>
+							 <option value="40 ft container">40 ft envase</option>
+							<option value="Pallets">Paletas</option>	
+							<option value="Carton">Caja de cartón</option>	
+                            <option value="others">Otros</option>							 
                          </select>         	
 						 </div>
 						 </div>
 						 <div class="form-group">
-								 <input type="text" class="form-control input-sm" placeholder="3days" name="delivery_details" id="delivery_details">
+								 <input type="text" class="form-control " placeholder="3days" name="delivery_details" id="delivery_details">
 						 </div>	
 						 <div class="form-group">
-							<select class="form-control input-sm" id="payment" name="payment">
+							<select class="form-control " id="payment" name="payment">
 								<option value="Paypal">Paypal</option>  
 								<option value="WebPay">WebPay</option>  
 								<option value="Paypal and WebPay">Paypal and WebPay</option>  							 

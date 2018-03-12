@@ -67,36 +67,57 @@ if(isset($_POST['btn_save_updates']))
 		 /////////////////////////////////////////////
 		 
 		 //////////////////////////////////////////
-	
-				$target_dir = "images/";
-	
-		 		$target_file = $target_dir . basename($_FILES["file2"]["name"][0]);
-				$target_file = $target_dir . basename($_FILES["file2"]["name"][1]);
-				$target_file = $target_dir . basename($_FILES["file2"]["name"][2]);
-		$target_file = $target_dir . basename($_FILES["file2"]["name"][3]);		$target_file = $target_dir . basename($_FILES["file2"]["name"][4]);				
+		
+		 ///SUBIR IMAGENES
+		 foreach ($_FILES["file2"]["error"] as $key => $error) { 
+		$nombre_archivo = $_FILES["file2"]["name"][$key];   
+		$tipo_archivo = $_FILES["file2"]["type"][$key];   
+		$tamano_archivo = $_FILES["file2"]["size"][$key]; 
+		$temp_archivo = $_FILES["file2"]["tmp_name"][$key]; 
+ 
+		if (!((strpos($tipo_archivo, "gif") || strpos($tipo_archivo, "jpeg" ) || strpos($tipo_archivo, "png" ) || strpos($tipo_archivo, "jpg" )) && ($tamano_archivo < 1000000)))  
+		{  
+
+
+			echo "
+				<script>
+                alert('Maximum 1mb in size and only images jpeg, jpg, png or gi');
+                window.location= 'updatesellerprofile.php?email=echo $email'
+        		</script>
+        		";
+		
+    		
+		} 
+		else  
+		{   
+    		$nom_img = $nombre_archivo;      
+    		$directorio = 'images/'; // Directorio
+ 
+    		if (move_uploaded_file($temp_archivo,$directorio . "/" . $nom_img))  
+    		{  
+
+    			echo "
+    			<script>
+                alert('Images uploaded correctly');
+                window.location= 'updatesellerprofile.php?email=echo $email'
+        		</script>
+        		";
+
+    		
+			}  
+		} 
+	} // Fin Foreach 		 
+
+		
+		 ///SUBIR IMAGENES
+
+				
 				$image1=$_FILES['file2']['name'][0];
 				$image2=$_FILES['file2']['name'][1];
 				$image3=$_FILES['file2']['name'][2];
 				$image4=$_FILES['file2']['name'][3];
 				$image5=$_FILES['file2']['name'][4];
-			$filelocation = $target_dir.$image1;
-			$filelocation = $target_dir.$image2;
-			$filelocation = $target_dir.$image3;
-				$filelocation = $target_dir.$image4;
-					$filelocation = $target_dir.$image5;
-        $temp1 = $_FILES['file2']['tmp_name'][0];
-		$temp2 = $_FILES['file2']['tmp_name'][1];
-		$temp3 = $_FILES['file2']['tmp_name'][2];
-		
-		$temp4 = $_FILES['file2']['tmp_name'][3];
-		
-		$temp5 = $_FILES['file2']['tmp_name'][4];
-		
-		 move_uploaded_file($temp1, $filelocation);
- move_uploaded_file($temp2, $filelocation);
- move_uploaded_file($temp3, $filelocation); 
-  move_uploaded_file($temp4, $filelocation); 
-   move_uploaded_file($temp5, $filelocation); 
+				
 		 ////////////////////////////////////////////////
 	
   if(empty($images)){
@@ -154,7 +175,8 @@ if($stmtlicense === false)
 
 		}
 
-}elseif (empty($image1) and empty($image2) and empty($image3) and empty($image4) and empty($image5) and empty($images)) {
+}else {
+$license = $image1 . ',' . $image2 . ',' . $image3. ',' . $image4. ',' . $image5;
 
 	$sql="UPDATE seller  SET company_name ='".$companyName ."',street='".$street ."',city='".$city ."',zipCode='". $zipCode."',province='". $province."',businessType='".$businessType ."',noOfEmployee='".$noOfEmployee ."',companyDescription='". $companyDescription."',companylogo='".$images ."',countryName='".$countryName ."',companylicense='".$license."',companyLegalNo='".$companyLegalNo."'  WHERE email='$email' ";
 mysqli_query($connection,$sql); 
@@ -183,96 +205,6 @@ if($stmt === false)
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-		if(empty($images)){
-$license = $image1 . ',' . $image2 . ',' . $image3. ',' . $image4. ',' . $image5;
-
-$sqlimages="UPDATE seller  SET company_name ='".$companyName ."',street='".$street ."',city='".$city ."',zipCode='". $zipCode."',province='". $province."',businessType='".$businessType ."',noOfEmployee='".$noOfEmployee ."',companyDescription='". $companyDescription."',countryName='".$countryName ."',companylicense='".$license."',companyLegalNo='".$companyLegalNo."'  WHERE email='$email' ";
-mysqli_query($connection,$sqlimages); 
-$stmtimages = $connection->prepare($sqlimages);
-if($stmtimages === false) 
- {
-    trigger_error('Wrong SQL: ' . $sqlimages . ' Error: ' . $connection->error, E_USER_ERROR);
-}
-
-
-    if($stmt->execute())
-			{
-				?>
-              <script>
-				        alert("Updated Your Company Information!");  //not showing an alert box.
-		
-				</script>
-                <?php
-			}
-			else{
-		
-		}
-
-}elseif (empty($image1) and empty($image2) and empty($image3) and empty($image4) and empty($image5) and empty($images)) {
-	
-
-
-
-	$sqllicense="UPDATE seller  SET company_name ='".$companyName ."',street='".$street ."',city='".$city ."',zipCode='". $zipCode."',province='". $province."',businessType='".$businessType ."',noOfEmployee='".$noOfEmployee ."',companyDescription='". $companyDescription."',companylogo='".$images ."',countryName='".$countryName ."',companyLegalNo='".$companyLegalNo."'  WHERE email='$email' ";
-mysqli_query($connection,$sqllicense); 
-$stmtlicense = $connection->prepare($sqllicense);
-if($stmtlicense === false) 
- {
-    trigger_error('Wrong SQL: ' . $sqllicense . ' Error: ' . $connection->error, E_USER_ERROR);
-}
-
-
-    if($stmt->execute())
-			{
-				?>
-              <script>
-				        alert("Updated Your Company Information!");  //not showing an alert box.
-		
-				</script>
-                <?php
-			}
-			else{
-		
-		}
-
-}elseif (empty($image1) and empty($image2) and empty($image3) and empty($image4) and empty($image5) and empty($images)) {
-
-	$sql="UPDATE seller  SET company_name ='".$companyName ."',street='".$street ."',city='".$city ."',zipCode='". $zipCode."',province='". $province."',businessType='".$businessType ."',noOfEmployee='".$noOfEmployee ."',companyDescription='". $companyDescription."',companylogo='".$images ."',countryName='".$countryName ."',companylicense='".$license."',companyLegalNo='".$companyLegalNo."'  WHERE email='$email' ";
-mysqli_query($connection,$sql); 
-$stmt = $connection->prepare($sql);
-if($stmt === false) 
- {
-    trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
-}
-
-
-   if($stmt->execute())
-			{
-				?>
-              <script>
-				        alert("Updated Your Company Information!");  //not showing an alert box.
-		
-				</script>
-                <?php
-			}
-			else{
-		
-		}
-
-}
 		
 	
 		
@@ -606,21 +538,24 @@ if($stmt === false)
 										<label>Company Logo</label>
 						
 										 <img style="height:100px; width:100px;" src="images/<?php echo $companylogo; ?>" />
+					       
 					        <input id="files" class="form-control" type="file" name="file1" />
+					        
+
 						</div>
 						<div="form-group">
 						<label>Company License</label>
 									 <img style="height:100px; width:100px;" src="images/<?php echo $cl[0]; ?>" />	<img style="height:100px; width:100px;" src="images/<?php echo $cl[1]; ?>" /><img style="height:100px; width:100px;" src="images/<?php echo $cl[2]; ?>" />
 									 <img style="height:100px; width:100px;" src="images/<?php echo $cl[3]; ?>" />
 									 <img style="height:100px; width:100px;" src="images/<?php echo $cl[4]; ?>" />
+					        
 					        <input id="files1" class="form-control" type="file" name="file2[]" multiple="multiple" />
-							</div>
-					<div="form-group">
+					        <div class="form-group">
 					<h3>Uploaded Picture Preview Area </h3>
- <div id="selectedFiles1"></div>
-</div>
+ 						<div id="selectedFiles1"></div>
+							</div>
 
-											
+							</div>
 									<div class="form-group">
 										<div class="row">
 										</br>
@@ -671,7 +606,8 @@ if($stmt === false)
         <script type="text/javascript" src="js/gmaps.js"></script>
         <script type="text/javascript" src="js/swiper.min.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
-  <script>
+  
+	<script>
 	var selDiv = "";
 		
 	document.addEventListener("DOMContentLoaded", init, false);
@@ -707,6 +643,7 @@ if($stmt === false)
 	}
 	</script>
 	<script>
+
 	var selDiv = "";
 		
 	document.addEventListener("DOMContentLoaded", init1, false);
@@ -741,6 +678,8 @@ if($stmt === false)
 		
 	}
 	</script>
+
+	
     </body>
 </html>
     

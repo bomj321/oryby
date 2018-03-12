@@ -19,31 +19,42 @@ $images=$_FILES['file1']['name'];
 $filelocation = $target_dir.$images;
 $temp = $_FILES['file1']['tmp_name'];
 move_uploaded_file($temp, $filelocation);	
-$target_dir = "images/";	
-$target_file = $target_dir . basename($_FILES["file2"]["name"][0]);
-$target_file = $target_dir . basename($_FILES["file2"]["name"][1]);
-$target_file = $target_dir . basename($_FILES["file2"]["name"][2]);
-$target_file = $target_dir . basename($_FILES["file2"]["name"][3]);		$target_file = $target_dir . basename($_FILES["file2"]["name"][4]);				
-$image1=$_FILES['file2']['name'][0];
-$image2=$_FILES['file2']['name'][1];
-$image3=$_FILES['file2']['name'][2];
-$image4=$_FILES['file2']['name'][3];
-$image5=$_FILES['file2']['name'][4];
-$filelocation = $target_dir.$image1;
-$filelocation = $target_dir.$image2;
-$filelocation = $target_dir.$image3;
-$filelocation = $target_dir.$image4;
-$filelocation = $target_dir.$image5;
-$temp1 = $_FILES['file2']['tmp_name'][0];
-$temp2 = $_FILES['file2']['tmp_name'][1];
-$temp3 = $_FILES['file2']['tmp_name'][2];
-$temp4 = $_FILES['file2']['tmp_name'][3];
-$temp5 = $_FILES['file2']['tmp_name'][4];		
-move_uploaded_file($temp1, $filelocation);
-move_uploaded_file($temp2, $filelocation);
-move_uploaded_file($temp3, $filelocation); 
-move_uploaded_file($temp4, $filelocation); 
-move_uploaded_file($temp5, $filelocation); 	
+
+
+/////////////////////////////////////SUBIR IMAGENES
+         foreach ($_FILES["file2"]["error"] as $key => $error) { 
+        $nombre_archivo = $_FILES["file2"]["name"][$key];   
+        $tipo_archivo = $_FILES["file2"]["type"][$key];   
+        $tamano_archivo = $_FILES["file2"]["size"][$key]; 
+        $temp_archivo = $_FILES["file2"]["tmp_name"][$key]; 
+ 
+        if (!((strpos($tipo_archivo, "gif") || strpos($tipo_archivo, "jpeg" ) || strpos($tipo_archivo, "png" ) || strpos($tipo_archivo, "jpg" )) && ($tamano_archivo < 1000000)))  
+        {   
+            echo "Error en extencion o tamaño del archivo"; 
+        } 
+        else  
+        {   
+            $nom_img = $nombre_archivo;      
+            $directorio = 'images/'; // Directorio
+ 
+            if (move_uploaded_file($temp_archivo,$directorio . "/" . $nom_img))  
+            {  
+            echo "Las fotos se publicaron correctamente"; 
+            }  
+        } 
+    } // Fin Foreach         
+
+        
+         ///SUBIR IMAGENES
+
+                
+                $image1=$_FILES['file2']['name'][0];
+                $image2=$_FILES['file2']['name'][1];
+                $image3=$_FILES['file2']['name'][2];
+                $image4=$_FILES['file2']['name'][3];
+                $image5=$_FILES['file2']['name'][4];
+                
+         ////////////////////////////////////////////////////////////
 	
 
 
@@ -61,7 +72,11 @@ if($stmtimages === false)
 
     if($stmtimages->execute())
     {
-        header("Location:updatesellerprofile.php?email=echo $email");
+
+        echo "<script>
+                alert('Actualizada la Informacion de tu compañia');
+                window.location= 'updatesellerprofile.php?email=echo $email'
+        </script>";
     }
     else{
 //NADA
@@ -83,13 +98,17 @@ if($stmtlicense === false)
 
     if($stmtlicense->execute())
     {
-        header("Location:updatesellerprofile.php?email=echo $email");
+        echo "<script>
+                alert('Actualizada la Informacion de tu compañia');
+                window.location= 'updatesellerprofile.php?email=echo $email'
+        </script>";
     }
     else{
 
 }
 
-}elseif (empty($image1) and empty($image2) and empty($image3) and empty($image4) and empty($image5) and empty($images)) {
+}else {
+$license = $image1 . ',' . $image2 . ',' . $image3. ',' . $image4. ',' . $image5;
 
 	$sql="UPDATE seller  SET company_name ='".$companyName ."',street='".$street ."',city='".$city ."',zipCode='". $zipCode."',province='". $province."',businessType='".$businessType ."',noOfEmployee='".$noOfEmployee ."',companyDescription='". $companyDescription."',companylogo='".$images ."',countryName='".$countryName ."',companylicense='".$license."',companyLegalNo='".$companyLegalNo."'  WHERE email='$email' ";
 mysqli_query($connection,$sql); 
@@ -102,7 +121,10 @@ if($stmt === false)
 
     if($stmt->execute())
     {
-        header("Location:updatesellerprofile.php?email=echo $email");
+        echo "<script>
+                alert('Actualizada la Informacion de tu compañia');
+                window.location= 'updatesellerprofile.php?email=echo $email'
+        </script>";
     }
     else{
 

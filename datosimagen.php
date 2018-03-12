@@ -7,7 +7,7 @@
   $tipo_imagen = $_FILES['imagen']['type'];
   $tamaño_imagen = $_FILES['imagen']['size'];
     //echo $tamaño_imagen = $_FILES['imagen']['size'];
-      echo $tipo_imagen = $_FILES['imagen']['type'];
+       $tipo_imagen = $_FILES['imagen']['type'];
 
 
     if ($tamaño_imagen<=1000000) {

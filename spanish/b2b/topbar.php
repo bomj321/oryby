@@ -67,7 +67,6 @@ require 'Connect.php';
                         <ul class="w-150">
 
 							<li><a href="myorybue.php">Mi Orybu</a></li>
-                            <li><a href="chatuser.php">Centro de mensajes</a></li>
 							<li><a href="suppliers.php" class="top">Administrar productos</a></li>
                             <li><a href="chat2.php">Mis Chats</a></li>
                         <li><a href="chatby.php">Solicitudes de Compra</a></li>

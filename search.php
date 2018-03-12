@@ -218,7 +218,7 @@ include('navh.php');
  {
   $category=$_GET['category'];
  }
-			 $query="SELECT * FROM products INNER JOIN categories ON(products.catid=categories.catid)WHERE (products.ntitle LIKE '%".$query."%' OR categories.title LIKE '%".$category."%'  )";
+			 $query="SELECT * FROM products INNER JOIN categories ON(products.catid=categories.catid)WHERE (products.ntitle LIKE '%".$query."%') OR (categories.title LIKE '%".$category."%' )";
                $result=mysqli_query($connection,$query);
 			   ?>
                         </div><!-- end row -->

@@ -11,12 +11,13 @@ include('head.php');
     <body>
         
         <!-- start topBar -->
-   <?php require 'topbar.php' ?>
+   <?php require 'topbar.php'; 
+
+   include('middlebar.php');
+include('navh.php');?>
         <!-- end topBar -->
         
-        <!-- start navbar -->
-		   <?php include('header.php'); ?>
-    <!-- end navbar -->
+        
         
        
         

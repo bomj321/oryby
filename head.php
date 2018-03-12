@@ -45,25 +45,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-  <!--AJAX PARA EL CHAT-->
-  <script type="text/javascript">
-        function ajax(){
-            var req = new XMLHttpRequest();
-
-            req.onreadystatechange = function(){
-                if (req.readyState == 4 && req.status == 200) {
-                    document.getElementById('chat').innerHTML = req.responseText;
-                }
-            }
-
-            req.open('GET', 'chat_ajax.php?user_id=<?php  echo $row['de'];?>&sellerid=<?php echo $para;?>&pid=<?php echo $pid;?>&de=<?php echo $para;?>', true);
-            req.send();
-        }
-
-        //linea que hace que se refreseque la pagina cada segundo
-        setInterval(function(){ajax();}, 1000);
-    </script>
-<!--AJAX PARA EL CHAT-->
+ 
 
 
 </head>

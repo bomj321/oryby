@@ -1,35 +1,212 @@
 <?php session_start();
-	require 'Connect.php';
-	error_reporting(0);
-	include('head.php');
-	$email=$_SESSION['uemail'];
-	$usertype=$_SESSION['utype'];
-	$sql="SELECT * FROM seller  WHERE email='$email'";
-	$stmt=mysqli_query($connection,$sql);
-	if($stmt == false) {
-	trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
-	}
-	$row = mysqli_fetch_array($stmt);
-	$companyName= $row['company_name'];
-	$companyLegalNo= $row['companyLegalNo'];
-	$street= $row['street'];
-	$city= $row['city'];
-	$province= $row['province'];
-	$zipCode= $row['zipCode'];
-	$countryName= $row['countryName'];
-	$businessType= $row['businessType'];
-	$noOfEmployee= $row['noOfEmployee'];
-	$companyDescription= $row['companyDescription'];
-	$companylogo= $row['companylogo'];
-	$myString = $row['companylicense'];
-	$cl = explode(',', $myString); 
-?>   
-    <body>
-     <!-- start topBar -->
-     <?php include('topbar.php');
+require 'Connect.php';
+error_reporting(0);
+include('head.php');
+ $email=$_SESSION['uemail'];
+ $usertype=$_SESSION['utype'];
+ 	
+$sql="SELECT * FROM seller  WHERE email='$email'";
+$stmt=mysqli_query($connection,$sql);
+if($stmt == false) {
+trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
+}
+
+$row = mysqli_fetch_array($stmt);
+
+
+   $companyName= $row['company_name'];
+    $companyLegalNo= $row['companyLegalNo'];
+		 $street= $row['street'];
+		  $city= $row['city'];
+		  $province= $row['province'];
+		  $zipCode= $row['zipCode'];
+		   $countryName= $row['countryName'];
+		   $businessType= $row['businessType'];
+		  $noOfEmployee= $row['noOfEmployee'];
+		   $companyDescription= $row['companyDescription'];
+		 $companylogo= $row['companylogo'];
+		  $myString = $row['companylicense'];
+$cl = explode(',', $myString);
+	include('topbar.php');
 		include('middlebar.php');
-	  include('navh.php');
-	   ?>
+	  include('navh.php');  
+?>   
+<style>
+    #selectedFiles img {
+        max-width: 125px;
+        max-height: 125px;
+        float: left;
+        margin-bottom:10px;
+    }
+</style>
+<?php
+
+if(isset($_POST['btn_save_updates']))
+	{
+	  
+	 $companyName= $_POST['companyName'];
+	echo  $companyLegalNo= $_POST['companyLegalNo'];
+		 $street= $_POST['street'];
+		  $city= $_POST['city'];
+		  $province= $_POST['province'];
+		  $zipCode= $_POST['zipCode'];
+		  $countryName= $_POST['selectcountryName'];
+		  $businessType= $_POST['businessType'];
+		  $noOfEmployee= $_POST['noOfEmployee'];
+	 	  $companyDescription= $_POST['companyDescription'];
+		  
+		
+	
+			$target_dir = "images/";
+	
+		 		$target_file = $target_dir . basename($_FILES["file1"]["name"]);
+				$images=$_FILES['file1']['name'];
+			 $filelocation = $target_dir.$images;
+        $temp = $_FILES['file1']['tmp_name'];
+		 move_uploaded_file($temp, $filelocation);
+		 /////////////////////////////////////////////
+		 
+		 //////////////////////////////////////////
+		
+		 ///SUBIR IMAGENES
+		 foreach ($_FILES["file2"]["error"] as $key => $error) { 
+		$nombre_archivo = $_FILES["file2"]["name"][$key];   
+		$tipo_archivo = $_FILES["file2"]["type"][$key];   
+		$tamano_archivo = $_FILES["file2"]["size"][$key]; 
+		$temp_archivo = $_FILES["file2"]["tmp_name"][$key]; 
+ 
+		if (!((strpos($tipo_archivo, "gif") || strpos($tipo_archivo, "jpeg" ) || strpos($tipo_archivo, "png" ) || strpos($tipo_archivo, "jpg" )) && ($tamano_archivo < 1000000)))  
+		{   
+    		echo "<script>
+                alert('Maximo 1mb de tamaño y solo imagenes jpeg, jpg, png y git');
+                window.location= 'updatesellerprofile.php?email=echo $email'
+        </script>";
+		} 
+		else  
+		{   
+    		$nom_img = $nombre_archivo;      
+    		$directorio = 'images/'; // Directorio
+ 
+    		if (move_uploaded_file($temp_archivo,$directorio . "/" . $nom_img))  
+    		{  
+
+    		echo "<script>
+                alert('Las imagenes se han subido correctamente');
+                window.location= 'updatesellerprofile.php?email=echo $email'
+        </script>";
+
+        
+
+ 			
+			}  
+		} 
+	} // Fin Foreach 
+
+		 
+
+		
+		 ///SUBIR IMAGENES
+
+				
+				$image1=$_FILES['file2']['name'][0];
+				$image2=$_FILES['file2']['name'][1];
+				$image3=$_FILES['file2']['name'][2];
+				$image4=$_FILES['file2']['name'][3];
+				$image5=$_FILES['file2']['name'][4];
+				
+		 ////////////////////////////////////////////////
+	
+  if(empty($images)){
+$license = $image1 . ',' . $image2 . ',' . $image3. ',' . $image4. ',' . $image5;
+
+$sqlimages="UPDATE seller  SET company_name ='".$companyName ."',street='".$street ."',city='".$city ."',zipCode='". $zipCode."',province='". $province."',businessType='".$businessType ."',noOfEmployee='".$noOfEmployee ."',companyDescription='". $companyDescription."',countryName='".$countryName ."',companylicense='".$license."',companyLegalNo='".$companyLegalNo."'  WHERE email='$email' ";
+mysqli_query($connection,$sqlimages); 
+$stmtimages = $connection->prepare($sqlimages);
+if($stmtimages === false) 
+ {
+    trigger_error('Wrong SQL: ' . $sqlimages . ' Error: ' . $connection->error, E_USER_ERROR);
+}
+
+
+    if($stmtimages->execute())
+			{
+				?>
+              <script>
+				        alert("La informacion de tu compañia ha sido actualizada!");  //not showing an alert box.
+				        window.location.href="updatesellerprofile.php?email=echo $email";
+		
+				</script>
+                <?php
+			}
+			else{
+		echo "ERROR1";
+		}
+
+}elseif (empty($image1) and empty($image2) and empty($image3) and empty($image4) and empty($image5)) {
+	
+
+
+
+	$sqllicense="UPDATE seller  SET company_name ='".$companyName ."',street='".$street ."',city='".$city ."',zipCode='". $zipCode."',province='". $province."',businessType='".$businessType ."',noOfEmployee='".$noOfEmployee ."',companyDescription='". $companyDescription."',companylogo='".$images ."',countryName='".$countryName ."',companyLegalNo='".$companyLegalNo."'  WHERE email='$email' ";
+mysqli_query($connection,$sqllicense); 
+$stmtlicense = $connection->prepare($sqllicense);
+if($stmtlicense === false) 
+ {
+    trigger_error('Wrong SQL: ' . $sqllicense . ' Error: ' . $connection->error, E_USER_ERROR);
+}
+
+
+    if($stmtlicense->execute())
+			{
+				?>
+              <script>
+				        alert("La informacion de tu compañia ha sido actualizada!");  //not showing an alert box.
+				         window.location.href="updatesellerprofile.php?email=echo $email";
+		
+				</script>
+                <?php
+			}
+			else{
+				echo "ERROR2";
+
+		}
+
+}else {
+$license = $image1 . ',' . $image2 . ',' . $image3. ',' . $image4. ',' . $image5;
+
+	$sql="UPDATE seller  SET company_name ='".$companyName ."',street='".$street ."',city='".$city ."',zipCode='". $zipCode."',province='". $province."',businessType='".$businessType ."',noOfEmployee='".$noOfEmployee ."',companyDescription='". $companyDescription."',companylogo='".$images ."',countryName='".$countryName ."',companylicense='".$license."',companyLegalNo='".$companyLegalNo."'  WHERE email='$email' ";
+mysqli_query($connection,$sql); 
+$stmt = $connection->prepare($sql);
+if($stmt === false) 
+ {
+    trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
+}
+
+
+   if($stmt->execute())
+			{
+				?>
+              <script>
+				        alert("La informacion de tu compañia ha sido actualizada!");  //not showing an alert box.
+				         window.location.href="updatesellerprofile.php?email=echo $email";
+		
+				</script>
+                <?php
+			}
+			else{
+						echo "ERROR3";
+
+		}
+
+}
+
+
+		
+	
+		
+	}
+	
+?>
         <!-- start section -->
         <div class="container">
                 <div class="row ">
@@ -39,12 +216,12 @@
                       </br>
 					  <div style="padding-left:200px">
                      <div class="col-sm-10 " style="background-color:#f7f7f7;">
- 		<form method="POST" enctype="multipart/form-data" action="update.php?email=<?php echo $email;?>">
+ <form method="POST" enctype="multipart/form-data">
 								  
 					  </br>
                                <center>	</br>
                       </br>
-                      <h2>Información de la Compañia</h2></center>
+                      <h2>Informacion de la Compañia </h2></center>
 									<div class="form-group">
 									</br>
 									</br>
@@ -332,15 +509,14 @@
 									</div>
 									</br>
 									</br>
-									<h4>Descripción de tu Compañia</h4>
+									<h4>Describe tu Compañia </h4>
 									<div class="form-group">
 										<select name="businessType"  class="form-control input">
-											<option value="<?php echo $businessType ?>"><?php echo $businessType ?></option>
-											<option value="Fabricante">Fabricante</option>
-											<option value="Distribuidor" >Distribuidor</option>
-											<option value="Empresa Comercial">Empresa Comercial</option>
-											<option value="Detallista">Detallista</option>
-											<option value="Otros">Otros</option>                                       
+								  <option value="<?php echo $businessType ?>"><?php echo $businessType ?></option>
+                                             <option value="Manufacturer">Fabricante</option>
+                                             <option value="Distributor" >Distribuidora</option>
+											  <option value="Trading Company" >Comercio Company </option>
+                                             <option value="Retailer" >Minorista</option>  <option value="other" >Otra</option>      Trading Company                                       
 											 </select>
 									</div>
 									<div class="form-group">
@@ -358,33 +534,36 @@
 										<label>Logo de la Compañia</label>
 						
 										 <img style="height:100px; width:100px;" src="images/<?php echo $companylogo; ?>" />
+					       
 					        <input id="files" class="form-control" type="file" name="file1" />
+					        
+
 						</div>
 						<div="form-group">
-						<label>Company License</label>
+						<label>Licencia de la compañia</label>
 									 <img style="height:100px; width:100px;" src="images/<?php echo $cl[0]; ?>" />	<img style="height:100px; width:100px;" src="images/<?php echo $cl[1]; ?>" /><img style="height:100px; width:100px;" src="images/<?php echo $cl[2]; ?>" />
 									 <img style="height:100px; width:100px;" src="images/<?php echo $cl[3]; ?>" />
 									 <img style="height:100px; width:100px;" src="images/<?php echo $cl[4]; ?>" />
+					        
 					        <input id="files1" class="form-control" type="file" name="file2[]" multiple="multiple" />
+					        <div class="form-group">
+					<h3>Uploaded Picture Preview Area </h3>
+ 						<div id="selectedFiles1"></div>
 							</div>
-					<div class="form-group">
-					<h3>Imagen Cargada</h3>
-						<div id="selectedFiles1"></div>
-					</div>
 
-											
+							</div>
 									<div class="form-group">
 										<div class="row">
 										</br>
 											<div class="col-sm-6 col-sm-offset-3">
 											</br>
 											</br>
-			<center><button type="submit" name="btn_save_updates"  id="btn_save_updates" class="btn btn-default"><i class="fa fa-refresh">
-       &nbsp; Actualizar</i>
+			<center><button type="submit" name="btn_save_updates" class="btn btn-default" style="border-style:solid;border-width:1px;border-color:gray;color:#066;background:#ccc"><i class="fa fa-refresh" >
+       &nbsp; Update Profile</i>
         </button>
            
        
-		<a href="profile.php" class="btn btn-warning"><i class="fa fa-times"></i>Cancelar</a>
+		<a href="profile.php" class="btn btn-warning"><i class="fa fa-times"></i> CANCEL</a>
        </input>
            </br>
 		     </br>  </br>
@@ -414,7 +593,6 @@
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script type="text/javascript" src="js/owl.carousel.min.js"></script>
         <script type="text/javascript" src="js/jquery.downCount.js"></script>
-		<script type="text/javascript" src="js/default.js"></script>
         <script type="text/javascript" src="js/nouislider.min.js"></script>
         <script type="text/javascript" src="js/jquery.sticky.js"></script>
         <script type="text/javascript" src="js/pace.min.js"></script>
@@ -423,8 +601,9 @@
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
         <script type="text/javascript" src="js/gmaps.js"></script>
         <script type="text/javascript" src="js/swiper.min.js"></script>
-		<script type="text/javascript" src="js/main.js"></script>
-  <script>
+        <script type="text/javascript" src="js/main.js"></script>
+  
+	<script>
 	var selDiv = "";
 		
 	document.addEventListener("DOMContentLoaded", init, false);
@@ -460,6 +639,7 @@
 	}
 	</script>
 	<script>
+
 	var selDiv = "";
 		
 	document.addEventListener("DOMContentLoaded", init1, false);
@@ -494,6 +674,8 @@
 		
 	}
 	</script>
+
+	
     </body>
 </html>
     
