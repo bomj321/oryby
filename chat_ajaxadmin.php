@@ -17,7 +17,7 @@ if(!isset($_SESSION))
 
 	
 	///consultamos a la base
-	$consulta = "SELECT * FROM chats  WHERE de = '$de' AND para ='$para' OR  de= '$para' AND para = '$de'   ORDER BY id_cha ASC";
+	$consulta = "SELECT * FROM chats  WHERE de = '$de' AND para ='$para' OR  de= '$para' AND para = '$de'   ORDER BY id_cha DESC";
 	$ejecutar = $connection->query($consulta); 
 	while($fila = $ejecutar->fetch_array()) : 
 

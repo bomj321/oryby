@@ -3,7 +3,7 @@ session_start();
 if(!isset($_SESSION['user_id']))
 {
   echo "<script>
-                alert('Por Favor Logueate!!!');
+                alert('Please log in!!!');
                 window.location= 'singlelogin.php'
         </script>";
 }
@@ -21,42 +21,132 @@ ini_set('error_reporting',0);
 
 
 <?php 
-   $para = mysqli_real_escape_string($connection,$_GET['admin']);
+  
+    $pid = mysqli_real_escape_string($connection, $_GET['pid']);
+    $para = mysqli_real_escape_string($connection,$_GET['sellerid']);
     $de = mysqli_real_escape_string($connection, $_SESSION['user_id']);
 
 
 
 
  ?>
-<!--HOJA DE ESTILO-->
+ <!--HOJA DE ESTILO-->
 <link rel="stylesheet" type="text/css" href="css/estilos.css">
  <!--HOJA DE ESTILO-->
 
  
 
-  <body onload="ajax();">
+  <body >
 <div class="container chateo" id="body">
   <div class="row">
 
     <!---ASIDE DEL CHAT-->
+<div class="col-md-4" id="aside" style="height: 628.383px">
+      <h6 style="text-align: center">MY CHATS (Buyers Requests)</h6>
 
+<!--PROGRAMACION DEL ASIDE DEL CHAT-->
+<?php 
+
+//SELECION DE CADA CHAT Y FORMATO DE FECHA
+function formatearFecha($fecha){
+  return date('Y d M h:i a', strtotime($fecha));
+}
+
+
+
+
+
+$aside1 = "SELECT * FROM c_chatsby INNER JOIN buyerrequests ON (c_chatsby.pid = buyerrequests.buyreq_id) WHERE (de ='$de'   AND vchata='1') OR (para ='$de' AND vchatb='1') ";
+$asideres1 = $connection->query($aside1);
+
+while ($row=mysqli_fetch_array($asideres1)) {
+//SELECION DE CADA CHAT
+if ($row['de']==$de) {
+  $var = $row['para'];
+}elseif($row['para']==$de){
+$var = $row['de'];
+}
+$id_cch = $row["id_cch"];
+
+////////////////SACAR IMAGEN
+//$asideimg = "SELECT * FROM c_chatsby INNER JOIN buyerrequests ON (c_chatsby.pid = buyerrequests.buyreq_id) WHERE (de ='$de'   AND vchata='1') OR (para ='$de' AND vchatb='1') ";
+//$asideresimg = $connection->query($asideimg);
+///////////////////SACAR IMAGEN
+$firstimage = $row['image'];
+
+  $usere = "SELECT * FROM users WHERE user_id ='$var'";
+ $usere12 = $connection->query($usere);
+  $fila12=$usere12->fetch_assoc();
+
+  $chat12= "SELECT * FROM chatsby WHERE id_cch='$id_cch' ORDER BY fecha DESC";
+  $res12 =$connection->query($chat12);
+  $fila32 =$res12->fetch_assoc();
+
+
+//CONSULTA PARA EL VENDEDOR
+  $aside3 = "SELECT * FROM c_chatsby INNER JOIN buyerrequests ON (c_chatsby.pid = buyerrequests.buyreq_id) WHERE de ='$de' OR para ='$de'";
+$asideres3 = $connection->query($aside3);
+$fila =$asideres3->fetch_assoc();
+if($fila['de'] == $para) {$var2 = $de;} else {$var2 = $para;}
+  $consulta2 = "SELECT * FROM users WHERE user_id ='$var2'";
+  $ejecutar2 = $connection->query($consulta2);
+  $fila2 = $ejecutar2->fetch_array();
+
+ 
+ ?>
+
+<!--PROGRAMACION DEL ASIDE DEL CHAT-->
+
+
+    
+    
+
+      <a href="chatby.php?sellerid=<?php echo $var;?>&pid=<?php echo $row['pid'];?>&id_cch=<?php echo $row['id_cch']?>">
+      <div class="chats asidechats">
+        <h6 style="text-align: center;"> LAST MESSAGE: <?php echo formatearFecha($fila32['fecha']); ?></h6>
+         <hr style="width: 90%">
+        <div class="caja1"  style="width:40%;  float:left;">
+          <!--<p>NOMBRE DEL CHAT</p>-->
+          <img style="width: 50px; height: 50px;  margin-bottom: 5px;" src="ReqImages/<?php echo $firstimage;?>" alt="Product Image">
+        </div>
+
+
+         <div class="caja2" id="producto" style="width:60%;  float:right;">
+             <h6><?php echo $row['ntitle'];?>&nbsp;&nbsp;&nbsp; Quantity: <?php echo $row['quantity']; ?>&nbsp;&nbsp;&nbsp; </h6>
+        </div>
+
+        <div class="caja2" id="producto" style="width:25%;  float:right;">
+             <a  href="borrarchatby.php?id_cch=<?php echo $row['id_cch']?>">Delete Chat</a>
+        </div>
+
+      </div>
+
+      </a>
+       <hr>
+     
+     
+  
+
+<?php 
+};
+
+ ?>
+</div>
 
 <!-------------------------------ASIDE DEL CHAT------------------------>
 
 <!--CHAT-->
 
 <?php 
-
+if (!empty($pid) AND !empty($para) ) {
+  
 
  ?>
   <div  class="col-md-6 col-md-offset-2" id="contenedor">
     <div id="caja-chat">
       <div id="chat">
-           
-
-
-
-
+        
+        
       </div>
     </div>
 
@@ -70,7 +160,7 @@ ini_set('error_reporting',0);
 <!--CHAT-->
 <?php 
 
-
+};
 
  ?>
 
@@ -86,7 +176,7 @@ ini_set('error_reporting',0);
                 }
             }
 
-            req.open('GET', 'chat_ajaxadmin.php?admin=<?php echo $para;?>&de=<?php echo $de;?>', true);
+            req.open('GET', 'chatby_ajax.php?sellerid=<?php echo $para;?>&pid=<?php echo $pid;?>&de=<?php echo $para;?>', true);
             req.send();
         }
 
@@ -104,41 +194,40 @@ ini_set('error_reporting',0);
     <?php
       if (isset($_POST['enviar'])) {
        // $vendedor = mysqli_real_escape_string($connection,$_GET['sellerid']);
-         $para = mysqli_real_escape_string($connection,$_GET['admin']);
+         $para = mysqli_real_escape_string($connection,$_GET['sellerid']);
+         $pid = mysqli_real_escape_string($connection, $_GET['pid']);
          $de = mysqli_real_escape_string($connection, $_SESSION['user_id']);
             
         //$nombre = mysqli_real_escape_string($_POST['nombre']);
         $mensaje = mysqli_real_escape_string($connection,$_POST['mensaje']);
-        $comprobar = "SELECT * FROM c_chats WHERE (de = '$de' AND para = '$para' AND vchata ='1' AND vchatb ='1') OR (de ='$para' AND para ='$de'  AND vchatb ='1' AND vchata ='1')";
+        $comprobar = "SELECT * FROM c_chatsby WHERE (de = '$de'   AND para='$para' AND pid ='$pid' AND vchata ='1' AND vchatb ='1') OR (de ='$para' AND para='$de'  AND pid ='$pid' AND vchatb ='1' AND vchata ='1')";
         $comprobacion = $connection->query($comprobar);
         $row=$comprobacion->fetch_assoc();
        
       
 
         if (mysqli_num_rows($comprobacion)==0) {
-          echo "No hay columnas";
-          //INSERTAR EL CHAT
           
+          //INSERTAR EL CHAT
+         
 
-        //ACTUALIZAR CHAT 
-        $comprobarx3 = "SELECT * FROM c_chats WHERE (de = '$de'   AND para='$para'  AND vchata ='0' AND vchatb ='1' ) OR (de ='$para' AND para='$de'   AND vchatb ='0' AND vchata ='1') OR (de = '$de'   AND para='$para' AND vchata ='1' AND vchatb ='0') OR (de ='$para' AND para='$de' AND vchatb ='1' AND vchata ='0')";
+         //ACTUALIZAR CHAT 
+        $comprobarx3 = "SELECT * FROM c_chatsby WHERE (de = '$de'   AND para='$para' AND pid ='$pid' AND vchata ='0' AND vchatb ='1' ) OR (de ='$para' AND para='$de'  AND pid ='$pid' AND vchatb ='0' AND vchata ='1') OR (de = '$de'   AND para='$para' AND pid ='$pid' AND vchata ='1' AND vchatb ='0') OR (de ='$para' AND para='$de'  AND pid ='$pid' AND vchatb ='1' AND vchata ='0')";
         $comprobacionx3 = $connection->query($comprobarx3);
         $rowx3=$comprobacionx3->fetch_assoc();
         $id_cchx3 = $rowx3['id_cch'];
 
 
         if (mysqli_num_rows($comprobacionx3)==0) {
-           $insert = "INSERT INTO c_chats(de,para,pid,sellerid,vchata, vchatb) VALUES (".$de.", ".$para.", '0', ".$para.", '1', '1');";  
+           $insert = "INSERT INTO c_chatsby(de,para,pid,sellerid,vchata, vchatb) VALUES (".$de.", ".$para.", ".$pid.", ".$para.", '1', '1');";  
         $resultado = $connection->query($insert);
-        if ($resultado) {
-          echo "SI INSERTO ALGO";
-        }
+       
 
 
         }else{
-          $sqlx3 = "UPDATE c_chats SET vchata='1' WHERE id_cch ='$id_cchx3'";
+          $sqlx3 = "UPDATE c_chatsby SET vchata='1' WHERE id_cch ='$id_cchx3'";
           $connection->query($sqlx3);       
-          $sqlx4 = "UPDATE c_chats SET vchatb='1' WHERE id_cch ='$id_cchx3'";
+          $sqlx4 = "UPDATE c_chatsby SET vchatb='1' WHERE id_cch ='$id_cchx3'";
           $connection->query($sqlx4); 
 
         }
@@ -148,20 +237,17 @@ ini_set('error_reporting',0);
 
 
 
+
           //INSERTAR EL CHAT
           
           
 
             //CONSULTA PARA EL ID DEL CHAT
-          $siguiente = "SELECT id_cch FROM c_chats WHERE de ='$de' AND para ='$para' OR de ='$para' AND para = '$de'";
+          $siguiente = "SELECT id_cch FROM c_chatsby WHERE de ='$de' AND para ='$para'  AND pid ='$pid' OR de ='$para' AND para = '$de' AND pid = '$pid'";
           $resultado2 = $connection->query($siguiente);
           $fila=$resultado2->fetch_assoc();
           $id_cch=$fila['id_cch'];
-          if ($resultado2== 0) {
-            echo "NO HAY NADA CONSULTA REALIZADA CON EXITO";
-          }else{
-            echo "consulta exitosa 1";
-          }
+         
 
  //INSERTAR EL CHAT
           
@@ -173,13 +259,9 @@ ini_set('error_reporting',0);
           
           include('datosimagen.php');
           $nombre_imagen = $_FILES['imagen']['name'];
-         $insert2 = "INSERT INTO chats(id_cch,de,para,pid,mensaje,image) VALUES(".$id_cch.", ".$de.",".$para.", '0', '".$mensaje."','$nombre_imagen');";
+         $insert2 = "INSERT INTO chatsby(id_cch,de,para,pid,mensaje,image) VALUES(".$id_cch.", ".$de.",".$para.", ".$pid.", '".$mensaje."','$nombre_imagen');";
          $resultado3 = $connection->query($insert2);
-          if ($resultado3) {
-          echo "SI INSERTO ALGO EN LOS MENSAJES";
-        }else{
-          echo "ERROR";
-        }
+         
           //INSERTAR LOS MENSAJES
 
           if($resultado3){
@@ -191,15 +273,11 @@ ini_set('error_reporting',0);
         }else{
 
         //CONSULTA PARA EL ID DEL CHAT POR SEGUNDA VEZ
-          $siguiente = "SELECT id_cch FROM c_chats WHERE de ='$de' AND para ='$para' OR  de = '$para' AND para = '$de'";
+          $siguiente = "SELECT id_cch FROM c_chatsby WHERE de ='$de' AND para ='$para'  AND pid ='$pid' OR  de = '$para' AND para = '$de' AND pid = '$pid'";
           $resultado2 = $connection->query($siguiente);
           $fila=$resultado2->fetch_assoc();
           $id_cch=$fila['id_cch'];
-          if ($resultado2 == 0) {
-            echo " NO HAY NADA CONSULTA REALIZADA CON EXITO";
-          }else{
-            echo "consulta existosa 2";
-          }
+         
 
            //CONSULTA PARA EL ID DEL CHAT POR SEGUNDA VEZ        
           
@@ -207,7 +285,7 @@ ini_set('error_reporting',0);
           $id_cch=$fila['id_cch'];
           include('datosimagen.php');
           $nombre_imagen = $_FILES['imagen']['name'];
-          $insert3 = "INSERT INTO chats(id_cch,de,para,pid,mensaje,image) VALUES(".$id_cch.", ".$de.",".$para.", '0', '".$mensaje."','$nombre_imagen');";
+          $insert3 = "INSERT INTO chatsby(id_cch,de,para,pid,mensaje,image) VALUES(".$id_cch.", ".$de.",".$para.", ".$pid.", '".$mensaje."','$nombre_imagen');";
          $resultado4 = $connection->query($insert3);
         
 
@@ -295,7 +373,17 @@ ini_set('error_reporting',0);
 </script>
 <!--SCRIPT PARA EL INPUT SUBIR ARCHIVO-->
 
+<!--SCRIPT PARA EL SCROLL-->
+<script type="text/javascript">
+  var z = document.getElementById("chat");
+    z.scrollTop = z.scrollHeight;
 
+
+
+
+</script>
+
+<!--SCRIPT PARA EL SCROLL-->
 </body>
 <?php require'footer.php'; ?>
 </html>

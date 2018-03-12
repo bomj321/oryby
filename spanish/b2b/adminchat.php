@@ -28,6 +28,9 @@ ini_set('error_reporting',0);
 
 
  ?>
+<!--HOJA DE ESTILO-->
+<link rel="stylesheet" type="text/css" href="css/estilos.css">
+ <!--HOJA DE ESTILO-->
 
  
 

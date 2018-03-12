@@ -476,22 +476,26 @@
 
 
 <li>
-						<a href="#"><i class="fa fa-lg fa-fw fa-table"></i> <span class="menu-item-parent">Chat With User</span></a>
+						<a href="#"><i class="fa fa-lg fa-fw fa-table"></i> <span class="menu-item-parent">All Chats</span></a>
 						<ul>
 							<li>
-								<a href="chatuser.php"  >User Chat</a>
+								<a href="chatadmin.php"  >User Chat</a>
 						</li>
 
+						<li>
+								<a href="BuyerRequests.php"  >Buyers Requests Chats</a>
+						</li>
 
 						</ul>
 					</li>
 
 					<li>
-						<a href="#"><i class="fa fa-lg fa-fw fa-table"></i> <span class="menu-item-parent">All Chats</span></a>
+						<a href="#"><i class="fa fa-lg fa-fw fa-table"></i> <span class="menu-item-parent">Chat With User</span></a>
 						<ul>
 							<li>
-								<a href="chatadmin.php"  >User Chats</a>
+								<a href="chatuser.php"  > My User Chats</a>
 						</li>
+
 
 
 						</ul>

@@ -52,7 +52,7 @@ include('head.php');
                                    <p class="text-gray alt-font">Date Added: <?php echo date("Y-m-d"); ?></p>
 								  <p class="text-gray alt-font">Category: <?php echo $rowreq['catename']; ?></p>
 								  <p class="text-red alt-font" style="color:red;">Deadline: <?php echo $rowreq['dtym']; ?></p>
-                                   <a href="contactbuyer.php?buyermail=<?php echo $rowreq['BuyerName']; ?>" class="btn btn-success"> Contact me </a>
+                                   <a href="chatby.php?sellerid=<?php echo $rowreq['buyer_id'];?>&pid=<?php echo $rowreq['buyreq_id']?>" class="btn btn-success"> Contact me </a>
 							</div><!-- end col -->
                         </div><!-- end row -->
 
