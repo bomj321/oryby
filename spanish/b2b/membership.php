@@ -20,41 +20,41 @@ include('head.php');
             <table class="table table-responsive table-hover table-bordered border">
               <thead >
                 <tr>        
-                <th class="dark">Principales características</th>
-                <th class="light">Cuenta Básica</th>
-                <th class="light">Cuenta Gratis</th>
+                <th style="background: #b7e8d1" class="dark">Principales características</th>
+                <th style="background: #def7eb" class="light">Cuenta Básica</th>
+                <th style="background: #def7eb" class="light">Cuenta Gratis</th>
                 </tr>
               </thead>
               <tbody>
                 <tr class="border">
-                  <td class="dark">Limites de Productos Publicados</td>
-                  <td class="light">40</td>
-                  <td class="light">10</td>
+                  <td style="background: #b7e8d1"class="dark">Limites de Productos Publicados</td>
+                  <td style="background: #def7eb" class="light">40</td>
+                  <td style="background: #def7eb" class="light">10</td>
                 </tr>
                 <tr class="border">
-                  <td class="dark">Lista Superior</td>
-                  <td class="light">60</td>
-                  <td class="light">7</td>
+                  <td style="background: #b7e8d1" class="dark">Lista Superior</td>
+                  <td style="background: #def7eb" class="light">60</td>
+                  <td style="background: #def7eb" class="light">7</td>
                 </tr>
                 <tr class="border">
-                  <td class="dark">Mostrar Caso</td>
-                  <td class="light">40</td>
-                  <td class="light">5</td>
+                  <td style="background: #b7e8d1" class="dark">Mostrar Caso</td>
+                  <td style="background: #def7eb" class="light">40</td>
+                  <td style="background: #def7eb" class="light">5</td>
                 </tr>
                 <tr class="border">
-                  <td class="dark">Comisión por venta</td>
-                  <td class="light">5%</td>
-                  <td class="light">7%</td>
+                  <td style="background: #b7e8d1" class="dark">Comisión por venta</td>
+                  <td style="background: #def7eb" class="light">5%</td>
+                  <td style="background: #def7eb" class="light">7%</td>
                 </tr>
                 <tr class="border">
-                  <td  class="dark">Recomendado para la solicitud de compra</td>
-                  <td class="light">Sí</td>
-                  <td class="light">No</td>
+                  <td style="background: #b7e8d1" class="dark">Recomendado para la solicitud de compra</td>
+                  <td style="background: #def7eb" class="light">Sí</td>
+                  <td style="background: #def7eb" class="light">No</td>
                 </tr>
                 <tr class="border">
-                  <td class="dark">Precio</td>
-                  <td class="light">Dólar estadounidense $200</td>
-                  <td class="light">Gratis</td>
+                  <td style="background: #b7e8d1" class="dark">Precio</td>
+                  <td style="background: #def7eb" class="light">Dólar estadounidense $200</td>
+                  <td style="background: #def7eb" class="light">Gratis</td>
                 </tr>
                 <tr>
                   <td></td>
