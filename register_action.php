@@ -103,7 +103,7 @@ include 'Connect.php';
 			?>
 			<script>
 			alert("Add Company Information!");
-			window.location.href ="registerSupplier.php?email='<?php echo $email; ?>'";
+			window.location.href ="registerSupplier.php?email=<?php echo $email; ?>";
 			</script>
 		<?php
 				

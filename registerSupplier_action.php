@@ -1,4 +1,5 @@
 <?php
+session_start();
 error_reporting(0);
 include 'Connect.php';
     
@@ -52,7 +53,7 @@ include 'Connect.php';
 
 			echo "
 				<script>
-                alert('Maximum 1mb in size and only images jpeg, jpg, png or gi');
+                alert('Maximum 1mb in size and only images jpeg, jpg, png or git');
                 window.location= 'updatesellerprofile.php?email=echo $email'
         		</script>
         		";

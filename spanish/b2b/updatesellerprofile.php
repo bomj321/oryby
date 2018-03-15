@@ -77,10 +77,10 @@ if(isset($_POST['btn_save_updates']))
  
 		if (!((strpos($tipo_archivo, "gif") || strpos($tipo_archivo, "jpeg" ) || strpos($tipo_archivo, "png" ) || strpos($tipo_archivo, "jpg" )) && ($tamano_archivo < 1000000)))  
 		{   
-    		echo "<script>
-                alert('Maximo 1mb de tamaño y solo imagenes jpeg, jpg, png y git');
-                window.location= 'updatesellerprofile.php?email=echo $email'
-        </script>";
+    		//echo "<script>
+               // alert('Maximo 1mb de tamaño y solo imagenes jpeg, jpg, png y git');
+               // window.location= 'updatesellerprofile.php?email=echo $email'
+        //</script>";
 		} 
 		else  
 		{   

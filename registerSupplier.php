@@ -1,9 +1,12 @@
 <?php
+session_start();
 error_reporting(0);
 include 'Connect.php';
 include('head.php');
 $email= $_SESSION['confemail'];
 $confirmcode=$_SESSION['code'];
+echo "$email";
+echo "HOLA MUNDO";
   ?>
 
     <body>

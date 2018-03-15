@@ -64,6 +64,7 @@ if(isset($_POST['btn_save_updates']))
 			 $filelocation = $target_dir.$images;
         $temp = $_FILES['file1']['tmp_name'];
 		 move_uploaded_file($temp, $filelocation);
+
 		 /////////////////////////////////////////////
 		 
 		 //////////////////////////////////////////
@@ -75,19 +76,21 @@ if(isset($_POST['btn_save_updates']))
 		$tamano_archivo = $_FILES["file2"]["size"][$key]; 
 		$temp_archivo = $_FILES["file2"]["tmp_name"][$key]; 
  
+ 	
 		if (!((strpos($tipo_archivo, "gif") || strpos($tipo_archivo, "jpeg" ) || strpos($tipo_archivo, "png" ) || strpos($tipo_archivo, "jpg" )) && ($tamano_archivo < 1000000)))  
 		{  
 
 
-			echo "
-				<script>
-                alert('Maximum 1mb in size and only images jpeg, jpg, png or gi');
-                window.location= 'updatesellerprofile.php?email=echo $email'
-        		</script>
-        		";
+			//echo "
+			//	<script>
+             //   alert('Maximum 1mb in size and only images jpeg, jpg, png or gi');
+              //  window.location= 'updatesellerprofile.php?email=echo $email'
+        		//</script>
+        		//";
 		
     		
-		} 
+		}
+		 
 		else  
 		{   
     		$nom_img = $nombre_archivo;      
