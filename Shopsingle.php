@@ -4,6 +4,8 @@
     endif;
 require 'Connect.php';
 $pid=$_GET['pid'];
+$sellerid=$_GET['sellerid'];
+$_SESSION['sellerid'] = $sellerid;
 $_SESSION['pid']=$pid;
 $_SESSION['user_id'];
 //Inserción a la db para las estadisticas de los usuarios
