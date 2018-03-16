@@ -1,6 +1,6 @@
 
-		<style type="text/css">
-			/*!
+    <style type="text/css">
+      /*!
  * http://suyati.github.io/line-control
  * LineControl 1.1.0
  * Copyright (C) 2014, Suyati Technologies
@@ -304,11 +304,12 @@ h1{
   cursor:pointer;
   }
 
-		</style>
+
+    </style>
 
 
-<div class="form-group" style="margin-top:32px;margin-left:56px;"><h4><b> DESCRIPTION:</b> </h4></div> 
+<div class="form-group" style="margin-top:32px;margin-left:56px;"><h4><b> DESCRIPCION:</b> </h4></div> 
  <div class="form-group col-sm-2"> </div>        
-		<div class="form-group col-sm-8">
-			    <textarea style="" class="form-control" placeholder="Enter Description" name="description" id="txtEditor" > </textarea>
-				</div>
+    <div class="form-group col-sm-8">
+          <textarea   class="form-control" placeholder="Enter Description" name="description" id="txtEditor" rows="4" col="6"> </textarea>
+        </div>  

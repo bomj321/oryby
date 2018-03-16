@@ -202,8 +202,8 @@ $(document).ready(function(){
                     <div class="carousel-inner" style="background-color:#ffffff;">
                         <div class="item active" style="padding-right:70px; padding-left:70px; background-color:#ffffff;">
                             <div class="row" style="background-color:#ffffff;">
-												 <?php
-				  $sql="SELECT * FROM products WHERE productType='Eco Friendly' OR productType ='Innovation' LIMIT 12";
+					<?php
+				  $sql="SELECT * FROM products WHERE productType='Eco Friendly' OR productType ='Innovation' LIMIT 0,6";
 
 				$stmt=mysqli_query($connection,$sql);
 				if($stmt == false) {
@@ -259,7 +259,7 @@ $(document).ready(function(){
                      <div class="item" style="padding-right:70px; padding-left:70px; background-color:#ffffff;">
                             <div class="row" style="background-color:#ffffff;">
 												 <?php
-			 $sql="SELECT * FROM products  INNER JOIN categories ON(products.catid = categories.catid)Where productstatus=1 AND productaction = 1 AND (productType='Innovation' OR productType='Eco Friendly') LIMIT 5,10";
+			 $sql="SELECT * FROM products  INNER JOIN categories ON(products.catid = categories.catid)Where productstatus=1 AND productaction = 1 AND (productType='Innovation' OR productType='Eco Friendly') LIMIT 7,13";
 
 				$stmt=mysqli_query($connection,$sql);
 				if($stmt == false) {
@@ -432,13 +432,13 @@ $(document).ready(function(){
 						 </div>
 						   <div class="form-group">
 
-                                <input required name="pname" type="text" id="firstname" class="form-control input-lg" required placeholder="Product Name *">
+                                <input required name="pname" type="text" id="firstname" class="form-control input-lg" required placeholder=" Product Name*">
                             </div>
 							<div class="row">
 							<div class="col-sm-6">
                             <div class="form-group">
 
-                           <input required name="quantity" type="text" id="qty" class="form-control input-lg" required placeholder="Enter Quantity *">
+                           <input required name="quantity" type="text" id="qty" class="form-control input-lg" required placeholder=" Enter Quantity*">
                             </div>
 							</div>
 							<div class="col-sm-6">
@@ -460,7 +460,7 @@ $(document).ready(function(){
                           	</div>
 							</div>
                            <div class="form-group">
-								<input required name="dtym" type="text" id="dtime" class="form-control input-lg" required placeholder="Deadline to be send *" onfocus="(this.type='date')">
+								<input required name="dtym" type="text" id="dtime" class="form-control input-lg" required placeholder=" Deadline to be send *" onfocus="(this.type='date')">
 							</div>
                 <!--SELECT CON LOS PAISES-->
                 <div class="widget form-group">

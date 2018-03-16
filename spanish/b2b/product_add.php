@@ -725,7 +725,7 @@ else if(trim($str1) ==trim($str3))
                            	
 						 </div>
 						 <div class="row">
-						 <div class="form-group col-sm-8" style="padding-right:0px;"> <input class="form-control " type="text"   name="fobprice" required /></div>
+						 <div class="form-group col-sm-8" style="padding-right:0px;"> <input class="form-control " type="text" placeholder="FOB Price"  name="fobprice" required /></div>
 					   <div class="form-group col-sm-4"  style="padding-left:0px;">
 						   <select class="form-control " id="unit" name="dropminimum">
 	                         <option value="Unit">Unidad</option>  
@@ -744,9 +744,9 @@ else if(trim($str1) ==trim($str3))
                             <option value="others">Otros</option>							 
                          </select>         	
 						 </div>
-					<div class="form-group col-sm-8" style="padding-right:0px;"> <input class="form-control " type="text"  name="oquantity" required /></div>
+					<div class="form-group col-sm-8" style="padding-right:0px;"> <input class="form-control " type="text"  placeholder="Orden Minima" name="oquantity" required /></div>
 					   <div class="form-group col-sm-4"  style="padding-left:0px;">
-						   <select class="form-control " id="unit" name="dropminimum">
+						   <select class="form-control " id="unit" name="dropminimum2">
 	                         <option value="Unit">Unidad</option>  
                              <option value="Ton">Tonelada</option>  
 							 <option value="Gram">Gramo</option>  
@@ -765,7 +765,7 @@ else if(trim($str1) ==trim($str3))
 						 </div>
 						 </div>
 						 <div class="form-group">
-								 <input type="text" class="form-control input-sm" placeholder="days" name="delivery_details" id="delivery_details">
+								 <input type="text" class="form-control input-sm" placeholder="Dias" name="delivery_details" id="delivery_details">
 						 </div>	
 						 <div class="form-group">
 							<select class="form-control " id="payment" name="payment">

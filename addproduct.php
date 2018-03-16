@@ -79,7 +79,7 @@ $rows=mysqli_fetch_array($stmtt);
 			}
 			else if($productstatus =="")
 			{
-			 $productstatus=2;
+			 $productstatus=1;
 			}
 			if($_POST['showtoplist'] !="")
 			{
@@ -133,7 +133,7 @@ $rows=mysqli_fetch_array($stmtt);
 
 			  			 //$query="INSERT INTO products(catid,subcatid,ntitle,keywords,selectedkeyword,country,port,weight,volume,dimension,capacity,energypower,rotationspeed,elaboration,puse,psize,packing,certification,price,miniorder,fulldescription,image,producttoplist,productType,productType2, productaction,user_id,delivery_details)VALUES('$catid','$subcatid','$title','$keyword','$slctedkeyword','$dropcountry','$port','$dropweight','$dropvolum','$dropdimension','$dropcapacity','$dropenergy','$rotation','$elobration','$use','$size','$packaging','$fileimage1','$fobprice','$dropminimum','$description','$image1,$image2,$image3,$image4','$showtoplist','$productType','$productType2','$productstatus','$userId','$delivery_details')";
 
-			$query="INSERT INTO products(catid,subcatid,ntitle,keywords,selectedkeyword,country,port,weight,volume,dimension,capacity,energypower,rotationspeed,elaboration,puse,psize,packing,certification,price,miniorder,fulldescription,image,producttoplist,productType,productaction,user_id,delivery_details, payment)VALUES('$catid','$subcatid','$title','$keyword','$slctedkeyword','$dropcountry','$port','$dropweight','$dropvolum','$dropdimension','$dropcapacity','$dropenergy','$rotation','$elobration','$use','$size','$packaging','$fileimage1','$fobprice','$oquantity','$description','$image1 $image2 $image3 $image4','$showtoplist','$productType','$productstatus','$userId','$delivery', '$payment')";
+			$query="INSERT INTO products(catid,subcatid,ntitle,keywords,selectedkeyword,country,port,weight,volume,dimension,capacity,energypower,rotationspeed,elaboration,puse,psize,packing,certification,price,miniorder,fulldescription,image,producttoplist,productType,productType2,productaction,user_id,delivery_details, payment)VALUES('$catid','$subcatid','$title','$keyword','$slctedkeyword','$dropcountry','$port','$dropweight','$dropvolum','$dropdimension','$dropcapacity','$dropenergy','$rotation','$elobration','$use','$size','$packaging','$fileimage1','$fobprice','$oquantity','$description','$image1 $image2 $image3 $image4','$showtoplist','$productType','$productType2','$productstatus','$userId','$delivery', '$payment')";
 			
 	
 		 

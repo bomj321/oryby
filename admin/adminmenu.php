@@ -150,7 +150,7 @@ $nr=mysqli_num_rows($stmt);
 								else
 								{
 								?>
-								<a href="acceptProduct.phpp" ><h5 style="color: #ef1233"> New Product <span class="txt-color-yellow"><i class="fa fa-arrow-circle-up"></i>&nbsp;<?php echo $nr ?></span></h5></a>
+								<a href="acceptProduct.php" ><h5 style="color: #ef1233"> New Product <span class="txt-color-yellow"><i class="fa fa-arrow-circle-up"></i>&nbsp;<?php echo $nr ?></span></h5></a>
 								<?php
 								}
 								?>

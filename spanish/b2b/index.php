@@ -444,13 +444,13 @@ $(document).ready(function(){
 						 </div>
 						   <div class="form-group">
 
-                                <input required name="pname" type="text" id="firstname" class="form-control input-lg" required placeholder="Nombre del producto *">
+                                <input required name="pname" type="text" id="firstname" class="form-control input-lg" required placeholder=" Nombre del producto*">
                             </div>
 							<div class="row">
 							<div class="col-sm-6">
                             <div class="form-group">
 
-                           <input required name="quantity" type="text" id="qty" class="form-control input-lg" required placeholder="Ingresa Cantidad *">
+                           <input required name="quantity" type="text" id="qty" class="form-control input-lg" required placeholder=" Ingresa Cantidad*">
                             </div>
 							</div>
 							<div class="col-sm-6">
@@ -472,7 +472,7 @@ $(document).ready(function(){
                           	</div>
 							</div>
                            <div class="form-group">
-								<input required name="dtym" type="text" id="dtime" class="form-control input-lg" required placeholder="Fecha límite para enviar *" onfocus="(this.type='date')">
+								<input required name="dtym" type="text" id="dtime" class="form-control input-lg" required placeholder=" Fecha límite para enviar*" onfocus="(this.type='date')">
 							</div>
 
 
