@@ -49,7 +49,7 @@ ini_set('error_reporting',0);
 
 //SELECION DE CADA CHAT Y FORMATO DE FECHA
 function formatearFecha($fecha){
-  return date('Y d M h:i a', strtotime($fecha));
+  return date('d M h:i a', strtotime($fecha));
 }
 
 
@@ -83,8 +83,7 @@ $valor = explode(',',$firstimage);
   $aside3 = "SELECT * FROM c_chats INNER JOIN products ON (c_chats.pid = products.pid) WHERE de ='$de' OR para ='$de'";
 $asideres3 = $connection->query($aside3);
 $fila =$asideres3->fetch_assoc();
-if($fila['de'] == $para) {$var2 = $de;} else {$var2 = $para;}
-  $consulta2 = "SELECT * FROM users WHERE user_id ='$var2'";
+  $consulta2 = "SELECT * FROM users WHERE user_id ='$var'";
   $ejecutar2 = $connection->query($consulta2);
   $fila2 = $ejecutar2->fetch_array();
 
@@ -99,26 +98,56 @@ if($fila['de'] == $para) {$var2 = $de;} else {$var2 = $para;}
 
       <a href="chat2.php?sellerid=<?php echo $var;?>&pid=<?php echo $row['pid'];?>&id_cch=<?php echo $row['id_cch']?>">
       <div class="chats asidechats">
-        <h6 style="text-align: center;"> LAST MESSAGE: <?php echo formatearFecha($fila32['fecha']); ?></h6>
-         <hr style="width: 90%">
-        <div class="caja1"  style="width:40%;  float:left;">
+
+        <div style="margin-bottom: -1rem;"><!--DIV DE ARRIBA-->
+
+        <div style=" width: 30%; float: left;" >
+        <h6 style="text-align: center; color: black; font-weight: bold;">  <?php echo $row['ntitle'];?></h6>
+        </div>
+
+        <div class="caja1"  style="width:15%; float: right;">
           <!--<p>NOMBRE DEL CHAT</p>-->
-          <img style="width: 50px; height: 50px;  margin-bottom: 5px;" src="images/<?php echo $valor[0];?>" alt="Product Image">
+          <img style=" margin-top:5px; width: 30px; height: 30px;  margin-bottom: 5px;" src="images/<?php echo $valor[0];?>" alt="Product Image">
+        </div>
+        <div style="clear:both"></div>
+
+</div><!--DIV DE ARRIBA-->
+
+<hr style="width: 90%">
+<div style="margin-top: -1.5rem;"><!--DIV DE INTERMEDIO-->
+
+        <div style=" width: 35%; float: left;" >
+        <h6 style="text-align: center; color: black; font-weight: bold;">User:&nbsp;<?php echo $fila2['firstName'];?></h6>
         </div>
 
+        <div class="caja2" id="producto" style="width:40%;  float:right;">
+             <h6 style="color: black; font-weight: bold;">  <?php echo $row['price']; ?>&nbsp;USD</h6>
+        </div>
+        <div style="clear:both"></div>
 
-         <div class="caja2" id="producto" style="width:60%;  float:right;">
-             <h6><?php echo $row['ntitle'];?>&nbsp;&nbsp;&nbsp; PRICE: <?php echo $row['price']; ?>&nbsp;&nbsp;&nbsp; </h6>
+</div><!--DIV DE INTERMEDIO-->
+
+
+
+
+        <!--DIV DE ABAJO-->
+        <div style="float:left; width: 85%;">
+          
+          <p style="text-align: center; color: black; font-weight: bold;"> Ultimo Mensaje: <?php echo formatearFecha($fila32['fecha']); ?></p>
         </div>
 
-        <div class="caja2" id="producto" style="width:25%;  float:right;">
-             <a  href="borrarchat.php?id_cch=<?php echo $row['id_cch']?>">Delete Chat</a>
+        <div class="caja2" id="producto" style="width:13%;  float:right; color: black; font-weight: bold;">
+             <a  href="borrarchat.php?id_cch=<?php echo $row['id_cch']?>"><i class="fa fa-trash-o fa-lw"></i></a>
         </div>
+
+        <!--DIV DE ABAJO-->
+
+
 
       </div>
 
       </a>
-       <hr>
+      
      
      
   
