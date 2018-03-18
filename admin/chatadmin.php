@@ -71,7 +71,7 @@ include('header.php');
 
     <!---ASIDE DEL CHAT-->
 <div class="col-md-4 col-md-offset-1" id="aside">
-      <h6 style="text-align: center">MY CHATS</h6>
+      <h6 style="text-align: center">USERS CHATS</h6>
 
 <!--PROGRAMACION DEL ASIDE DEL CHAT-->
 <?php 
@@ -116,26 +116,55 @@ $fila =$asideres3->fetch_assoc();
     
     
 
-      <a href="chatadmin2.php?user_id=<?php echo $row['de']?>&sellerid=<?php echo $row['para'];?>&pid=<?php echo $row['pid'];?>&id_cch=<?php echo $row['id_cch']?>">
+     <a href="chat2.php?sellerid=<?php echo $var;?>&pid=<?php echo $row['pid'];?>&id_cch=<?php echo $row['id_cch']?>">
       <div class="chats asidechats">
-        <h6 style="text-align: center;"> LAST MESSAGE: <?php echo formatearFecha($fila32['fecha']); ?></h6>
-         <hr style="width: 90%">
-        <div class="caja1"  style="width:40%;  float:left;">
+
+        <div style="margin-bottom: -1rem;"><!--DIV DE ARRIBA-->
+
+        <div style=" width: 30%; float: left;" >
+        <h6 style="text-align: center; color: black; font-weight: bold;">  <?php echo $row['ntitle'];?></h6>
+        </div>
+
+        <div class="caja1"  style="width:15%; float: right;">
           <!--<p>NOMBRE DEL CHAT</p>-->
-          <img style="width: 50px; height: 50px;  margin-bottom: 5px;" src="../images/<?php echo $valor[0];?>" alt="Producto imagen">
+          <img style=" margin-top:5px; width: 30px; height: 30px;  margin-bottom: 5px;" src="../images/<?php echo $valor[0];?>" alt="Product Image">
+        </div>
+        <div style="clear:both"></div>
+
+</div><!--DIV DE ARRIBA-->
+
+<hr style="width: 90%">
+<div style="margin-top: -1.5rem;"><!--DIV DE INTERMEDIO-->
+
+        
+
+        <div class="caja2" id="producto" style="width:40%;  float:right;">
+             <h6 style="color: black; font-weight: bold;">PRICE: <?php echo $row['price']; ?>&nbsp;USD</h6>
+        </div>
+        <div style="clear:both"></div>
+
+</div><!--DIV DE INTERMEDIO-->
+
+
+
+
+        <!--DIV DE ABAJO-->
+        <div style="float:left; width: 85%;">
+          
+          <p style="text-align: center; color: black; font-weight: bold;"> Last Message <?php echo formatearFecha($fila32['fecha']); ?></p>
         </div>
 
-
-         <div class="caja2" id="producto" style="width:60%;  float:right;">
-             <h6><?php echo $row['ntitle'];?>&nbsp;&nbsp;&nbsp; PRICE: <?php echo $row['price']; ?>&nbsp;&nbsp;&nbsp; </h6>
+        <div class="caja2" id="producto" style="width:13%;  float:right; color: black; font-weight: bold;">
+             <a  href="borrarchat.php?id_cch=<?php echo $row['id_cch']?>"><i class="fa fa-trash-o fa-lw"></i></a>
         </div>
 
-      
+        <!--DIV DE ABAJO-->
+
+
 
       </div>
 
       </a>
-       <hr>
      
      
   

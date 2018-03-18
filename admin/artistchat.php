@@ -117,7 +117,7 @@ $id_cch = $row["id_cch"];
 
       <a href="artistchat2.php?para=<?php echo $var;?>&id_cch=<?php echo $row['id_cch']?>">
       <div class="chats asidechats">
-        <h6 style="text-align: center;"> LAST MESSAGE: <?php echo formatearFecha($fila32['fecha']); ?></h6>
+        <h6 style="text-align: center; color:black; font-weight: bold;"> LAST MESSAGE: <?php echo formatearFecha($fila32['fecha']); ?></h6>
          <hr style="width: 90%">
         <div class="caja1"  style="width:40%;  float:left;">
           
@@ -127,8 +127,8 @@ $id_cch = $row["id_cch"];
 
         
 
-        <div class="caja2" id="producto" style="width:25%;  float:right;">
-             <a  href="borrarchat.php?id_cch=<?php echo $row['id_cch']?>">Delete Chat</a>
+        <div class="caja2" id="producto" style="width:13%;  float:right;">
+              <a  href="borrarchat.php?id_cch=<?php echo $row['id_cch']?>"><i class="fa fa-trash-o fa-lw"></i></a>
         </div>
 
       </div>
