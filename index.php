@@ -27,7 +27,6 @@ include('head.php');
 								while($row=mysqli_fetch_array($result)){
 								$title=$row['title'];
 								$catid=$row['catid'];
-
 								?>
 														<script>
 $(document).ready(function(){
@@ -45,7 +44,6 @@ $(document).ready(function(){
                                     </a>
 										<?php
 							 $sql="SELECT * FROM subcategories INNER JOIN categories ON(subcategories.catid = categories.catid) WHERE subcategories.catid ='$catid'";
-
 							$stmt=mysqli_query($connection,$sql);
 							if($stmt == false) {
 							trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
@@ -53,15 +51,12 @@ $(document).ready(function(){
 							 $nrs=mysqli_num_rows($stmt);
 							if($nrs >0)
 							{
-
 								?>
 
                                     <ul class="dropdown-menu">
 									<?php
 									while($row=mysqli_fetch_array($stmt)){
-
 								  $subtitle=$row['subtitle'];
-
 								?>
                                         <li><a href="productshow.php?catid=<?php echo $row['catid'] ;?> & subcatid=<?php echo $row['subcatid'] ;?>"><?php echo $subtitle; ?></a></li>
                                    <?php
@@ -204,13 +199,11 @@ $(document).ready(function(){
                             <div class="row" style="background-color:#ffffff;">
 					<?php
 				  $sql="SELECT * FROM products WHERE productType='Eco Friendly' OR productType ='Innovation' LIMIT 0,6";
-
 				$stmt=mysqli_query($connection,$sql);
 				if($stmt == false) {
 				trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
 				}
 				  $nr=mysqli_num_rows($stmt);
-
 				?>
 					<?php while($row=$stmt->fetch_assoc())
     {
@@ -221,19 +214,12 @@ $(document).ready(function(){
 	$quantity =$row['miniorder'];
 	 $myString = $row['image'];
 	$cl = explode(',', $myString);
-
-
 			  $sqll="SELECT * FROM users  INNER JOIN seller ON(users.email = seller.email) Where users.user_id='$userId'";
-
 				$stmtt=mysqli_query($connection,$sqll);
 				if($stmtt == false) {
 				trigger_error('Wrong SQL: ' . $sqll . ' Error: ' . $connection->error, E_USER_ERROR);
 				}
 				  $rows=mysqli_fetch_array($stmtt);
-
-
-
-
 	?>
 
                               <div class="col-md-2"><a href="Shopsingle.php?pid=<?php echo $pid ?>" class="thumbnail" id="carousel2-selector-0"><img src="images/<?php echo $cl[0];?>" alt="Image" style="width:150px;height:150px;"></a>
@@ -260,13 +246,11 @@ $(document).ready(function(){
                             <div class="row" style="background-color:#ffffff;">
 												 <?php
 			 $sql="SELECT * FROM products  INNER JOIN categories ON(products.catid = categories.catid)Where productstatus=1 AND productaction = 1 AND (productType='Innovation' OR productType='Eco Friendly') LIMIT 7,13";
-
 				$stmt=mysqli_query($connection,$sql);
 				if($stmt == false) {
 				trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
 				}
 				  $nr=mysqli_num_rows($stmt);
-
 				?>
 					<?php while($row=$stmt->fetch_assoc())
     {
@@ -277,20 +261,12 @@ $(document).ready(function(){
 	$quantity =$row['miniorder'];
 	 $myString = $row['image'];
 	$cl = explode(',', $myString);
-
-
-
 			  $sqll="SELECT * FROM users  INNER JOIN seller ON(users.email = seller.email) Where users.user_id='$userId'";
-
 				$stmtt=mysqli_query($connection,$sqll);
 				if($stmtt == false) {
 				trigger_error('Wrong SQL: ' . $sqll . ' Error: ' . $connection->error, E_USER_ERROR);
 				}
 				  $rows=mysqli_fetch_array($stmtt);
-
-
-
-
 	?>
 
                               <div class="col-md-2"><a href="Shopsingle.php?pid=<?php echo $pid ?>" class="thumbnail" id="carousel2-selector-0"><img src="images/<?php echo $cl[0];?>" alt="Image" style="width:150px;height:150px;"></a>
@@ -333,7 +309,6 @@ $(document).ready(function(){
 							$row=mysqli_fetch_array($result);
 								$hreflink =$row['hreflink'];
 							 	$picture=$row['picture'];
-
 								?>
 
     <div class="col-sm-6" style="margin-right:50px;">
@@ -347,7 +322,6 @@ $(document).ready(function(){
 							$row=mysqli_fetch_array($result);
 								$hreflink =$row['hreflink'];
 							 	$picture=$row['picture'];
-
 								?>
 	 <div class="col-sm-4">
 	<a href="<?php echo $hreflink ?>"><img style="width:360px;height:180px; margin-left:10px" src="images/<?php echo $picture ?>" alt=""/></a>
@@ -462,8 +436,11 @@ $(document).ready(function(){
                            <div class="form-group">
 								<input required name="dtym" type="text" id="dtime" class="form-control input-lg" required placeholder=" Deadline to be send *" onfocus="(this.type='date')">
 							</div>
+							 <input type="hidden" name="pais" value="<?php echo $_SESSION['countryName'];?>" >
                        <center>
                          <input type="submit" class="btn btn-success round btn-md"  name="requestSend" value="Submit">
+
+                        
                         </form>
 						</center>
 							</div>
@@ -510,19 +487,24 @@ $(document).ready(function(){
                 <?php }?>
             </div><!-- end row -->
         </div>
+        <div style="margin-top: 70px;">
+        	
+        	<hr >
+        </div>
     </div><!-- end col -->
 </div><!-- end row -->
 
 <!--FIN MADE IN CHILE --> 
 
 
-     <hr>
+     
 
 
 			<div class="col-sm-12">
                         <div class="title-wrap">
                             <h2 class="title"> TOP <span class="text-primary"> SELECTED </span>PRODUCT</h2>
 							</div>
+							<hr>
 			</div>
 
 
@@ -542,13 +524,11 @@ $(document).ready(function(){
                             <div class="row">
 											<?php
 				  $sql="SELECT * FROM products  INNER JOIN categories ON(products.catid = categories.catid) WHERE productType='Normal Product' AND productstatus=1 AND productaction = 1 LIMIT 0,4";
-
 				$stmt=mysqli_query($connection,$sql);
 				if($stmt == false) {
 				trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
 				}
 				  $nr=mysqli_num_rows($stmt);
-
 				?>
 					<?php while($row=$stmt->fetch_assoc())
     {
@@ -559,20 +539,12 @@ $(document).ready(function(){
 	$quantity =$row['miniorder'];
 	 $myString = $row['image'];
 	$cl = explode(',', $myString);
-
-
-
 			  $sqll="SELECT * FROM users  INNER JOIN seller ON(users.email = seller.email) Where users.user_id='$userId'";
-
 				$stmtt=mysqli_query($connection,$sqll);
 				if($stmtt == false) {
 				trigger_error('Wrong SQL: ' . $sqll . ' Error: ' . $connection->error, E_USER_ERROR);
 				}
 				  $rows=mysqli_fetch_array($stmtt);
-
-
-
-
 	?>
 
                               <div class="col-md-2"><a href="Shopsingle.php?pid=<?php echo $pid ?>" class="thumbnail" id="carousel2-selector-0"><img src="images/<?php echo $cl[0];?>" alt="Image" style="width:150px;height:150px;"></a>
@@ -619,13 +591,11 @@ $(document).ready(function(){
                             <div class="row">
 											<?php
 				  $sql="SELECT * FROM products  INNER JOIN categories ON(products.catid = categories.catid) WHERE productType='Normal Product' AND productstatus=1 AND productaction = 1 LIMIT 5,10";
-
 				$stmt=mysqli_query($connection,$sql);
 				if($stmt == false) {
 				trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
 				}
 				  $nr=mysqli_num_rows($stmt);
-
 				?>
 					<?php while($row=$stmt->fetch_assoc())
     {
@@ -636,20 +606,12 @@ $(document).ready(function(){
 	$quantity =$row['miniorder'];
 	 $myString = $row['image'];
 	$cl = explode(',', $myString);
-
-
-
 			  $sqll="SELECT * FROM users  INNER JOIN seller ON(users.email = seller.email) Where users.user_id='$userId'";
-
 				$stmtt=mysqli_query($connection,$sqll);
 				if($stmtt == false) {
 				trigger_error('Wrong SQL: ' . $sqll . ' Error: ' . $connection->error, E_USER_ERROR);
 				}
 				  $rows=mysqli_fetch_array($stmtt);
-
-
-
-
 	?>
 
                               <div class="col-md-2"><a href="Shopsingle.php?pid=<?php echo $pid ?>" class="thumbnail" id="carousel2-selector-0"><img src="images/<?php echo $cl[0];?>" alt="Image" style="width:150px;height:150px;"></a>
@@ -678,16 +640,13 @@ $(document).ready(function(){
                      <div class="item" style="padding-right:70px; padding-left:70px;">
                             <div class="row">
 												 <?php
-
 			
 			 $sql="SELECT * FROM products  INNER JOIN categories ON(products.catid = categories.catid) WHERE productType='Normal Product'  AND productstatus=1 AND productaction = 1 LIMIT 5,10";
 			$stmt=mysqli_query($connection,$sql);
-
 				if($stmt == false) {
 				trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
 				}
 				  $nr=mysqli_num_rows($stmt);
-
 				?>
 					<?php while($row=$stmt->fetch_assoc())
     {
@@ -698,19 +657,12 @@ $userId=$row['user_id'];
 	$quantity =$row['miniorder'];
 	 $myString = $row['image'];
 	$cl = explode(',', $myString);
-
-
 			  $sqll="SELECT * FROM users  INNER JOIN seller ON(users.email = seller.email) Where users.user_id='$userId'  ";
-
 				$stmtt=mysqli_query($connection,$sqll);
 				if($stmtt == false) {
 				trigger_error('Wrong SQL: ' . $sqll . ' Error: ' . $connection->error, E_USER_ERROR);
 				}
 				  $rows=mysqli_fetch_array($stmtt);
-
-
-
-
 	?>
 
                               <div class="col-md-2"><a href="Shopsingle.php?pid=<?php echo $pid ?>" class="thumbnail" id="carousel2-selector-0"><img src="images/<?php echo $cl[0];?>" alt="Image" style="width:150px;height:150px;"></a>
@@ -750,15 +702,12 @@ $userId=$row['user_id'];
   if(isset($_POST['vanswer'])){
 $quesno=$_POST['ques'];
 $email=$_POST['email'];
-
 $mysqlqry="INSERT INTO visitors(quesNo,email) VALUES('$quesno','$email')";
 $queryResult=mysqli_query($connection,$mysqlqry);
 if($queryResult){
 	$smsg = '<div class="alert alert-success alert-dismissible col-md-3" id="suc">Successfuly Sent !</div>';
     echo $smsg;
-
 }
-
 }
 ?>
 
@@ -776,9 +725,7 @@ if($queryResult){
 							$sql="Select * from `aboutus` Where elementname='QuestionHeading'";
 						$result=mysqli_query($connection,$sql);
 							$row=mysqli_fetch_array($result);
-
 							 	$title=$row['title'];
-
 								?>
 
   <h2><?php echo $title; ?></h2>
@@ -788,9 +735,7 @@ if($queryResult){
 							$sql1="Select * from `aboutus` Where elementname='Question1'";
 						$result1=mysqli_query($connection,$sql1);
 							$row1=mysqli_fetch_array($result1);
-
 							 	$title1=$row1['title'];
-
 								?>
       <label><input type="radio" value="NO1" name="ques" data-toggle="modal" data-target="#myModal"><?php echo $title1; ?></label>
     </div>
@@ -798,7 +743,6 @@ if($queryResult){
 						   $result2=mysqli_query($connection,$sql2);
 							$row2=mysqli_fetch_array($result2);
 							 $title2=$row2['title'];
-
 								?>    <div class="radio">
       <label><input type="radio" value="NO2" name="ques" data-toggle="modal" data-target="#myModal"><?php echo $title2; ?></label>
     </div>
@@ -806,7 +750,6 @@ if($queryResult){
 						   $result3=mysqli_query($connection,$sql3);
 							$row3=mysqli_fetch_array($result3);
 							 $title3=$row3['title'];
-
 								?>
     <div class="radio ">
       <label><input type="radio" value="NO3" name="ques" data-toggle="modal" data-target="#myModal"><?php echo $title3; ?></label>
@@ -815,7 +758,6 @@ if($queryResult){
 						   $result4=mysqli_query($connection,$sql4);
 							$row4=mysqli_fetch_array($result4);
 							 $title4=$row4['title'];
-
 								?>
 	<div class="radio">
       <label><input type="radio" value="NO4" name="ques" data-toggle="modal" data-target="#myModal"><?php echo $title4; ?></label>
@@ -880,9 +822,7 @@ if($queryResult){
 							$imagesql="Select * from `aboutus` Where elementname='QuestionBackgroundPicture'";
 						$imageresult=mysqli_query($connection,$imagesql);
 							$imagerow=mysqli_fetch_array($imageresult);
-
 							 	$image=$imagerow['picture'];
-
 								?>
 								</br>
 

@@ -23,7 +23,7 @@ include('middlebar.php');
                 <hr class="spacer-5"> <hr class="spacer-20 no-border">
             		<?php
 include('Connect.php');
- $sql="SELECT * FROM aboutus  Where elementName ='policyelement1'  ";
+ $sql="SELECT * FROM aboutus  Where elementName ='policyelement1spanish'  ";
  
 $stmt=mysqli_query($connection,$sql);
 if($stmt == false) {
@@ -40,7 +40,7 @@ $row=mysqli_fetch_array($stmt);
                         <hr class="spacer-30">
                 		<?php
 include('Connect.php');
- $sql="SELECT * FROM aboutus  Where elementName ='policyelement2'  ";
+ $sql="SELECT * FROM aboutus  Where elementName ='policyelement2spanish'  ";
  
 $stmt=mysqli_query($connection,$sql);
 if($stmt == false) {
@@ -55,7 +55,7 @@ $row=mysqli_fetch_array($stmt);
                         <hr class="spacer-15 no-border">
                   		<?php
 include('Connect.php');
- $sql="SELECT * FROM aboutus  Where elementName ='policyelement3'  ";
+ $sql="SELECT * FROM aboutus  Where elementName ='policyelement3spanish'  ";
  
 $stmt=mysqli_query($connection,$sql);
 if($stmt == false) {
@@ -77,7 +77,7 @@ $row=mysqli_fetch_array($stmt);
                         <hr class="spacer-30">
                    		<?php
 include('Connect.php');
- $sql="SELECT * FROM aboutus  Where elementName ='policyelement4'  ";
+ $sql="SELECT * FROM aboutus  Where elementName ='policyelement4spanish'  ";
  
 $stmt=mysqli_query($connection,$sql);
 if($stmt == false) {
@@ -98,7 +98,7 @@ $row=mysqli_fetch_array($stmt);
                         <hr class="spacer-30">
                    		<?php
 include('Connect.php');
- $sql="SELECT * FROM aboutus  Where elementName ='policyelement5'  ";
+ $sql="SELECT * FROM aboutus  Where elementName ='policyelement5spanish'  ";
  
 $stmt=mysqli_query($connection,$sql);
 if($stmt == false) {

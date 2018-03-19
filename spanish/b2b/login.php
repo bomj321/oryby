@@ -23,7 +23,9 @@ if($nr > 0){
       $userid= $row['user_id'];
       $_SESSION['user_id']= $userid;
       $_SESSION['firstName'] = $name;
-
+//PAIS
+      $country = $row['countryName'];
+      $_SESSION['countryName'] = $country;
       if($userstatus=='0')
    {
    ?>

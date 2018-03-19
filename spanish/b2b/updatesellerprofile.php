@@ -558,7 +558,7 @@ if($stmt === false)
 											<div class="col-sm-6 col-sm-offset-3">
 											</br>
 											</br>
-			<center><button type="submit" name="btn_save_updates" class="btn btn-default" style="border-style:solid;border-width:1px;border-color:gray;color:#066;background:#ccc"><i class="fa fa-refresh" >
+			<center  style ="display: inline-block; text-align: center;"><button type="submit" name="btn_save_updates" class="btn btn-default" style="border-style:solid;border-width:1px;border-color:gray;color:#066;background:#ccc"><i class="fa fa-refresh" >
        &nbsp; Update Profile</i>
         </button>
            

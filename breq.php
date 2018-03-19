@@ -36,13 +36,14 @@ i
 			    <div class="row">
                     <div class="col-sm-12">
                         <div class="row">
-                            <div class="col-sm-12 text-left">
+                            <div class="col-sm-6 text-left">
                                 <ul class="list list-inline">
                                     <li><a href="javascript:void(0);" data-toggle="collapse" data-target=".sidebarFilter"><i class="fa fa-align-left mr-5"></i> Filter</a></li>
                                 </ul>
                             </div><!-- end col -->
+                            
                         </div><!-- end row -->
-
+                        
                         <hr class="spacer-5"><hr class="spacer-20 no-border">
 
                         <div class="sidebarFilter collapse">

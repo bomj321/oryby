@@ -301,16 +301,16 @@ else if(trim($str1) ==trim($str3))
 					<div class="form-group col-sm-6"><label> Country<span class="text-danger">*</span> </label></div>               
 				</div>
 
-				<div class="form-group" style="margin-top:20px;"><label> Weight: <span class="text-danger">*</span>  </label></div>
-				<div class="form-group" style="margin-top:20px;"><label> Volume: <span class="text-danger">*</span></label></div> 
-				<div class="form-group" style="margin-top:35px;"><label> Dimensions: <span class="text-danger">*</span></label></div> 
-				<div class="form-group" style="margin-top:30px;"><label> Capacity: <span class="text-danger">*</span></label></div> 
-				<div class="form-group" style="margin-top:20px;"><label> Energy Power:<span class="text-danger">*</span> </label></div> 				 
-				<div class="form-group" style="margin-top:40px;"><label> Rotation Speed:<span class="text-danger">*</span> </label></div> 
+				<div class="form-group" style="margin-top:20px;"><label> Weight: <span class="text-danger">*</span></label></div>
+				<div class="form-group" style="margin-top:20px;"><label> Volume:</label></div> 
+				<div class="form-group" style="margin-top:35px;"><label> Dimensions:</label></div> 
+				<div class="form-group" style="margin-top:30px;"><label> Capacity:</label></div> 
+				<div class="form-group" style="margin-top:20px;"><label> Energy Power:</label></div> 				 
+				<div class="form-group" style="margin-top:40px;"><label> Rotation Speed:</label></div> 
 				<div class="form-group" style="margin-top:20px;"><label> Elaboration Material: <span class="text-danger">*</span></label></div> 
 				<div class="form-group" style="margin-top:20px;"><label> Use: <span class="text-danger">*</span></label></div> 
 				<div class="form-group" style="margin-top:20px;"><label> Size: </label></div> 
-				<div class="form-group" style="margin-top:20px;"><label> Packing </label></div>
+				<div class="form-group" style="margin-top:20px;"><label> Packing <span class="text-danger">*</span>  </label></div>
                 <div class="form-group" style="margin-top:20px;"><label> Product type: </label></div> 				
 				<div class="form-group" style="margin-top:20px;"><label> Product Certification: </label></div> 
 				<div class="form-group" style="margin-top:20px;"><label> Product Image: </label></div> 
@@ -601,7 +601,7 @@ else if(trim($str1) ==trim($str3))
 						 </div>
 				<div class="row">
 				        <div class="form-group col-sm-8" style="padding-right:0px;">
-						<input required type="text" class="form-control " placeholder="Volume" name="vquantity" id="quantity"> 
+						<input type="text" class="form-control " placeholder="Volume" name="vquantity" id="quantity"> 
 						</div>
 						<div class="form-group col-sm-4" style="padding-left:0px;">
 						<select class="form-control " id="unit" name="dropvolum">
@@ -617,8 +617,8 @@ else if(trim($str1) ==trim($str3))
 				         </div>
 						 </div>
 						 <div class="row">
-						 <div class="form-group col-sm-8" style="padding-right:0px;">
-						 <input required type="text" class="form-control " placeholder="Dimensions" name="dquantity" id="quantity"> 
+						 <div class="form-group col-sm-8" style="padding-right:0px;  margin-top: 10px;">
+						 <input type="text" class="form-control " placeholder="Dimensions" name="dquantity" id="quantity"> 
 						 </div>
 				<div class="form-group col-sm-4" style="padding-left:0px;">
 						 <select class="form-control " id="unit" name="dropdimension">
@@ -633,7 +633,7 @@ else if(trim($str1) ==trim($str3))
 				</div>
 				<div class="row">
 				<div class="form-group col-sm-8" style="padding-right:0px;">
-						<input required type="text" class="form-control " placeholder="Enter Capacity" name="cquantity" id="quantity"> 
+						<input  type="text" class="form-control " placeholder="Enter Capacity" name="cquantity" id="quantity"> 
 						 </div>
 						 <div class="form-group col-sm-4" style="padding-left:0px;">
 						 <select class="form-control" id="unit" name="dropcapacity">
@@ -650,7 +650,7 @@ else if(trim($str1) ==trim($str3))
 				</div>
 				<div class="row">
 				<div class="form-group col-sm-8" style="padding-right:0px;">
-				<input required type="text" class="form-control " placeholder="Enter Power" name="equantity" id="quantity">
+				<input  type="text" class="form-control " placeholder="Enter Power" name="equantity" id="quantity">
 				</div>
 				<div class="form-group col-sm-4" style="padding-left:0px;">
 						<!--<input type="text" class="form-control" placeholder="Enter Quantity" name="quantity" id="quantity"> -->
@@ -664,8 +664,8 @@ else if(trim($str1) ==trim($str3))
                          </select>
 				</div>
 				</div>
-				<div style="margin-top: 36px;" class="form-group">
-						<input required type="text" class="form-control input-sm" placeholder="Rotation" speed" name="rotation" id="rot">
+				<div style="margin-top: 26px;" class="form-group">
+						<input  type="text" class="form-control input-sm" placeholder="Rotation" speed" name="rotation" id="rot">
 				</div>
 				<div class="form-group">
 						<input required type="text" class="form-control input-sm" placeholder="Elaboration Material" name="elobration" id="elobration">

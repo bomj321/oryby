@@ -23,7 +23,7 @@ include('head.php');
 		
 		<?php 
 	
-		$qry1="SELECT * FROM aboutus WHERE elementname='startsellingelement1'"; 
+		$qry1="SELECT * FROM aboutus WHERE elementname='startsellingelement1spanish'"; 
        $res1=mysqli_query($connection,$qry1);
 	   //echo $va=mysqli_num_rows($res1);
 	   $rw=mysqli_fetch_array($res1);
@@ -55,7 +55,7 @@ include('head.php');
                         </figure>
                     </div><!-- end col -->
 			<?php
-			$qry2="SELECT * FROM aboutus WHERE elementname='startsellingelement2'"; 
+			$qry2="SELECT * FROM aboutus WHERE elementname='startsellingelement2spanish'"; 
        $res2=mysqli_query($connection,$qry2);
 	   //echo $va=mysqli_num_rows($res1);
 	   $rw2=mysqli_fetch_array($res2);
@@ -76,7 +76,7 @@ include('head.php');
                         </figure>
                     </div><!-- end col -->
 						<?php
-			$qry3="SELECT * FROM aboutus WHERE elementname='startsellingelement3'"; 
+			$qry3="SELECT * FROM aboutus WHERE elementname='startsellingelement3spanish'"; 
        $res3=mysqli_query($connection,$qry3);
 	   //echo $va=mysqli_num_rows($res1);
 	   $rw3=mysqli_fetch_array($res3);

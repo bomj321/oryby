@@ -140,7 +140,7 @@ include('header.php');
 									<!-- end widget edit box -->
 		<?php
 include('Connect.php');
- $sql="SELECT * FROM aboutus Where elementname ='policyelement1' OR elementname='policyelement2' OR elementname='policyelement3'  OR elementname='policyelement4'  OR elementname='policyelement5'";
+ $sql="SELECT * FROM aboutus Where elementname ='policyelement1' OR elementname='policyelement2' OR elementname='policyelement3'  OR elementname='policyelement4'  OR elementname='policyelement5' OR elementname ='policyelement1spanish' OR elementname='policyelement2spanish' OR elementname='policyelement3spanish'  OR elementname='policyelement4spanish'  OR elementname='policyelement5spanish'";
  
 $stmt=mysqli_query($connection,$sql);
 if($stmt == false) {

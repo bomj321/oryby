@@ -24,11 +24,13 @@ if (isset($userStatus)) {
               
             </head>
             <body>
-            <div style='margin-left:300px;'>
-            <img style='width:300px; height:200px;' src='http://www.orybu.com/freelancer/img/oryLogo.png'>
+            <div style='margin-left:400px;'>
+            <img style='width:200px; height:100px;' src='http://www.orybu.com/freelancer/img/oryLogo.png'>
             </div>
-              <p>
-                <a href='http://www.orybu.com/freelancer/emailconfirm.php?email=$email&code=$confirmcode&userStatus=1'> Click Here</a>	
+             <p>Thank you for registering, please confirm your email by <a href='http://www.orybu.com/freelancer/emailconfirm.php?email=$email&code=$confirmcode&userStatus=1'> clicking here</a>. 
+              </p>
+
+              <p>Gracias por registrarte, porfavor confirma tu email haciendo <a href='http://www.orybu.com/freelancer/emailconfirm.php?email=$email&code=$confirmcode&userStatus=1'>click aqui</a>.  
               </p>
             </body>
         </html>		
@@ -53,14 +55,14 @@ if (isset($userStatus)) {
               
             </head>
             <body>
-             <div style='margin-left:300px;'>
-            <img style='width:300px; height:200px;' src='http://www.orybu.com/freelancer/img/oryLogo.png'>
+             <div style='margin-left:400px;'>
+            <img style='width:200px; height:100px;' src='http://www.orybu.com/freelancer/img/oryLogo.png'>
             </div>
-              <p>
-                Confirm Your Email
-		        <a href='http://www.orybu.com/freelancer/emailconfirm.php?email=$email&code=$confirmcode'>  Click Here</a>
+             <p>
+                Thank you for registering, please confirm your email by<a href='http://www.orybu.com/freelancer/emailconfirm.php?email=$email&code=$confirmcode'>clicking here</a>.
+              </p>
 
-	
+              <p>Gracias por registrarte, porfavor confirma tu email haciendo <a href='http://www.orybu.com/freelancer/emailconfirm.php?email=$email&code=$confirmcode&userStatus=1'> click aqui</a>.
               </p>
             </body>
         </html>			

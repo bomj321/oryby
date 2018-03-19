@@ -19,6 +19,8 @@ $id_user=$datos['user_id'];//id del usuario logueado
 <?php include('topbar.php');
 include('middlebar.php');
 include('navh.php');
+$de = mysqli_real_escape_string($connection, $_SESSION['user_id']);
+
 ?>
 	  	
 <!-- start section -->
@@ -94,21 +96,60 @@ include('navh.php');
                             <tr>
                                 <th>Usuario</th>
                                 <th>Titulo</th>
-                                <th>Día</th>
+                                <th>Fecha</th>
                                 <th>Eliminar</th>
                             </tr>
                             </thead>
                             <tbody>
+ <!------------------ CONSULTA A LA BASE DE DATOS-------------------------------->
+
                                 <?php 
-                                $querygetrequest="SELECT * FROM `chatapp`";
-                                $resultrequests=mysqli_query($connection,$querygetrequest);
-                                while($rowreq=mysqli_fetch_array($resultrequests)){
+
+                                //SELECION DE CADA CHAT Y FORMATO DE FECHA
+function formatearFecha($fecha){
+  return date('d M h:i a', strtotime($fecha));
+}
+
+//SELECION DE CADA CHAT Y FORMATO DE FECHA
+                                $aside1 = "SELECT * FROM c_chats INNER JOIN products ON (c_chats.pid = products.pid) WHERE (de ='$de'   AND vchata='1') OR (para ='$de' AND vchatb='1') ";
+$asideres1 = $connection->query($aside1);
+
+while ($row=mysqli_fetch_array($asideres1)) {
+//SELECION DE CADA CHAT
+if ($row['de']==$de) {
+  $var = $row['para'];
+}elseif($row['para']==$de){
+$var = $row['de'];
+}
+$id_cch = $row["id_cch"];
+$firstimage = $row['image'];
+$valor = explode(',',$firstimage); 
+
+  $usere = "SELECT * FROM users WHERE user_id ='$var'";
+ $usere12 = $connection->query($usere);
+  $fila12=$usere12->fetch_assoc();
+
+  $chat12= "SELECT * FROM chats WHERE id_cch='$id_cch' ORDER BY fecha DESC";
+  $res12 =$connection->query($chat12);
+  $fila32 =$res12->fetch_assoc();
+
+
+//CONSULTA PARA EL VENDEDOR
+  $aside3 = "SELECT * FROM c_chats INNER JOIN products ON (c_chats.pid = products.pid) WHERE de ='$de' OR para ='$de'";
+$asideres3 = $connection->query($aside3);
+$fila =$asideres3->fetch_assoc();
+  $consulta2 = "SELECT * FROM users WHERE user_id ='$var'";
+  $ejecutar2 = $connection->query($consulta2);
+  $fila2 = $ejecutar2->fetch_array();
                                 ?>
+
+ <!------------------ CONSULTA A LA BASE DE DATOS-------------------------------->
+
                                 <tr>
-                                    <td><a href="#"><?php echo $rowreq['sender'];?></a></td>
-                                    <td><a href="#"><?php echo $rowreq['msg'];?></a></td>
-                                    <td><a href="#"><?php echo $rowreq['date'];?></a></td>
-                                    <td><a class="eliminar" id="<?php echo $rowreq['id'];?>"><i class="fa fa-trash"></i></a></td>                               
+                                    <td><a href="chat2.php?sellerid=<?php echo $var;?>&pid=<?php echo $row['pid'];?>&id_cch=<?php echo $row['id_cch']?>"><?php echo $fila2['firstName'];?></a></td>
+                                    <td><a href="chat2.php?sellerid=<?php echo $var;?>&pid=<?php echo $row['pid'];?>&id_cch=<?php echo $row['id_cch']?>"><?php echo $row['ntitle'];?></a></td>
+                                    <td><a href="chat2.php?sellerid=<?php echo $var;?>&pid=<?php echo $row['pid'];?>&id_cch=<?php echo $row['id_cch']?>"><?php echo formatearFecha($fila32['fecha']); ?></a></td>
+                                    <td> <a  href="borrarchat.php?id_cch=<?php echo $row['id_cch']?>"><i class="fa fa-trash-o fa-lw"></i></a></td>                               
                                 </tr>
                                 <?php 
                                 } 
