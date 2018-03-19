@@ -5,8 +5,7 @@ include 'Connect.php';
 include('head.php');
 $email= $_SESSION['confemail'];
 $confirmcode=$_SESSION['code'];
-echo "$email";
-echo "HOLA MUNDO";
+
   ?>
 
     <body>
@@ -40,13 +39,15 @@ echo "HOLA MUNDO";
 
 
 
-						<div class="col-sm-8 col-sm-offset-2">
+						<div style="display: inline-block; text-align: center;" class="col-sm-8 col-sm-offset-2">
 							<a href="sendconfirmation2.php?userStatus=1" >
-								<input type="submit" class="btn btn-default round btn-md" value="SKIP">
+								<input type="submit" class="btn btn-default round btn-lg" value="SKIP">
 							</br>
 						</div>
 
 					</a>
+					        <div style="clear:both"></div>
+
 						<hr>
 					</br>
 					</br>
@@ -385,19 +386,14 @@ echo "HOLA MUNDO";
 									<div class="form-group">
 										<div class="row">
 										</br>
-										<div class="col-sm-8 col-sm-offset-2">
+										<div style="display: inline-block; text-align: center;" class="col-sm-8 col-sm-offset-2">
 											</br>
 											</br>
-												<input type="submit" name="register-submit" class="form-control btn btn-default round btn-md" value="SAVE">
+												<input type="submit" name="register-submit" class=" btn btn-default round btn-lg" value="SAVE">
 											</div>
 										</div>
 									</div>
-										<div class="row">
-										<div class="col-sm-8 col-sm-offset-2">
-										<a href="sendconfirmation2.php?userStatus=1" >
-										<input type="submit" class="btn btn-default round btn-md" value="SKIP">
-											</div>
-										</div>
+										
 
 
 							</div>

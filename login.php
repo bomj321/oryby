@@ -20,9 +20,13 @@ if($nr > 0){
 			$name=$row['firstName'];
 			$_SESSION['fname']=$name;
 		$checkpassword=$row['email'];
-      $userid= $row['user_id'];
+      $userid= $row['user_id'];     
       $_SESSION['user_id']= $userid;
       $_SESSION['firstName'] = $name;
+      //PAIS
+      $country = $row['countryName'];
+      $_SESSION['countryName'] = $country;
+
 
       if($userstatus=='0')
    {
