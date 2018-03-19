@@ -68,7 +68,9 @@ $de = mysqli_real_escape_string($connection, $_SESSION['user_id']);
                     $logorow=mysqli_fetch_array($logoresult);  ?>
                     <div style="float: right; background-color: #f7f7f7;border: 2px;padding-left: 51px;padding-right: 50px;padding-bottom: 30px; margin-right:7rem;">
                         <h5>My Profile</h5>
-                        <img src="images/<?php echo $logorow['companylogo'];?>" style="height:100px; width:100px;margin-left:35px; " alt="Logo not set">
+                        <div style="margin-left: 20px;">
+                        <img src="images/<?php echo $logorow['companylogo'];?>" style="height:100px; width:100px;" alt="Logo not set">
+                        </div>
                         <hr>
                     <?php 
                     $percentage=50;
