@@ -3,16 +3,30 @@ session_start();
 include('Connect.php');
 if(isset($_POST['btn_save_updates']))
 	{
-	 $item=$_POST['item'];
 
-	while (list ($key1,$val1) = @each ($item)) {
-			unset($_SESSION['cart'][$val1]);
-		}
-
-
+	
 	  $pid=$_GET['pid'];
+	  $price=$_GET['price'];
 	 $qty=$_POST['qty'];
 
+//UPDATE 1
+ $sql3 = "UPDATE cart2 SET quantity='$qty' WHERE pid = '$pid'";
+        if(!mysqli_query($connection, $sql3)){
+    echo "ERROR: Could not able to execute $sql3. " . mysqli_error($connection);
+        
+}
+
+//UPDATE 1
+$total_price = $price * $qty;
+
+//UPDATE 2
+ $sql3 = "UPDATE cart2 SET totalprice='$total_price' WHERE pid = '$pid'";
+        if(!mysqli_query($connection, $sql3)){
+    echo "ERROR: Could not able to execute $sql3. " . mysqli_error($connection);
+        
+}
+
+//UPDATE 2
 
  $query="SELECT * from products where pid=$pid";
 $res=mysqli_query($connection,$query);
@@ -29,24 +43,11 @@ $cl = explode(',', $myString);
  $_SESSION['price']=$row['price'];
  $_SESSION['fulldesc']=$row['fulldescription'];
 
-$cart = array (
-    'pid'  =>$_SESSION['pid'],
-    'p_image' => $_SESSION['image'],
-    'p_title' => $_SESSION['ntitle'],
-	'p_fulldesc' => $_SESSION['fulldesc'],
-	'p_price' => $_SESSION['price'],
-	'p_qty' => $_SESSION['qty']
-);
- $item=$_POST['item'];
-	while (list ($key1,$val1) = @each ($item)) {
-
-
-$_SESSION['cart'][$val]=$cart;
 ?>
 <script>
 window.location.href="cart.php";  </script>
 <?php
-}
+
 
 }
 

@@ -1,3 +1,9 @@
+  <?php session_start();
+require 'Connect.php';
+include('head.php');
+$email=$_SESSION['uemail'];
+
+?> 
    <div class="middleBar">
             <div class="container">
                 <div class="row display-table">
@@ -44,18 +50,41 @@
                             </div><!-- end row -->
                         </form>
                       </div><!-- end col -->
+
+
+
+        <!-------------------CARRITO ORDENES-------------------------------->
+<?php 
+$sql="SELECT * FROM cart2 WHERE email='$email'";
+
+$stmt=mysqli_query($connection,$sql);
+if($stmt == false) {
+trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
+}
+$nr=mysqli_num_rows($stmt);
+
+
+
+ ?>
+<!-----------------------CARRITO ORDENES-------------------------->
+
+                    
+
                        <div class="col-sm-2 vertical-align header-items hidden-xs" style="margin-top:10px; ">
                         <div class="header-item mr-5">
-                            <a href="cart.php" data-toggle="tooltip" data-placement="top" title="Carro"  onmouseover="this.style.backgroundColor='#5cb85c'" onmouseout="this.style.backgroundColor='' ">
+                            <a href="cart.php" data-toggle="tooltip" data-placement="top" title="carts"  onmouseover="this.style.backgroundColor='#5cb85c'" onmouseout="this.style.backgroundColor='' ">
                                 <i class="fa fa-shopping-cart" ></i>
-                             	<sub>	<?php 
-									 echo "".sizeof($_SESSION['cart'])." ";
-                     	 ?>
+                                <?php if($nr >0) { ?>
+                             	<sub>	<?php echo $nr ?>
 						 
 								</sub>
+                <?php } ?>
                             </a>
 							
                         </div>
+
+
+
 						 <div  class="header-item mr-5">  <a href="#" data-toggle="tooltip" data-placement="top" title="Notificaciones"  onmouseover="this.style.backgroundColor='#5cb85c'" onmouseout="this.style.backgroundColor='' ">
 							 <i class="fa fa-bell-o"></i>    </a>  
 				    </div>

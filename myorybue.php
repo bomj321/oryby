@@ -18,7 +18,6 @@ $id_user=$datos['user_id'];//id del usuario logueado
 include('middlebar.php');
 include('navh.php');
 $de = mysqli_real_escape_string($connection, $_SESSION['user_id']);
-
 ?>
 	  	
 <!-- start section -->
@@ -44,13 +43,13 @@ $de = mysqli_real_escape_string($connection, $_SESSION['user_id']);
                             </thead>
                             <tbody>
                             <?php 
-                            $querygetrequest="SELECT * FROM `orders` where orderstatus='Pending'";
+                            $querygetrequest="SELECT * FROM cart2 where (orderstatus='Pending' OR orderstatus='Incomplete' )";
                             $resultrequests=mysqli_query($connection,$querygetrequest);
                             while($rowreq=mysqli_fetch_array($resultrequests)){
                             ?>
                             <tr>
-                                <td><a href="#"><?php echo $rowreq['order_id'];?></a></td>
-                                <td><a href="#">$<?php echo $rowreq['tota_price'];?></a></td>
+                                <td><a href="#"><?php echo $rowreq['id'];?></a></td>
+                                <td><a href="#">$<?php echo $rowreq['totalprice'];?></a></td>
                                 <td><a href="#"><?php echo $rowreq['orderstatus'];?></a></td>
                             </tr>
                             <?php

@@ -1,6 +1,7 @@
 <?php session_start();
 require 'Connect.php';
 include('head.php');
+$email=$_SESSION['uemail'];
 
 ?>
 
@@ -57,54 +58,47 @@ include('head.php');
 
 
 <?php
- $item=$_POST['item'];
-while (list ($key1,$val1) = @each ($item)) {
+ 
+$aside1 = "SELECT * FROM cart2 WHERE email = '$email' ";
+$asideres1 = $connection->query($aside1);
 
-unset($_SESSION['cart'][$val1]);
-}
-
-
-
-		    $id =0;
-if($_SESSION['cart'] !=""){
+while ($rowcart=mysqli_fetch_array($asideres1)) {
 
 
-		  foreach ($_SESSION['cart'] as $item => $val) {
-		  echo "<form method=post action='cart.php'>";
 
 
-					?>
-			<?php  $item['p_id']; ?>
+
+		   ?>
 
 
                                             <tr>
 											<td>
 
-										   <input type="hidden" name="item[]" value="<?php echo $item ?>">
+										   
 
-
-
-
+<form action="deletecart.php?pid=<?php echo $rowcart['pid'];?>" method="post">
   <input type="submit" value="Delete"></i></form>	</td>
                                                 <td>
                                                     <a href="#">
-                                                        <img width="60px" src="images/<?php echo $val['p_image'];?>" alt="product">
+                                                        <img width="60px" src="images/<?php echo $rowcart['image'];?>" alt="product">
                                                     </a>
                                                 </td>
                                                 <td>
 
                                                     <h6 class="regular"><?php echo $val['p_title'];?></h6>
-                                                    <p><?php echo $val['p_fulldesc'];?></p>
+                                                    <p><?php echo $rowcart['description'];?></p>
                                                 </td>
                                                 <td>
-                                                    <span>$<?php echo $val['p_price'];?></span>
+                                                    <span>$<?php echo $rowcart['price'];?></span>
                                                 </td>
 
                                                 <td>
-          <form action="cart1.php?pid=<?php echo $val['pid'];?>" method="post" >
+
+          <form action="cart1.php?pid=<?php echo $rowcart['pid'];?>&price=<?php echo $rowcart['price'];?>" method="post" >
 		   <input type="hidden" name="item[]" value="<?php echo $item ?>"><br>
 			<select class="form-control" name="qty">
-			<option><?php echo $val['p_qty'];?></option>
+                            <option><?php echo $rowcart['quantity'];?></option>
+
                                                         <option>1</option>
                                                         <option>2</option>
                                                         <option>3</option>
@@ -119,7 +113,7 @@ if($_SESSION['cart'] !=""){
                                                     </select>
                                                 </td>
                                                 <td>
-												<?php $total_price =$val['p_qty'] *$val['p_price']; ?>
+												<?php $total_price =$rowcart['quantity'] *$rowcart['price']; ?>
                                                     <span class="text-primary">$<?php echo $total_price;?></span>
                                                 </td>
                                                 <td>
@@ -139,8 +133,8 @@ if($_SESSION['cart'] !=""){
                                             </tr>
 <?php
 
-  $id++;
-  }
+ 
+  
   }
 ?>
 
