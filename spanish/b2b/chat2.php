@@ -26,7 +26,20 @@ ini_set('error_reporting',0);
     $para = mysqli_real_escape_string($connection,$_GET['sellerid']);
     $de = mysqli_real_escape_string($connection, $_SESSION['user_id']);
 
+if(isset($_GET['leido'])) {
+  $pid = mysqli_real_escape_string($connection, $_GET['pid']);
+  $leido = mysqli_real_escape_string($connection, $_GET['leido']);
+  $para = mysqli_real_escape_string($connection,$_GET['sellerid']);
+  $de = mysqli_real_escape_string($connection, $_SESSION['user_id']);
+  $tchats = "SELECT * FROM chats WHERE de = '$para' OR para = '$para'";
+  $ejecutartchats = $connection->query($tchats);
+  $tc = mysqli_fetch_array($tchats);
+  if($tc['de'] != $de) {
+  $update = "UPDATE chats SET leido = '1' WHERE (de = '$para' OR para = '$para') AND pid ='$pid'";
+    $connection->query($update);
 
+  }
+}
 
 
  ?>

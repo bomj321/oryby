@@ -111,7 +111,7 @@ function formatearFecha($fecha){
 }
 
 //SELECION DE CADA CHAT Y FORMATO DE FECHA
-                                $aside1 = "SELECT * FROM c_chats INNER JOIN products ON (c_chats.pid = products.pid) WHERE (de ='$de'   AND vchata='1') OR (para ='$de' AND vchatb='1') ";
+$aside1 = "SELECT * FROM c_chats INNER JOIN products ON (c_chats.pid = products.pid) WHERE (de ='$de'   AND vchata='1') OR (para ='$de' AND vchatb='1') ORDER BY id_cch DESC";
 $asideres1 = $connection->query($aside1);
 
 while ($row=mysqli_fetch_array($asideres1)) {
@@ -133,6 +133,16 @@ $valor = explode(',',$firstimage);
   $res12 =$connection->query($chat12);
   $fila32 =$res12->fetch_assoc();
 
+  //CONSULTA PARA SABER SI HAN LEIDO EL MENSAJE
+
+$chat = "SELECT * FROM chats WHERE id_cch = '$id_cch' AND leido ='0' ORDER BY id_cha DESC LIMIT 1";
+$reschat =$connection->query($chat);
+    $cha = mysqli_fetch_array($chat);
+    $nr=mysqli_num_rows($reschat);
+
+
+//CONSULTA PARA SABER SI HAN LEIDO EL MENSAJE
+
 
 //CONSULTA PARA EL VENDEDOR
   $aside3 = "SELECT * FROM c_chats INNER JOIN products ON (c_chats.pid = products.pid) WHERE de ='$de' OR para ='$de'";
@@ -146,9 +156,16 @@ $fila =$asideres3->fetch_assoc();
  <!------------------ CONSULTA A LA BASE DE DATOS-------------------------------->
 
                                 <tr>
-                                    <td><a href="chat2.php?sellerid=<?php echo $var;?>&pid=<?php echo $row['pid'];?>&id_cch=<?php echo $row['id_cch']?>"><?php echo $fila2['firstName'];?></a></td>
-                                    <td><a href="chat2.php?sellerid=<?php echo $var;?>&pid=<?php echo $row['pid'];?>&id_cch=<?php echo $row['id_cch']?>"><?php echo $row['ntitle'];?></a></td>
-                                    <td><a href="chat2.php?sellerid=<?php echo $var;?>&pid=<?php echo $row['pid'];?>&id_cch=<?php echo $row['id_cch']?>"><?php echo formatearFecha($fila32['fecha']); ?></a></td>
+                                    <td><a href="chat2.php?sellerid=<?php echo $var;?>&pid=<?php echo $row['pid'];?>&id_cch=<?php echo $row['id_cch']?>&leido=1">
+                                        <?php if($nr > 0) { ?>
+                                                              <i style="color: green;" class="fa fa-chevron-right fa-2x"></i>
+                                                            <?php } else {?>
+                                                              <i style="color: black;" class="fa fa-chevron-right fa-2x"></i>
+                                        <?php } ?>
+
+                                        <?php echo $fila2['firstName'];?></a></td>
+                                    <td><a href="chat2.php?sellerid=<?php echo $var;?>&pid=<?php echo $row['pid'];?>&id_cch=<?php echo $row['id_cch']?>&leido=1"><?php echo $row['ntitle'];?></a></td>
+                                    <td><a href="chat2.php?sellerid=<?php echo $var;?>&pid=<?php echo $row['pid'];?>&id_cch=<?php echo $row['id_cch']?>&leido=1"><?php echo formatearFecha($fila32['fecha']); ?></a></td>
                                     <td> <a  href="borrarchat.php?id_cch=<?php echo $row['id_cch']?>"><i class="fa fa-trash-o fa-lw"></i></a></td>                               
                                 </tr>
                                 <?php 
