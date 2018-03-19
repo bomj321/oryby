@@ -78,8 +78,33 @@ include('head.php');
                 </tr>
               </tbody>
             </table>
-      </div>
+      </div>      
     </div><!-- end row -->
+    <div class="row">
+    <div class="col-sm-4 col-md-4">
+                    <div class="widget"> 
+                        <ul class="items">
+                            <li> 
+                            <h4 class="pull-left">Prices</h4>                                
+                            </li>
+                            <li> 
+                                10 Top List = 20 USD
+                            </li>
+                            <li> 
+                                5 Show Case = 20 USD
+                            </li>
+                            <li> 
+                                20 Top List - 10 Show Case = 60 USD
+                            </li>
+                            <li> 
+                                50 Top List – 25 Show Case = 100 USD
+                            </li>
+                        </ul>
+                        <br>
+                        <a href="#" class="btn btn-default btn-block semi-circle btn-md" style="margin-top:5px;">Buy</a>
+                    </div><!-- end widget -->                           
+    </div>
+    </div>
   </div><!-- end container -->
 </section>
 

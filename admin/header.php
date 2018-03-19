@@ -439,6 +439,7 @@
 						<ul>
 							<li><a href="manageChileImage.php">Manage Made in Chile</a></li>
 							<li><a href="manageProductImage.php">Manage Images</a></li>
+							<li><a href="manageSlider.php">Manage Sliders</a></li>
 
 						</ul>
 					</li>
@@ -464,15 +465,7 @@
 						</ul>
 					</li>
 
-					<li>
-						<a href="#"><i class="fa fa-lg fa-fw fa-table"></i> <span class="menu-item-parent">SLIDERS</span></a>
-						<ul>
-							<li>
-								<a href="manageSlider.php">Manage Sliders</a>
-						</li>
 
-						</ul>
-					</li>
 
 
 <li>

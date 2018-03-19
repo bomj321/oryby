@@ -505,15 +505,14 @@ $(document).ready(function(){
   { $error= $e->getMessage();}
 ?>
 
-
-    <div class="col-sm-8">
+    <div class="col-sm-8" style="margin-top: 3rem;">
         <div class="title-wrap">
-            <div class="row column-3">
+            <div class="row column-3" >
                 <hr>
                 <h2 class="title"><span class="text-primary">HECHO</span> EN <span class="text-primary">CHILE</span></h2>
                 <?php while ($categorias = $resultado->fetch_all(MYSQLI_ASSOC) ) { ?>
                 <?php foreach($categorias as $cate): ?>
-                <div class="col-sm-4 col-md-4 col-xs-4">
+                <div class="col-sm-4 col-md-4 col-xs-4" style="margin-top: 3rem;">
                     <div class="thumbnail store style1" style="height: 15rem; width:20rem">
                         <div class="header">
                         <a href="chileAll.php?id=<?php echo $cate['hreflink']; ?>">
