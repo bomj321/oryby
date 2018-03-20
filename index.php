@@ -74,7 +74,19 @@ $(document).ready(function(){
 
                               </ul>
                         </div><!-- end navbar-vertical -->
+
                     </div><!-- end col -->
+                    <?php
+    function translate($text,$from,$to){
+          $frase = urlencode($text);
+          $obtener = file_get_contents('https://translate.google.co.ve/?hl=es-419&tab=wT&authuser=0#'.$from.'/'.$to.'/'.$text);
+          $obtener = explode('"',$obtener,3);
+          return $obtener[1];
+      }
+    ?>
+    <div>
+    	<p><?php echo translate('Texto a Traducir','es','en'); ?></p>
+    </div>
                     <div class="col-sm-8 col-md-9">
                     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                             <!-- Indicators -->
