@@ -498,9 +498,8 @@ $(document).ready(function(){
                 <?php endforeach;?>
                 <?php }?>
             </div><!-- end row -->
+        <hr >       
         </div>       	
-        	<hr >
-       
     </div><!-- end col -->
 </div><!-- end row -->
 
