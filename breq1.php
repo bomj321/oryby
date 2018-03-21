@@ -34,8 +34,8 @@ include('head.php');
                                     <li><a href="javascript:void(0);" data-toggle="collapse" data-target=".sidebarFilter"><i class="fa fa-align-left mr-5"></i> Filter</a></li>
                                 </ul>
                             </div><!-- end col -->
-                            <div class="col-sm-6 text-left">
-                                <a  href="breq.php"><button class="btn btn-success btn-lg ">Refresh Page</button></a>
+                            <div class="col-sm-6 text-centered">
+                                <a  href="breq.php"><button class="btn btn-success btn-sm">Show All</button></a>
                             </div><!-- end col -->
                         </div><!-- end row -->
 

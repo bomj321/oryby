@@ -28,8 +28,8 @@ include('head.php');
                                 </ul>
                             </div><!-- end col -->
 
-                            <div class="col-sm-6 text-left">
-                                <a  href="breq.php"><button class="btn btn-success btn-lg ">Refresh Page</button></a>
+                            <div class="col-sm-6 text-centered">
+                                <a  href="breq.php"><button class="btn btn-success btn-sm">Mostrar Todos</button></a>
                             </div><!-- end col -->
                         </div><!-- end row -->
 
