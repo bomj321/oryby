@@ -28,7 +28,10 @@ $row=mysqli_fetch_assoc($stmt);
 			    $elementname = $row['elementname'];// item name
 			    $image = $row['picture'];// item name
 		      $hreflink = $row['hreflink'];// item name
-
+		      $titlemission = $row['titlemission'];// item name
+		    $descriptionmission = $row['descriptionmission'];// item name
+		    $subtitlemission = $row['subtitlemission'];// item name
+		    $subtitles = $row['subtitles'];// item name
 
 
 if(isset($_POST['btn_save_updates']))
@@ -41,6 +44,10 @@ if(isset($_POST['btn_save_updates']))
 			 $elementname = $_POST['elementname'];// item name
 
 		    $hreflink = $_POST['hreflink'];// item name
+			$titlemission = $_POST['titlemission'];// item name
+		    $descriptionmission = $_POST['descriptionmission'];// item name
+		    $subtitlemission = $_POST['subtitlemission'];// item name
+		    $subtitles = $_POST['subtitles'];// item name
 
 
 			$target_dir = "../images/";
@@ -62,7 +69,7 @@ if(isset($_POST['btn_save_updates']))
      $filelocation = $target_dir.$image;
        $temp = $_FILES['file1']['tmp_name'];
         move_uploaded_file($temp, $filelocation);
-       $sql="UPDATE aboutus  SET  title='".$title."',hreflink='".$hreflink."',picture='".$image."', description='".$description."'  WHERE (id='$id')";
+       $sql="UPDATE aboutus  SET  title='".$title."',hreflink='".$hreflink."',picture='".$image."', description='".$description."',titlemission='".$titlemission."',descriptionmission='".$descriptionmission."',subtitlemission='".$subtitlemission."',subtitles='".$subtitles."'   WHERE (id='$id')";
         mysqli_query($connection,$sql);
           $stmt = $connection->prepare($sql);
             if($stmt === false) {
@@ -90,7 +97,12 @@ if(isset($_POST['btn_save_updates']))
        $description = $_POST['description'];// item name
         $elementname = $_POST['elementname'];// item name
        $hreflink = $_POST['hreflink'];// item name
-       $sql="UPDATE aboutus  SET  title='".$title."',hreflink='".$hreflink."', description='".$description."'  WHERE (id='$id')";
+       $titlemission = $_POST['titlemission'];// item name
+	   $descriptionmission = $_POST['descriptionmission'];// item name
+	   $subtitlemission = $_POST['subtitlemission'];// item name
+	   $subtitles = $_POST['subtitles'];// item name
+
+       $sql="UPDATE aboutus  SET  title='".$title."',hreflink='".$hreflink."', description='".$description."',titlemission='".$titlemission."',descriptionmission='".$descriptionmission."',subtitlemission='".$subtitlemission."',subtitles='".$subtitles."' WHERE (id='$id')";
         mysqli_query($connection,$sql);
          $stmt = $connection->prepare($sql);
             if($stmt === false) {
@@ -237,13 +249,7 @@ if(isset($_POST['btn_save_updates']))
 														<input type="text" class="form-control" name="description" value="<?php echo $description ?>" />
 													</div>
 												</fieldset>
-												<fieldset>
-
-													<div class="form-group">
-														<label>Link</label>
-														<input type="text" class="form-control" name="hreflink" value="<?php echo $hreflink ?>" />
-													</div>
-												</fieldset>
+												
 												<fieldset>
 
 													<div class="form-group">
@@ -252,7 +258,42 @@ if(isset($_POST['btn_save_updates']))
 														<input type="file" class="form-control" name="file1"  />
 													</div>
 												</fieldset>
+												<fieldset>
 
+													<div class="form-group">
+														<label>Link</label>
+														<input type="text" class="form-control" name="hreflink" value="<?php echo $hreflink ?>" />
+													</div>
+												</fieldset>
+
+												<fieldset>
+													<div class="form-group">
+														<label>Title Our Mission</label>
+														<input type="text" class="form-control" name="titlemission" value="<?php echo $titlemission?>" />
+													</div>
+												</fieldset>
+												<fieldset>
+
+													<div class="form-group">
+														<label>Our Mission</label>
+														<input type="text" class="form-control" name="descriptionmission" value="<?php echo $descriptionmission?>" />
+													</div>
+												</fieldset>
+												<fieldset>
+
+													<div class="form-group">
+														<label>Subtitle</label>
+														<input type="text" class="form-control" name="subtitlemission" value="<?php echo $subtitlemission?>" />
+													</div>
+												</fieldset>
+												<fieldset>
+
+													<div class="form-group">
+														<label>Subtitles-Separated by comma-Max 7</label>
+														<input type="text" class="form-control" name="subtitles" value="<?php echo $subtitles?>"  />
+													</div>
+												</fieldset>
+												
 
 												<div class="form-actions">
 													<div class="row">

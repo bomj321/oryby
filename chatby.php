@@ -17,7 +17,20 @@ ini_set('error_reporting',0);
 
 
 ?>
+<!--------------------------------------------CHAT DE BUYER REQUEST-->
+<!--HOJA DE ESTILO-->
+<link rel="stylesheet" type="text/css" href="css/estilos.css">
+ <!--HOJA DE ESTILO-->
 
+ 
+
+  <body >
+<div class="container chateo" id="body">
+  <div class="row">
+
+    <!---ASIDE DEL CHAT-->
+<div class="col-md-4" id="aside" style="height: 628.383px">
+      <h6 style="text-align: center">MY CHATS (Buyers Requests)</h6>
 
 
 <?php 
@@ -43,19 +56,7 @@ if(isset($_GET['leido'])) {
 
 
  ?>
- <!--HOJA DE ESTILO-->
-<link rel="stylesheet" type="text/css" href="css/estilos.css">
- <!--HOJA DE ESTILO-->
-
  
-
-  <body >
-<div class="container chateo" id="body">
-  <div class="row">
-
-    <!---ASIDE DEL CHAT-->
-<div class="col-md-4" id="aside" style="height: 628.383px">
-      <h6 style="text-align: center">MY CHATS (Buyers Requests)</h6>
 
 <!--PROGRAMACION DEL ASIDE DEL CHAT-->
 <?php 
@@ -425,5 +426,7 @@ if (!empty($pid) AND !empty($para) ) {
 
 <!--SCRIPT PARA EL SCROLL-->
 </body>
+<!--------------------------------------------CHAT DE BUYER REQUEST-->
+
 <?php require'footer.php'; ?>
 </html>

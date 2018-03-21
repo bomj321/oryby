@@ -70,7 +70,7 @@ include('header.php');
   <div class="row">
 
     <!---ASIDE DEL CHAT-->
-<div class="col-md-4 col-md-offset-1" id="aside">
+<div class="col-md-4 col-md-offset-2" id="aside">
       <h6 style="text-align: center">USERS CHATS</h6>
 
 <!--PROGRAMACION DEL ASIDE DEL CHAT-->
@@ -116,7 +116,7 @@ $fila =$asideres3->fetch_assoc();
     
     
 
-      <a href="chat2.php?sellerid=<?php echo $var;?>&pid=<?php echo $row['pid'];?>&id_cch=<?php echo $row['id_cch']?>">
+      <a href="chatadmin2.php?sellerid=<?php echo $row['para'];?>&pid=<?php echo $row['pid'];?>&id_cch=<?php echo $row['id_cch']?>">
       <div class="chats asidechats">
 
         <div style="margin-bottom: -1rem;"><!--DIV DE ARRIBA-->
@@ -181,7 +181,7 @@ $fila =$asideres3->fetch_assoc();
 <?php 
     $para = mysqli_real_escape_string($connection,$_GET['sellerid']);
     $pid = mysqli_real_escape_string($connection, $_GET['pid']);
-    $de = mysqli_real_escape_string($connection, $_GET['user_id']);    
+    $de = mysqli_real_escape_string($connection, $_SESSION['user_id']);    
 if (!empty($pid) AND !empty($para) ) {
     
   ///consultamos a la base
@@ -190,7 +190,7 @@ if (!empty($pid) AND !empty($para) ) {
   
 
  ?>
-  <div  class="col-md-6 col-md-offset-1" id="contenedor">
+  <div  class="col-md-5 col-md-offset-1" id="contenedor">
     <div id="caja-chat">
 
       <?php 

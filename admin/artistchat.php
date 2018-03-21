@@ -71,7 +71,7 @@ include('header.php');
   <div class="row">
 
     <!---ASIDE DEL CHAT-->
-<div class="col-md-4 col-md-offset-1" id="aside" style="height: 800px;">
+<div class="col-md-4 col-md-offset-2" id="aside" style="height: 800px;">
       <h6 style="text-align: center">MY CHATS</h6>
 
 <!--PROGRAMACION DEL ASIDE DEL CHAT-->

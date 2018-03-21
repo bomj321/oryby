@@ -365,7 +365,6 @@ include('head.php');
                             </div><!-- end col -->
                         </div><!-- end row -->
                         </div>
-                        <hr class="spacer-5"><hr class="spacer-20 no-border">
 
 
 

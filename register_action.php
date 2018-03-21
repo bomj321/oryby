@@ -96,10 +96,29 @@ include 'Connect.php';
 			{
 				$q ="INSERT INTO seller(email,limitTopList,limitShowCase) VALUES ('$email','7','5')";
 				$qryresult=mysqli_query($connection,$q);
+				if (!$qryresult) {
+					echo "
+
+					<script>
+						alert('NO INSERTO NADA');
+					</script>
+					";
+				}
 				header('Location:sendconfirmation2.php');
 			}
 			if($userType == 'supplier' OR $userType =='both')
 			{
+
+				$q2 ="INSERT INTO seller(email,limitTopList,limitShowCase) VALUES ('$email','7','5')";
+				$qryresult2=mysqli_query($connection,$q2);
+				if (!$qryresult2) {
+					echo "
+
+					<script>
+						alert('NO INSERTO NADA');
+					</script>
+					";
+				}
 			?>
 			<script>
 			alert("Add Company Information!");

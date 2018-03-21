@@ -13,7 +13,7 @@ $userType=$_SESSION["userType"];
 if($userType !='Admin')
 {
 					$email =$_SESSION["email"];
-					  $sqll="SELECT * FROM `users` WHERE email ='$email' ";
+					  $sqll="SELECT * FROM `users` WHERE email ='$email' AND (userType = 'both' OR userType='supplier') ";
 
 					$stmtt=mysqli_query($connection,$sqll);
 					if($stmtt == false) {

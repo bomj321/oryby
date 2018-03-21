@@ -76,18 +76,8 @@ $(document).ready(function(){
                         </div><!-- end navbar-vertical -->
 
                     </div><!-- end col -->
-                    <?php
-    function translate($text,$from,$to){
-          $frase = urlencode($text);
-          $obtener = file_get_contents('https://translate.google.co.ve/?hl=es-419&tab=wT&authuser=0#'.$from.'/'.$to.'/'.$text);
-          $obtener = explode('"',$obtener,3);
-          return $obtener[1];
-      }
-    ?>
-    <div>
-    	<p><?php echo translate('Texto a Traducir','es','en'); ?></p>
-    </div>
-                    <div class="col-sm-8 col-md-9">
+                   
+                        <div class="col-sm-8 col-md-9">
                     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                             <!-- Indicators -->
                             <ol class="carousel-indicators">
@@ -468,7 +458,7 @@ $(document).ready(function(){
 <!-- MADE IN CHILE -->  
 <?php
    try {
-        include('connect.php');
+        include('Connect.php');
         $sql3="SELECT * FROM aboutus WHERE elementname='chile1' OR elementname='chile2' OR elementname='chile3' or elementname='chile4' OR elementname='chile5' OR elementname='chile6'";
         $resultado = mysqli_query($connection,$sql3);
         }

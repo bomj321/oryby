@@ -24,8 +24,8 @@ if (isset($userStatus)) {
               
             </head>
             <body>
-            <div style='margin-left:300px;'>
-            <img style='width:300px; height:200px;' src='http://www.orybu.com/freelancer/img/oryLogo.png'>
+            <div style='margin-left:500px;'>
+            <img style='width:100px; height:100px;' src='http://www.orybu.com/freelancer/img/oryLogo.png'>
             </div>
               <p>Thank you for registering, please confirm your email by <a href='http://www.orybu.com/freelancer/emailconfirm.php?email=$email&code=$confirmcode&userStatus=1'> clicking here</a>. 
               </p>
@@ -47,6 +47,8 @@ if (isset($userStatus)) {
 
 
 }else{
+
+   
   $message =
     "
 
@@ -56,14 +58,14 @@ if (isset($userStatus)) {
               
             </head>
             <body>
-             <div style='margin-left:300px;'>
-            <img style='width:300px; height:200px;' src='http://www.orybu.com/freelancer/img/oryLogo.png'>
+             <div style='margin-left:500px;'>
+            <img style='width:100px; height:100px;' src='http://www.orybu.com/freelancer/img/oryLogo.png'>
             </div>
               <p>
                 Thank you for registering, please confirm your email by<a href='http://www.orybu.com/freelancer/emailconfirm.php?email=$email&code=$confirmcode'>clicking here</a>.
               </p>
 
-              <p>Gracias por registrarte, porfavor confirma tu email haciendo <a href='http://www.orybu.com/freelancer/emailconfirm.php?email=$email&code=$confirmcode&userStatus=1'> click aqui</a>.
+              <p>Gracias por registrarte, porfavor confirma tu email haciendo <a href='http://www.orybu.com/freelancer/emailconfirm.php?email=$email&code=$confirmcode'> click aqui</a>.
               </p>
             </body>
         </html>     

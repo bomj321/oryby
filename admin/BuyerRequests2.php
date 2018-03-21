@@ -70,7 +70,7 @@ include('header.php');
   <div class="row">
 
     <!---ASIDE DEL CHAT-->
-<div class="col-md-4 col-md-offset-1" id="aside">
+<div class="col-md-4 col-md-offset-2" id="aside">
       <h6 style="text-align: center">MY CHATS</h6>
 
 <!--PROGRAMACION DEL ASIDE DEL CHAT-->
@@ -155,12 +155,12 @@ $fila =$asideres3->fetch_assoc();
 if (!empty($pid) AND !empty($para) ) {
     
   ///consultamos a la base
-  $consulta = "SELECT * FROM chatsby  WHERE de = '$de' AND para ='$para'  AND pid ='$pid'  OR  de= '$para' AND para = '$de'  AND pid ='$pid'  ORDER BY id_cha ASC";
+  $consulta = "SELECT * FROM chatsby  WHERE de = '$de' AND para ='$para'  AND pid ='$pid'  OR  de= '$para' AND para = '$de'  AND pid ='$pid'  ORDER BY id_cha DESC";
   $ejecutar = $connection->query($consulta); 
   
 
  ?>
-  <div  class="col-md-6 col-md-offset-1" id="contenedor">
+  <div  class="col-md-5 col-md-offset-1" id="contenedor">
     <div id="caja-chat">
 
       <?php 

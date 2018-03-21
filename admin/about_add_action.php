@@ -16,8 +16,13 @@ if(isset($_POST['save']))
 	   /////////////////////////////
 		    $title = $_POST['title'];// item name
 		    $description = $_POST['description'];// item name
-			 $elementname = $_POST['elementname'];// item name
+			$elementname = $_POST['elementname'];// item name
 		    $hreflink = $_POST['hreflink'];// item name
+		    $titlemission = $_POST['titlemission'];// item name
+		    $descriptionmission = $_POST['descriptionmission'];// item name
+		    $subtitlemission = $_POST['subtitlemission'];// item name
+		    $subtitles = $_POST['subtitles'];// item name
+
 			$target_dir = "../images/";
 	
 		 		$target_file = $target_dir . basename($_FILES["file1"]["name"]);
@@ -27,7 +32,7 @@ if(isset($_POST['save']))
 		 move_uploaded_file($temp, $filelocation);
 
 		 
-		 $query="INSERT INTO aboutus(elementname,title,picture,hreflink,description) VALUES ('$elementname','$title','$image','$hreflink','$description')";
+		 $query="INSERT INTO aboutus(elementname,title,picture,hreflink,description,titlemission,descriptionmission,subtitlemission,subtitles) VALUES ('$elementname','$title','$image','$hreflink','$description','$titlemission','$descriptionmission','$subtitlemission','$subtitles')";
 			
 		$result = $connection->prepare($query);
 			if($result === false) {

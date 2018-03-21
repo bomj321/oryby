@@ -29,17 +29,17 @@ include('head.php');
 			    <div class="row">
                     <div class="col-sm-12">
                         <div class="row">
-                            <div class="col-sm-6 text-left">
+                            <div class="col-sm-5 text-left">
                                 <ul class="list list-inline">
                                     <li><a href="javascript:void(0);" data-toggle="collapse" data-target=".sidebarFilter"><i class="fa fa-align-left mr-5"></i> Filter</a></li>
                                 </ul>
                             </div><!-- end col -->
-                            <div class="col-sm-6 text-left">
-                                <a  href="breq.php"><button class="btn btn-success btn-lg ">Refresh Page</button></a>
+                            <div class="col-sm-3 text-left">
+                                <a  href="breq.php"><button class="btn btn-success btn-lg ">Show All</button></a>
                             </div><!-- end col -->
                         </div><!-- end row -->
-
-                        <hr class="spacer-5"><hr class="spacer-20 no-border">
+        <div style="clear:both"></div>
+                        <hr class="spacer-5">
 
                         <div class="sidebarFilter collapse">
                              <div class="row">
@@ -351,7 +351,6 @@ include('head.php');
                                                 </form>
                             </div><!-- end row -->
 
-                            <hr class="spacer-30">
 
                         </div><!-- end sidebarFilter -->
 
@@ -370,7 +369,6 @@ include('head.php');
                             </div><!-- end col -->
                         </div><!-- end row -->
                         </div>
-                        <hr class="spacer-5"><hr class="spacer-20 no-border">
 
 
 

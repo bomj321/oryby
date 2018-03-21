@@ -122,6 +122,16 @@ include('Connect.php');
 														<input type="text" class="form-control" name="description" placeholder="Enter Desc" />
 													</div>
 												</fieldset>
+												
+
+													<fieldset>
+
+													<div class="form-group">
+														<label>Picture</label>
+														<input type="file" class="form-control" name="file1"  />
+													</div>
+												</fieldset>
+
 												<fieldset>
 
 													<div class="form-group">
@@ -129,13 +139,35 @@ include('Connect.php');
 														<input type="text" class="form-control" name="hreflink" placeholder="Enter Link" />
 													</div>
 												</fieldset>
+													<fieldset>
+													<div class="form-group">
+														<label>Title Our Mission</label>
+														<input type="text" class="form-control" name="titlemission" placeholder="Enter Desc" />
+													</div>
+												</fieldset>
 												<fieldset>
 
 													<div class="form-group">
-														<label>Picture</label>
-														<input type="file" class="form-control" name="file1"  />
+														<label>Our Mission</label>
+														<input type="text" class="form-control" name="descriptionmission" placeholder="Enter Desc" />
 													</div>
 												</fieldset>
+												<fieldset>
+
+													<div class="form-group">
+														<label>Subtitle</label>
+														<input type="text" class="form-control" name="subtitlemission" placeholder="Enter Desc" />
+													</div>
+												</fieldset>
+												<fieldset>
+
+													<div class="form-group">
+														<label>Subtitles-Separated by comma-Max 7</label>
+														<input type="text" class="form-control" name="subtitles" placeholder="Enter Desc" />
+													</div>
+												</fieldset>
+												
+												
 
 
 												<div class="form-actions">

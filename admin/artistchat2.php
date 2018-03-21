@@ -73,7 +73,7 @@ include('header.php');
   <div class="row">
 
     <!---ASIDE DEL CHAT-->
-<div class="col-md-4 col-md-offset-1" id="aside" style="height: 800px;">
+<div class="col-md-4 col-md-offset-2" id="aside" style="height: 800px;">
       <h6 style="text-align: center">MY CHATS</h6>
 
 <!--PROGRAMACION DEL ASIDE DEL CHAT-->
@@ -157,17 +157,15 @@ $id_cch = $row["id_cch"];
     $de = mysqli_real_escape_string($connection, $_SESSION['user_id']);
 if (!empty($para) ) {
     
-  ///consultamos a la base
-  $consulta = "SELECT * FROM chats  WHERE de = '$de' AND para ='$para'    OR  de= '$para' AND para = '$de'    ORDER BY id_cha ASC";
-  $ejecutar = $connection->query($consulta); 
+  
 
   ///consultamos a la base
-  $consulta = "SELECT * FROM chats  WHERE de = '$de' AND para ='$para' OR  de= '$para' AND para = '$de' ORDER BY id_cha ASC";
+  $consulta = "SELECT * FROM chats  WHERE de = '$de' AND para ='$para' OR  de= '$para' AND para = '$de' ORDER BY id_cha DESC";
   $ejecutar = $connection->query($consulta); 
   
 
  ?>
-  <div  class="col-md-6 col-md-offset-1" id="contenedor" >
+  <div  class="col-md-5 col-md-offset-1" id="contenedor" >
     <div id="caja-chat">
       <?php 
 while($fila = $ejecutar->fetch_array()) : 

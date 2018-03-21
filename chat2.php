@@ -17,8 +17,21 @@ ini_set('error_reporting',0);
 
 
 ?>
+<!--------------------------------------------CHAT NORMAL-->
 
+<!--HOJA DE ESTILO-->
+<link rel="stylesheet" type="text/css" href="css/estilos.css">
+ <!--HOJA DE ESTILO-->
 
+ 
+
+  <body >
+<div class="container chateo" id="body">
+  <div class="row">
+
+    <!---ASIDE DEL CHAT-->
+<div class="col-md-4" id="aside" style="height: 628.383px">
+      <h6 style="text-align: center">MY CHATS</h6>
 
 <?php 
   
@@ -42,19 +55,7 @@ if(isset($_GET['leido'])) {
 
 
  ?>
- <!--HOJA DE ESTILO-->
-<link rel="stylesheet" type="text/css" href="css/estilos.css">
- <!--HOJA DE ESTILO-->
-
  
-
-  <body >
-<div class="container chateo" id="body">
-  <div class="row">
-
-    <!---ASIDE DEL CHAT-->
-<div class="col-md-4" id="aside" style="height: 628.383px">
-      <h6 style="text-align: center">MY CHATS</h6>
 
 <!--PROGRAMACION DEL ASIDE DEL CHAT-->
 <?php 
@@ -422,5 +423,7 @@ if (!empty($pid) AND !empty($para) ) {
 
 <!--SCRIPT PARA EL SCROLL-->
 </body>
+<!--------------------------------------------CHAT NORMAL-->
+
 <?php require'footer.php'; ?>
 </html>

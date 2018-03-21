@@ -70,7 +70,7 @@ include('header.php');
   <div class="row">
 
     <!---ASIDE DEL CHAT-->
-<div class="col-md-4 col-md-offset-1" id="aside">
+<div class="col-md-4 col-md-offset-2" id="aside">
       <h6 style="text-align: center">USERS CHATS</h6>
 
 <!--PROGRAMACION DEL ASIDE DEL CHAT-->
@@ -116,7 +116,7 @@ $fila =$asideres3->fetch_assoc();
     
     
 
-     <a href="chat2.php?sellerid=<?php echo $var;?>&pid=<?php echo $row['pid'];?>&id_cch=<?php echo $row['id_cch']?>">
+     <a href="chatadmin2.php?sellerid=<?php echo $row['para'];?>&pid=<?php echo $row['pid'];?>&id_cch=<?php echo $row['id_cch']?>">
       <div class="chats asidechats">
 
         <div style="margin-bottom: -1rem;"><!--DIV DE ARRIBA-->
