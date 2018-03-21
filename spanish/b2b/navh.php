@@ -49,7 +49,7 @@ error_reporting(0);
 
                             </ul><!-- end ul dropdown-menu -->
                         </li><!-- end li dropdown -->
-					 <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Proveedor<i class="fa fa-angle-down ml-5"></i></a>
+					 <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Vendedor<i class="fa fa-angle-down ml-5"></i></a>
                             <ul role="menu" class="dropdown-menu">
                                 <li><a href="startSelling.php">¿Cómo empezar a vender?</a></li>
                                 <li><a href="learnIncreaseSale.php">¿Cómo aumentar las ventas?</a></li>
@@ -59,7 +59,7 @@ error_reporting(0);
                             </ul><!-- end ul dropdown-menu -->
                         </li><!-- end li dropdown -->
 
-							<li class="dropdown left"><a href="membership.php">Afiliación</a> </li>
+							<li class="dropdown left"><a href="membership.php">Membresías</a></li>
 								<li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Ayuda<i class="fa fa-angle-down ml-5"></i></a>
                             <ul role="menu" class="dropdown-menu">
                                 <li><a href="faq.php">Preguntas frecuentes</a></li>
