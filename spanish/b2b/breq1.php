@@ -28,14 +28,11 @@ include('head.php');
                                 </ul>
                             </div><!-- end col -->
 
-<<<<<<< HEAD
+
                             <div class="col-sm-3 text-left">
-                                <a  href="breq.php"><button class="btn btn-success btn-lg ">Mostrar Todo</button></a>
-=======
-                            <div class="col-sm-6 text-centered">
-                                <a  href="breq.php"><button class="btn btn-success btn-sm">Mostrar Todos</button></a>
->>>>>>> b757a7187473f20560b65399e08735cb45b89ae8
-                            </div><!-- end col -->
+                                <a  href="breq.php"><button class="btn btn-success btn-md ">Mostrar Todo</button></a>
+
+                            
                         </div><!-- end row -->
         <div style="clear:both"></div>
 
