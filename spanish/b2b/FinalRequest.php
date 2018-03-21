@@ -47,8 +47,7 @@ include('head.php');
 	?>
 <div class="container">
 <div class="row">
-<div   class="col-sm-3">  </div>
-<div   class="col-sm-6" style="margin-top:50px;background-color:#D1F2EB;">
+<div class="col-sm-8 col-sm-offset-2" style="margin-top:1rem;background-color:#D1F2EB;">
 <div style="background-color:#D1F2EB;width:100%;padding:8px" >
 <h2 class="title">Fill below Fields</h2>  <br>
    <form method="POST" enctype="multipart/form-data">
