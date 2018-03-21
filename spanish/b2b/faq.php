@@ -18,17 +18,15 @@ include('middlebar.php');
                     <div class="col-sm-12">
                         <h2>Preguntas frecuentes</h2>
                         </div><!-- end col -->
-                </div><!-- end row -->
-                
-                <hr class="spacer-20 no-border">
-                
+                </div><!-- end row -->                
+                <hr class="spacer-20 no-border">                
               <div class="row">
                     <div class="col-sm-9">
                         <div class="panel-group accordion style1" id="question" role="tablist" aria-multiselectable="true">
                             <div class="panel panel-default">
 									<?php
 include('Connect.php');
- $sql="SELECT * FROM faq  Where elementName ='faqquestion1'  ";
+ $sql="SELECT * FROM faq  Where elementName ='SpanishQ1'";
  
 $stmt=mysqli_query($connection,$sql);
 if($stmt == false) {
@@ -36,6 +34,7 @@ trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERR
 }
 $nr=mysqli_num_rows($stmt);
 $row=mysqli_fetch_array($stmt);
+
 ?>
                                 <div class="panel-heading" role="tab" id="questionOne">
                                     <h4 class="panel-title">
@@ -51,7 +50,7 @@ $row=mysqli_fetch_array($stmt);
                                 </div><!-- end collapse -->
                             </div><!-- end panel -->
 <?php
-$sql="SELECT * FROM faq  Where elementName ='faqquestion2'  ";
+$sql="SELECT * FROM faq  Where elementName ='SpanishQ2'  ";
  
 $stmt=mysqli_query($connection,$sql);
 if($stmt == false) {
@@ -75,7 +74,7 @@ $row=mysqli_fetch_array($stmt);
                                 </div><!-- end collapse -->
                             </div><!-- end panel -->
 <?php
-$sql="SELECT * FROM faq  Where elementName ='faqquestion3'  ";
+$sql="SELECT * FROM faq  Where elementName ='SpanishQ3'  ";
  
 $stmt=mysqli_query($connection,$sql);
 if($stmt == false) {
@@ -99,7 +98,7 @@ $row=mysqli_fetch_array($stmt);
                                 </div><!-- end collapse -->
                             </div><!-- end panel -->
        <?php
-$sql="SELECT * FROM faq  Where elementName ='faqquestion4'  ";
+$sql="SELECT * FROM faq  Where elementName ='SpanishQ4'  ";
  
 $stmt=mysqli_query($connection,$sql);
 if($stmt == false) {
@@ -123,7 +122,7 @@ $row=mysqli_fetch_array($stmt);
                                 </div><!-- end collapse -->
                             </div><!-- end panel -->
          <?php
-$sql="SELECT * FROM faq  Where elementName ='faqquestion5'  ";
+$sql="SELECT * FROM faq  Where elementName ='SpanishQ5'  ";
  
 $stmt=mysqli_query($connection,$sql);
 if($stmt == false) {
@@ -147,7 +146,7 @@ $row=mysqli_fetch_array($stmt);
                                 </div><!-- end collapse -->
                             </div><!-- end panel -->
           <?php
-$sql="SELECT * FROM faq  Where elementName ='faqquestion6'  ";
+$sql="SELECT * FROM faq  Where elementName ='SpanishQ6'  ";
  
 $stmt=mysqli_query($connection,$sql);
 if($stmt == false) {

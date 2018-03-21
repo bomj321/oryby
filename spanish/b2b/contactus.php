@@ -50,7 +50,7 @@ if($result){
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="title-wrap">
-                            <h2 class="title lines">Contact Us</h2>
+                            <h2 class="title lines">Contactenos</h2>
                         </div>
                     </div><!-- end col -->
                 </div><!-- end row -->
@@ -62,8 +62,8 @@ if($result){
                                 <i class="fa fa-commenting-o text-warning"></i>
                             </div><!-- end icon -->
                             <div class="box-content">
-                                <h6 class="thin">Need Help?</h6>
-                                <h5 class="text-warning">Use our chat!</h5>
+                                <h6 class="thin">Necesita Ayuda?</h6>
+                                <h5 class="text-warning">Usa nuestro Chat!</h5>
                             </div>
                         </div><!-- icon-box -->
                     </div><!-- end col -->
@@ -73,8 +73,8 @@ if($result){
                                 <i class="fa fa-phone text-info"></i>
                             </div><!-- end icon -->
                             <div class="box-content">
-                                <h6 class="thin">Quick question?</h6>
-                                <h5 class="text-info">Call - + 56 9 57087442 !</h5>
+                                <h6 class="thin">Preguntas?</h6>
+                                <h5 class="text-info">Llama + 56 9 57087442 !</h5>
                             </div>
                         </div><!-- icon-box -->
                     </div><!-- end col -->
@@ -84,7 +84,7 @@ if($result){
                                 <i class="fa fa-envelope-o text-success"></i>
                             </div><!-- end icon -->
                             <div class="box-content">
-                                <h6 class="thin">or send us e-mail</h6>
+                                <h6 class="thin">o envianos un correo eléctronico</h6>
                                 <h5 class="text-success">info@orybu.com</h5>
                             </div>
                         </div><!-- icon-box -->
@@ -97,19 +97,19 @@ if($result){
                     <div class="col-sm-10 col-sm-offset-1">
                         <form method="POST">
                             <div class="form-group">
-                                <label for="name">Name</label>
-                                <input type="text" id="name" class="form-control input-lg" placeholder="Name" name="uzername">
+                                <label for="name">Nombre</label>
+                                <input type="text" id="name" class="form-control input-lg" placeholder="Nomnre" name="uzername">
                             </div>
                             <div class="form-group">
                                 <label for="email">Email Address</label>
                                 <input type="text" id="email" class="form-control input-lg" placeholder="E-mail" name="email">
                             </div>
                             <div class="form-group">
-                                <label class="control-label" for="message">Message</label>
-                                <textarea id="message" rows="6" class="form-control input-lg" placeholder="Message" name="msg"></textarea>
+                                <label class="control-label" for="message">Mensaje</label>
+                                <textarea id="message" rows="6" class="form-control input-lg" placeholder="Mensaje" name="msg"></textarea>
                             </div>
                             <div class="form-group">
-                                <input type="submit" class="btn btn-default round btn-lg" value="Submit">
+                                <input type="submit" class="btn btn-default round btn-lg" value="Enviar">
                             </div>
                         </form>
                     </div><!-- end col -->

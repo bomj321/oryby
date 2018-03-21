@@ -35,8 +35,17 @@ $userId=$row['user_id'];
                                     <a href="buyeraccount.php">My Account</a>
                                 </li>
                                 <li>
+                                    <?php 
+                                    $sql="SELECT * FROM cart2 WHERE email='$email'";
+
+                                    $stmt=mysqli_query($connection,$sql);
+                                    if($stmt == false) {
+                                    trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
+                                    }
+                                    $nr=mysqli_num_rows($stmt);
+                                    ?>
                                     <a href="cart.php">My Cart <span class="text-primary">
-                                    <?php echo "".sizeof($_SESSION['cart'])." "; ?></span></a>
+                                    <?php echo $nr; ?></span></a>
                                 </li>
                                 <li class="active">
                                     <a href="buyerorders.php">My Order</a>

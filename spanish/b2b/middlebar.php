@@ -72,7 +72,7 @@ $nr=mysqli_num_rows($stmt);
 
                        <div class="col-sm-2 vertical-align header-items hidden-xs" style="margin-top:10px; ">
                         <div class="header-item mr-5">
-                            <a href="cart.php" data-toggle="tooltip" data-placement="top" title="carts"  onmouseover="this.style.backgroundColor='#5cb85c'" onmouseout="this.style.backgroundColor='' ">
+                            <a href="cart.php" data-toggle="tooltip" data-placement="top" title="carro"  onmouseover="this.style.backgroundColor='#5cb85c'" onmouseout="this.style.backgroundColor='' ">
                                 <i class="fa fa-shopping-cart" ></i>
                                 <?php if($nr >0) { ?>
                              	<sub>	<?php echo $nr ?>

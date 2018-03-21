@@ -250,10 +250,10 @@ include('navh.php');
                                 
                                 </div><!-- end title -->
 								<div class="price">
-                                  <center><span class="amount text-primary">USD $ <?php echo $row['price']; ?></span></center>
+                                  <center><span class="amount text-primary">USD <?php echo $row['price']; ?></span></center>
                                   <center><span class="amount text-default">Min Order: <?php echo $row['miniorder']; ?></span></center>
-                                  <center><span class="amount text-default">Company Name: <?php echo $row['company_name']; ?></span></center>
-                                  <center><a href="chat2.php?sellerid=<?php echo $rows['user_id'];?>&pid=<?php echo $row['pid'];?>&name=<?php echo $row['firstName']?>"></i>Contact Supplier</a></center>
+                                  <center><span class="amount text-default">Nombre de la Compañia: <?php echo $row['company_name']; ?></span></center>
+                                  <center><a href="chat2.php?sellerid=<?php echo $rows['user_id'];?>&pid=<?php echo $row['pid'];?>&name=<?php echo $row['firstName']?>"></i>Contactar Vendedor</a></center>
 										    
                                 </div>
                             </div><!-- end cat-item-style2 -->
