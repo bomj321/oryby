@@ -23,7 +23,7 @@ $email=$_SESSION['uemail'];
 					 <form  action="search.php" method="GET">
 						
 						 <div class="row grid-space-1">
-                                <div class="col-sm-6">
+                                <div class="col-sm-5">
                   <input class="form-control  input-lg" type="text" name="keyword"   style="height:46px;"  placeholder=" Buscar">
                                 </div><!-- end col -->
 								<?php 
@@ -31,7 +31,7 @@ $email=$_SESSION['uemail'];
 							$result=mysqli_query($connection,$sql);
 							
                                ?>
-							   <div class="col-sm-3 ">
+							   <div class="col-sm-4 ">
                                     <select  class="form-control input-lg" name="category">
 									
                                         <option value="all">Todas las categorias</option>

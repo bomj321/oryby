@@ -26,7 +26,20 @@ ini_set('error_reporting',0);
     $para = mysqli_real_escape_string($connection,$_GET['sellerid']);
     $de = mysqli_real_escape_string($connection, $_SESSION['user_id']);
 
+if(isset($_GET['leido'])) {
+  $pid = mysqli_real_escape_string($connection, $_GET['pid']);
+  $leido = mysqli_real_escape_string($connection, $_GET['leido']);
+  $para = mysqli_real_escape_string($connection,$_GET['sellerid']);
+  $de = mysqli_real_escape_string($connection, $_SESSION['user_id']);
+  $tchats = "SELECT * FROM chatsby WHERE de = '$para' OR para = '$para'";
+  $ejecutartchats = $connection->query($tchats);
+  $tc = mysqli_fetch_array($tchats);
+  if($tc['de'] != $de) {
+  $update = "UPDATE chats SET leido = '1' WHERE (de = '$para' OR para = '$para') AND pid ='$pid'";
+    $connection->query($update);
 
+  }
+}
 
 
  ?>
@@ -87,8 +100,7 @@ $firstimage = $row['image'];
   $aside3 = "SELECT * FROM c_chatsby INNER JOIN buyerrequests ON (c_chatsby.pid = buyerrequests.buyreq_id) WHERE de ='$de' OR para ='$de'";
 $asideres3 = $connection->query($aside3);
 $fila =$asideres3->fetch_assoc();
-if($fila['de'] == $para) {$var2 = $de;} else {$var2 = $para;}
-  $consulta2 = "SELECT * FROM users WHERE user_id ='$var2'";
+  $consulta2 = "SELECT * FROM users WHERE user_id ='$var'";
   $ejecutar2 = $connection->query($consulta2);
   $fila2 = $ejecutar2->fetch_array();
 
@@ -103,26 +115,54 @@ if($fila['de'] == $para) {$var2 = $de;} else {$var2 = $para;}
 
       <a href="chatby.php?sellerid=<?php echo $var;?>&pid=<?php echo $row['pid'];?>&id_cch=<?php echo $row['id_cch']?>">
       <div class="chats asidechats">
-        <h6 style="text-align: center;"> LAST MESSAGE: <?php echo formatearFecha($fila32['fecha']); ?></h6>
-         <hr style="width: 90%">
-        <div class="caja1"  style="width:40%;  float:left;">
+
+        <div style="margin-bottom: -1rem;"><!--DIV DE ARRIBA-->
+
+        <div style=" width: 40%; float: left;" >
+        <h6 style="text-align: center; color: black; font-weight: bold;">  <?php echo $row['prod_name'];?></h6>
+        </div>
+
+        <div class="caja1"  style="width:15%; float: right;">
           <!--<p>NOMBRE DEL CHAT</p>-->
-          <img style="width: 50px; height: 50px;  margin-bottom: 5px;" src="ReqImages/<?php echo $firstimage;?>" alt="Product Image">
+          <img style=" margin-top:5px; width: 30px; height: 30px;  margin-bottom: 5px;" src="ReqImages/<?php echo $firstimage;?>"" alt="Product Image">
+        </div>
+        <div style="clear:both"></div>
+
+</div><!--DIV DE ARRIBA-->
+
+<hr style="width: 90%">
+<div style="margin-top: -1.5rem;"><!--DIV DE INTERMEDIO-->
+
+        <div style=" width: 35%; float: left;" >
+        <h6 style="text-align: center; color: black; font-weight: bold;">User:&nbsp;<?php echo $fila2['firstName'];?></h6>
         </div>
 
+        
+        <div style="clear:both"></div>
 
-         <div class="caja2" id="producto" style="width:60%;  float:right;">
-             <h6><?php echo $row['ntitle'];?>&nbsp;&nbsp;&nbsp; Quantity: <?php echo $row['quantity']; ?>&nbsp;&nbsp;&nbsp; </h6>
+</div><!--DIV DE INTERMEDIO-->
+
+
+
+
+        <!--DIV DE ABAJO-->
+        <div style="float:left; width: 90%;">
+          
+          <p style="text-align: center; color: black; font-weight: bold;"> Last Message: <?php echo formatearFecha($fila32['fecha']); ?></p>
         </div>
 
-        <div class="caja2" id="producto" style="width:25%;  float:right;">
-             <a  href="borrarchatby.php?id_cch=<?php echo $row['id_cch']?>">Delete Chat</a>
+        <div class="caja2" id="producto" style="width:10%;  float:right; color: black; font-weight: bold;">
+             <a  href="borrarchatby.php?id_cch=<?php echo $row['id_cch']?>"><i class="fa fa-trash-o fa-lw"></i></a>
         </div>
+
+        <!--DIV DE ABAJO-->
+
+
 
       </div>
 
       </a>
-       <hr>
+      
      
      
   

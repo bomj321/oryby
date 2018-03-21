@@ -46,7 +46,11 @@ $de = mysqli_real_escape_string($connection, $_SESSION['user_id']);
                             </thead>
                             <tbody>
                             <?php 
+<<<<<<< HEAD
                             $querygetrequest="SELECT * FROM cart2 where (orderstatus='Pending' OR orderstatus='Incomplete' and email='$email')";
+=======
+                            $querygetrequest="SELECT * FROM cart2 where (orderstatus='Pending' OR orderstatus='Incomplete' ) AND email = '$getmail'";
+>>>>>>> 421db8e17de77e2d5df0f4c77a88850460f5362f
                             $resultrequests=mysqli_query($connection,$querygetrequest);
                             while($rowreq=mysqli_fetch_array($resultrequests)){
                             ?>
@@ -176,6 +180,88 @@ $fila =$asideres3->fetch_assoc();
                             </tbody>
                         </table>
                 </div>
+                 <!------------------ Message BUYER REQUEST INICIO-------------------------------->
+
+                <div class="col-8 col-sm-8 col-xs-8">
+                    <h4 class="title text-center">Solicitudes de Compras</h4> 
+                        <table class="table table-striped table-responsive example" cellspacing="0">
+                            <thead>
+                            <tr>
+                                <th>Usuario</th>
+                                <th>Titulo</th>
+                                <th>Fecha</th>
+                                <th>Eliminar</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+ <!------------------ CONSULTA A LA BASE DE DATOS BUYER REQUEST INICIO-------------------------------->
+
+                                <?php 
+
+                                //SELECION DE CADA CHAT Y FORMATO DE FECHA
+
+
+//SELECION DE CADA CHAT Y FORMATO DE FECHA
+$aside1 = "SELECT * FROM c_chatsby INNER JOIN buyerrequests ON (c_chatsby.pid = buyerrequests.buyreq_id) WHERE (de ='$de'   AND vchata='1') OR (para ='$de' AND vchatb='1') ";
+$asideres1 = $connection->query($aside1);
+
+while ($row=mysqli_fetch_array($asideres1)) {
+//SELECION DE CADA CHAT
+if ($row['de']==$de) {
+  $var = $row['para'];
+}elseif($row['para']==$de){
+$var = $row['de'];
+}
+$id_cch = $row["id_cch"];
+
+////////////////SACAR IMAGEN
+//$asideimg = "SELECT * FROM c_chatsby INNER JOIN buyerrequests ON (c_chatsby.pid = buyerrequests.buyreq_id) WHERE (de ='$de'   AND vchata='1') OR (para ='$de' AND vchatb='1') ";
+//$asideresimg = $connection->query($asideimg);
+///////////////////SACAR IMAGEN
+$firstimage = $row['image'];
+
+  $usere = "SELECT * FROM users WHERE user_id ='$var'";
+ $usere12 = $connection->query($usere);
+  $fila12=$usere12->fetch_assoc();
+
+  $chat12= "SELECT * FROM chatsby WHERE id_cch='$id_cch' ORDER BY fecha DESC";
+  $res12 =$connection->query($chat12);
+  $fila32 =$res12->fetch_assoc();
+
+
+//CONSULTA PARA EL VENDEDOR
+  $aside3 = "SELECT * FROM c_chatsby INNER JOIN buyerrequests ON (c_chatsby.pid = buyerrequests.buyreq_id) WHERE de ='$de' OR para ='$de'";
+$asideres3 = $connection->query($aside3);
+$fila =$asideres3->fetch_assoc();
+  $consulta2 = "SELECT * FROM users WHERE user_id ='$var'";
+  $ejecutar2 = $connection->query($consulta2);
+  $fila2 = $ejecutar2->fetch_array();
+                                ?>
+
+ <!------------------ CONSULTA A LA BASE DE DATOS BUYER REQUEST FINAL-------------------------------->
+
+
+
+                                <tr>
+                                    <td><a href="chatby.php?sellerid=<?php echo $var;?>&pid=<?php echo $row['pid'];?>&id_cch=<?php echo $row['id_cch']?>&leido=1">
+                                        <?php if($nr > 0) { ?>
+                                                              <i style="color: green;" class="fa fa-chevron-right fa-2x"></i>
+                                                            <?php } else {?>
+                                                              <i style="color: black;" class="fa fa-chevron-right fa-2x"></i>
+                                        <?php } ?>
+
+                                        <?php echo $fila2['firstName'];?></a></td>
+                                    <td><a href="chatby.php?sellerid=<?php echo $var;?>&pid=<?php echo $row['pid'];?>&id_cch=<?php echo $row['id_cch']?>&leido=1"><?php echo $row['ntitle'];?></a></td>
+                                    <td><a href="chatby.php?sellerid=<?php echo $var;?>&pid=<?php echo $row['pid'];?>&id_cch=<?php echo $row['id_cch']?>&leido=1"><?php echo formatearFecha($fila32['fecha']); ?></a></td>
+                                    <td> <a  href="borrarchatby.php?id_cch=<?php echo $row['id_cch']?>"><i class="fa fa-trash-o fa-lw"></i></a></td>                               
+                                </tr>
+                                <?php 
+                                } 
+                                ?>
+                            </tbody>
+                        </table>
+                </div>
+             <!------------------ Message BUYER REQUEST FINAL-------------------------------->
                 <div class="col-md-4 col-sm-4 col-xs-4" style="float:right; margin-top:4rem">
                     <?php
                     $sql="Select * from `images` Where id='49'";
