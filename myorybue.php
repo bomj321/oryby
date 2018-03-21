@@ -229,6 +229,15 @@ $de = mysqli_real_escape_string($connection, $_SESSION['user_id']);
                             $chat12= "SELECT * FROM chatsby WHERE id_cch='$id_cch' ORDER BY fecha DESC";
                             $res12 =$connection->query($chat12);
                             $fila32 =$res12->fetch_assoc();
+                        //CONSULTA PARA SABER SI HAN LEIDO EL MENSAJE
+
+                            $chat = "SELECT * FROM chatsby WHERE id_cch = '$id_cch' AND leido ='0' ORDER BY id_cha DESC LIMIT 1";
+                            $reschat =$connection->query($chat);
+                            $cha = mysqli_fetch_array($chat);
+                            $nr=mysqli_num_rows($reschat);
+
+
+                            //CONSULTA PARA SABER SI HAN LEIDO EL MENSAJE
 
 
                             //CONSULTA PARA EL VENDEDOR

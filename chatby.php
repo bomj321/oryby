@@ -48,7 +48,7 @@ if(isset($_GET['leido'])) {
   $ejecutartchats = $connection->query($tchats);
   $tc = mysqli_fetch_array($tchats);
   if($tc['de'] != $de) {
-  $update = "UPDATE chats SET leido = '1' WHERE (de = '$para' OR para = '$para') AND pid ='$pid'";
+  $update = "UPDATE chatsby SET leido = '1' WHERE (de = '$para' OR para = '$para') AND pid ='$pid'";
     $connection->query($update);
 
   }
