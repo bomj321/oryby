@@ -92,14 +92,14 @@ $de = mysqli_real_escape_string($connection, $_SESSION['user_id']);
                 <div>
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs" role="tablist">
-                        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Message</a></li>
-                        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Buyers Requests</a></li>
+                        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Messages</a></li>
+                        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Buying Requests</a></li>
                     </ul>
                     <!-- Tab panes -->
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane active" id="home">
                             <!------------------ Message-------------------------------->
-                            <h4 class="title text-center">Message</h4> 
+                            <h4 class="title text-center">Messages</h4> 
                             <table class="table table-striped table-responsive example" cellspacing="0">
                             <thead>
                             <tr>
@@ -185,7 +185,7 @@ $de = mysqli_real_escape_string($connection, $_SESSION['user_id']);
     
                         </div>
                         <div role="tabpanel" class="tab-pane" id="profile">
-                            <h4 class="title text-center">Buyers Requests</h4> 
+                            <h4 class="title text-center">Buying Requests</h4> 
                             <table class="table table-striped table-responsive example" cellspacing="0">
                             <thead>
                             <tr>

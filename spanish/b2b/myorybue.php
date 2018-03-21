@@ -12,15 +12,12 @@ $datos_usuario=mysqli_query($connection,$usuario);
 $datos=mysqli_fetch_array($datos_usuario);
 $id_user=$datos['user_id'];//id del usuario logueado
 ?>
-
-
 <body>
 <!-- start topBar -->
 <?php include('topbar.php');
 include('middlebar.php');
 include('navh.php');
 $de = mysqli_real_escape_string($connection, $_SESSION['user_id']);
-
 ?>
 	  	
 <!-- start section -->
@@ -34,24 +31,14 @@ $de = mysqli_real_escape_string($connection, $_SESSION['user_id']);
         </div>
             <div class="row">                	  	
                 <!-- Pending Purchases-->				
-                <div class="col-8 col-sm-8 col-xs-8">
-                <div>
-                    <!-- Nav tabs -->
-                    <ul class="nav nav-tabs" role="tablist">
-                        <li role="presentation" class="active"><a href="#compras" aria-controls="compras" role="tab" data-toggle="tab">Compras Pendientes</a></li>
-                        <li role="presentation"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Mensajes</a></li>
-                        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Solicitudes de Compras</a></li>
-                    </ul>
-                    <!-- Tab panes -->
-                    <div class="tab-content">
-                        <div role="tabpanel" class="tab-pane active" id="compras">
-                            <h4 class="title text-center">Compras Pendientes</h4>   
-                            <table class="table table-striped table-responsive example" cellspacing="0">
+                <div class="col-md-8 col-sm-8 col-xs-8">
+                    <h4 class="title text-center">Solicitudes Pendientes</h4>   
+                        <table class="table table-striped table-responsive example" cellspacing="0">
                             <thead>
                             <tr>
-                            <th>Id</th>
-                            <th>Precio Total</th>
-                            <th>Estado</th>
+                                <th>Order Id</th>
+                                <th>Precio Total</th>
+                                <th>Estado</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -61,24 +48,63 @@ $de = mysqli_real_escape_string($connection, $_SESSION['user_id']);
                             while($rowreq=mysqli_fetch_array($resultrequests)){
                             ?>
                             <tr>
-                            <td><a href="#"><?php echo $rowreq['id'];?></a></td>
-                            <td><a href="#">$<?php echo $rowreq['totalprice'];?></a></td>
-                            <td><a href="#"><?php echo $rowreq['orderstatus'];?></a></td>
+                                <td><a href="#"><?php echo $rowreq['id'];?></a></td>
+                                <td><a href="#">$<?php echo $rowreq['totalprice'];?></a></td>
+                                <td><a href="#"><?php echo $rowreq['orderstatus'];?></a></td>
                             </tr>
                             <?php
                             }
                             ?>
                             </tbody>
-                            </table>
+                        </table>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-4">
+                    <?php
+                    $logoquery="SELECT * FROM seller where email='$getmail'";
+                    $logoresult=mysqli_query($connection,$logoquery);
+                    $logorow=mysqli_fetch_array($logoresult);  ?>
+                    <div style="float: right; background-color: #f7f7f7;border: 2px;padding-left: 51px;padding-right: 50px;padding-bottom: 30px; margin-right:7rem;">
+                        <h5>Mi Perfil</h5>
+                        <div style="margin-left: 15px;">
+                        <img src="images/<?php echo $logorow['companylogo'];?>" style="height:100px; width:100px;" alt="Logo not set">
                         </div>
-                        <div role="tabpanel" class="tab-pane" id="home">
+                        <hr>
+                    <?php 
+                    $percentage=50;
+                    if((($logorow['email']!='')&&($logorow['company_name']!='')) ||(($logorow['companylogo']!='')&&($logorow['businessType']!=''))){
+                    $percentage=100;
+                    }
+                    else{
+                        $percentage=50;
+                    }
+                    ?>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:<?php echo $percentage.'%';?>">
+                        <?php echo $percentage.'%';?>
+                        </div>
+                    </div>		        
+                    <a  class="btn btn-success btn-center" href="profile.php?<?php echo $getmail;?>">Actualizar Perfil</a>
+		        </div>  
+            </div>
+            <div class="row">         
+                
+                <div class="col-8 col-sm-8 col-xs-8">
+                <div>
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Mensajes</a></li>
+                        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Solicitudes de Compras</a></li>
+                    </ul>
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="home">
                             <!------------------ Message-------------------------------->
                             <h4 class="title text-center">Mensajes</h4> 
                             <table class="table table-striped table-responsive example" cellspacing="0">
                             <thead>
                             <tr>
                             <th>Usuario</th>
-                            <th>Titulo</th>
+                            <th>Producto</th>
                             <th>Fecha</th>
                             <th>Eliminar</th>
                             </tr>
@@ -164,7 +190,7 @@ $de = mysqli_real_escape_string($connection, $_SESSION['user_id']);
                             <thead>
                             <tr>
                             <th>Usuario</th>
-                            <th>Titulo</th>
+                            <th>Producto</th>
                             <th>Fecha</th>
                             <th>Eliminar</th>
                             </tr>
@@ -213,6 +239,7 @@ $de = mysqli_real_escape_string($connection, $_SESSION['user_id']);
 
                             //CONSULTA PARA SABER SI HAN LEIDO EL MENSAJE
 
+
                             //CONSULTA PARA EL VENDEDOR
                             $aside3 = "SELECT * FROM c_chatsby INNER JOIN buyerrequests ON (c_chatsby.pid = buyerrequests.buyreq_id) WHERE de ='$de' OR para ='$de'";
                             $asideres3 = $connection->query($aside3);
@@ -250,51 +277,22 @@ $de = mysqli_real_escape_string($connection, $_SESSION['user_id']);
                         </div>
                     </div>
                 </div>
-            </div>
-                <div class="col-md-4 col-sm-4 col-xs-4">
-                    <?php
-                    $logoquery="SELECT * FROM seller where email='$getmail'";
-                    $logoresult=mysqli_query($connection,$logoquery);
-                    $logorow=mysqli_fetch_array($logoresult);  ?>
-                    <div style="float: right; background-color: #f7f7f7;border: 2px;padding-left: 51px;padding-right: 50px;padding-bottom: 30px; margin-right:7rem;">
-                        <h5>My Profile</h5>
-                        <div style="margin-left: 20px;">
-                        <img src="images/<?php echo $logorow['companylogo'];?>" style="height:100px; width:100px;" alt="Logo not set">
-                        </div>
-                        <hr>
-                    <?php 
-                    $percentage=50;
-                    if((($logorow['email']!='')&&($logorow['company_name']!='')) ||(($logorow['companylogo']!='')&&($logorow['businessType']!=''))){
-                    $percentage=100;
-                    }
-                    else{
-                        $percentage=50;
-                    }
-                    ?>
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:<?php echo $percentage.'%';?>">
-                        <?php echo $percentage.'%';?>
-                        </div>
-                    </div>		        
-                    <a  class="btn btn-success btn-center" href="profile.php?<?php echo $getmail;?>">Actualizar Perfil</a>
-		        </div>  
-            </div>
-            <div class="row">                    
+                </div>
                 <div class="col-md-4 col-sm-4 col-xs-4" style="float:right; margin-top:4rem">
                     <?php
-                    $sql="Select * from `images` Where id='49'";
+                    $sql="Select * from `images` Where id='47'";
                     $result=mysqli_query($connection,$sql);
                     $row=mysqli_fetch_array($result);
                     $image=$row['image'];
                     ?>					  
-                    <a href="learnIncreaseSale.php"><img src="../../images/<?php echo $image;?>"></a>
+                    <a href="learnIncreaseSale.php"><img src="images/<?php echo $image;?>"></a>
                     <?php
-                    $sql="Select * from `images` Where id='50'";
+                    $sql="Select * from `images` Where id='48'";
                     $result=mysqli_query($connection,$sql);
                     $row=mysqli_fetch_array($result);
                     $image=$row['image'];
                     ?>	
-                    <a href="startBuying.php" ><img src="../../images/<?php echo $image;?>"></a> 
+                    <a href="startBuying.php" ><img src="images/<?php echo $image;?>"></a> 
 	            </div>
             </div>
             <hr>
@@ -314,7 +312,7 @@ $de = mysqli_real_escape_string($connection, $_SESSION['user_id']);
                         <div class="form-group has-success">
                             <input type="email" class="form-control" placeholder="Show Case:<?php echo $row['limitShowCase'];?>" disabled>
                         </div>
-                        <button type="submit" class="btn btn-success" id="buy">Buy More</button>
+                        <button type="submit" class="btn btn-success" id="buy">Comprar más</button>
                     </form>
                 </div>       
             </div>
@@ -333,17 +331,18 @@ $de = mysqli_real_escape_string($connection, $_SESSION['user_id']);
                     $rsl=mysqli_query($connection,$qury);
                 ?>
                 <div class="col-sm-8 col-md-8">
-                    <h4>Articulos Publicados</h4>
+                    <h4> Published Articles</h4>
                     <?php while($rw=mysqli_fetch_array($rsl)){ 
                         $myString = $rw['image'];
-                        $cl = explode(',', $myString);                        
+                        $cl = explode(',', $myString);                       
+                        
                     ?>
                     <div class="float-right col-md-3 col-sm-3">
-                        <a href="#"><img class="img-responsive" src="../../images/<?php echo $cl[0]; ?>" style="height: 20rem"></a>                       
+                        <a href="#"><img class="img-responsive" src="images/<?php echo $cl[0]; ?>" style="height: 20rem"></a>                       
                         <center>
                             <span class="amount text-default"><?php echo $rw['ntitle'];?></span>
                             </br>
-                            <span class="amount text-primary">$USD <?php echo $rw['price'];?></span>
+                            <span class="amount text-primary">USD $ <?php echo $rw['price'];?></span>
                             </br>
                         </center>
                     </br>
@@ -351,44 +350,41 @@ $de = mysqli_real_escape_string($connection, $_SESSION['user_id']);
                     <?php } ?>
                 </div>
                 <div class="col-sm-3 col-md-3 col-lg-3">
-                    <?php $sql="SELECT * FROM `favorites` INNER JOIN `products` ON (favorites.id_product=products.pid) WHERE id_user = '{$id_user}' Limit 6";
-                    $result=mysqli_query($connection,$sql);
-                    $nr=mysqli_num_rows($result);
-                    if($nr > 0 ){?>
-                        <h4 class="pull-right">Mis Favoritos</h4> 
-                        <div class="widget pull-right">
-                            <ul class="items">
-                                    <?php 
-                                    while( $row=mysqli_fetch_array($result)){ 
-                                    $myString = $row['image'];
-                                    $productType=$row['productType'];
-                                    $cl = explode(',', $myString);
-                                    ?>
-                                <li> 
-                                    <a href="#" class="product-image"><img src="images/<?php echo $cl[0]; ?>" alt="<?php echo $row['ntitle']; ?> "></a>
-                                    <div class="product-details"> 
-                                        <a href="#" class="product-name"><?php echo $row['ntitle']; ?></a> 
-                                        <span class="price text-primary">$<?php echo $row['price']; ?></span>
-                                        <div class="rate text-warning">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
+                        <?php $sql="SELECT * FROM `favorites` INNER JOIN `products` ON (favorites.id_product=products.pid) WHERE id_user = '{$id_user}' Limit 6";
+                        $result=mysqli_query($connection,$sql);
+                        $nr=mysqli_num_rows($result);
+                        if($nr > 0 ){?>                        
+                            <h4 class="pull-right">Mis Favoritos</h4> 
+                            <div class="widget pull-right">
+                                <ul class="items">
+                                        <?php 
+                                        while( $row=mysqli_fetch_array($result)){ 
+                                        $myString = $row['image'];
+                                        $productType=$row['productType'];
+                                        $cl = explode(',', $myString);
+                                        ?>
+                                    <li> 
+                                        <a href="#" class="product-image"><img src="images/<?php echo $cl[0]; ?>" alt="<?php echo $row['ntitle']; ?> "></a>
+                                        <div class="product-details"> 
+                                            <a href="#" class="product-name"><?php echo $row['ntitle']; ?></a> 
+                                            <span class="price text-primary">$<?php echo $row['price']; ?></span>
+                                            <div class="rate text-warning">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            </div>
                                         </div>
-                                    </div>
-                                </li><!-- end item -->
-                                <?php
-                                }
-                                ?>
-                            </ul>
-                            <br>
-                            <a href="allproduct.php" class="btn btn-default btn-block semi-circle btn-md">Todos los Productos</a>
-                        </div><!-- end widget -->                     
-                 
-
-                    <?php } ?>
-                    
+                                    </li><!-- end item -->
+                                    <?php
+                                    }
+                                    ?>
+                                </ul>
+                                <br>
+                                <a href="allproduct.php" class="btn btn-default btn-block semi-circle btn-md" style="margin-top:5px;">All Products</a>
+                            </div><!-- end widget -->  
+                        <?php } ?>                         
                 </div>
             </div>                 
     </div>
