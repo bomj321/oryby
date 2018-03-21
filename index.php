@@ -111,7 +111,7 @@ $(document).ready(function(){
                                 </div>
 
                             <?php
-                            $sqll="Select * from `slider` where id > '1' ";
+                            $sqll="Select * from `slider` where lang='english' and id > '1' "; 
                             $result=mysqli_query($connection,$sqll);
                             ?>
                             <?php while ($results = $result->fetch_all(MYSQLI_ASSOC) ) { ?>

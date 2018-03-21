@@ -81,13 +81,16 @@
 
 										<!-- widget content -->
 										<div class="widget-body">
-
 										<form method="post" action="New_Slider.php" enctype="multipart/form-data" class="form-horizontal">
-													
-													<div class="form-group">
-														<input type="file" class="form-control" name="file1"  />
-													</div>											
-
+												<div class="form-group">
+													<input type="file" class="form-control" name="file1" required/>
+												</div>	
+												<div class="form-group">
+													<select class="form-control " id="lang" name="lang" required>
+														<option value="English">English</option>
+														<option value="Spanish">Spanish</option>													
+													</select>
+												</div>								
 												<div class="form-actions">
 													<div class="row">
 														<div class="col-md-12">

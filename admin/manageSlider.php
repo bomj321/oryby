@@ -119,7 +119,8 @@ include('header.php');
 										<table id="dt_basic" class="table table-striped table-bordered table-hover" width="100%">
 											<thead>			                
 												<tr>
-													<th>ID</th>													
+													<th>ID</th>
+													<th>Lang</th>												
 													<th>Picture</th>
 													<th>Modify</th>
 													<th>Delete</th>	
@@ -132,6 +133,7 @@ include('header.php');
 											?>
 												<tr>
 													<td><?php echo $row['id']; ?></td>
+													<td><?php echo $row['lang']; ?></td>
 													<td class="expand"><img class="img-responsive" style="height: 20rem; width: 40rem;" src="../images/<?php echo $row['image']; ?>" /></td>
 													<td><a href="updateSlider.php?id=<?php echo $row['id'];?>"><i class="fa fa-pencil fa-fw"></a></td>
 													<td><a class="eliminar" id="<?php echo $row['id'];?>"><i class="fa fa-trash-o fa-lw"></a></td>												

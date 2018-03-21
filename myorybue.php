@@ -43,11 +43,7 @@ $de = mysqli_real_escape_string($connection, $_SESSION['user_id']);
                             </thead>
                             <tbody>
                             <?php 
-<<<<<<< HEAD
-                            $querygetrequest="SELECT * FROM cart2 where (orderstatus='Pending' OR orderstatus='Incomplete' and email='$email')";
-=======
-                            $querygetrequest="SELECT * FROM cart2 where (orderstatus='Pending' OR orderstatus='Incomplete' ) AND email = '$getmail'";
->>>>>>> 421db8e17de77e2d5df0f4c77a88850460f5362f
+                            $querygetrequest="SELECT * FROM cart2 where (orderstatus='Pending' OR orderstatus='Incomplete' ) AND email = '$email'";
                             $resultrequests=mysqli_query($connection,$querygetrequest);
                             while($rowreq=mysqli_fetch_array($resultrequests)){
                             ?>

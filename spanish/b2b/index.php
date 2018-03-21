@@ -99,26 +99,25 @@ $(document).ready(function(){
 
                             <!-- Wrapper for slides -->
                             <?php
-							$sql="Select * from `slider` where id='1'";
+							$sql="Select * from `slider` where id='8'";
 						    $result=mysqli_query($connection,$sql);
 							$row=mysqli_fetch_array($result);
 							$picture=$row['image'];
 							?>
                             <div class="carousel-inner" role="listbox">
                                 <div class="item active">
-                                <img src="images/<?php echo $picture;?>" style="width: 100%;height: 45rem;" alt="...">
+                                <img src="../../images/<?php echo $picture;?>" style="width: 100%;height: 45rem;" alt="...">
                                 <div class="carousel-caption">
                                 </div>
                                 </div>
-
                             <?php
-                            $sqll="Select * from `slider` where id > '1' ";
+                            $sqll="Select * from `slider` where lang='spanish' and id > '8' "; 
                             $result=mysqli_query($connection,$sqll);
                             ?>
                             <?php while ($results = $result->fetch_all(MYSQLI_ASSOC) ) { ?>
                             <?php foreach($results as $resu): ?>
                                 <div class="item">
-                                <img src="images/<?php echo $resu['image'];?>" alt="..." style="width: 100%;height: 45rem;">
+                                <img src="../../images/<?php echo $resu['image'];?>" alt="..." style="width: 100%;height: 45rem;">
                                 <div class="carousel-caption">
                                 </div>
                                 </div>
