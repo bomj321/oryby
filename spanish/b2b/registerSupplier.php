@@ -17,22 +17,15 @@ $confirmcode=$_SESSION['code'];
 
 		<div class="container">
     	<div class="row">
-			<div class="col-sm-10 col-sm-offset-2" >
+			<div class="col-sm-8 col-sm-offset-2">
 				</br>	</br>	</br>
 				<div class="panel panel-login" style="background-color:#f7f7f7;">
 					<div class="panel-heading" style="background-color:#f2f2f2;">
 						<div class="row">
-
 							<div class="col-sm-8  col-sm-offset-2" id="rg">
-
-								<center><h3>COMPANY INFORMATION </h3>
-
-
+								<center><h3>Información de la Compañia</h3>
 							</center>
-
-
 						</div>
-
 					</div>
 				<hr>
 
@@ -40,7 +33,7 @@ $confirmcode=$_SESSION['code'];
 
 						<div style="display: inline-block; text-align: center;" class="col-sm-8 col-sm-offset-2">
 							<a href="sendconfirmation2.php?userStatus=1" >
-								<input type="submit" class="btn btn-default round btn-lg" value="SKIP">
+								<input type="submit" class="btn btn-default round btn-lg" value="Saltar">
 							</br>
 						</div>
 
@@ -55,38 +48,38 @@ $confirmcode=$_SESSION['code'];
 
 
 										<div class="form-group">
-										<input type="text" name="companyName" id="comanyName" tabindex="3" class="form-control"  required placeholder="Company Name">
+										<input type="text" name="companyName" id="comanyName" tabindex="3" class="form-control"  required placeholder="Nombre de la Compañia">
 									</div>
 										<div class="form-group">
-										<input type="text" name="companyLegalNo" id="companyLegalNo" tabindex="3" class="form-control"  required placeholder="Company Legal Number">
+										<input type="text" name="companyLegalNo" id="companyLegalNo" tabindex="3" class="form-control"  required placeholder="Número Legal">
 									</div>
 							<div class="form-group">
-                                               <input   type="text" name="street" tabindex="1" class="form-control"   required placeholder="Street ">
+                                               <input   type="text" name="street" tabindex="1" class="form-control"   required placeholder="Calle">
 									</div>
 										<div class="form-group">
 
                                         <span>Phone Number:</span>
-											<input name="p1" type="text" size="10" placeholder="Code" required>
+											<input name="p1" type="text" size="10" placeholder="Codigo" required>
 											<input name="p2" type="text" size="16" placeholder="SSN #" required>
-											<input name="p3" type="text"  size="44"placeholder=" Number here" required>
+											<input name="p3" type="text"  size="44"placeholder="Número" required>
 
 									</div>
 						<div class="form-group">
 
-					        <input  type="text" name="city" tabindex="1" class="form-control"  required placeholder="City">
+					        <input  type="text" name="city" tabindex="1" class="form-control"  required placeholder="Ciudad">
 
 
 						</div>
 							<div class="form-group">
 
-					        <input  type="text" name="province" tabindex="1" class="form-control"  required placeholder="Province">
+					        <input  type="text" name="province" tabindex="1" class="form-control"  required placeholder="Provincia">
 												        <input  type="hidden" name="email" value="<?php echo  $email;?>" >
 
 
 						</div>
 							<div class="form-group">
 
-					        <input  type="text" name="zipCode" tabindex="1" class="form-control" required  placeholder="Zip Code">
+					        <input  type="text" name="zipCode" tabindex="1" class="form-control" required  placeholder="Código Postal">
 
 
 						</div>
@@ -345,41 +338,41 @@ $confirmcode=$_SESSION['code'];
 									</div>
 									</br>
 									</br>
-									<h4>Described your Company </h4>
+									<h4>Describe tu Compañia</h4>
 									<div class="form-group">
 										<select name="businessType" required class="form-control input">
-								  <option value="">SELECT Business Type</option>
-                                             <option value="Manufacturer">Manufacturer</option>
-                                             <option value="Distributor" >Distributor</option>
-											  <option value="Trading Company" >Trading Company </option>
-                                             <option value="Retailer" >Retailer</option>  <option value="other" >Other</option>      Trading Company
-											 </select>
+											<option value="">Selecciona el tipo de Negocio</option>
+											<option value="Manufacturer">Fabricante</option>
+											<option value="Distributor" >Distribuidor</option>
+											<option value="Trading Company">Compañia de Negocios</option>
+											<option value="Retailer" >Detallista</option>
+											<option value="other" >Otro</option>
+										</select>
 									</div>
 									<div class="form-group">
 
-					        <input  type="text" name="noOfEmployee" tabindex="1" class="form-control"  required placeholder="Number of Employees">
+					        <input  type="text" name="noOfEmployee" tabindex="1" class="form-control"  required placeholder="Número de Empleados">
 
 							</div>
 							<div class="form-group">
-
-					        <textarea  name="companyDescription" tabindex="1" class="form-control"  required rows="4" cols="50" placeholder="Described Here " >		
-									</textarea>
-						</div>
+								<textarea  name="companyDescription" tabindex="1" class="form-control"  required rows="4" cols="50" placeholder="Descripción aqui">		
+								</textarea>
+							</div>
 										<div class="form-group">
-										<label> Your Company logo </label>
+										<label>Logo de la Compañia</label>
 					        <input id="files"  class="form-control" type="file" required name="file1" onchange="readURL(this);" />
 
 						<div id="selectedFiles"></div>
 						</div>
 						<div="form-group">
-								<label> Your Company License </label>
+								<label>Licencia de la Compañia</label>
 					        <input  id="files1" class="form-control" type="file"  id="files" required name="file2[]" multiple="multiple"/>
 
 						</div>
 								<div="form-group">
-										<h3>Uploaded Picture Preview Area </h3>
- <div id="selectedFiles1"></div>
-</div>
+										<h3>Imagen cargada</h3>
+									<div id="selectedFiles1"></div>
+								</div>
 
 									<div class="form-group">
 										<div class="row">
@@ -387,7 +380,7 @@ $confirmcode=$_SESSION['code'];
 										<div style="display: inline-block; text-align: center;" class="col-sm-8 col-sm-offset-2">
 											</br>
 											</br>
-												<input type="submit" name="register-submit" class=" btn btn-default round btn-lg" value="SAVE">
+												<input type="submit" name="register-submit" class=" btn btn-default round btn-lg" value="Guardar">
 											</div>
 										</div>
 									</div>
