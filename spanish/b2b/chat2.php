@@ -311,9 +311,7 @@ if (!empty($pid) AND !empty($para) ) {
           $resultado2 = $connection->query($siguiente);
           $fila=$resultado2->fetch_assoc();
           $id_cch=$fila['id_cch'];
-          if ($resultado2) {
-            echo "CONSULTA REALIZADA CON EXITO";
-          }
+         
 
            //CONSULTA PARA EL ID DEL CHAT POR SEGUNDA VEZ        
           
