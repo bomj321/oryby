@@ -5,7 +5,6 @@
 require 'Connect.php';
 $pid=$_GET['pid'];
 $_SESSION['pid']=$pid;
-$sellerid = $_GET['sellerid'];
 $_SESSION['user_id'];
 //Inserción a la db para las estadisticas de los usuarios
 

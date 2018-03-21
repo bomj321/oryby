@@ -342,40 +342,45 @@ $de = mysqli_real_escape_string($connection, $_SESSION['user_id']);
                     </div>
                     <?php } ?>
                 </div>
-                <div class="col-sm-4 col-md-4">
-                    <h4 class="pull-right">Mis Favoritos</h4> 
-                    <div class="widget pull-right">
-                            <?php $sql="SELECT * FROM `favorites` INNER JOIN `products` ON (favorites.id_product=products.pid) WHERE id_user = '{$id_user}' Limit 6";
-                            $result=mysqli_query($connection,$sql);
-                            ?>
-                        <ul class="items">
-                                <?php 
-                                while( $row=mysqli_fetch_array($result)){ 
-                                $myString = $row['image'];
-                                $productType=$row['productType'];
-                                $cl = explode(',', $myString);
-                                ?>
-                            <li> 
-                                <a href="#" class="product-image"><img src="images/<?php echo $cl[0]; ?>" alt="<?php echo $row['ntitle']; ?> "></a>
-                                <div class="product-details"> 
-                                    <a href="#" class="product-name"><?php echo $row['ntitle']; ?></a> 
-                                    <span class="price text-primary">$<?php echo $row['price']; ?></span>
-                                    <div class="rate text-warning">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
+                <div class="col-sm-3 col-md-3 col-lg-3">
+                    <?php $sql="SELECT * FROM `favorites` INNER JOIN `products` ON (favorites.id_product=products.pid) WHERE id_user = '{$id_user}' Limit 6";
+                    $result=mysqli_query($connection,$sql);
+                    $nr=mysqli_num_rows($result);
+                    if($nr > 0 ){?>
+                        <h4 class="pull-right">Mis Favoritos</h4> 
+                        <div class="widget pull-right">
+                            <ul class="items">
+                                    <?php 
+                                    while( $row=mysqli_fetch_array($result)){ 
+                                    $myString = $row['image'];
+                                    $productType=$row['productType'];
+                                    $cl = explode(',', $myString);
+                                    ?>
+                                <li> 
+                                    <a href="#" class="product-image"><img src="images/<?php echo $cl[0]; ?>" alt="<?php echo $row['ntitle']; ?> "></a>
+                                    <div class="product-details"> 
+                                        <a href="#" class="product-name"><?php echo $row['ntitle']; ?></a> 
+                                        <span class="price text-primary">$<?php echo $row['price']; ?></span>
+                                        <div class="rate text-warning">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
                                     </div>
-                                </div>
-                            </li><!-- end item -->
-                            <?php
-                            }
-                            ?>
-                        </ul>
-                        <br>
-                        <a href="allproduct.php" class="btn btn-default btn-block semi-circle btn-md" style="margin-top:5px;">Todos los Productos</a>
-                    </div><!-- end widget -->                           
+                                </li><!-- end item -->
+                                <?php
+                                }
+                                ?>
+                            </ul>
+                            <br>
+                            <a href="allproduct.php" class="btn btn-default btn-block semi-circle btn-md">Todos los Productos</a>
+                        </div><!-- end widget -->                     
+                 
+
+                    <?php } ?>
+                    
                 </div>
             </div>                 
     </div>
