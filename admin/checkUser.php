@@ -11,10 +11,10 @@
 include 'Connect.php';
 
 
-      $user_id = $_REQUEST['user_id'];
+      $user_id = $_GET['user_id'];
 	  
-		 $userStatus = $_REQUEST['userStatus'];
-		  $email = $_REQUEST['email'];
+		 $userStatus = $_GET['userStatus'];
+		  $email = $_GET['email'];
 		 
 		 
 		 
@@ -41,7 +41,7 @@ trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERR
 			?>
 			<script>
 			alert("USER STATUS CHANGED");
-			window.location.href ="sendUserStatus.php?email=<?php echo $email ?> & userstatus=<?php echo $userStatus?>";
+			window.location.href ="sendUserStatus.php?email=<?php echo $email ?>&userstatus=<?php echo $userStatus?>";
 			</script>
 			<?php
 			}

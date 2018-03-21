@@ -116,7 +116,7 @@ $fila =$asideres3->fetch_assoc();
     
     
 
-      <a href="chatadmin2.php?sellerid=<?php echo $row['para'];?>&pid=<?php echo $row['pid'];?>&id_cch=<?php echo $row['id_cch']?>">
+      <a href="chatadmin2.php?user_id=<?php echo $row['de']?>&sellerid=<?php echo $row['para'];?>&pid=<?php echo $row['pid'];?>&id_cch=<?php echo $row['id_cch']?>">
       <div class="chats asidechats">
 
         <div style="margin-bottom: -1rem;"><!--DIV DE ARRIBA-->
@@ -181,7 +181,7 @@ $fila =$asideres3->fetch_assoc();
 <?php 
     $para = mysqli_real_escape_string($connection,$_GET['sellerid']);
     $pid = mysqli_real_escape_string($connection, $_GET['pid']);
-    $de = mysqli_real_escape_string($connection, $_SESSION['user_id']);    
+    $de = mysqli_real_escape_string($connection, $_GET['user_id']);    
 if (!empty($pid) AND !empty($para) ) {
     
   ///consultamos a la base

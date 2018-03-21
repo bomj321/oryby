@@ -159,7 +159,7 @@ if($nr >0)
 
 													?>
 
-												  <a   class="btn btn-xs btn-danger" href="checkUser.php?userStatus=<?php echo $row['userStatus'];?> & user_id=<?php echo $row['user_id'] ?>& email=<?php echo $row['email'] ?>">De-Activate</a>
+												  <a   class="btn btn-xs btn-danger" href="checkUser.php?userStatus=<?php echo $row['userStatus'];?>&user_id=<?php echo $row['user_id'] ?>&email=<?php echo $row['email'] ?>">De-Activate</a>
 
 
 													<?php
@@ -168,7 +168,7 @@ if($nr >0)
 													{
 
 													?>
-												  <a   class="btn btn-xs btn-primary" href="checkUser.php?userStatus=<?php echo $row['userStatus'];?> & user_id=<?php echo $row['user_id'] ?>& email=<?php echo $row['email'] ?>">Activate</a>
+												  <a   class="btn btn-xs btn-primary" href="checkUser.php?userStatus=<?php echo $row['userStatus'];?>&user_id=<?php echo $row['user_id'] ?>&email=<?php echo $row['email'] ?>">Activate</a>
 
 
 

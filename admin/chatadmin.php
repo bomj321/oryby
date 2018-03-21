@@ -116,7 +116,7 @@ $fila =$asideres3->fetch_assoc();
     
     
 
-     <a href="chatadmin2.php?sellerid=<?php echo $row['para'];?>&pid=<?php echo $row['pid'];?>&id_cch=<?php echo $row['id_cch']?>">
+     <a href="chatadmin2.php?user_id=<?php echo $row['de']?>&sellerid=<?php echo $row['para'];?>&pid=<?php echo $row['pid'];?>&id_cch=<?php echo $row['id_cch']?>">
       <div class="chats asidechats">
 
         <div style="margin-bottom: -1rem;"><!--DIV DE ARRIBA-->

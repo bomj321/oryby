@@ -5,7 +5,16 @@ $accept = $_GET['accept'];
 $email = $_GET['email'];
 $productType = $_GET['type'];
 $pid = $_GET['pid'];
-
+// Para enviar un correo HTML, debe establecerse la cabecera Content-type
+$cabeceras  = 'MIME-Version: 1.0' . "\r\n";
+$cabeceras .= "Organization: Orybu.com\r\n";
+$cabeceras .= "X-Priority: 3\r\n";
+$cabeceras .= "X-Mailer: PHP". phpversion(7.0) ."\r\n";
+$cabeceras .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+// Cabeceras adicionales
+$cabeceras .= 'From:<admin@orybu.com>' . "\r\n";
+$cabeceras .= "Reply-To: <admin@orybu.com>\r\n";
+$cabeceras .= "Return-Path: <admin@orybu.com>\r\n";
 if ($accept == 'yes') {	
 
 	//ACTUALIZACION 1
@@ -27,16 +36,30 @@ if ($accept == 'yes') {
 	
 $message =
 		"
-		Congratulations, your product has been accepted		
+		<html>
+            <head>
+              <title>Email Confirmation</title>
+              
+            </head>
+            <body>
+            <div style='margin-left:500px;'>
+            <img style='width:100px; height:100px;' src='http://www.orybu.com/freelancer/img/oryLogo.png'>
+            </div>
+              <p>Congratulations, your product has been accepted. 
+              </p>
+
+              
+
+            </body>
+        </html>   		
 		";
 		
-		mail($email,"MY ORYBU",$message,"From: info@orybu.com");	
+		mail($email,"MY ORYBU",$message,$cabeceras);	
 			
 		echo "<script>
                 alert('This Product has been accepted');
                 window.location= 'acceptProduct.php'
         </script>";
-
 
 }elseif ($accept == 'no') {
 
@@ -51,10 +74,21 @@ $message =
 	
 $message =
 		"
-		Sorry, your product has no been accepted.
+		<html>
+            <head>
+              <title>Email Confirmation</title>
+              
+            </head>
+            <body>
+            <div style='margin-left:500px;'>
+            <img style='width:100px; height:100px;' src='http://www.orybu.com/freelancer/img/oryLogo.png'>
+            </div>
+              <p>		Sorry, your product has no been accepted. </p>
+            </body>
+        </html>  
 		";
 		
-		mail($email,"MY ORYBU",$message,"From: info@orybu.com");	
+		mail($email,"MY ORYBU",$message,$cabeceras);	
 			
 		echo "<script>
                 alert('This product has no been accepted');
