@@ -5,12 +5,12 @@ if(isset($_POST['btn_save_updates']))
 	{
 
 	
-	  $pid=$_GET['pid'];
-	  $price=$_GET['price'];
-	 $qty=$_POST['qty'];
+    $pid=$_GET['pid'];
+    $price=$_GET['price'];
+    $qty=$_POST['qty'];
 
 //UPDATE 1
- $sql3 = "UPDATE cart2 SET quantity='$qty' WHERE pid = '$pid'";
+ $sql3 = "UPDATE cart2 SET quantity='$qty' WHERE id = '$pid'";
         if(!mysqli_query($connection, $sql3)){
     echo "ERROR: Could not able to execute $sql3. " . mysqli_error($connection);
         
@@ -20,7 +20,7 @@ if(isset($_POST['btn_save_updates']))
 $total_price = $price * $qty;
 
 //UPDATE 2
- $sql3 = "UPDATE cart2 SET totalprice='$total_price' WHERE pid = '$pid'";
+ $sql3 = "UPDATE cart2 SET totalprice='$total_price' WHERE id = '$pid'";
         if(!mysqli_query($connection, $sql3)){
     echo "ERROR: Could not able to execute $sql3. " . mysqli_error($connection);
         

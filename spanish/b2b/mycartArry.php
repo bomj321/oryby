@@ -30,13 +30,8 @@ $orderstatus = 'Incomplete';
 
 
 //INSERT INTO
- $insert2 = "INSERT INTO cart2(pid,image,title,price,description,email,orderstatus) VALUES(".$pid.", '".$image."','".$title."', ".$price.", '".$description."','".$email."','".$orderstatus."');";
+ $insert2 = "INSERT INTO cart2(pid,image,title,price,description,email,orderstatus,quantity,totalprice) VALUES(".$pid.", '".$image."','".$title."', ".$price.", '".$description."','".$email."','".$orderstatus."','1',".$price.");";
          $resultado3 = $connection->query($insert2);
-
-         if(!$resultado3){
-            echo "NO INSERTO NADA";
-           }
-
 //INSERT INTO
 
 $cart = array (
@@ -51,4 +46,4 @@ $_SESSION['cart'][] = $cart;
 
 ?>
 <script> 
-window.location.href="index.php";  </script>
+window.location.href="cart.php";  </script>

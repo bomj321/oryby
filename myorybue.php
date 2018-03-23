@@ -305,7 +305,7 @@ $de = mysqli_real_escape_string($connection, $_SESSION['user_id']);
                         $result=mysqli_query($connection,$query);
                         $row=mysqli_fetch_array($result);
                     ?>
-                    <form class="form-inline" id="orybu">
+                    <form class="form-inline" action="buy_st.php" id="orybu">
                         <div class="form-group has-success">
                             <input type="text" class="form-control" placeholder="Top List:<?php echo $row['limitTopList'];?>" disabled>
                         </div>

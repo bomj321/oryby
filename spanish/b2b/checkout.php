@@ -289,25 +289,23 @@ include('navh.php');
                                     <div class="tab-pane" id="payment">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <h5 class="thin subtitle">Elija un método de pago</h5>
+                                                <h5 class="thin subtitle">Seleccione un Método de pago</h5>
                                                 <div class="panel-group accordion style2" id="accordionPayment" role="tablist" aria-multiselectable="true">
                                                     <div class="panel panel-default">
                                                         <div class="panel-heading" role="tab" id="headingPayment1">
                                                             <h4 class="panel-title">
                                                                 <a class="" data-toggle="collapse" data-parent="#accordionPayment" href="#collapsePayment1" aria-expanded="true" aria-controls="collapsePayment1">
-                                                                     <i class="fa fa-paypal mr-10"></i>Pagar con PayPal
+                                                                     <i class="fa fa-paypal mr-10"></i>Seleccione un Método de pago
                                                                 </a>
                                                             </h4><!-- end panel-title -->
                                                         </div><!-- end panel-heading -->
                                                         <div id="collapsePayment1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingPayment1">
                                                             <div class="panel-body">
-
-
                                                                 <div class="form-group">
                                                                     <div class="row">
-                                                                        <div class="col-sm-offset-4 col-sm-8 text-right">
-
-																		<a href="orderInsert.php" class="btn btn-default btn-md round">Pagar con PayPal <i class="fa fa-arrow-circle-right ml-5"></i></a>
+                                                                    <div class="col-sm-8 col-md-8 col-xs-8">
+																		    <a href="orderInsert.php" class="btn btn-default round" style="margin-top: 1rem;">Pay With Paypal <i class="fa fa-arrow-circle-right ml-5"></i></a>
+                                                                            <a href="#" class="btn btn-default round" style="margin-top: 1rem;">Pay With WebPay <i class="fa fa-arrow-circle-right ml-5"></i></a>
                                                                         </div><!-- end col -->
                                                                     </div><!-- end row -->
                                                                 </div><!-- end form-group -->
