@@ -28,7 +28,7 @@ include('middlebar.php');
                             <div class="panel panel-default">
 									<?php
 include('Connect.php');
- $sql="SELECT * FROM faq  Where elementName ='faqquestion4'  ";
+ $sql="SELECT * FROM faq  Where elementName ='faqquestion1'  ";
  
 $stmt=mysqli_query($connection,$sql);
 if($stmt == false) {

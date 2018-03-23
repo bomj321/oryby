@@ -28,7 +28,7 @@ include('middlebar.php');
                             <div class="panel panel-default">
 									<?php
 include('Connect.php');
- $sql="SELECT * FROM faq  Where elementName ='considerateexportquestion1'  ";
+ $sql="SELECT * FROM faq  Where elementName ='considerateexportquestionspanish1'  ";
  
 $stmt=mysqli_query($connection,$sql);
 if($stmt == false) {
@@ -51,7 +51,7 @@ $row=mysqli_fetch_array($stmt);
                                 </div><!-- end collapse -->
                             </div><!-- end panel -->
 <?php
-$sql="SELECT * FROM faq  Where elementName ='considerateexportquestion2'  ";
+$sql="SELECT * FROM faq  Where elementName ='considerateexportquestionspanish2'  ";
  
 $stmt=mysqli_query($connection,$sql);
 if($stmt == false) {
@@ -75,7 +75,7 @@ $row=mysqli_fetch_array($stmt);
                                 </div><!-- end collapse -->
                             </div><!-- end panel -->
 <?php
-$sql="SELECT * FROM faq  Where elementName ='considerateexportquestion3'  ";
+$sql="SELECT * FROM faq  Where elementName ='considerateexportquestionspanish3'  ";
  
 $stmt=mysqli_query($connection,$sql);
 if($stmt == false) {
@@ -99,7 +99,7 @@ $row=mysqli_fetch_array($stmt);
                                 </div><!-- end collapse -->
                             </div><!-- end panel -->
        <?php
-$sql="SELECT * FROM faq  Where elementName ='considerateexportquestion4'  ";
+$sql="SELECT * FROM faq  Where elementName ='considerateexportquestionspanish4'  ";
  
 $stmt=mysqli_query($connection,$sql);
 if($stmt == false) {
@@ -123,7 +123,7 @@ $row=mysqli_fetch_array($stmt);
                                 </div><!-- end collapse -->
                             </div><!-- end panel -->
          <?php
-$sql="SELECT * FROM faq  Where elementName ='considerateexportquestion5'  ";
+$sql="SELECT * FROM faq  Where elementName ='considerateexportquestionspanish5'  ";
  
 $stmt=mysqli_query($connection,$sql);
 if($stmt == false) {
@@ -147,7 +147,7 @@ $row=mysqli_fetch_array($stmt);
                                 </div><!-- end collapse -->
                             </div><!-- end panel -->
           <?php
-$sql="SELECT * FROM faq  Where elementName ='considerateexportquestion6'  ";
+$sql="SELECT * FROM faq  Where elementName ='considerateexportquestionspanish6'  ";
  
 $stmt=mysqli_query($connection,$sql);
 if($stmt == false) {
