@@ -9,8 +9,10 @@ $(document).ready(function(){
         //Obteniendo datos
         var producto = valor1.attr('class');
         var precio = valor2.attr('class');
-        var email = tbody.attr('class');
-        console.log(producto . precio . email);
+        var email = tbody.attr('id');
+        console.log(producto);
+        console.log(precio);
+        console.log(email);
 		$.ajax({
             type: "POST",
             url: "add_showcase_toplist.php",
@@ -18,7 +20,10 @@ $(document).ready(function(){
             dataType:"text",
         })
         .done(function(response){
-			console.log(response);
+            if(response == 1)
+            {
+                window.location.href = "cart.php";
+            }
 		});
         
 
