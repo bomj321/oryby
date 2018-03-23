@@ -677,7 +677,7 @@ if($queryResult){
 
 
 	<?php
-							$sql="Select * from `aboutus` Where elementname='QuestionHeading'";
+							$sql="Select * from `aboutus` Where elementname='QuestionHeadingspanish'";
 						$result=mysqli_query($connection,$sql);
 							$row=mysqli_fetch_array($result);
 							 	$title=$row['title'];
@@ -687,21 +687,21 @@ if($queryResult){
    <form method="POST">
     <div class="radio">
 	<?php
-							$sql1="Select * from `aboutus` Where elementname='Question1'";
+							$sql1="Select * from `aboutus` Where elementname='Question1spanish'";
 						$result1=mysqli_query($connection,$sql1);
 							$row1=mysqli_fetch_array($result1);
 							 	$title1=$row1['title'];
 								?>
       <label><input type="radio" value="NO1" name="ques" data-toggle="modal" data-target="#myModal"><?php echo $title1; ?></label>
     </div>
-	<?php 			$sql2="Select * from `aboutus` Where elementname='Question2'";
+	<?php 			$sql2="Select * from `aboutus` Where elementname='Question2spanish'";
 						   $result2=mysqli_query($connection,$sql2);
 							$row2=mysqli_fetch_array($result2);
 							 $title2=$row2['title'];
 								?>    <div class="radio">
       <label><input type="radio" value="NO2" name="ques" data-toggle="modal" data-target="#myModal"><?php echo $title2; ?></label>
     </div>
-	<?php 			$sql3="Select * from `aboutus` Where elementname='Question3'";
+	<?php 			$sql3="Select * from `aboutus` Where elementname='Question3spanish'";
 						   $result3=mysqli_query($connection,$sql3);
 							$row3=mysqli_fetch_array($result3);
 							 $title3=$row3['title'];
@@ -709,7 +709,7 @@ if($queryResult){
     <div class="radio ">
       <label><input type="radio" value="NO3" name="ques" data-toggle="modal" data-target="#myModal"><?php echo $title3; ?></label>
     </div>
-	<?php 			$sql4="Select * from `aboutus` Where elementname='Question4'";
+	<?php 			$sql4="Select * from `aboutus` Where elementname='Question4spanish'";
 						   $result4=mysqli_query($connection,$sql4);
 							$row4=mysqli_fetch_array($result4);
 							 $title4=$row4['title'];

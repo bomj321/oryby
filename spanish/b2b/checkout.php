@@ -115,24 +115,24 @@ include('navh.php');
                                                 <tbody>
 		<?php
 
-      if($_SESSION['cart'] !=""){
-                // $id =0;
-				$tot=0;
-		  foreach ($_SESSION['cart'] as $item) {
+     $aside1 = "SELECT * FROM cart2 WHERE email = '$email' ";
+$asideres1 = $connection->query($aside1);
+$tot= 0;
+while ($rowcart=mysqli_fetch_array($asideres1)) {
 						?>
-                                                    <tr>
+                                                  <tr>
                                                 <td>
                                                     <a href="#">
-                                                        <img width="60px" src="images/<?php echo $item['p_image'];?>" alt="product">
+                                                        <img width="60px" src="images/<?php echo $rowcart['image'];?>" alt="product">
                                                     </a>
                                                 </td>
 
                                                 <td>
-                                                    <h6 class="regular"><?php echo $item['p_title'];?></h6>
-                                                    <p><?php echo $item['p_fulldesc'];?></p>
+                                                    <h6 class="regular"><?php echo $rowcart['p_title'];?></h6>
+                                                    <p><?php echo $rowcart['p_fulldesc'];?></p>
                                                 </td>
                                                 <td>
-                                                    <span>$<?php echo $item['p_price'] * $item['p_qty'];?></span>
+                                                    <span>$<?php echo $rowcart['price'];?></span>
                                                 </td>
                                              <!--   <td>
                                                     <select class="form-control" name="qty">
@@ -144,26 +144,25 @@ include('navh.php');
                                                     </select>
                                                 </td>  -->
                                                 <td>
-                                                    <span class="text-primary">$<?php echo $item['p_price'] * $item['p_qty'];?></span>
+                                                    <span class="text-primary">$<?php echo $rowcart['totalprice']?></span>
                                                 </td>
                                                 <td>
-					<?php
+                    <?php
 
-					$tot =$tot+$item['p_price'] * $item['p_qty'];
-					$_SESSION['toatl']= $tot;
+                    $tot =$tot+$rowcart['price']* $rowcart['quantity'];
+                    $_SESSION['toatl']= $tot;
 
-				//	if($_GET['code'])
-					//{
-				// echo $pid = $_GET['code'];
-					//	unset($_SESSION['cart'][$pid]);
+                //  if($_GET['code'])
+                    //{
+                // echo $pid = $_GET['code'];
+                    //  unset($_SESSION['cart'][$pid]);
                      // if(empty($_SESSION['cart'])) unset($_SESSION['cart']);
-												?>
+                                                ?>
 
                                     <!--    <td><a href="cart.php?code=<?php// echo $id ?>">Delete from cart</a></td> -->
                                                 </td>
                                             </tr>
-
-		  <?php  }
+		  <?php  
 
 		  } $_SESSION['toatl']=$tot;
 		  ?>

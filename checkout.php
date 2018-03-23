@@ -64,7 +64,7 @@ include('navh.php');
                     <!-- start sidebar -->
                   <!-- end col -->
                     <!-- end sidebar -->
-					 <div class="col-sm-2">  </div>
+                     <div class="col-sm-2">  </div>
                     <div class="col-sm-9">
                         <div class="row">
                             <div class="col-sm-12 text-left">
@@ -116,26 +116,26 @@ include('navh.php');
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-		<?php
+        <?php
+$aside1 = "SELECT * FROM cart2 WHERE email = '$email' ";
+$asideres1 = $connection->query($aside1);
+$tot= 0;
+while ($rowcart=mysqli_fetch_array($asideres1)) {
 
-      if($_SESSION['cart'] !=""){
-                // $id =0;
-				$tot=0;
-		  foreach ($_SESSION['cart'] as $item) {
-						?>
+                        ?>
                                                     <tr>
                                                 <td>
                                                     <a href="#">
-                                                        <img width="60px" src="images/<?php echo $item['p_image'];?>" alt="product">
+                                                        <img width="60px" src="images/<?php echo $rowcart['image'];?>" alt="product">
                                                     </a>
                                                 </td>
 
                                                 <td>
-                                                    <h6 class="regular"><?php echo $item['p_title'];?></h6>
-                                                    <p><?php echo $item['p_fulldesc'];?></p>
+                                                    <h6 class="regular"><?php echo $rowcart['p_title'];?></h6>
+                                                    <p><?php echo $rowcart['p_fulldesc'];?></p>
                                                 </td>
                                                 <td>
-                                                    <span>$<?php echo $item['p_price'] * $item['p_qty'];?></span>
+                                                    <span>$<?php echo $rowcart['price'];?></span>
                                                 </td>
                                              <!--   <td>
                                                     <select class="form-control" name="qty">
@@ -147,29 +147,29 @@ include('navh.php');
                                                     </select>
                                                 </td>  -->
                                                 <td>
-                                                    <span class="text-primary">$<?php echo $item['p_price'] * $item['p_qty'];?></span>
+                                                    <span class="text-primary">$<?php echo $rowcart['totalprice']?></span>
                                                 </td>
                                                 <td>
-					<?php
+                    <?php
 
-					$tot =$tot+$item['p_price']* $item['p_qty'];
-					$_SESSION['toatl']= $tot;
+                    $tot =$tot+$rowcart['price']* $rowcart['quantity'];
+                    $_SESSION['toatl']= $tot;
 
-				//	if($_GET['code'])
-					//{
-				// echo $pid = $_GET['code'];
-					//	unset($_SESSION['cart'][$pid]);
+                //  if($_GET['code'])
+                    //{
+                // echo $pid = $_GET['code'];
+                    //  unset($_SESSION['cart'][$pid]);
                      // if(empty($_SESSION['cart'])) unset($_SESSION['cart']);
-												?>
+                                                ?>
 
                                     <!--    <td><a href="cart.php?code=<?php// echo $id ?>">Delete from cart</a></td> -->
                                                 </td>
                                             </tr>
 
-		  <?php  }
+          <?php  
 
-		  } $_SESSION['toatl']=$tot;
-		  ?>
+          } $_SESSION['toatl']=$tot;
+          ?>
 
 
                                                 </tbody>
@@ -177,49 +177,49 @@ include('navh.php');
                                         </div><!-- end table-responsive -->
                                     </div><!-- end tab-pane -->
 
-									<div class="tab-pane" id="billing-info">
+                                    <div class="tab-pane" id="billing-info">
                                         <div class="row">
-										<div class="col-md-3">  </div>
-								<?php   $quryid="SELECT * FROM users";
+                                        <div class="col-md-3">  </div>
+                                <?php   $quryid="SELECT * FROM users";
                             $resld=mysqli_query($connection,$quryid);
                             $rowid=mysqli_fetch_array($resld);
-                            $user_id=$rowid['user_id'];	 ?>
-							<?php	if(isset($_POST['btninfo'])){
+                            $user_id=$rowid['user_id'];  ?>
+                            <?php   if(isset($_POST['btninfo'])){
 
-							//$userid=$_POST['userid'];
-							$phone=$_POST['phone'];
-							$address1=$_POST['address1'];
-						    $city=$_POST['city'];
-						    $zip=$_POST['zip'];
-						    $buydesc=$_POST['buydesc'];
-							$country=$_POST['countryName'];
+                            //$userid=$_POST['userid'];
+                            $phone=$_POST['phone'];
+                            $address1=$_POST['address1'];
+                            $city=$_POST['city'];
+                            $zip=$_POST['zip'];
+                            $buydesc=$_POST['buydesc'];
+                            $country=$_POST['countryName'];
 
-						 $sqlQuery = "INSERT INTO buyers (user_id,phone,address,city,zipcode,buydescription) VALUES (' $user_id','$phone', '$address1','$city', '$zip','$buydesc')";
+                         $sqlQuery = "INSERT INTO buyers (user_id,phone,address,city,zipcode,buydescription) VALUES (' $user_id','$phone', '$address1','$city', '$zip','$buydesc')";
 
 
                        if (mysqli_query($connection,$sqlQuery)) {
 
-						echo "<div class='alert alert-success'> Submitted!  </div> ";
+                        echo "<div class='alert alert-success'> Submitted!  </div> ";
                        }
-							}
+                            }
                            ?>
-										<form method="POST">
+                                        <form method="POST">
                                             <div class="col-md-6">
                                                 <h5 class="thin subtitle"> Your information</h5>
                            <?php
-								$email=$_SESSION['uemail'];
-							    $qry="SELECT * FROM users  Where email='$email'";
-								$resl=mysqli_query($connection,$qry);
-								$rw=mysqli_fetch_array($resl);
+                                $email=$_SESSION['uemail'];
+                                $qry="SELECT * FROM users  Where email='$email'";
+                                $resl=mysqli_query($connection,$qry);
+                                $rw=mysqli_fetch_array($resl);
 
-			 ?>
+             ?>
 
 
 
 
                                                 <div class="row" style="background:#f7f7f7;padding:20px;">
 
-													 <div class="form-group">
+                                                     <div class="form-group">
                                                             <input id="country" type="text" value="<?php echo $rw['countryName']; ?>"  name="countryName" class="form-control input-md required">
                                                         </div><!-- end form-group -->
                                                         <div class="form-group">
@@ -232,24 +232,24 @@ include('navh.php');
 
                                                        <!-- end form-group -->
 
-			<?php  $user_id=$rw['user_id']; ?>
-			<?php
-								$email=$_SESSION['uemail'];
-							   $sql="SELECT * FROM buyers  WHERE user_id='$user_id'";
-						       $stmt=mysqli_query($connection,$sql);
-				           if($stmt == false) {
-				          trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
-				               }
-				    $nr=mysqli_num_rows($stmt);
+            <?php  $user_id=$rw['user_id']; ?>
+            <?php
+                                $email=$_SESSION['uemail'];
+                               $sql="SELECT * FROM buyers  WHERE user_id='$user_id'";
+                               $stmt=mysqli_query($connection,$sql);
+                           if($stmt == false) {
+                          trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
+                               }
+                    $nr=mysqli_num_rows($stmt);
 
 
-			 ?>
-										<div class="form-group">
+             ?>
+                                        <div class="form-group">
                                             <input id="phone" type="tel" value="<?php echo $rows['phone']; ?>"  placeholder="Phone" name="phone" class="form-control input-md required">
                                             </div><!-- end form-group -->
 
                                                 <!-- end row -->
-												<div class="form-group">
+                                                <div class="form-group">
                                                             <input id="email" type="text" value="<?php echo $rw['email']; ?>"  name="email" class="form-control input-md required email">
                                                         </div><!-- end form-group -->
                                                 <div class="form-group">
@@ -265,30 +265,30 @@ include('navh.php');
                                                     <div class="col-sm-6">
                                                         <div class="form-group">
                                                             <input id="zip" type="text" placeholder="Zip/Postal Code" name="zip" class="form-control input-md required">
-										<input  type="hidden" value="<?php echo $user_id;?>"  name="userid" class="form-control input-md required">
+                                        <input  type="hidden" value="<?php echo $user_id;?>"  name="userid" class="form-control input-md required">
                                                         </div><!-- end form-group -->
                                                     </div><!-- end col -->
 
-												<div class="form-group">
+                                                <div class="form-group">
                                                     <textarea rows="6" class="form-control" placeholder="Your Description here..."  value="<?php echo $rows['buydesc'];?>"name="buydesc"></textarea>
                                                 </div><!-- end form-group -->
 </div>
                                             <?php if($address == ""  OR $address == NULL ){
 
-											?>
-											<div class="form-group">
-									<center>	   <input type="submit" class="btn btn-success" value="Submit" name="btninfo"> </center>
-											   </div>
-											   <?php
-											}
-											?>
-												</div><!-- end row -->
+                                            ?>
+                                            <div class="form-group">
+                                    <center>       <input type="submit" class="btn btn-success" value="Submit" name="btninfo"> </center>
+                                               </div>
+                                               <?php
+                                            }
+                                            ?>
+                                                </div><!-- end row -->
                                             </div><!-- end col -->
 
 
                                         </div><!-- end row -->
                                    </form>
-								   </div><!-- end tab-pane -->
+                                   </div><!-- end tab-pane -->
                                     <div class="tab-pane" id="payment">
                                         <div class="row">
                                             <div class="col-md-6">
@@ -306,9 +306,15 @@ include('navh.php');
                                                             <div class="panel-body">
                                                                 <div class="form-group">
                                                                     <div class="row">
+<<<<<<< HEAD
                                                                         <div class="col-sm-8 col-md-8 col-xs-8">
 																		    <a href="orderInsert.php" class="btn btn-default round" style="margin-top: 1rem;">Pay With Paypal <i class="fa fa-arrow-circle-right ml-5"></i></a>
                                                                             <a href="#" class="btn btn-default round" style="margin-top: 1rem;">Pay With WebPay <i class="fa fa-arrow-circle-right ml-5"></i></a>
+=======
+                                                                        <div class="col-sm-offset-4 col-sm-8 text-right">
+
+                                                                        <a href="orderInsert.php" class="btn btn-default btn-md round">Pay With Pay Pal <i class="fa fa-arrow-circle-right ml-5"></i></a>
+>>>>>>> 4dd2947dccc3d72206e80bc1f6711c6c4b732293
                                                                         </div><!-- end col -->
                                                                     </div><!-- end row -->
                                                                 </div><!-- end form-group -->

@@ -63,15 +63,22 @@ trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERR
 }
 $nr=mysqli_num_rows($stmt);
 $row=mysqli_fetch_array($stmt);
+//
+$primer = $row['point1'];
+$valor1 = explode('-',$primer);
+//
+
+//
+
 ?>                   
                         <h6 class="regular subtitle"><?php echo $row['title']; ?></h6>
                         <ul class="list">
-                            <li><?php echo $row['point1']; ?></li>
-                            <li><?php echo $row['point2']; ?></li> 
-							<li><?php echo $row['point3']; ?></li>
-							  <li><?php echo $row['point4']; ?></li>
-							    <li><?php echo $row['point5']; ?></li>
-								  <li><?php echo $row['point6']; ?></li>
+                            <li><?php echo $valor1[0]; ?></li>
+                            <li><?php echo $valor1[1]; ?></li> 
+							<li><?php echo $valor1[2]; ?></li>
+							  <li><?php echo $valor1[3]; ?></li>
+							    <li><?php echo $valor1[4]; ?></li>
+								  <li><?php echo $valor1[5]; ?></li>
                         </ul>
                         
                         <hr class="spacer-30">
@@ -85,15 +92,23 @@ trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERR
 }
 $nr=mysqli_num_rows($stmt);
 $row=mysqli_fetch_array($stmt);
+
+
+$segundo = $row['point2'];
+$valor2 = explode('-',$segundo);
+//
+
+
+ 
 ?>                  
                         <h6 class="regular subtitle"><?php echo $row['title'];?></h6>
                         <ol class="list">
-                            <li><?php echo $row['point1']; ?></li>
-                            <li><?php echo $row['point2']; ?></li> 
-							<li><?php echo $row['point3']; ?></li>
-							  <li><?php echo $row['point4']; ?></li>
-							    <li><?php echo $row['point5']; ?></li>
-								  <li><?php echo $row['point6']; ?></li></ol>
+                            <li><?php echo $valor2[0]; ?></li>
+                            <li><?php echo $valor2[1]; ?></li> 
+							<li><?php echo $valor2[2]; ?></li>
+							  <li><?php echo $valor2[3]; ?></li>
+							    <li><?php echo $valor2[4]; ?></li>
+								  <li><?php echo $valor2[5]; ?></li></ol>
                         
                         <hr class="spacer-30">
                    		<?php
@@ -106,15 +121,23 @@ trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERR
 }
 $nr=mysqli_num_rows($stmt);
 $row=mysqli_fetch_array($stmt);
+
+
+
+$tercero = $row['point3'];
+$valor3 = explode('-',$tercero);
+//
+
+
 ?>                  
                         <h6 class="regular subtitle"><?php echo $row['title'];?></h6>
                         <ul class="list alt-list">
-                            <li><i class="fa fa-check"></i><?php echo $row['point1'];?></li>
-                            <li><i class="fa fa-check"></i><?php echo $row['point2'];?></li>
-                            <li><i class="fa fa-check"></i><?php echo $row['point3'];?></li>
-                            <li><i class="fa fa-check"></i><?php echo $row['point4'];?></li>
-                            <li><i class="fa fa-check"></i><?php echo $row['point5'];?></li>
-                            <li><i class="fa fa-check"></i><?php echo $row['point6'];?></li>
+                            <li><i class="fa fa-check"></i><?php echo $valor3[0];?></li>
+                            <li><i class="fa fa-check"></i><?php echo $valor3[1];?></li>
+                            <li><i class="fa fa-check"></i><?php echo $valor3[2];?></li>
+                            <li><i class="fa fa-check"></i><?php echo $valor3[3];?></li>
+                            <li><i class="fa fa-check"></i><?php echo $valor3[4];?></li>
+                            <li><i class="fa fa-check"></i><?php echo $valor3[5];?></li>
                           </ul>
                     </div><!-- end col -->
                 </div><!-- end row -->                

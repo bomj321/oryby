@@ -30,7 +30,7 @@ $user_email=$datos['email'];//email del usuario logueado
                     <div class="col-sm-9">
                         <div class="row">
                             <div class="col-sm-12 text-left">
-                                <h2 class="title">Comprar Show Case and Top List</h2>
+                                <h2 class="title">Comprar Show Case y Top List</h2>
                             </div><!-- end col -->
                         </div><!-- end row -->
 
