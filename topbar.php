@@ -32,7 +32,7 @@ require 'Connect.php';
                         </a>
                         <ul class="w-100">
 
-                            <li><a href="spanish/b2b/"><img src="img/flags/flag-spain.jpg" class="mr-5" alt="">Spain</a>
+                            <li><a href="spanish/b2b/"><img src="img/flags/flag-spain.jpg" class="mr-5" alt="">Español</a>
 							</li>
                         </ul>
                     </li>

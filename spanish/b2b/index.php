@@ -512,7 +512,6 @@ $(document).ready(function(){
                         <div class="title-wrap">
                             <h2 class="title">PRODUCTOS<span class="text-primary"> SELECCIONADOS</span></h2>
 							</div>
-							<hr>
 			</div>
 
 
