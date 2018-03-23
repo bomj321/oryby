@@ -122,8 +122,8 @@ include('header.php');
 									
 								<header>
 									<span class="widget-icon"> <i class="fa fa-table"></i> </span>
-									<h2>Privacy Policy Page </h2>
-									<h2 style="color: red; font-size: 2rem;">Each paragraph separated with a dash, each point contains 6 paragraphs.</h2>
+									<h2>Tell Us More</h2>
+									
 				
 								</header>
 				
