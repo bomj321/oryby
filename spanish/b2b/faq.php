@@ -26,7 +26,7 @@ include('middlebar.php');
                             <div class="panel panel-default">
 									<?php
 include('Connect.php');
- $sql="SELECT * FROM faq  Where elementName ='SpanishQ1'";
+ $sql="SELECT * FROM faq  Where elementName ='faqquestionspanish1'";
  
 $stmt=mysqli_query($connection,$sql);
 if($stmt == false) {
@@ -50,7 +50,7 @@ $row=mysqli_fetch_array($stmt);
                                 </div><!-- end collapse -->
                             </div><!-- end panel -->
 <?php
-$sql="SELECT * FROM faq  Where elementName ='SpanishQ2'  ";
+$sql="SELECT * FROM faq  Where elementName ='faqquestionspanish2'  ";
  
 $stmt=mysqli_query($connection,$sql);
 if($stmt == false) {
@@ -74,7 +74,7 @@ $row=mysqli_fetch_array($stmt);
                                 </div><!-- end collapse -->
                             </div><!-- end panel -->
 <?php
-$sql="SELECT * FROM faq  Where elementName ='SpanishQ3'  ";
+$sql="SELECT * FROM faq  Where elementName ='faqquestionspanish3'  ";
  
 $stmt=mysqli_query($connection,$sql);
 if($stmt == false) {
@@ -98,7 +98,7 @@ $row=mysqli_fetch_array($stmt);
                                 </div><!-- end collapse -->
                             </div><!-- end panel -->
        <?php
-$sql="SELECT * FROM faq  Where elementName ='SpanishQ4'  ";
+$sql="SELECT * FROM faq  Where elementName ='faqquestionspanish4'  ";
  
 $stmt=mysqli_query($connection,$sql);
 if($stmt == false) {
@@ -122,7 +122,7 @@ $row=mysqli_fetch_array($stmt);
                                 </div><!-- end collapse -->
                             </div><!-- end panel -->
          <?php
-$sql="SELECT * FROM faq  Where elementName ='SpanishQ5'  ";
+$sql="SELECT * FROM faq  Where elementName ='faqquestionspanish5'  ";
  
 $stmt=mysqli_query($connection,$sql);
 if($stmt == false) {
@@ -146,7 +146,7 @@ $row=mysqli_fetch_array($stmt);
                                 </div><!-- end collapse -->
                             </div><!-- end panel -->
           <?php
-$sql="SELECT * FROM faq  Where elementName ='SpanishQ6'  ";
+$sql="SELECT * FROM faq  Where elementName ='faqquestionspanish6'  ";
  
 $stmt=mysqli_query($connection,$sql);
 if($stmt == false) {
