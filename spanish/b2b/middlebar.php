@@ -1,4 +1,4 @@
-  <?php session_start();
+<?php
 require 'Connect.php';
 include('head.php');
 $email=$_SESSION['uemail'];

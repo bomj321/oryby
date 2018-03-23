@@ -1,14 +1,19 @@
-<?php 
-session_start();
+
+
+<?php session_start();
+    if(!isset($_SESSION['uemail'])):
+        header('location:singlelogin.php');
+    endif;
 require 'Connect.php';
-$id = $_SESSION['user_id'];
-echo $id;
+$email = $_SESSION['uemail']; //email del usuario logueado
+$usuario="SELECT * FROM users where email='$email'";
+$datos_usuario=mysqli_query($connection,$usuario);
+$datos=mysqli_fetch_array($datos_usuario);
+$id_user=$datos['user_id'];//id del usuario logueado
+$user_email=$datos['email'];//email del usuario logueado
 ?>
 
-
-
     <body>
-
         <!-- start topBar -->
        <?php
 	   require 'topbar.php';
@@ -50,7 +55,7 @@ echo $id;
 												<th colspan="1"><i class="fa fa-shopping-cart pull-right"></i></th>
 											</tr>
 										</thead>
-										<tbody id="<?php echo $id;?>">
+										<tbody id="<?php echo $user_email;?>">
 											<tr class="favory">
 												<td><a class="10 top List">10 Top List</a></td>
 												<td><p class="20 USD">20 USD</p></td>
