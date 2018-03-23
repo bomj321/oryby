@@ -423,6 +423,10 @@
 								<a href="managePrivacyPolicy.php">Privacy Policy  Page</a>
 						</li>
 
+						<li>
+								<a href="tellusmore.php">Please tell us more</a>
+						</li>
+
 						</ul>
 					</li>
 						<li>

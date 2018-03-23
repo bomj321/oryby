@@ -126,7 +126,7 @@ include('header.php');
 								<header>
 									<span class="widget-icon"> <i class="fa fa-table"></i> </span>
 									<h2>Privacy Policy Page </h2>
-									<h2 style="color: red; font-size: 2rem;">Each  paragraph separated with a comma, each point contains 3 paragraphs.</h2>
+									<h2 style="color: red; font-size: 2rem;">Each paragraph separated with a dash, each point contains 6 paragraphs.</h2>
 				
 								</header>
 				
@@ -166,9 +166,7 @@ if($nr >0)
 														<th > Point 1</th>
 												<th > Point 2</th>
 												<th > Point 3</th>
-												<th > Point 4</th>
-												<th > Point 5</th>
-												<th > Point 6</th>
+												
 														<th > Action</th>
 													
 													
@@ -189,9 +187,7 @@ if($nr >0)
 												<td><?php echo $row['point1']; ?></td>
 												<td><?php echo $row['point2']; ?></td>
 												<td><?php echo $row['point3']; ?></td>
-											<td><?php echo $row['point4']; ?></td>
-												<td><?php echo $row['point5']; ?></td>
-													<td><?php echo $row['point6']; ?></td>
+											
 											
 											
 											

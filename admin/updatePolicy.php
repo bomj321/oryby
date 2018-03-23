@@ -29,9 +29,7 @@ $row=mysqli_fetch_assoc($stmt);
 				$point1 = $row['point1'];// item name
 			    $point2 = $row['point2'];// item name
 				$point3 = $row['point3'];
-				$point4 = $row['point4'];// item name
-				$point5 = $row['point5'];// item name
-				$point6 = $row['point6'];// item name
+				
 
 if(isset($_POST['btn_save_updates']))
 	{
@@ -44,12 +42,10 @@ if(isset($_POST['btn_save_updates']))
 				$point1 = $_POST['point1'];// item name
 			    $point2 = $_POST['point2'];// item name
 				$point3 = $_POST['point3'];
-				$point4 = $_POST['point4'];// item name
-				$point5 = $_POST['point5'];// item name
-				$point6 = $_POST['point6'];// item name
+				
 		
 	
-$sql="UPDATE aboutus  SET  title='".$title."',point1='".$point1."',point2='".$point2."',point3='".$point3."',point4='".$point4."',point5='".$point5."',point6='".$point6."', description='".$description."'  WHERE (id='$id')";
+$sql="UPDATE aboutus  SET  title='".$title."',point1='".$point1."',point2='".$point2."',point3='".$point3."', description='".$description."'  WHERE (id='$id')";
  mysqli_query($connection,$sql);
 	 $stmt = $connection->prepare($sql);
      if($stmt === false) {
@@ -206,27 +202,7 @@ trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERR
 														<input type="text" class="form-control" name="point3" value="<?php echo $point3 ?>" />
 													</div>
 												</fieldset>
-												<fieldset>
-													
-													<div class="form-group">
-														<label>Point 4</label>
-														<input type="text" class="form-control" name="point4" value="<?php echo $point4 ?>" />
-													</div>
-												</fieldset>
-												<fieldset>
-													
-													<div class="form-group">
-														<label>Point 5</label>
-														<input type="text" class="form-control" name="point5" value="<?php echo $point5 ?>" />
-													</div>
-												</fieldset>
-												<fieldset>
-													
-													<div class="form-group">
-														<label>Point 6</label>
-														<input type="text" class="form-control" name="point6" value="<?php echo $point6 ?>" />
-													</div>
-												</fieldset>
+												
 												
 												
 
