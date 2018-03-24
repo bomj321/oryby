@@ -306,15 +306,9 @@ while ($rowcart=mysqli_fetch_array($asideres1)) {
                                                             <div class="panel-body">
                                                                 <div class="form-group">
                                                                     <div class="row">
-<<<<<<< HEAD
                                                                         <div class="col-sm-8 col-md-8 col-xs-8">
 																		    <a href="orderInsert.php" class="btn btn-default round" style="margin-top: 1rem;">Pay With Paypal <i class="fa fa-arrow-circle-right ml-5"></i></a>
                                                                             <a href="#" class="btn btn-default round" style="margin-top: 1rem;">Pay With WebPay <i class="fa fa-arrow-circle-right ml-5"></i></a>
-=======
-                                                                        <div class="col-sm-offset-4 col-sm-8 text-right">
-
-                                                                        <a href="orderInsert.php" class="btn btn-default btn-md round">Pay With Pay Pal <i class="fa fa-arrow-circle-right ml-5"></i></a>
->>>>>>> 4dd2947dccc3d72206e80bc1f6711c6c4b732293
                                                                         </div><!-- end col -->
                                                                     </div><!-- end row -->
                                                                 </div><!-- end form-group -->

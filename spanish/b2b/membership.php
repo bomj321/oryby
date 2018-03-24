@@ -100,7 +100,7 @@ include('head.php');
                             </li>
                         </ul>
                         <br>
-                        <a href="#" class="btn btn-default btn-block semi-circle btn-md" style="margin-top:5px;">Comprar</a>
+                        <a href="buy_st.php" class="btn btn-default btn-block semi-circle btn-md" style="margin-top:5px;">Comprar</a>
                     </div><!-- end widget -->                           
     </div>
     </div>

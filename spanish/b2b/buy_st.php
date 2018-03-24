@@ -12,13 +12,12 @@ $datos=mysqli_fetch_array($datos_usuario);
 $id_user=$datos['user_id'];//id del usuario logueado
 $user_email=$datos['email'];//email del usuario logueado
 ?>
-
     <body>
        <?php
-	   require 'topbar.php';
+       require 'topbar.php';
        include('middlebar.php');
-	   include('navh.php');
-	   ?>
+       include('navh.php');
+       ?>
         <!-- start section -->
         <section class="section white-backgorund">
             <div class="container">
@@ -53,8 +52,8 @@ $user_email=$datos['email'];//email del usuario logueado
 												<td><p class="20 USD">20 USD</p></td>
 												<td><a class="btn btn-default btn-md round pull-right"><i class="fa fa-shopping-basket"></i> Comprar</a></li>
 											</tr>
-											<tr class="favory">
-												<td><a class="5 Show Case">5 Show Case</a></td>
+                                            <tr class="favory">
+												<td><a class="5 Show Case" style="margin-left:1.5rem">5 Show Case</a></td>
 												<td><p class="20 USD">20 USD</p></td>
 												<td><a class="btn btn-default btn-md round pull-right"><i class="fa fa-shopping-basket"></i> Comprar</a></li>
 											</tr>
