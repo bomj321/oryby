@@ -24,10 +24,10 @@ include('navh.php');
                                     <h6 class="text-uppercase">Categorías <i class="fa fa-navicon pull-right"></i></h6>
                                 </li>
 								<?php
-								$sql='Select * from `categories`Where title !="Eco Friendly" AND  title !="Innovation"';
+								$sql='Select * from `categories` Where titulo !="Eco Friendly" AND  titulo !="Innovation"';
 							$result=mysqli_query($connection,$sql);
 							while($row=mysqli_fetch_array($result)){
-								$title=$row['title'];
+								$title=$row['titulo'];
 								$catid=$row['catid'];
 								?>
     <script>
@@ -59,7 +59,7 @@ $(document).ready(function(){
                                     <ul class="dropdown-menu">
 									<?php
 									while($row=mysqli_fetch_array($stmt)){
-								  $subtitle=$row['subtitle'];
+								  $subtitle=$row['subtitulo'];
 								?>
                                         <li><a href="productshow.php?catid=<?php echo $row['catid'] ;?> & subcatid=<?php echo $row['subcatid'] ;?>"><?php echo $subtitle; ?></a></li>
                                    <?php

@@ -17,14 +17,14 @@ $domain_name = $_POST['domain_name'];
 						  ?>
 						 
 					<select  class="form-control"  id="subcatid" name="subcatid" required>
-					 <option  value="">SELECT  Sub Category</option>
+					 <option  value="">Selecciona Sub Categoria</option>
 										 <?php
 						while($row=$stmt->fetch_assoc())
 						{
 			
 						
 			?>
-					  <option value="<?php echo $row['subcatid']; ?>"><?php echo $row['subtitle']; ?></option>
+					  <option value="<?php echo $row['subcatid']; ?>"><?php echo $row['subtitulo']; ?></option>
 					  <?php
 					  }
 					  ?>

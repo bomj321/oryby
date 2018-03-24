@@ -1,5 +1,5 @@
 <?php session_start();
-require 'Connect.php'; 
+require 'Connect.php';
 error_reporting(0);
 
 $id=$_GET['id'];
@@ -8,14 +8,14 @@ $id=$_GET['id'];
 <?php
 include('head.php');
 ?>
-   
+
     <body>
        <?php
 include('topbar.php');
 include('middlebar.php');
 include('navh.php');
-	   ?>	   
-                   
+	   ?>
+
         <!-- start section -->
         <section class="section light-backgorund">
             <div class="container">
@@ -28,7 +28,7 @@ include('navh.php');
 								</div>
                             </div><!-- end col -->
                   </div><!-- end row -->
-                        
+
                 <div class="row">
                     <!-- start sidebar -->
           <div class="col-sm-2">
@@ -44,18 +44,18 @@ include('navh.php');
                                     </div>
                                     <div id="searchFilterCollapse" class="panel-collapse collapse in">
                                         <div class="panel-body">
-										 
+
                            <form  action="searchallproduct.php" method="GET">
                                 <input type="text" id="lastname" name="keyword" class="form-control input-md" placeholder="Search">
-                    
-                                          
+
+
                                         </div><!-- end panel-body -->
                                     </div><!-- end panel-collapse -->
                                 </div><!-- end panel -->
                             </div><!-- end accordion -->
                         </div><!-- end widget -->
 						</form>
-                      
+
 						<div class="widget">
                             <div class="panel-group accordion" id="priceFilter">
                                 <div class="panel panel-primary">
@@ -102,16 +102,16 @@ include('navh.php');
                                         <div class="panel-body">
                                             <?php
 //											$sql="SELECT * FROM `categories`  ";
-	//													$rst=mysqli_query($connection,$sql);	
-														?>	
+	//													$rst=mysqli_query($connection,$sql);
+														?>
                                                                 <ul class="list list-unstyled">
-										<?php 
+										<?php
 								//		while($rowt=mysqli_fetch_array($rst)){ ?>
                                             <li>
                                                 <div  style="font-size:10px;">
                                                     <input name="categorytitle[]"  value="Chile"  type="checkbox" >
                                                     <label > Chile
-												     <?php 
+												     <?php
 														//echo $rowt['title'];?>
                                                     </label>
                                                 </div>
@@ -120,7 +120,7 @@ include('navh.php');
                                                 <div  style="font-size:10px;">
                                                     <input name="categorytitle[]"  value="Maxico"  type="checkbox" >
                                                     <label > Maxico
-												     <?php 
+												     <?php
 														//echo $rowt['title'];?>
                                                     </label>
                                                 </div>
@@ -129,7 +129,7 @@ include('navh.php');
                                                 <div  style="font-size:10px;">
                                                     <input name="categorytitle[]"  value="United State"  type="checkbox" >
                                                     <label > United State
-												     <?php 
+												     <?php
 														//echo $rowt['title'];?>
                                                     </label>
                                                 </div>
@@ -138,7 +138,7 @@ include('navh.php');
                                                 <div  style="font-size:10px;">
                                                     <input name="categorytitle[]"  value="China"  type="checkbox" >
                                                     <label > China
-												     <?php 
+												     <?php
 														//echo $rowt['title'];?>
                                                     </label>
                                                 </div>
@@ -147,25 +147,25 @@ include('navh.php');
                                                 <div  style="font-size:10px;">
                                                     <input name="categorytitle[]"  value="France"  type="checkbox" >
                                                     <label > France
-												     <?php 
+												     <?php
 														//echo $rowt['title'];?>
                                                     </label>
                                                 </div>
                                             </li>
-                                          
+
 
 											<?php
 										//	}?>
-										
+
                                         </ul>
                                         </div><!-- end panel-body -->
 										 <input type="submit" name="filter" class="btn btn-danger btn-block btn-md" value="Submit">
                                     </div><!-- end panel-collapse -->
                                 </div><!-- end panel -->
-								
+
                             </div><!-- end accordion -->
                         </div><!-- end widget -->
-                     
+
 						</form>
 							<div class="widget">
                             <div class="panel-group accordion" id="tagsFilter">
@@ -181,11 +181,11 @@ include('navh.php');
                                         <div class="panel-body">
                                             <?php $query1="SELECT * FROM `categories`INNER JOIN subcategories ON(categories.catid=subcategories.catid) WHERE categories.title='Clothing, Textile & Accessories' ";
 										$result1=mysqli_query($connection,$query1);
-										?>		
+										?>
                                         <ul class="tags">
-                                            <?php while($row=mysqli_fetch_array($result1)){ 
-											?>										
-											
+                                            <?php while($row=mysqli_fetch_array($result1)){
+											?>
+
 											<li>
                                                 <a class="btn btn-gray-outline semi-circle btn-xs" href="searchallproduct.php?title=<?php echo $row['subtitle']; ?>"><?php echo $row['subtitle']; ?></a>
                                             </li>
@@ -197,22 +197,22 @@ include('navh.php');
                                 </div><!-- end panel -->
                             </div><!-- end accordion -->
                         </div><!-- end widget -->
-                       
+
                     </div><!-- end col -->
                     <!-- end sidebar -->
                     <div class="col-sm-10">
-                       
-                    
-                            
-                            
-               
-      	 
+
+
+
+
+
+
 	   <div class="content light-background">
                     <div class="row">
 								<?php
 					if($_GET['keyword'] !="")
-{ 
- $query=$_GET['keyword']; 
+{
+ $query=$_GET['keyword'];
  }
  if($_GET['category'] != "")
  {
@@ -223,17 +223,17 @@ include('navh.php');
 			   ?>
                         </div><!-- end row -->
                     <?php
-                  while( $row=mysqli_fetch_array($result)){ 
+                  while( $row=mysqli_fetch_array($result)){
 				 $myString = $row['image'];
 				  $productType=$row['productType'];
 				 $cl = explode(',', $myString);
 							  ?>
-				 
+
          <div class="col-sm-6 col-md-3" style="padding:3px">
                         	<?php
-																	
-							 
-						
+
+
+
 
 							if($productType =="Eco Friendly"){
 									?>
@@ -245,58 +245,58 @@ include('navh.php');
 										   <span> <img style="height:35px; width:35px;float:right "src="images/innovation.png" />
                                        </span><?php
 										}
-										?>  
+										?>
                             <div class="cat-item-style2">
 							   <div class="title">
 								 <?php echo '<h6> '.$row['title'].'</a></h6>'; ?>
-                                
+
                                 </div><!-- end title -->
 								<div class="price">
-                                  <center>  <span class="amount text-primary"><?php echo $row['subtitle']; ?></span>  </center> 
-										
+                                  <center>  <span class="amount text-primary"><?php echo $row['subtitle']; ?></span>  </center>
+
                                         </div>
                                 <figure>
-								
-                   <a href="Shopsingle.php?pid=<?php echo $row['pid'] ; ?>">                         		      
+
+                   <a href="Shopsingle.php?pid=<?php echo $row['pid'] ; ?>">
 										 <img style="height:200px; width:200px;" src="images/<?php echo $cl[0]; ?>" alt="" />
-										
+
                                     </a>
                                 </figure>
                                 <div class="title">
 								 <?php echo '<h6><a href="Shopsingle.php?pid='.$row['pid'].'"> '.$row['ntitle'].'</a></h6>'; ?>
-                                
+
                                 </div><!-- end title -->
 								<div class="price">
-                                  <center>  <span class="amount text-primary">$<?php echo $row['price']; ?></span>  </center> 
+                                  <center>  <span class="amount text-primary">$<?php echo $row['price']; ?></span>  </center>
 											<?php
-											
+
 											//$p = $price -10;
 	                                             ?>
                                           <!--  <span class="amount text-primary">$<?php //echo $p ;?></span>  -->
-										    
+
                                         </div>
                             </div><!-- end cat-item-style2 -->
                         <!-- end col -->
-                   
+
                    <!-- end row -->
-				  
+
 				   </div>
 				   <?php  } ?>
                     <div class="row">
                         <div class="col-sm-12 text-center">
-                           
+
                         </div><!-- end col -->
                     </div><!-- end row -->
                 </div><!-- end content -->
-	  
+
 	  </div>
 	  </section>
-        
-     <?php 
+
+     <?php
 	 include('footer.php');
 	 ?>
-        
-        
+
+
         <!-- JavaScript Files -->
         <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
@@ -311,6 +311,6 @@ include('navh.php');
         <script type="text/javascript" src="js/gmaps.js"></script>
         <script type="text/javascript" src="js/swiper.min.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
-        
+
     </body>
 </html>

@@ -7,6 +7,7 @@ $id=$_GET['id'];
 ?>
 <?php
 include('head.php');
+$category=$_GET['category'];
 ?>
    
     <body>
@@ -24,7 +25,7 @@ include('navh.php');
 			</div>
                             <div class="col-sm-10 text-left">
 							<div style="margin-top:-50px; height:20px;"class="content white-background">
-                                <h6  style="margin-top:-10px; ">TODOS LOS PRODUCTOS >Categorías</h6>
+                                <h6  style="margin-top:-10px; ">TODOS LOS PRODUCTOS ><?php echo $category; ?></h6>
 								</div>
                             </div><!-- end col -->
                   </div><!-- end row -->
@@ -119,7 +120,7 @@ include('navh.php');
 											  <li>
                                                 <div  style="font-size:10px;">
                                                     <input name="categorytitle[]"  value="Maxico"  type="checkbox" >
-                                                    <label > Maxico
+                                                    <label > Mexico
 												     <?php 
 														//echo $rowt['title'];?>
                                                     </label>
@@ -128,7 +129,7 @@ include('navh.php');
 												  <li>
                                                 <div  style="font-size:10px;">
                                                     <input name="categorytitle[]"  value="United State"  type="checkbox" >
-                                                    <label > United State
+                                                    <label > Estados Unidos
 												     <?php 
 														//echo $rowt['title'];?>
                                                     </label>
@@ -146,7 +147,7 @@ include('navh.php');
 											  <li>
                                                 <div  style="font-size:10px;">
                                                     <input name="categorytitle[]"  value="France"  type="checkbox" >
-                                                    <label > France
+                                                    <label > Francia
 												     <?php 
 														//echo $rowt['title'];?>
                                                     </label>
@@ -173,13 +174,13 @@ include('navh.php');
                                     <div class="panel-heading">
                                         <h3 class="panel-title">
                                             <a data-toggle="collapse" data-parent="#tagsFilter" href="#tagsFilterCollapse">
-                                                Popular tags
+                                                Etiquetas Populares
                                             </a>
                                         </h3>
                                     </div>
                                     <div id="tagsFilterCollapse" class="panel-collapse collapse in">
                                         <div class="panel-body">
-                                            <?php $query1="SELECT * FROM `categories`INNER JOIN subcategories ON(categories.catid=subcategories.catid) WHERE categories.title='Clothing, Textile & Accessories' ";
+                                            <?php $query1="SELECT * FROM `categories`INNER JOIN subcategories ON(categories.catid=subcategories.catid) WHERE categories.titulo='Ropa, textiles y accesorios' ";
 										$result1=mysqli_query($connection,$query1);
 										?>		
                                         <ul class="tags">
@@ -187,7 +188,7 @@ include('navh.php');
 											?>										
 											
 											<li>
-                                                <a class="btn btn-gray-outline semi-circle btn-xs" href="searchallproduct.php?title=<?php echo $row['subtitle']; ?>"><?php echo $row['subtitle']; ?></a>
+                                                <a class="btn btn-gray-outline semi-circle btn-xs" href="searchallproduct.php?title=<?php echo $row['subtitulo']; ?>"><?php echo $row['subtitulo']; ?></a>
                                             </li>
                                             <?php
 											}?>
@@ -217,7 +218,7 @@ include('navh.php');
  {
   $category=$_GET['category'];
  }
-			 $query="SELECT * FROM products INNER JOIN categories ON(products.catid=categories.catid)WHERE (products.selectedkeyword LIKE '%".$query."%' OR categories.title LIKE '%".$category."%'  )";
+			$query="SELECT * FROM products INNER JOIN categories ON (products.catid=categories.catid) WHERE (products.selectedkeyword LIKE '%$query%' ||categories.titulo LIKE '%$category%') ";
                $result=mysqli_query($connection,$query);
 			   ?>
                         </div><!-- end row -->
@@ -247,11 +248,11 @@ include('navh.php');
 										?>  
                             <div class="cat-item-style2">
 							   <div class="title">
-								 <?php echo '<h6> '.$row['title'].'</a></h6>'; ?>
+								 <?php echo '<h6> '.$row['titulo'].'</a></h6>'; ?>
                                 
                                 </div><!-- end title -->
 								<div class="price">
-                                  <center>  <span class="amount text-primary"><?php echo $row['subtitle']; ?></span>  </center> 
+                                  <center>  <span class="amount text-primary"><?php echo $row['subtitulo']; ?></span>  </center> 
 										
                                         </div>
                                 <figure>

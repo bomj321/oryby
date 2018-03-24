@@ -252,12 +252,14 @@ else if(trim($str1) ==trim($str3))
 								<select class="form-control " id="catid" name="catid" required>
 								<option  value="">Selecciona la Categoria</option>
 									<?php while($row=$stmt->fetch_assoc()){ ?>
-										<option value="<?php echo $row['catid']; ?>"><?php echo $row['title']; ?></option>
+										<option value="<?php echo $row['catid']; ?>"><?php echo $row['titulo']; ?></option>
 									<?php } ?>
 								</select>
 							</div>
 						<?php } ?>
-						<div class="form-group " id="ShowSubcategory"><select id="Show" class="form-control "> <option value=""> Primera Categoria </option> </select></div>  
+						<div class="form-group " id="ShowSubcategory">
+							<select id="Show" class="form-control "> 
+								<option value=""> Primera Categoria </option> </select></div>  
 					</div>
 					</div>  
 				</div>  <!-- row  -->

@@ -37,7 +37,7 @@ $email=$_SESSION['uemail'];
                                         <option value="all">Todas las categorias</option>
                                     <?php while($row=mysqli_fetch_array($result)){
 									?>    
-                                  <option value="<?php echo $row['title'];?>"><?php echo $row['title'];?></option>
+                                  <option value="<?php echo $row['titulo'];?>"><?php echo $row['titulo'];?></option>
 									<?php 
 								    	} ?>  
 										</select>

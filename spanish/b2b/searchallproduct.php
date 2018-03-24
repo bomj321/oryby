@@ -118,7 +118,7 @@ include('navh.php');
 											  <li>
                                                 <div  style="font-size:10px;">
                                                     <input name="categorytitle[]"  value="Maxico"  type="checkbox" >
-                                                    <label > Maxico
+                                                    <label > Mexico
 												     <?php 
 														//echo $rowt['title'];?>
                                                     </label>
@@ -172,13 +172,13 @@ include('navh.php');
                                     <div class="panel-heading">
                                         <h3 class="panel-title">
                                             <a data-toggle="collapse" data-parent="#tagsFilter" href="#tagsFilterCollapse">
-                                                Popular tags
+                                                Etiquetas Populares
                                             </a>
                                         </h3>
                                     </div>
                                     <div id="tagsFilterCollapse" class="panel-collapse collapse in">
                                         <div class="panel-body">
-                                            <?php $query1="SELECT * FROM `categories`INNER JOIN subcategories ON(categories.catid=subcategories.catid) WHERE categories.title='Clothing, Textile & Accessories' ";
+                                            <?php $query1="SELECT * FROM `categories`INNER JOIN subcategories ON(categories.catid=subcategories.catid) WHERE categories.titulo='Ropa, textiles y accesorios' ";
 										$result1=mysqli_query($connection,$query1);
 										?>		
                                         <ul class="tags">
@@ -186,7 +186,7 @@ include('navh.php');
 											?>										
 											
 											<li>
-                                                <a class="btn btn-gray-outline semi-circle btn-xs" href="searchallproduct.php?title=<?php echo $row['subtitle']; ?>"><?php echo $row['subtitle']; ?></a>
+                                                <a class="btn btn-gray-outline semi-circle btn-xs" href="searchallproduct.php?title=<?php echo $row['subtitulo']; ?>"><?php echo $row['subtitulo']; ?></a>
                                             </li>
                                             <?php
 											}?>
@@ -217,7 +217,7 @@ include('navh.php');
  {
  $title=$_GET['title'];
  $query=$_GET['keyword'];
- 			 $query="SELECT * FROM products INNER JOIN categories ON(products.catid=categories.catid)WHERE (products.ntitle LIKE '%".$query."%' || products.ntitle LIKE '%".$title."%' )";
+ 			 $query="SELECT * FROM products INNER JOIN categories ON(products.catid=categories.catid)WHERE (products.ntitle LIKE '%$query%' || products.ntitle LIKE '%$title%' )";
 					 
 					
                $result=mysqli_query($connection,$query);
@@ -248,11 +248,11 @@ include('navh.php');
                         
                             <div class="cat-item-style2">
 							   <div class="title">
-								 <?php echo '<h6> '.$row['title'].'</a></h6>'; ?>
+								 <?php echo '<h6> '.$row['titulo'].'</a></h6>'; ?>
                                 
                                 </div><!-- end title -->
 								<div class="price">
-                                  <center>  <span class="amount text-primary"><?php echo $row['subtitle']; ?></span>  </center> 
+                                  <center>  <span class="amount text-primary"><?php echo $row['subtitulo']; ?></span>  </center> 
 										
                                         </div>
                                 <figure>
@@ -290,7 +290,7 @@ include('navh.php');
 foreach ($name as $category){ 
  
 				
-					 $query="SELECT * FROM products INNER JOIN categories ON(products.catid=categories.catid)WHERE ( categories.title LIKE '%".$category."%'  )";
+					 $query="SELECT * FROM products INNER JOIN categories ON(products.catid=categories.catid) WHERE ( categories.titulo LIKE '%".$category."%'  )";
 					 
 					
                $result=mysqli_query($connection,$query);
@@ -321,11 +321,11 @@ foreach ($name as $category){
                         
                             <div class="cat-item-style2">
 							   <div class="title">
-								 <?php echo '<h6> '.$row['title'].'</a></h6>'; ?>
+								 <?php echo '<h6> '.$row['titulo'].'</a></h6>'; ?>
                                 
                                 </div><!-- end title -->
 								<div class="price">
-                                  <center>  <span class="amount text-primary"><?php echo $row['subtitle']; ?></span>  </center> 
+                                  <center>  <span class="amount text-primary"><?php echo $row['subtitulo']; ?></span>  </center> 
 										
                                         </div>
                                 <figure>
