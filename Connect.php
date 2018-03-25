@@ -1,19 +1,5 @@
 <?php
 
-//url aquispe
-define('URL_SITIO', '');
-
-require 'paypal/autoload.php';
-
-$apiContext = new \PayPal\Rest\ApiContext(
-    new \PayPal\Auth\OAuthTokenCredential(
-        '',     // ClientID
-        ''      // ClientSecret
-    )
-);
-
-
-
 $connection = mysqli_connect('localhost', 'root', '','joryan_adminhtt_btb');
   
 if (!$connection){
