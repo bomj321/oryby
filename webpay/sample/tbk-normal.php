@@ -1,3 +1,6 @@
+<?php session_start();
+
+?>
 <h1>Ejemplos Webpay - Transaccion Normal</h1>
 
 <?php
@@ -28,7 +31,8 @@ $webpay = new Webpay($configuration);
 $action = isset($_GET["action"]) ? $_GET["action"] : 'init';
 
 $post_array = false;
-
+//VARIABLES AÑADIDAS POR GET Y POST
+$total = $_GET['total'];
 switch ($action) {
 
     default:
@@ -36,7 +40,7 @@ switch ($action) {
         $tx_step = "Init";
 
         /** Monto de la transacción */
-        $amount = 9990;
+        $amount = $total;
 
         /** Orden de compra de la tienda */
         $buyOrder = rand();

@@ -307,8 +307,13 @@ while ($rowcart=mysqli_fetch_array($asideres1)) {
                                                                 <div class="form-group">
                                                                     <div class="row">
                                                                         <div class="col-sm-8 col-md-8 col-xs-8">
+<<<<<<< HEAD
+																		    <a href="orderInsert.php" class="btn btn-default round" style="margin-top: 1rem;">Pay With Paypal <i class="fa fa-arrow-circle-right ml-5"></i></a>
+                                                                            <a href="/b2b/webpay/sample/tbk-normal.php?total=<?php echo $tot?>" class="btn btn-default round" style="margin-top: 1rem;">Pay With WebPay <i class="fa fa-arrow-circle-right ml-5"></i></a>
+=======
 																		    <a href="#" class="btn btn-default round" style="margin-top: 1rem;">Pay With Paypal <i class="fa fa-arrow-circle-right ml-5"></i></a>
                                                                             <a href="#" class="btn btn-default round" style="margin-top: 1rem;">Pay With WebPay <i class="fa fa-arrow-circle-right ml-5"></i></a>
+>>>>>>> 2c7bd6bcb351637528651757b0330fafdeeb97e1
                                                                         </div><!-- end col -->
                                                                     </div><!-- end row -->
                                                                 </div><!-- end form-group -->
