@@ -291,7 +291,10 @@ include('navh.php');
                                                                 <div class="form-group">
                                                                     <div class="row">
                                                                         <div class="col-sm-8 col-md-8 col-xs-8">
-																		    <a href="#" class="btn btn-default round" style="margin-top: 1rem;">Pay With Paypal <i class="fa fa-arrow-circle-right ml-5"></i></a>
+                                                                            <form action="pagar.php" method="POST">
+                                                                                <input type="hidden" name="precio" value="<?php echo $tot;?>">
+                                                                                <button type="submit" class="paypal btn btn-default round"  style="margin-top: 1rem;">Pay With Paypal <i class="fa fa-arrow-circle-right ml-5"></i></button>                                                                         
+                                                                            </form>
                                                                             <a href="#" class="btn btn-default round" style="margin-top: 1rem;">Pay With WebPay <i class="fa fa-arrow-circle-right ml-5"></i></a>
                                                                         </div><!-- end col -->
                                                                     </div><!-- end row -->
