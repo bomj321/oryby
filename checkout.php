@@ -116,13 +116,12 @@ include('navh.php');
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-        <?php
-$aside1 = "SELECT * FROM cart2 WHERE email = '$email' ";
-$asideres1 = $connection->query($aside1);
-$tot= 0;
-while ($rowcart=mysqli_fetch_array($asideres1)) {
-
-                        ?>
+                                                <?php
+                                                $aside1 = "SELECT * FROM cart2 WHERE email = '$email' ";
+                                                $asideres1 = $connection->query($aside1);
+                                                $tot= 0;
+                                                while ($rowcart=mysqli_fetch_array($asideres1)) {
+                                                ?>
                                                     <tr>
                                                 <td>
                                                     <a href="#">
@@ -137,15 +136,6 @@ while ($rowcart=mysqli_fetch_array($asideres1)) {
                                                 <td>
                                                     <span>$<?php echo $rowcart['price'];?></span>
                                                 </td>
-                                             <!--   <td>
-                                                    <select class="form-control" name="qty">
-                                                        <option>1</option>
-                                                        <option>2</option>
-                                                        <option>3</option>
-                                                        <option>4</option>
-                                                        <option>5</option>
-                                                    </select>
-                                                </td>  -->
                                                 <td>
                                                     <span class="text-primary">$<?php echo $rowcart['totalprice']?></span>
                                                 </td>
@@ -154,12 +144,6 @@ while ($rowcart=mysqli_fetch_array($asideres1)) {
 
                     $tot =$tot+$rowcart['price']* $rowcart['quantity'];
                     $_SESSION['toatl']= $tot;
-
-                //  if($_GET['code'])
-                    //{
-                // echo $pid = $_GET['code'];
-                    //  unset($_SESSION['cart'][$pid]);
-                     // if(empty($_SESSION['cart'])) unset($_SESSION['cart']);
                                                 ?>
 
                                     <!--    <td><a href="cart.php?code=<?php// echo $id ?>">Delete from cart</a></td> -->
@@ -307,13 +291,8 @@ while ($rowcart=mysqli_fetch_array($asideres1)) {
                                                                 <div class="form-group">
                                                                     <div class="row">
                                                                         <div class="col-sm-8 col-md-8 col-xs-8">
-<<<<<<< HEAD
-																		    <a href="orderInsert.php" class="btn btn-default round" style="margin-top: 1rem;">Pay With Paypal <i class="fa fa-arrow-circle-right ml-5"></i></a>
-                                                                            <a href="/b2b/webpay/sample/tbk-normal.php?total=<?php echo $tot?>" class="btn btn-default round" style="margin-top: 1rem;">Pay With WebPay <i class="fa fa-arrow-circle-right ml-5"></i></a>
-=======
 																		    <a href="#" class="btn btn-default round" style="margin-top: 1rem;">Pay With Paypal <i class="fa fa-arrow-circle-right ml-5"></i></a>
                                                                             <a href="#" class="btn btn-default round" style="margin-top: 1rem;">Pay With WebPay <i class="fa fa-arrow-circle-right ml-5"></i></a>
->>>>>>> 2c7bd6bcb351637528651757b0330fafdeeb97e1
                                                                         </div><!-- end col -->
                                                                     </div><!-- end row -->
                                                                 </div><!-- end form-group -->
@@ -397,15 +376,6 @@ while ($rowcart=mysqli_fetch_array($asideres1)) {
                                 <hr class="spacer-30">
 
                                 <div class="row">
-                                   <!-- <div class="col-sm-7 text-left">
-                                        <form class="form-inline">
-                                            <div class="form-group">
-                                                <input class="form-control input-md" type="text" placeholder="Coupon code">
-                                            </div>
-                                           <button class="btn btn-default btn-md round" type="submit">Apply</button>
-                                        </form>
-                                    </div> end col -->
-
                                     <div class="col-sm-5">
                                         <div class="table-responsive">
                                             <table class="table no-border">
@@ -416,7 +386,7 @@ while ($rowcart=mysqli_fetch_array($asideres1)) {
 
                                                 <tr>
                                                     <th>Order Total</th>
-                                               <td><?php echo '$'.$tot;?></td>
+                                                    <td id="<?php echo $tot;?>"><?php echo '$'.$tot;?></td>
                                                 </tr>
                                             </table><!-- end table -->
                                         </div><!-- end table-responsive -->
@@ -445,10 +415,8 @@ while ($rowcart=mysqli_fetch_array($asideres1)) {
         <script type="text/javascript" src="js/pace.min.js"></script>
         <script type="text/javascript" src="js/star-rating.min.js"></script>
         <script type="text/javascript" src="js/wow.min.js"></script>
-        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
         <script type="text/javascript" src="js/gmaps.js"></script>
         <script type="text/javascript" src="js/swiper.min.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
-
     </body>
 </html>

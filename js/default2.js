@@ -24,16 +24,10 @@ $(document).ready(function(){
             {
                 window.location.href = "cart.php";
             }
-		});
-        
-
-
-
-
-
-
-
+		});     
     });
+
+    //Paypal
     
 
 
