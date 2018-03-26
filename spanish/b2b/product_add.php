@@ -767,7 +767,7 @@ else if(trim($str1) ==trim($str3))
 						 </div>
 						 </div>
 						 <div class="form-group">
-								 <input type="text" class="form-control input-sm" placeholder="Dias" name="delivery_details" id="delivery_details">
+								 <input type="text" class="form-control input-sm" placeholder="Detalles de Envio" name="delivery_details" id="delivery_details">
 						 </div>	
 						 <div class="form-group">
 							<select class="form-control " id="payment" name="payment">

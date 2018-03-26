@@ -347,7 +347,7 @@ if (!empty($pid) AND !empty($para) ) {
       mysqli_close($connection);
     ?>
  
-
+<!--FIN PROGRAMACION CHAT-->
    
 
   
