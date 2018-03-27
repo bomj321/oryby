@@ -60,7 +60,6 @@ require('head.php');
 <!-- start section -->
 <section class="section">
     <div class="container">
-    <div id="google_translate_element"></div>
     <script type="text/javascript">
 function googleTranslateElementInit() {
   new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en,es', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, multilanguagePage: true}, 'google_translate_element');
