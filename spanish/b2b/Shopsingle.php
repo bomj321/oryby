@@ -51,6 +51,17 @@ require('head.php');
 
     <body>
     <!-- start topBar -->
+        <!----------------------------TRADUCTOR---->
+
+   <div id="google_translate_element"></div><script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'es', includedLanguages: 'es', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL, autoDisplay: false, multilanguagePage: true}, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        
+    <!----------------------------TRADUCTOR---->
+
         <?php include('topbar.php');
         include('middlebar.php');
         include('navh.php');
@@ -59,12 +70,7 @@ require('head.php');
 <!-- start section -->
 <section class="section">
 <div class="container">
-    <script type="text/javascript">
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({pageLanguage: 'es', includedLanguages: 'en,es', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, multilanguagePage: true}, 'google_translate_element');
-}
-</script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
         
     <div class="row">
         <div class="col-sm-4">

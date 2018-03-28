@@ -52,6 +52,19 @@ require('head.php');
 
     <body>
     <!-- start topBar -->
+    <!----------------------------TRADUCTOR---->
+   <div  id="google_translate_element"></div>
+
+   <script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL, autoDisplay: false, multilanguagePage: true}, 'google_translate_element');
+}
+
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        
+    <!----------------------------TRADUCTOR---->
+
         <?php include('topbar.php');
         include('middlebar.php');
         include('navh.php');
@@ -59,13 +72,10 @@ require('head.php');
 
 <!-- start section -->
 <section class="section">
-   <script type="text/javascript">
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en,es', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, multilanguagePage: true}, 'google_translate_element');
-}
-</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  
         
 <div class="container">
+
     <div class="row">
         <div class="col-sm-4">
             <div class='carousel slide product-slider' data-ride='carousel' data-interval="false">
@@ -272,6 +282,6 @@ $rows=mysqli_fetch_array($result);
         <script type="text/javascript" src="js/gmaps.js"></script>
         <script type="text/javascript" src="js/swiper.min.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
-
+        
     </body>
 </html>
