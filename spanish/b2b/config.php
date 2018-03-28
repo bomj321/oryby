@@ -1,14 +1,14 @@
 <?php
 
 //url aquispe
-define('URL_SITIO', 'http://127.0.0.1/ORYBy/spanish/b2b/');
+define('URL_SITIO', 'http://www.orybu.com/freelancer/spanish/b2b/');
 
 require 'paypal/autoload.php';
 
 $apiContext = new \PayPal\Rest\ApiContext(
     new \PayPal\Auth\OAuthTokenCredential(
-        'AfksIxIW8bLOYEoBzMoY16Z3nhPxE3-xhR-rpS-gG9KlFB9xSfNY_QooOOGUVehBhoKn0C-qgwCUetsx',     // ClientID
-        'EBNbmZ4ndQL2J1RQKvswFdt5qkaO0VL1w1-mXtwOU3jSYercv00Fc2zmYJ0S4NL0hHVZZ1GJOzoABJZr'      // ClientSecret
+        'AcNchhTrWFNaBmNRibJKl1rbvp7fNOnJ6g-UGa4w06uuDr889f9XKbYfwgCJ_mWxx2hTKeiJizdHsW2L',     // ClientID
+        'EKeTyKfE8-IfBvmqZOkI4ZZJfxBmnS2fOh3rXOky53VVhUWd9wTvWpcvpd9oQPTcxXDAJewYt7MpPh56'      // ClientSecret
     )
 );
 ?>
