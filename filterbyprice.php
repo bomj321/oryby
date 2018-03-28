@@ -17,7 +17,7 @@ include('head.php');
     <body>
        <?php
 include('topbar.php');
-include('middle.php');
+include('middlebar.php');
 include('navh.php');
 	   ?>	   
                    

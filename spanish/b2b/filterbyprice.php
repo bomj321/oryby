@@ -17,7 +17,7 @@ include('head.php');
     <body>
        <?php
 include('topbar.php');
-include('middle.php');
+include('middlebar.php');
 include('navh.php');
 	   ?>	   
                    
@@ -79,9 +79,9 @@ include('navh.php');
 										<?php while($rowt=mysqli_fetch_array($rst)){ ?>
                                             <li>
                                                 <div  style="font-size:10px;">
-                                                    <input name="categorytitle[]"  value="<?php echo $rowt['title'];?>"  type="checkbox" >
+                                                    <input name="categorytitle[]"  value="<?php echo $rowt['titulo'];?>"  type="checkbox" >
                                                     <label >
-                                                        <?php echo $rowt['title'];?>
+                                                        <?php echo $rowt['titulo'];?>
                                                     </label>
                                                 </div>
                                             </li>
@@ -141,7 +141,7 @@ include('navh.php');
                                     </div>
                                     <div id="tagsFilterCollapse" class="panel-collapse collapse in">
                                         <div class="panel-body">
-                                            <?php $query1="SELECT * FROM `categories`INNER JOIN subcategories ON(categories.catid=subcategories.catid) WHERE categories.title='Clothing, Textile & Accessories' ";
+                                            <?php $query1="SELECT * FROM `categories`INNER JOIN subcategories ON(categories.catid=subcategories.catid) WHERE categories.titulo='Clothing, Textile & Accessories' ";
 										$result1=mysqli_query($connection,$query1);
 										?>		
                                         <ul class="tags">
@@ -209,11 +209,11 @@ include('navh.php');
                         
                             <div class="cat-item-style2">
 							   <div class="title">
-								 <?php echo '<h6> '.$row['title'].'</a></h6>'; ?>
+								 <?php echo '<h6> '.$row['titulo'].'</a></h6>'; ?>
                                 
                                 </div><!-- end title -->
 								<div class="price">
-                                  <center>  <span class="amount text-primary"><?php echo $row['subtitle']; ?></span>  </center> 
+                                  <center>  <span class="amount text-primary"><?php echo $row['subtitulo']; ?></span>  </center> 
 										
                                         </div>
                                 <figure>

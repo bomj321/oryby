@@ -37,7 +37,7 @@ include('navh.php');
                                     <div class="panel-heading">
                                         <h3 class="panel-title">
                                             <a data-toggle="collapse" data-parent="#searchFilter" href="#searchFilterCollapse">
-                                                Search
+                                                Buscar
                                             </a>
                                         </h3>
                                     </div>
@@ -45,7 +45,7 @@ include('navh.php');
                                         <div class="panel-body">
 										 
                            <form  action="searchallproduct.php" method="GET">
-                                <input type="text" id="lastname" name="keyword" class="form-control input-md" placeholder="Search">
+                                <input type="text" id="lastname" name="keyword" class="form-control input-md" placeholder="Buscar">
                     
                                           
                                         </div><!-- end panel-body -->
@@ -61,7 +61,7 @@ include('navh.php');
                                     <div class="panel-heading">
                                         <h3 class="panel-title">
                                             <a data-toggle="collapse" data-parent="#priceFilter" href="#priceFilterCollapse">
-                                                Prices
+                                                Precios
                                             </a>
                                         </h3>
                                     </div>
@@ -79,7 +79,7 @@ include('navh.php');
                                     </div>
                                 </div>
                                 <div class="ui-range-slider"></div>
-                                <input type="submit" name="filter" class="btn btn-default btn-block btn-md" value="Filter">
+                                <input type="submit" name="filter" class="btn btn-default btn-block btn-md" value="Filtro">
                             </form>
                                         </div><!-- end panel-body -->
                                     </div><!-- end panel-collapse -->
@@ -93,7 +93,7 @@ include('navh.php');
                                     <div class="panel-heading">
                                         <h3 class="panel-title">
                                             <a data-toggle="collapse" data-parent="#categoriesFilter" href="#categoriesFilterCollapse">
-                                                Country
+                                                Pais
                                             </a>
                                         </h3>
                                     </div>
@@ -158,7 +158,7 @@ include('navh.php');
 										
                                         </ul>
                                         </div><!-- end panel-body -->
-										 <input type="submit" name="filter" class="btn btn-danger btn-block btn-md" value="Submit">
+										 <input type="submit" name="filter" class="btn btn-danger btn-block btn-md" value="Enviar">
                                     </div><!-- end panel-collapse -->
                                 </div><!-- end panel -->
 								

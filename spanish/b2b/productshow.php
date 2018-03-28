@@ -27,7 +27,7 @@ include('navh.php');
 			</div>
                             <div class="col-sm-10 text-left">
 							<div style="margin-top:-50px; height:20px;"class="content white-background">
-                                <h6  style="margin-top:-10px; ">ALL PRODUCTS >Categories</h6>
+                                <h6  style="margin-top:-10px; ">TODOS LOS PRODUCTOS >Categorias</h6>
 								</div>
                             </div><!-- end col -->
                   </div><!-- end row -->
@@ -43,7 +43,7 @@ include('navh.php');
                                     <div class="panel-heading">
                                         <h3 class="panel-title">
                                             <a data-toggle="collapse" data-parent="#searchFilter" href="#searchFilterCollapse">
-                                                Search
+                                                Buscar
                                             </a>
                                         </h3>
                                     </div>
@@ -51,7 +51,7 @@ include('navh.php');
                                         <div class="panel-body">
 										 
                            <form  action="searchallproduct.php" method="GET">
-                                <input type="text" id="lastname" name="keyword" class="form-control input-md" placeholder="Search">
+                                <input type="text" id="lastname" name="keyword" class="form-control input-md" placeholder="Buscar">
                     
                                           
                                         </div><!-- end panel-body -->
@@ -94,7 +94,7 @@ include('navh.php');
                                         </div><!-- end panel-body -->
                                     </div><!-- end panel-collapse -->
                                 </div><!-- end panel -->
-								 <input type="submit" name="filter" class="btn btn-warning btn-block btn-md" value="Submit">
+								 <input type="submit" name="filter" class="btn btn-warning btn-block btn-md" value="Enviar">
                             </div><!-- end accordion -->
                         </div><!-- end widget -->
                      
@@ -123,7 +123,7 @@ include('navh.php');
                                     </div>
                                 </div>
                                 <div class="ui-range-slider"></div>
-                                <input type="submit" name="filter" class="btn btn-default btn-block btn-md" value="Filter">
+                                <input type="submit" name="filter" class="btn btn-default btn-block btn-md" value="Filtro">
                             </form>
                                         </div><!-- end panel-body -->
                                     </div><!-- end panel-collapse -->
