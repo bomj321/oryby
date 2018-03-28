@@ -2,6 +2,15 @@
 <html lang="en">
 <head>
     <title>Orybu.com - Conectando Negocios Alrededor del Mundo</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113912352-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-113912352-1');
+    </script>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="description" content="Plus E-Commerce Template">
     <meta name="author" content="Alemar y Jose"/>

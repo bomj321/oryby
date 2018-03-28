@@ -5,6 +5,15 @@
 		<!--<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">-->
 
 		<title>ADMIN PANEL</title>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-113912352-1"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-113912352-1');
+		</script>
 		<meta name="description" content="">
 		<meta name="author" content="">
 
