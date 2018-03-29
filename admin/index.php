@@ -47,7 +47,6 @@ else
 }
 }
 include('header.php');
-
 ?>
 		<!-- MAIN PANEL -->
 		<div id="main" role="main">
