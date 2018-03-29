@@ -6,8 +6,22 @@ require 'Connect.php';
 
 
  ?>
- 
+ <!-------------------------TRADUCTOR-->
+ <div id="google_translate_element">
+     
+ </div>
+ <script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'fr,zh-CN', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL, multilanguagePage: true}, 'google_translate_element');
+}
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+ <!-------------------------TRADUCTOR-->
   <div class="topBar inverse">
+    
+
             <div class="container">
                 <ul class="list-inline pull-left hidden-sm hidden-xs">
                     <li style="color:#878c94;"><span class="text-primary">Have a question?</span> Email us to info@orybu.com</li>
