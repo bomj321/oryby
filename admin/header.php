@@ -104,6 +104,7 @@
 		* 'fixed-page-footer' - Fixes footer
 		* 'container'         - boxed layout mode (non-responsive: will not work with fixed-navigation & fixed-ribbon)
 	-->
+	<!-- SSL, No Borrar-->
 	<body class="">
 
 		<!-- HEADER -->

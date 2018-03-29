@@ -50,8 +50,14 @@
                             <li class="text-white"><i class="fa fa-cc-paypal fa-2x"></i></li>
                             <li class="text-white"><i class="fa fa-cc-mastercard fa-2x"></i></li>
                             <li class="text-white"><i class="fa fa-cc-discover fa-2x"></i></li>
+                            <li>
+                                <!-- SSL, No Borrar-->
+                                <script language="JavaScript" type="text/javascript">TrustLogo("http://www.orybu.com/comodo_secure_seal_76x26_transp.png", "CL1", "none");
+                                </script>
+                                <a  href="https://www.positivessl.com/" id="comodoTL"></a>                         
+                            </li>
                         </ul>
                     </div><!-- end col -->
                 </div><!-- end row -->
-            </div><!-- end container -->
+            </div><!-- end container -->            
     </footer>
