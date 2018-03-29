@@ -1,14 +1,24 @@
 <?php
 
 //url aquispe
-define('URL_SITIO', 'http://www.orybu.com/freelancer/');
+define('URL_SITIO', 'http://www.orybu.com/');
 
 require 'paypal/autoload.php';
 
 $apiContext = new \PayPal\Rest\ApiContext(
     new \PayPal\Auth\OAuthTokenCredential(
-        'AfksIxIW8bLOYEoBzMoY16Z3nhPxE3-xhR-rpS-gG9KlFB9xSfNY_QooOOGUVehBhoKn0C-qgwCUetsx',     // ClientID
-        'EBNbmZ4ndQL2J1RQKvswFdt5qkaO0VL1w1-mXtwOU3jSYercv00Fc2zmYJ0S4NL0hHVZZ1GJOzoABJZr'      // ClientSecret
+        'AcNchhTrWFNaBmNRibJKl1rbvp7fNOnJ6g-UGa4w06uuDr889f9XKbYfwgCJ_mWxx2hTKeiJizdHsW2L',     // ClientID
+        'EKeTyKfE8-IfBvmqZOkI4ZZJfxBmnS2fOh3rXOky53VVhUWd9wTvWpcvpd9oQPTcxXDAJewYt7MpPh56'      // ClientSecret
     )
 );
+
+$apiContext->setConfig(
+    array(
+        'log.LogEnabled' => true,
+        'log.FileName' => 'PayPal.log',
+        'log.LogLevel' => 'FINE',
+        'mode' => 'live',
+    )
+);
+
 ?>
