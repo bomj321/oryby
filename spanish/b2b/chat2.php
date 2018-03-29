@@ -52,6 +52,21 @@ if(isset($_GET['leido'])) {
 
   <body onload="ajax();">
 <div class="container chateo" id="body">
+  <!-------------------------BOTONES-->
+<div style="margin-bottom: 2em;" class="row ">
+  <div class="col-md-2">
+    <a href="chat2.php"><button class="btn btn-primary">MI CHATS</button></a>
+  </div>
+
+<div style="margin-left: -3em;" class="col-md-2">
+      <a href="chatby.php"><button class="btn btn-primary">SOLICITUDES DE COMPRA</button></a>
+
+</div>
+
+</div>
+
+
+  <!-------------------------BOTONES-->
   <div class="row">
 
     <!---ASIDE DEL CHAT-->

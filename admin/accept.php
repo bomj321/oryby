@@ -42,8 +42,8 @@ $message =
               
             </head>
             <body>
-            <div style='margin-left:500px;'>
-            <img style='width:100px; height:100px;' src='http://www.orybu.com/freelancer/img/oryLogo.png'>
+            <div style='margin-left:21.875em;'>
+            <img style='width:12.5em; height:6.25em;' src='http://www.orybu.com/freelancer/img/oryLogo.png'>
             </div>
               <p>Congratulations, your product has been accepted. 
               </p>
@@ -80,8 +80,8 @@ $message =
               
             </head>
             <body>
-            <div style='margin-left:500px;'>
-            <img style='width:100px; height:100px;' src='http://www.orybu.com/freelancer/img/oryLogo.png'>
+            <div style='margin-left:21.875em;'>
+            <img style='width:12.5em; height:6.25em;' src='http://www.orybu.com/freelancer/img/oryLogo.png'>
             </div>
               <p>		Sorry, your product has no been accepted. </p>
             </body>

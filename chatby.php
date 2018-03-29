@@ -26,8 +26,22 @@ ini_set('error_reporting',0);
 
   <body >
 <div class="container chateo" id="body">
-  <div class="row">
+  <!-------------------------BOTONES-->
+<div style="margin-bottom: 2em;" class="row ">
+  <div class="col-md-2">
+    <a href="chat2.php"><button class="btn btn-primary">MY CHATS</button></a>
+  </div>
 
+<div class="col-md-2">
+      <a href="chatby.php"><button class="btn btn-primary">BUYERS REQUEST</button></a>
+
+</div>
+
+</div>
+
+
+  <!-------------------------BOTONES-->
+  <div class="row">
     <!---ASIDE DEL CHAT-->
 <div class="col-md-4" id="aside" style="height: 628.383px">
       <h6 style="text-align: center">MY CHATS (Buyers Requests)</h6>

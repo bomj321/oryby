@@ -105,8 +105,12 @@ include('Connect.php');
                              <!--  <label>Select Element Name</label>
                                <input type="text" class="form-control" name="elementName" placeholder="Enter Name" />	-->
 														<option class="form-control" value="" >Select Element Name</option>
-														<option class="form-control" value="faqquestion" >FAQ Question</option>
-														<option class="form-control" value="considerateimportquestion" >Considerate To Import Question </option>
+														<option class="form-control" value="faqquestion" >faqquestion</option>
+														<option class="form-control" value="faqquestion" >faqquestionspanish</option>
+														<option class="form-control" value="considerateimportquestion" >considerateimportquestion</option>
+														<option class="form-control" value="considerateimportquestion" >considerateimportquestionspanish</option>
+														<option class="form-control" value="considerateimportquestion" >considerateexportquestion</option>
+														<option class="form-control" value="considerateimportquestion" >considerateexportquestionspanish</option>
 
 
                           </select>

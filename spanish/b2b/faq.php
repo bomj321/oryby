@@ -6,9 +6,9 @@ include('head.php');
 <body>
   <?php include('topbar.php'); 
 include('middlebar.php');    
-	 ?>
+     ?>
         <?php include('navh.php');
-	   ?>
+       ?>
         
         
         <!-- start section -->
@@ -23,152 +23,38 @@ include('middlebar.php');
               <div class="row">
                     <div class="col-sm-9">
                         <div class="panel-group accordion style1" id="question" role="tablist" aria-multiselectable="true">
-                            <div class="panel panel-default">
-									<?php
-include('Connect.php');
- $sql="SELECT * FROM faq  Where elementName ='faqquestionspanish1'";
+                             <?php
+ $sql="SELECT * FROM faq  Where elementName ='faqquestionspanish'";
  
 $stmt=mysqli_query($connection,$sql);
 if($stmt == false) {
 trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
 }
-$nr=mysqli_num_rows($stmt);
-$row=mysqli_fetch_array($stmt);
+while ($row=mysqli_fetch_array($stmt)) {
+?>                             
+                                <div class="panel panel-default">
+                                    
+                                <div class="panel-heading" role="tab" id="<?php echo $row['id']?>">
+                                    <h4 class="panel-title">
+                                        <a class="collapsed" data-toggle="collapse" data-parent="#question" href="#collapseQuestion<?php echo $row['id']?>" aria-expanded="true" aria-controls="<?php echo $row['id']?>">
+                                          <?php echo $row['question'];?>
+                                        </a>
+                                    </h4>
+                                </div><!-- end panel-heading -->
+                                <div id="collapseQuestion<?php echo $row['id']?>" class="panel-collapse collapse " role="tabpanel" aria-labelledby="<?php echo $row['id']?>">
+                                    <div class="panel-body">
+                                        <p> <?php echo $row['answer'];?></p>
+                                    </div><!-- end panel-body -->
+                                </div><!-- end collapse -->
+                            </div><!-- end panel -->
+                            <?php 
+}
 
-?>
-                                <div class="panel-heading" role="tab" id="questionOne">
-                                    <h4 class="panel-title">
-                                        <a class="" data-toggle="collapse" data-parent="#question" href="#collapseQuestionOne" aria-expanded="true" aria-controls="collapseOne">
-                                          <?php echo $row['question'];?>
-                                        </a>
-                                    </h4>
-                                </div><!-- end panel-heading -->
-                                <div id="collapseQuestionOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="questionOne">
-                                    <div class="panel-body">
-                                        <p> <?php echo $row['answer'];?></p>
-                                    </div><!-- end panel-body -->
-                                </div><!-- end collapse -->
-                            </div><!-- end panel -->
-<?php
-$sql="SELECT * FROM faq  Where elementName ='faqquestionspanish2'  ";
- 
-$stmt=mysqli_query($connection,$sql);
-if($stmt == false) {
-trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
-}
-$nr=mysqli_num_rows($stmt);
-$row=mysqli_fetch_array($stmt);
-?>
-                            <div class="panel panel-default">
-                                <div class="panel-heading" role="tab" id="questionTwo">
-                                    <h4 class="panel-title">
-                                        <a class="collapsed" data-toggle="collapse" data-parent="#question" href="#collapseQuestionTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                          <?php echo $row['question'];?>
-                                        </a>
-                                    </h4>
-                                </div><!-- end panel-heading -->
-                                <div id="collapseQuestionTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="questionTwo">
-                                    <div class="panel-body">
-                                        <p> <?php echo $row['answer'];?></p>
-                                    </div><!-- end panel-body -->
-                                </div><!-- end collapse -->
-                            </div><!-- end panel -->
-<?php
-$sql="SELECT * FROM faq  Where elementName ='faqquestionspanish3'  ";
- 
-$stmt=mysqli_query($connection,$sql);
-if($stmt == false) {
-trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
-}
-$nr=mysqli_num_rows($stmt);
-$row=mysqli_fetch_array($stmt);
-?>
-                            <div class="panel panel-default">
-                                <div class="panel-heading" role="tab" id="questionThree">
-                                    <h4 class="panel-title">
-                                        <a class="collapsed" data-toggle="collapse" data-parent="#question" href="#collapseQuestionThree" aria-expanded="false" aria-controls="collapseThree">
-                                               <?php echo $row['question'];?>
-                                        </a>
-                                    </h4>
-                                </div><!-- end panel-heading -->
-                                <div id="collapseQuestionThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="questionThree">
-                                    <div class="panel-body">
-                                        <p> <?php echo $row['answer'];?></p>
-                                    </div><!-- end panel-body -->
-                                </div><!-- end collapse -->
-                            </div><!-- end panel -->
-       <?php
-$sql="SELECT * FROM faq  Where elementName ='faqquestionspanish4'  ";
- 
-$stmt=mysqli_query($connection,$sql);
-if($stmt == false) {
-trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
-}
-$nr=mysqli_num_rows($stmt);
-$row=mysqli_fetch_array($stmt);
-?>                     
-                            <div class="panel panel-default">
-                                <div class="panel-heading" role="tab" id="questionFour">
-                                    <h4 class="panel-title">
-                                        <a class="collapsed" data-toggle="collapse" data-parent="#question" href="#collapseQuestionFour" aria-expanded="false" aria-controls="collapseThree">
-                                            <?php echo $row['question'];?>
-                                        </a>
-                                    </h4>
-                                </div><!-- end panel-heading -->
-                                <div id="collapseQuestionFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="questionFour">
-                                    <div class="panel-body">
-                                      <p> <?php echo $row['answer'];?></p>
-                                    </div><!-- end panel-body -->
-                                </div><!-- end collapse -->
-                            </div><!-- end panel -->
-         <?php
-$sql="SELECT * FROM faq  Where elementName ='faqquestionspanish5'  ";
- 
-$stmt=mysqli_query($connection,$sql);
-if($stmt == false) {
-trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
-}
-$nr=mysqli_num_rows($stmt);
-$row=mysqli_fetch_array($stmt);
-?>                   
-                            <div class="panel panel-default">
-                                <div class="panel-heading" role="tab" id="questionFive">
-                                    <h4 class="panel-title">
-                                        <a class="collapsed" data-toggle="collapse" data-parent="#question" href="#collapseQuestionFive" aria-expanded="false" aria-controls="collapseThree">
-                                              <?php echo $row['question'];?>
-                                        </a>
-                                    </h4>
-                                </div><!-- end panel-heading -->
-                                <div id="collapseQuestionFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="questionFive">
-                                    <div class="panel-body">
-                                    <p> <?php echo $row['answer'];?></p>
-                                    </div><!-- end panel-body -->
-                                </div><!-- end collapse -->
-                            </div><!-- end panel -->
-          <?php
-$sql="SELECT * FROM faq  Where elementName ='faqquestionspanish6'  ";
- 
-$stmt=mysqli_query($connection,$sql);
-if($stmt == false) {
-trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
-}
-$nr=mysqli_num_rows($stmt);
-$row=mysqli_fetch_array($stmt);
-?>                  
-                            <div class="panel panel-default">
-                                <div class="panel-heading" role="tab" id="questionSix">
-                                    <h4 class="panel-title">
-                                        <a class="collapsed" data-toggle="collapse" data-parent="#question" href="#collapseQuestionSix" aria-expanded="false" aria-controls="collapseThree">
-                                             <?php echo $row['question'];?>
-                                        </a>
-                                    </h4>
-                                </div><!-- end panel-heading -->
-                                <div id="collapseQuestionSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="questionSix">
-                                    <div class="panel-body">
-                                       <p> <?php echo $row['answer'];?></p>
-                                    </div><!-- end panel-body -->
-                                </div><!-- end collapse -->
-                            </div><!-- end panel -->
+                             ?>
+
+
+      
+        
                         </div><!-- end panel-group -->    
                     </div><!-- end col -->
                     <div class="col-sm-3">
@@ -189,7 +75,7 @@ $row=mysqli_fetch_array($stmt);
                
         <!-- start footer -->
       <?php include('footer.php');
-	  ?>
+      ?>
         <!-- end footer -->
         
         

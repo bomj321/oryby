@@ -26,19 +26,29 @@ if(empty($errors))
 {
 	  $to = $email; 
 	 $email_subject = "Contact form submission: $name";
-	 $message = '<html><body>';
-					$message .= '';
-				
-					$message .= ' <img src="http://admin.contents.management/btb/orybue/b2b/images/oryLogo.png" alt="" width="150px" height="100px" /></a></h1>';
-					// add body 
-				
-					// add footer
-					$message .= '<table rules="all" width="600px">';
-				//	$message .= '$text';
-					$message .= '<tr><td><br><br><hr>Thanx for Contact Us <b>Please do not reply to this mail.</b></td></tr>';
+	 $message =
+    "
+    <html>
+            <head>
+              <title>User Status</title>
+              
+            </head>
+            <body>
+            <div style='margin-left:21.875em;'>
+            <img style='width:12.5em; height:6.25em;' src='http://www.orybu.com/freelancer/img/oryLogo.png'>
+            </div>
+              <p>
+             Thanx for Contact Us <b>Please do not reply to this mail.
+              </p>
+               
 
-					$message .= "</table>";
-					$message .= "</body></html>";
+              
+
+            </body>
+        </html>   
+      
+    ";
+	 
 	?>
 	</br>
 	<?php
@@ -49,12 +59,16 @@ if(empty($errors))
 	
 
 	
-	$headers = "MIME-Version: 1.0" . "\r\n";
-$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-
-	$headers .= 'From: '.$emailfrom.'' . "\r\n" .
-   'Reply-To: '.$to.'' ."\r\n".
-   'X-Mailer: PHP/' . phpversion();
+	// Para enviar un correo HTML, debe establecerse la cabecera Content-type
+$cabeceras  = 'MIME-Version: 1.0' . "\r\n";
+$cabeceras .= "Organization: Orybu.com\r\n";
+$cabeceras .= "X-Priority: 3\r\n";
+$cabeceras .= "X-Mailer: PHP". phpversion(7.0) ."\r\n";
+$cabeceras .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+// Cabeceras adicionales
+$cabeceras .= 'From:<admin@orybu.com>' . "\r\n";
+$cabeceras .= "Reply-To: <admin@orybu.com>\r\n";
+$cabeceras .= "Return-Path: <admin@orybu.com>\r\n";	
 	
 	?>
 	</br>
@@ -62,7 +76,7 @@ $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 ?>
 	</br>
 	<?php
-	 $result =mail($to,$email_subject,$email_body,$headers);
+	 $result =mail($to,$email_subject,$email_body,$cabeceras);
 	 $result;
 	if(!$result) {   
      "Error";   
