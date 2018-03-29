@@ -489,7 +489,7 @@
 						</li>
 
 						<li>
-								<a href="BuyerRequests.php"  >Buyers Requests Chats</a>
+								<a href="BuyerRequests.php"  >Buying Request Chats</a>
 						</li>
 
 						</ul>

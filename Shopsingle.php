@@ -52,9 +52,27 @@ require('head.php');
 
     <body>
     <!-- start topBar -->
-    
+    <!-------------------------TRADUCTOR-->
+ <div id="google_translate_element">
+     
+ </div>
+ <script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en,fr,zh-CN', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL, multilanguagePage: true}, 'google_translate_element');
+}
+</script>
 
-        <?php include('topbar.php');
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+ <!-------------------------TRADUCTOR-->
+
+
+        <?php
+
+
+
+
+         include('topbar.php');
         include('middlebar.php');
         include('navh.php');
         ?>

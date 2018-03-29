@@ -33,7 +33,7 @@ ini_set('error_reporting',0);
   </div>
 
 <div class="col-md-2">
-      <a href="chatby.php"><button class="btn btn-primary">BUYERS REQUEST</button></a>
+      <a href="chatby.php"><button class="btn btn-primary">BUYING REQUEST</button></a>
 
 </div>
 
