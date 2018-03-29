@@ -225,8 +225,6 @@ $rows=mysqli_fetch_array($result);
 </div><!-- end col -->
 <div class="col-sm-12 col-md-6">
 <dl class="dl-horizontal">
-<dt>Email de la Compañia:</dt>
-<dd><?php echo $rows['email']; ?></dd>
 <dt>Descripción</dt>
 <dd><?php echo $rows['companyDescription']; ?></dd>
 </dl>
