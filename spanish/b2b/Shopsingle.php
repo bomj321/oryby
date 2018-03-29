@@ -51,16 +51,7 @@ require('head.php');
 
     <body>
     <!-- start topBar -->
-        <!----------------------------TRADUCTOR---->
-
-   <div id="google_translate_element"></div><script type="text/javascript">
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({pageLanguage: 'es', includedLanguages: 'es', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL, autoDisplay: false, multilanguagePage: true}, 'google_translate_element');
-}
-</script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-        
-    <!----------------------------TRADUCTOR---->
+       
 
         <?php include('topbar.php');
         include('middlebar.php');
