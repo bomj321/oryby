@@ -974,5 +974,9 @@ if($queryResult){
         <script type="text/javascript" src="js/gmaps.js"></script>
         <script type="text/javascript" src="js/swiper.min.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
+		<!-- SSL, No Borrar-->
+		<script language="JavaScript" type="text/javascript">TrustLogo("http://www.orybu.com/comodo_secure_seal_76x26_transp.png", "CL1", "none");
+		</script>
+		<a  href="https://www.positivessl.com/" id="comodoTL"></a>
     </body>
 </html>

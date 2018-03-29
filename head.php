@@ -1,11 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- Seguridad, No Borrar-->
-<script type="text/javascript"> //<![CDATA[ 
-var tlJsHost = ((window.location.protocol == "https:") ? "https://secure.comodo.com/" : "http://www.trustlogo.com/");
-document.write(unescape("%3Cscript src='" + tlJsHost + "trustlogo/javascript/trustlogo.js' type='text/javascript'%3E%3C/script%3E"));
-//]]>
-</script>
 <head>
     <title>Orybu.com - Conecting Business Around the World</title>
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -53,21 +47,19 @@ document.write(unescape("%3Cscript src='" + tlJsHost + "trustlogo/javascript/tru
 <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.js"></script>
 
 <link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css"/>
-
 <script type="text/javascript" src="DataTables/datatables.min.js"></script>
 <script src="js/jquery.js"></script>
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- Seguridad, No Borrar-->
+<script type="text/javascript"> //<![CDATA[ 
+var tlJsHost = ((window.location.protocol == "https:") ? "https://secure.comodo.com/" : "http://www.trustlogo.com/");
+document.write(unescape("%3Cscript src='" + tlJsHost + "trustlogo/javascript/trustlogo.js' type='text/javascript'%3E%3C/script%3E"));
+//]]>
+</script>
 
 </head>
 <?php
 include "chatactiveusers.php";
 ?>
-
-<!-- SSL, No Borrar-->
-<script language="JavaScript" type="text/javascript">
-TrustLogo("http://www.orybu.com/", "CL1", "none");
-</script>
-<a  href="https://www.positivessl.com/" id="comodoTL">Positive SSL</a>
 <body>
