@@ -53,7 +53,7 @@ error_reporting(0);
                             <ul role="menu" class="dropdown-menu">
                                 <li><a href="startSelling.php">¿Cómo empezar a vender?</a></li>
                                 <li><a href="learnIncreaseSale.php">¿Cómo aumentar las ventas?</a></li>
-								 <li><a href="considerateToExport.php">¿Qué saber para exportar?</a></li>
+								 <li><a href="considerateToExport.php">¿Qué necesito saber para exportar?</a></li>
 
 
                             </ul><!-- end ul dropdown-menu -->

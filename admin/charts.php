@@ -7,6 +7,7 @@
     $charType = strtolower($periodo);
     $description = "";
     include('Connect.php');    
+    
     switch ($charType) {
         case "y":
             $description = "Año";

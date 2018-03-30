@@ -1,16 +1,23 @@
 $(document).ready(function(){
-    $("a.chart").on('click', function(e){
-        var periodo = $(this).attr('href');
-        var producto = $(this).parent().parent("ul");
+    $("button.pull-right").on('click', function(e){
+        var periodo = $(this).attr('name');
+        console.log(periodo);
+        var producto = $(this).parent().parent().parent().parent().parent("div");
         var id = producto.attr('id');
+        console.log(id);
+        var div = $(this).parent().parent().parent("div");
+        var select = div.children("div").children("select");
+        var tiempo = select.val();
+        console.log(tiempo);
         var row = []  ;
-        $.ajax({
+        /*$.ajax({
             type: "POST",
             url: "charts.php",
             data:("id="+id+"&periodo="+periodo),
             dataType:"text",
         })
         .done(function(response){
+
             var resultado = JSON.parse(response);
             const dataChart = [];
             for(let i = 0; i < resultado.length; i++){
@@ -37,11 +44,12 @@ $(document).ready(function(){
 
                 chart.draw(data, google.charts.Bar.convertOptions(options));
             }
+        
 
 
  
             
-         });              
+         });  */            
     });
 
 
