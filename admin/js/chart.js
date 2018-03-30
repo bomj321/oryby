@@ -55,23 +55,22 @@ $(document).ready(function(){
             var resultado = JSON.parse(response);
             const dataChart = [];
             for(let i = 0; i < resultado.length; i++){
-                dataChart.push([resultado[i].periodo, resultado[i].visitas])
+                dataChart.push([resultado[i].periodo, parseInt(resultado[i].visitas) ])
             }
             google.charts.load('current', {'packages':['bar']});
             google.charts.setOnLoadCallback(drawChart);
             function drawChart() {
                     var data = new google.visualization.DataTable();
                         data.addColumn('string', ''); 
-                        data.addColumn('string', 'Visit'); 
+                        data.addColumn('number', 'Visit'); 
                         data.addRows(dataChart,                               
                     );
-
-                var options = {
-                chart: {
-                    title: 'Visit',
-                    subtitle: '',
-                }
-                };                      
+                    var options = {
+                        chart: {
+                            title: 'Visit',
+                            subtitle: 'Orybu',
+                        }
+                    };                      
 
                 var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
                 chart.draw(data, google.charts.Bar.convertOptions(options));

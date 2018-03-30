@@ -38,7 +38,7 @@
             COUNT(n.id_catid) AS visitas FROM chart_category_subcatego_admin n
             WHERE n.id_catid = '$id'  AND YEAR(n.visited_at) = '$año' AND  
             MONTH(n.visited_at) = '$mes' AND DAY(n.visited_at) BETWEEN '$min'
-            AND '$max' GROUP BY DAY(n.visited_at),n.id_catid order by COUNT(n.id_catid)";
+            AND '$max' GROUP BY DAY(n.visited_at),n.id_catid order by DAY(n.visited_at)";
         break;
     }            
     $resultado = mysqli_query($connection,$sql);
