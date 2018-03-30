@@ -1,19 +1,54 @@
 $(document).ready(function(){
+
     $("button.pull-right").on('click', function(e){
-        var periodo = $(this).attr('name');
-        console.log(periodo);
         var producto = $(this).parent().parent().parent().parent().parent("div");
         var id = producto.attr('id');
-        console.log(id);
-        var div = $(this).parent().parent().parent("div");
-        var select = div.children("div").children("select");
-        var tiempo = select.val();
-        console.log(tiempo);
+        var periodo = $(this).attr('name');
+        switch (periodo) { 
+            case 'y': 
+                var div = $(this).parent().parent().parent("div");
+                var select = div.children("div").children("select");
+                var año = select.val();
+                var datos = {
+                    id : id,
+                    periodo : periodo,
+                    año : año
+                };
+            break;
+            case 'm': 
+                var select = $("#month_año");
+                var año = select.val();
+                var select2 = $("#month_month");
+                var mes = select2.val();
+                var datos = {
+                    id : id,
+                    periodo : periodo,
+                    año : año,
+                    mes:mes
+                };
+                break;
+            case 'd':
+                var select = $("#day_año");
+                var año = select.val();
+                var select2 = $("#day_month");
+                var mes = select2.val();
+                var select3 = $("#day_day");
+                var dia = select3.val();
+                var datos = {
+                    id : id,
+                    periodo : periodo,
+                    año : año,
+                    mes:mes,
+                    dia:dia
+                };   
+                console.log(datos);       
+            break;
+        }
         var row = []  ;
-        /*$.ajax({
+        $.ajax({
             type: "POST",
             url: "charts.php",
-            data:("id="+id+"&periodo="+periodo),
+            data:(datos),
             dataType:"text",
         })
         .done(function(response){
@@ -43,17 +78,9 @@ $(document).ready(function(){
                 var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
 
                 chart.draw(data, google.charts.Bar.convertOptions(options));
-            }
-        
-
-
- 
+            }      
             
-         });  */            
+         });          
     });
-
-
-
-
 /*Cierre de Jquery*/   
 });  
