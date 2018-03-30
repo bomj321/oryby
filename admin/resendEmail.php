@@ -242,7 +242,7 @@ if($nr >0)
 									<!-- end widget edit box -->
 		<?php
 include('Connect.php');
- $sql="SELECT * FROM confirm";
+ $sql="SELECT * FROM users";
  
 $stmt=mysqli_query($connection,$sql);
 if($stmt == false) {
@@ -279,13 +279,13 @@ if($nr >0)
 											
 											?>
 												<tr>
-													<td><?php echo $row['confirmid']; ?></td>
-													<td><?php echo $row['keyd']; ?></td>
+													<td><?php echo $row['user_id']; ?></td>
+													<td><?php echo $row['confirmcode']; ?></td>
 													
 													<td><?php echo $row['email']; ?></td>
 													
 													
-													<td><?php   $status =$row['chkstatus']; 
+													<td><?php   $status =$row['confirmed']; 
 													if($status == '1')
 													{
 													?>
@@ -298,7 +298,7 @@ if($nr >0)
 													}?></td>
 												
 												<td> 
-         <a    class="btn btn-primary" href="resendConfirmationEmail.php?id=<?php echo $row['confirmid'];?>"><i class="fa fa-paper-plane"></i></a></td>
+         <a    class="btn btn-primary" href="resendConfirmationEmail.php?id=<?php echo $row['user_id'];?>"><i class="fa fa-paper-plane"></i></a></td>
 												</tr>
 								<?php
 								}

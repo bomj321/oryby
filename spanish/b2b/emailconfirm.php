@@ -31,12 +31,12 @@ $sql = "UPDATE users SET confirmed='1' WHERE confirmcode='$code'";
 
 }
 
-$sql2 = "UPDATE users SET confirmcode='0' WHERE confirmcode='$code'";
-if(!mysqli_query($connection, $sql2)){
+//$sql2 = "UPDATE users SET confirmcode='0' WHERE confirmcode='$code'";
+//if(!mysqli_query($connection, $sql2)){
 
-    echo "ERROR: Could not able to execute $sql2. " . mysqli_error($connection);
+   // echo "ERROR: Could not able to execute $sql2. " . mysqli_error($connection);
 
-} 
+//} 
 
 echo "<script>
                 alert('Gracias. Tu email ha sido confirmado, ahora puedes loguearte');

@@ -25,7 +25,7 @@ if (isset($userStatus)) {
             </head>
             <body>
             <div style='margin-left:21.875em;'>
-            <img style='width:12.5em; height:6.25em;' src='http://www.orybu.com/freelancer/img/oryLogo.png'>
+            <img style='width:12.5em; height:6.25em;' src='http://www.orybu.com/img/oryLogo.png'>
             </div>
              <p>Thank you for registering, please confirm your email by <a href='http://www.orybu.com/spanish/b2b/emailconfirm.php?email=$email&code=$confirmcode&userStatus=1'> clicking here</a>. 
               </p>
@@ -37,7 +37,7 @@ if (isset($userStatus)) {
 			
 		";
 		
-		mail($email,"MY ORYBU",$message,$cabeceras);	
+		mail($email,"Confirmacion de Correo-MY ORYBU",$message,$cabeceras);	
 			
 		echo "<script>
                 alert('Registro Completo! Por favor confirma tu email');
@@ -56,7 +56,7 @@ if (isset($userStatus)) {
             </head>
             <body>
              <div style='margin-left:21.875em;'>
-            <img style='width:12.5em; height:6.25em' src='http://www.orybu.com/freelancer/img/oryLogo.png'>
+            <img style='width:12.5em; height:6.25em' src='http://www.orybu.com/img/oryLogo.png'>
             </div>
              <p>
                 Thank you for registering, please confirm your email by<a href='http://www.orybu.com/spanish/b2b/emailconfirm.php?email=$email&code=$confirmcode'>clicking here</a>.
