@@ -31,11 +31,14 @@
             $año = htmlspecialchars($_POST['año']);
             $mes = htmlspecialchars($_POST['mes']);
             $dia = htmlspecialchars($_POST['dia']);
+            $matriz1 = str_split($dia); 
+            $min=$matriz1[0].$matriz1[1]; 
+            $max=$matriz1[2].$matriz1[3];
             $sql="Select n.id_catid, (n.visited_at) AS periodo, 
             COUNT(n.id_catid) AS visitas FROM chart_category_subcatego_admin n
             WHERE n.id_catid = '$id'  AND YEAR(n.visited_at) = '$año' AND  
-            MONTH(n.visited_at) = '$mes' AND DAY(n.visited_at) <= '$dia' GROUP BY 
-            DAY(n.visited_at),n.id_catid";
+            MONTH(n.visited_at) = '$mes' AND DAY(n.visited_at) BETWEEN '$min'
+            AND '$max' GROUP BY DAY(n.visited_at),n.id_catid";
         break;
     }            
     $resultado = mysqli_query($connection,$sql);

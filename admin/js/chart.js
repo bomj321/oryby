@@ -40,8 +40,7 @@ $(document).ready(function(){
                     año : año,
                     mes:mes,
                     dia:dia
-                };   
-                console.log(datos);       
+                };        
             break;
         }
         var row = []  ;
