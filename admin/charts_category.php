@@ -20,7 +20,7 @@
             $description = "Mes";
             $año = htmlspecialchars($_POST['año']);
             $mes = htmlspecialchars($_POST['mes']);
-            $sql="Select n.id_catid, MONTHNAME(n.visited_at) AS periodo, 
+            $sql="Select n.id_catid AS categoria, MONTHNAME(n.visited_at) AS periodo, 
             COUNT(n.id_catid) AS visitas FROM chart_category_subcatego_admin n
             WHERE MONTH(n.visited_at) = '$mes' AND YEAR(n.visited_at) = '$año' 
             GROUP BY MONTHNAME(n.visited_at),n.id_catid order by COUNT(n.id_catid)";      
