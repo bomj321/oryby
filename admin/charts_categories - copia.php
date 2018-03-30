@@ -75,7 +75,6 @@ $id =$_GET['id'];
 					<div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
 						<h1 class="page-title txt-color-blueDark">
 							<i class="fa fa-table fa-fw "></i> 
-
 								Table 
 							<span>> 
 								Chart Categories
@@ -92,44 +91,20 @@ $id =$_GET['id'];
             </div><!-- end row -->               
             <div class="row">
                 <div class="col-md-8 col-xs-8 col-lg-8">
-					<!-- Nav tabs -->
-					<ul class="nav nav-tabs" role="tablist">
-						<li role="presentation" class="active"><a href="#year" aria-controls="year" role="tab" data-toggle="tab">Year</a></li>
-						<li role="presentation"><a href="#month" aria-controls="month" role="tab" data-toggle="tab">Month</a></li>
-						<li role="presentation"><a href="#day" aria-controls="day" role="tab" data-toggle="tab">Day</a></li>
-					</ul>
+                    <div>
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs" role="tablist" id="<?php echo $id?>">   
+                            <li role="presentation" class="" style="background-color: #f0f1f1; border: none;"><a href="y" class="chart" aria-controls="home" role="tab" data-toggle="tab">Year</a></li>
+                            <li role="presentation" class="chart" style="background-color: #f0f1f1; border: none;"><a href="m" class="chart" aria-controls="profile" role="tab" data-toggle="tab">Month</a></li>
+                            <li role="presentation" class="chart" style="background-color: #f0f1f1; border: none;"><a href="d" class="chart" aria-controls="messages" role="tab" data-toggle="tab">Day</a></li>
+                        </ul>
 
-					<!-- Tab panes -->
-					<div class="tab-content" id="<?php echo $id?>">
-						<div role="tabpanel" class="tab-pane active" id="year">
-							<div class="widget-body">	
-								<div class="form-group" style="margin-top: 2rem;">
-									<select class="form-control " id="lang" name="lang" required>
-										<option value="2018">2018</option>
-										<option value="2019">2019</option>
-										<option value="2020">2020</option>
-										<option value="2021">2021</option>	
-										<option value="2022">2022</option>													
-									</select>
-								</div>								
-								<div class="row">
-									<div class="col-md-12">
-										<button class="btn btn-default pull-right" name="y" type="submit">
-											See Chart
-										</button>
-									</div>
-								</div>
-							</div>						
-						</div>
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+							<div id='columnchart_material'></div>                                                      
 
-						<div role="tabpanel" class="tab-pane" id="month">
-						
-						</div>
-
-						<div role="tabpanel" class="tab-pane" id="day">
-						
-						</div>
-					</div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <hr>
@@ -142,45 +117,6 @@ $id =$_GET['id'];
 
 		</div>
 		<!-- END MAIN PANEL -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 		<!-- PAGE FOOTER -->
 		<div class="page-footer">
@@ -258,9 +194,12 @@ $id =$_GET['id'];
 			</ul>
 		</div>
 		<!-- END SHORTCUT AREA -->
+
 		<!--================================================== -->
+
 		<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
 		<script data-pace-options='{ "restartOnRequestAfter": true }' src="js/plugin/pace/pace.min.js"></script>
+
 		<!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 		<script>
@@ -268,38 +207,53 @@ $id =$_GET['id'];
 				document.write('<script src="js/libs/jquery-2.1.1.min.js"><\/script>');
 			}
 		</script>
+
 		<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 		<script>
 			if (!window.jQuery.ui) {
 				document.write('<script src="js/libs/jquery-ui-1.10.3.min.js"><\/script>');
 			}
 		</script>
+
 		<!-- IMPORTANT: APP CONFIG -->
 		<script src="js/app.config.js"></script>
+
 		<!-- JS TOUCH : include this plugin for mobile drag / drop touch events-->
 		<script src="js/plugin/jquery-touch/jquery.ui.touch-punch.min.js"></script> 
+
 		<!-- BOOTSTRAP JS -->
 		<script src="js/bootstrap/bootstrap.min.js"></script>
+
 		<!-- CUSTOM NOTIFICATION -->
 		<script src="js/notification/SmartNotification.min.js"></script>
+
 		<!-- JARVIS WIDGETS -->
 		<script src="js/smartwidgets/jarvis.widget.min.js"></script>
+
 		<!-- EASY PIE CHARTS -->
 		<script src="js/plugin/easy-pie-chart/jquery.easy-pie-chart.min.js"></script>
+
 		<!-- SPARKLINES -->
 		<script src="js/plugin/sparkline/jquery.sparkline.min.js"></script>
+
 		<!-- JQUERY VALIDATE -->
 		<script src="js/plugin/jquery-validate/jquery.validate.min.js"></script>
+
 		<!-- JQUERY MASKED INPUT -->
 		<script src="js/plugin/masked-input/jquery.maskedinput.min.js"></script>
+
 		<!-- JQUERY SELECT2 INPUT -->
 		<script src="js/plugin/select2/select2.min.js"></script>
+
 		<!-- JQUERY UI + Bootstrap Slider -->
 		<script src="js/plugin/bootstrap-slider/bootstrap-slider.min.js"></script>
+
 		<!-- browser msie issue fix -->
 		<script src="js/plugin/msie-fix/jquery.mb.browser.min.js"></script>
+
 		<!-- FastClick: For mobile devices -->
 		<script src="js/plugin/fastclick/fastclick.min.js"></script>
+
 		<!--[if IE 8]>
 
 		<h1>Your browser is out of date, please update your browser by going to www.microsoft.com/download</h1>
@@ -328,5 +282,7 @@ $id =$_GET['id'];
 		<script src="js/plugin/datatable-responsive/datatables.responsive.min.js"></script>
 		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 		<script type="text/javascript" src="js/chart.js"></script>
+
 	</body>
+
 </html>
