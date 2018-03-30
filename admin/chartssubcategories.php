@@ -76,13 +76,12 @@ include('header.php');
 							<i class="fa fa-table fa-fw "></i> 
 								Table 
 							<span>> 
-								Chart Categories
+								Chart Subcategories
 							</span>
 						</h1>
 					</div>
 			</div>
-		<!-- Graficas-->
-		<div class="container">
+			<div class="container-fluid">
             <div class="row">
                 <div class="col-md-12 content">
                     <h3 class="text-center">Product Statistics</h3>
@@ -90,22 +89,146 @@ include('header.php');
             </div><!-- end row -->               
             <div class="row">
                 <div class="col-md-8 col-xs-8 col-lg-8">
-                    <div>
-                        <!-- Nav tabs -->
-                        <ul class="nav nav-tabs" role="tablist" id="<?php echo $id?>">   
-                            <li role="presentation" class="" style="background-color: #f0f1f1; border: none;"><a href="y" class="chart" aria-controls="home" role="tab" data-toggle="tab">Year</a></li>
-                            <li role="presentation" class="chart" style="background-color: #f0f1f1; border: none;"><a href="m" class="chart" aria-controls="profile" role="tab" data-toggle="tab">Month</a></li>
-                            <li role="presentation" class="chart" style="background-color: #f0f1f1; border: none;"><a href="d" class="chart" aria-controls="messages" role="tab" data-toggle="tab">Day</a></li>
-                        </ul>
+					<!-- Nav tabs -->
+					<ul class="nav nav-tabs" role="tablist">
+						<li role="presentation" class="active"><a href="#year" aria-controls="year" role="tab" data-toggle="tab">Year</a></li>
+						<li role="presentation"><a href="#month" aria-controls="month" role="tab" data-toggle="tab">Month</a></li>
+						<li role="presentation"><a href="#day" aria-controls="day" role="tab" data-toggle="tab">Day</a></li>
+					</ul>
 
-                        <!-- Tab panes -->
-                        <div class="tab-content">
-							<div id='columnchart_material'></div>                                                   
-                        </div>
-                    </div>
+					<!-- Tab panes -->
+					<div class="tab-content" id="<?php echo $id?>">
+						<div role="tabpanel" class="tab-pane active" id="year">
+							<div class="widget-body">	
+								<div class="form-group" style="margin-top: 2rem;">
+									<select class="form-control " id="año" name="lang" required>
+										<option value="2018">2018</option>
+										<option value="2019">2019</option>
+										<option value="2020">2020</option>
+										<option value="2021">2021</option>	
+										<option value="2022">2022</option>													
+									</select>
+								</div>								
+								<div class="row">
+									<div class="col-md-12">
+										<button class="btn btn-default pull-right" name="y" type="submit">
+											See Chart
+										</button>
+									</div>
+								</div>
+							</div>						
+						</div>
+						<div role="tabpanel" class="tab-pane" id="month">
+							<div class="widget-body">	
+								<div class="form-group" style="margin-top: 2rem;">
+									<select class="form-control " id="month_año" required>
+										<option value="2018">2018</option>
+										<option value="2019">2019</option>
+										<option value="2020">2020</option>
+										<option value="2021">2021</option>	
+										<option value="2022">2022</option>													
+									</select>
+								</div>
+								<div class="form-group" style="margin-top: 2rem;">
+									<select class="form-control " id="month_month" required>
+										<option value="1">January</option>
+										<option value="2">February</option>
+										<option value="3">March</option>
+										<option value="4">April</option>	
+										<option value="5">May</option>
+										<option value="6">June</option>
+										<option value="7">July</option>
+										<option value="8">August</option>
+										<option value="9">September</option>
+										<option value="10">October</option>
+										<option value="11">November</option>
+										<option value="12">December</option>													
+									</select>
+								</div>								
+								<div class="row">
+									<div class="col-md-12">
+										<button class="btn btn-default pull-right" name="m" type="submit">
+											See Chart
+										</button>
+									</div>
+								</div>
+							</div>						
+						</div>
+						<div role="tabpanel" class="tab-pane" id="day">	
+							<div class="widget-body">	
+								<div class="form-group" style="margin-top: 2rem;">
+									<select class="form-control " id="day_año" required>
+										<option value="2018">2018</option>
+										<option value="2019">2019</option>
+										<option value="2020">2020</option>
+										<option value="2021">2021</option>	
+										<option value="2022">2022</option>													
+									</select>
+								</div>
+								<div class="form-group" style="margin-top: 2rem;">
+									<select class="form-control " id="day_month" required>
+										<option value="1">January</option>
+										<option value="2">February</option>
+										<option value="3">March</option>
+										<option value="4">April</option>	
+										<option value="5">May</option>
+										<option value="6">June</option>
+										<option value="7">July</option>
+										<option value="8">August</option>
+										<option value="9">September</option>
+										<option value="10">October</option>
+										<option value="11">November</option>
+										<option value="12">December</option>													
+									</select>
+								</div>
+								<div class="form-group" style="margin-top: 2rem;">
+									<select class="form-control " id="day_day" required>
+										<option value="0110">01-10 days</option>
+										<option value="1020">10-20 days</option>
+										<option value="2031">20-31 days</option>													
+									</select>
+								</div>								
+								<div class="row">
+									<div class="col-md-12">
+										<button class="btn btn-default pull-right" name="d" type="submit">
+											See Chart
+										</button>
+									</div>
+								</div>
+							</div>					
+						</div>
+					</div>					
                 </div>
+				<div class="col-md-3 col-xs-3 col-lg-3" style="float:right;">
+					<h3 class="text-center">Summary</h3>
+					<?php
+						try {
+							require_once('Connect.php');
+							$sql = "SELECT * FROM `subcategories` ";
+							$resultado=mysqli_query($connection,$sql);
+						}
+						catch (Exception $e)
+						{ $error= $e->getMessage();}
+						?>
+					<ul class="list-group">
+					<?php while ($resumen = $resultado->fetch_all(MYSQLI_ASSOC) ) { ?>
+					<?php foreach($resumen as $resu): ?>
+						<li class="list-group-item">
+							<span><?php echo $resu['subcatid'];?></span>
+							<?php echo $resu['subtitle'];?>						
+						</li>
+					<?php endforeach;?>
+					<?php }?>
+					</ul>
+				</div>			
             </div>
-            <hr>
+			<hr>
+			<div class="row">
+				<div class="col-md-8 col-xs-8 col-lg-8" style="margin-top:-20%;">
+					<div id='columnchart_material'>
+					</div> 
+				</div>
+			</div>
         <!--Cierre del Container--> 
         </div>
 
@@ -277,62 +400,8 @@ include('header.php');
 		<script src="js/plugin/datatables/dataTables.colVis.min.js"></script>
 		<script src="js/plugin/datatables/dataTables.tableTools.min.js"></script>
 		<script src="js/plugin/datatables/dataTables.bootstrap.min.js"></script>
-		<script src="js/plugin/datatable-responsive/datatables.responsive.min.js"></script>
+		<script src="js/plugin/datatable-responsive/datatables.responsive.min.js"></script>		
 		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-        <script type="text/javascript">
-            $(document).ready(function(){
-                $("a.chart").on('click', function(e){
-                    var periodo = $(this).attr('href');
-                    var producto = $(this).parent().parent("ul");
-                    var row = []  ;
-                    $.ajax({
-                        type: "POST",
-                        url: "charts_subcategory.php",
-                        data:("periodo="+periodo),
-                        dataType:"text",
-                    })
-                    .done(function(response){
-                        var resultado = JSON.parse(response);
-                        console.log(resultado);
-                        const dataChart = [];
-                        for(let i = 0; i < resultado.length; i++){
-                            dataChart.push([resultado[i].id_subcatid, resultado[i].visitas])
-                        }
-                        google.charts.load('current', {'packages':['bar']});
-                        google.charts.setOnLoadCallback(drawChart);
-                        function drawChart() {
-                                var data = new google.visualization.DataTable();
-                                    data.addColumn('string', ''); 
-                                    data.addColumn('string', 'Visit'); 
-                                    data.addRows(dataChart,                               
-                                );
-
-                            var options = {
-                            chart: {
-                                title: 'Visit',
-                                subtitle: '',
-                            }
-                            };                        
-
-                            var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
-
-                            chart.draw(data, google.charts.Bar.convertOptions(options));
-                        }
-
-
-            
-                        
-                    });              
-                });
-
-
-
-
-    /*Cierre de Jquery*/   
-    });  
-        
-        
-        </script>    
-
+		<script type="text/javascript" src="js/chart_sub_global.js"></script>
 	</body>
 </html>

@@ -81,7 +81,7 @@ include('header.php');
 						</h1>
 					</div>
 			</div>
-			<div class="container">
+			<div class="container-fluid">
             <div class="row">
                 <div class="col-md-12 content">
                     <h3 class="text-center">Product Statistics</h3>
@@ -199,14 +199,35 @@ include('header.php');
 						</div>
 					</div>					
                 </div>
+				<div class="col-md-3 col-xs-3 col-lg-3" style="float:right;">
+					<h3 class="text-center">Summary</h3>
+					<?php
+						try {
+							require_once('Connect.php');
+							$sql = "SELECT * FROM `categories` ";
+							$resultado=mysqli_query($connection,$sql);
+						}
+						catch (Exception $e)
+						{ $error= $e->getMessage();}
+						?>
+					<ul class="list-group">
+					<?php while ($resumen = $resultado->fetch_all(MYSQLI_ASSOC) ) { ?>
+					<?php foreach($resumen as $resu): ?>
+						<li class="list-group-item">
+							<span><?php echo $resu['catid'];?></span>
+							<?php echo $resu['title'];?>						
+						</li>
+					<?php endforeach;?>
+					<?php }?>
+					</ul>
+				</div>			
             </div>
 			<hr>
 			<div class="row">
-				<div class="col-md-8 col-xs-8 col-lg-8">
-					<div id='columnchart_material'>			
-					
+				<div class="col-md-8 col-xs-8 col-lg-8" style="margin-top:-20%;">
+					<div id='columnchart_material'>
 					</div> 
-				</div>			
+				</div>
 			</div>
         <!--Cierre del Container--> 
         </div>
@@ -380,6 +401,7 @@ include('header.php');
 		<script src="js/plugin/datatables/dataTables.tableTools.min.js"></script>
 		<script src="js/plugin/datatables/dataTables.bootstrap.min.js"></script>
 		<script src="js/plugin/datatable-responsive/datatables.responsive.min.js"></script>
+		
 		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 		<script type="text/javascript" src="js/chart_global.js"></script>
 	</body>

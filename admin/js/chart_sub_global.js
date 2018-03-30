@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    //Categorias
+    //SubCategorias, AJAX GLOBAL
     $("button.pull-right").on('click', function(e){
         var producto = $(this).parent().parent().parent().parent().parent("div");
         var id = producto.attr('id');
@@ -47,7 +47,7 @@ $(document).ready(function(){
         var row = []  ;
         $.ajax({
             type: "POST",
-            url: "charts_category.php",
+            url: "charts_subcategory_global.php",
             data:(datos),
             dataType:"text",
         })
@@ -57,6 +57,7 @@ $(document).ready(function(){
             for(let i = 0; i < resultado.length; i++){
                 dataChart.push([resultado[i].categoria, parseInt(resultado[i].visitas) ])
             }
+            console.log(dataChart);
             google.charts.load('current', {'packages':['bar']});
             google.charts.setOnLoadCallback(drawChart);
             function drawChart() {
