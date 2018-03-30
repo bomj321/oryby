@@ -29,7 +29,7 @@ $cabeceras .= "Return-Path: <admin@orybu.com>\r\n";
             </head>
             <body>
             <div style='margin-left:21.875em;'>
-            <img style='width:12.5em; height:6.25em;' src='http://www.orybu.com/freelancer/img/oryLogo.png'>
+            <img style='width:12.5em; height:6.25em;' src='http://www.orybu.com/img/oryLogo.png'>
             </div>
               <p>
               Your user has been deactivated please contact the administrator for more information. 
@@ -69,7 +69,7 @@ $cabeceras .= "Return-Path: <admin@orybu.com>\r\n";
             </head>
             <body>
             <div style='margin-left:21.875em;'>
-            <img style='width:12.5em; height:6.25em;' src='http://www.orybu.com/freelancer/img/oryLogo.png'>
+            <img style='width:12.5em; height:6.25em;' src='http://www.orybu.com/img/oryLogo.png'>
             </div>
                <p>
 			Your user has been activated congratulations, now you can make use of our platform.              

@@ -89,7 +89,7 @@ include('header.php');
 						<h1 class="page-title txt-color-blueDark">
 							<i class="fa fa-table fa-fw "></i> 
 								Table 
-							<span>> 
+							<span>
 							No of Pages
 							</span>
 						</h1>

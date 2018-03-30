@@ -35,10 +35,10 @@ if(empty($errors))
             </head>
             <body>
             <div style='margin-left:21.875em;'>
-            <img style='width:12.5em; height:6.25em;' src='http://www.orybu.com/freelancer/img/oryLogo.png'>
+            <img style='width:12.5em; height:6.25em;' src='http://www.orybu.com/img/oryLogo.png'>
             </div>
               <p>
-             Thanx for Contact Us <b>Please do not reply to this mail.
+             Thanx for Contact Us Please do not reply to this mail.
               </p>
                
 
