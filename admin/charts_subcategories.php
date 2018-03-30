@@ -75,6 +75,7 @@ $id =$_GET['id'];
 					<div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
 						<h1 class="page-title txt-color-blueDark">
 							<i class="fa fa-table fa-fw "></i> 
+
 								Table 
 							<span>> 
 								Chart Categories
@@ -91,23 +92,125 @@ $id =$_GET['id'];
             </div><!-- end row -->               
             <div class="row">
                 <div class="col-md-8 col-xs-8 col-lg-8">
-                    <div>
-                        <!-- Nav tabs -->
-                        <ul class="nav nav-tabs" role="tablist" id="<?php echo $id?>">   
-                            <li role="presentation" class="" style="background-color: #f0f1f1; border: none;"><a href="y" class="chart" aria-controls="home" role="tab" data-toggle="tab">Year</a></li>
-                            <li role="presentation" class="chart" style="background-color: #f0f1f1; border: none;"><a href="m" class="chart" aria-controls="profile" role="tab" data-toggle="tab">Month</a></li>
-                            <li role="presentation" class="chart" style="background-color: #f0f1f1; border: none;"><a href="d" class="chart" aria-controls="messages" role="tab" data-toggle="tab">Day</a></li>
-                        </ul>
+					<!-- Nav tabs -->
+					<ul class="nav nav-tabs" role="tablist">
+						<li role="presentation" class="active"><a href="#year" aria-controls="year" role="tab" data-toggle="tab">Year</a></li>
+						<li role="presentation"><a href="#month" aria-controls="month" role="tab" data-toggle="tab">Month</a></li>
+						<li role="presentation"><a href="#day" aria-controls="day" role="tab" data-toggle="tab">Day</a></li>
+					</ul>
 
-                        <!-- Tab panes -->
-                        <div class="tab-content">
-							<div id='columnchart_material'></div>                                                      
-
-                        </div>
-                    </div>
+					<!-- Tab panes -->
+					<div class="tab-content" id="<?php echo $id?>">
+						<div role="tabpanel" class="tab-pane active" id="year">
+							<div class="widget-body">	
+								<div class="form-group" style="margin-top: 2rem;">
+									<select class="form-control " id="año" name="lang" required>
+										<option value="2018">2018</option>
+										<option value="2019">2019</option>
+										<option value="2020">2020</option>
+										<option value="2021">2021</option>	
+										<option value="2022">2022</option>													
+									</select>
+								</div>								
+								<div class="row">
+									<div class="col-md-12">
+										<button class="btn btn-default pull-right sub" name="y" type="submit">
+											See Chart
+										</button>
+									</div>
+								</div>
+							</div>						
+						</div>
+						<div role="tabpanel" class="tab-pane" id="month">
+							<div class="widget-body">	
+								<div class="form-group" style="margin-top: 2rem;">
+									<select class="form-control " id="month_año" required>
+										<option value="2018">2018</option>
+										<option value="2019">2019</option>
+										<option value="2020">2020</option>
+										<option value="2021">2021</option>	
+										<option value="2022">2022</option>													
+									</select>
+								</div>
+								<div class="form-group" style="margin-top: 2rem;">
+									<select class="form-control " id="month_month" required>
+										<option value="1">January</option>
+										<option value="2">February</option>
+										<option value="3">March</option>
+										<option value="4">April</option>	
+										<option value="5">May</option>
+										<option value="6">June</option>
+										<option value="7">July</option>
+										<option value="8">August</option>
+										<option value="9">September</option>
+										<option value="10">October</option>
+										<option value="11">November</option>
+										<option value="12">December</option>													
+									</select>
+								</div>								
+								<div class="row">
+									<div class="col-md-12">
+										<button class="btn btn-default pull-right sub" name="m" type="submit">
+											See Chart
+										</button>
+									</div>
+								</div>
+							</div>						
+						</div>
+						<div role="tabpanel" class="tab-pane" id="day">	
+							<div class="widget-body">	
+								<div class="form-group" style="margin-top: 2rem;">
+									<select class="form-control " id="day_año" required>
+										<option value="2018">2018</option>
+										<option value="2019">2019</option>
+										<option value="2020">2020</option>
+										<option value="2021">2021</option>	
+										<option value="2022">2022</option>													
+									</select>
+								</div>
+								<div class="form-group" style="margin-top: 2rem;">
+									<select class="form-control " id="day_month" required>
+										<option value="1">January</option>
+										<option value="2">February</option>
+										<option value="3">March</option>
+										<option value="4">April</option>	
+										<option value="5">May</option>
+										<option value="6">June</option>
+										<option value="7">July</option>
+										<option value="8">August</option>
+										<option value="9">September</option>
+										<option value="10">October</option>
+										<option value="11">November</option>
+										<option value="12">December</option>													
+									</select>
+								</div>
+								<div class="form-group" style="margin-top: 2rem;">
+									<select class="form-control " id="day_day" required>
+										<option value="0110">01-10 days</option>
+										<option value="1020">10-20 days</option>
+										<option value="2031">20-31 days</option>													
+									</select>
+								</div>								
+								<div class="row">
+									<div class="col-md-12">
+										<button class="btn btn-default pull-right sub" name="d" type="submit">
+											See Chart
+										</button>
+									</div>
+								</div>
+							</div>					
+						</div>
+					</div>					
                 </div>
             </div>
-            <hr>
+			<hr>
+			<div class="row">
+				<div class="col-md-8 col-xs-8 col-lg-8">
+					<div id='columnchart_material'>			
+					
+					</div> 
+				</div>			
+			</div>
         <!--Cierre del Container--> 
         </div>
 
@@ -117,6 +220,45 @@ $id =$_GET['id'];
 
 		</div>
 		<!-- END MAIN PANEL -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 		<!-- PAGE FOOTER -->
 		<div class="page-footer">
@@ -194,12 +336,9 @@ $id =$_GET['id'];
 			</ul>
 		</div>
 		<!-- END SHORTCUT AREA -->
-
 		<!--================================================== -->
-
 		<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
 		<script data-pace-options='{ "restartOnRequestAfter": true }' src="js/plugin/pace/pace.min.js"></script>
-
 		<!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 		<script>
@@ -207,53 +346,38 @@ $id =$_GET['id'];
 				document.write('<script src="js/libs/jquery-2.1.1.min.js"><\/script>');
 			}
 		</script>
-
 		<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 		<script>
 			if (!window.jQuery.ui) {
 				document.write('<script src="js/libs/jquery-ui-1.10.3.min.js"><\/script>');
 			}
 		</script>
-
 		<!-- IMPORTANT: APP CONFIG -->
 		<script src="js/app.config.js"></script>
-
 		<!-- JS TOUCH : include this plugin for mobile drag / drop touch events-->
 		<script src="js/plugin/jquery-touch/jquery.ui.touch-punch.min.js"></script> 
-
 		<!-- BOOTSTRAP JS -->
 		<script src="js/bootstrap/bootstrap.min.js"></script>
-
 		<!-- CUSTOM NOTIFICATION -->
 		<script src="js/notification/SmartNotification.min.js"></script>
-
 		<!-- JARVIS WIDGETS -->
 		<script src="js/smartwidgets/jarvis.widget.min.js"></script>
-
 		<!-- EASY PIE CHARTS -->
 		<script src="js/plugin/easy-pie-chart/jquery.easy-pie-chart.min.js"></script>
-
 		<!-- SPARKLINES -->
 		<script src="js/plugin/sparkline/jquery.sparkline.min.js"></script>
-
 		<!-- JQUERY VALIDATE -->
 		<script src="js/plugin/jquery-validate/jquery.validate.min.js"></script>
-
 		<!-- JQUERY MASKED INPUT -->
 		<script src="js/plugin/masked-input/jquery.maskedinput.min.js"></script>
-
 		<!-- JQUERY SELECT2 INPUT -->
 		<script src="js/plugin/select2/select2.min.js"></script>
-
 		<!-- JQUERY UI + Bootstrap Slider -->
 		<script src="js/plugin/bootstrap-slider/bootstrap-slider.min.js"></script>
-
 		<!-- browser msie issue fix -->
 		<script src="js/plugin/msie-fix/jquery.mb.browser.min.js"></script>
-
 		<!-- FastClick: For mobile devices -->
 		<script src="js/plugin/fastclick/fastclick.min.js"></script>
-
 		<!--[if IE 8]>
 
 		<h1>Your browser is out of date, please update your browser by going to www.microsoft.com/download</h1>
@@ -281,65 +405,6 @@ $id =$_GET['id'];
 		<script src="js/plugin/datatables/dataTables.bootstrap.min.js"></script>
 		<script src="js/plugin/datatable-responsive/datatables.responsive.min.js"></script>
 		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-		<script type="text/javascript">
-			$(document).ready(function(){
-				$("a.chart").on('click', function(e){
-					var periodo = $(this).attr('href');
-					var producto = $(this).parent().parent("ul");
-					var id = producto.attr('id');
-					var row = []  ;
-					$.ajax({
-						type: "POST",
-						url: "charts - copia.php",
-						data:("id="+id+"&periodo="+periodo),
-						dataType:"text",
-					})
-					.done(function(response){
-						var resultado = JSON.parse(response);
-						const dataChart = [];
-						for(let i = 0; i < resultado.length; i++){
-							dataChart.push([resultado[i].periodo, resultado[i].visitas])
-						}
-						google.charts.load('current', {'packages':['bar']});
-						google.charts.setOnLoadCallback(drawChart);
-						function drawChart() {
-							console.log(dataChart);
-								var data = new google.visualization.DataTable();
-									data.addColumn('string', ''); 
-									data.addColumn('string', 'Visit'); 
-									data.addRows(dataChart,                               
-								);
-
-							var options = {
-							chart: {
-								title: 'Visit',
-								subtitle: '',
-							}
-							};                        
-
-							var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
-
-							chart.draw(data, google.charts.Bar.convertOptions(options));
-						}
-
-
-			
-						
-					});              
-				});
-
-
-
-
-			/*Cierre de Jquery*/   
-			});  
-		
-		
-		
-		
-		
-		
-		</script>
-	
+		<script type="text/javascript" src="js/chart_sub.js"></script>
 	</body>
 </html>
