@@ -71,7 +71,7 @@ if (isset($userStatus)) {
         </html>     
     ";
     
-    mail($email,"MY ORYBU",$message,$cabeceras);  
+    mail($email,"Account Confirmation- MY ORYBU",$message,$cabeceras);  
       
     echo "<script>
                 alert('Registration Complete! Please confirm your email address');
