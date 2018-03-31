@@ -4,6 +4,8 @@ $(document).ready(function(){
         var producto = $(this).parent().parent("ul");
         var id = producto.attr('id');
         var row = []  ;
+        
+
         $.ajax({
             type: "POST",
             url: "charts.php",
