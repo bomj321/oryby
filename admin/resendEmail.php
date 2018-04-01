@@ -298,7 +298,7 @@ if($nr >0)
 													}?></td>
 												
 												<td> 
-         <a    class="btn btn-primary" href="resendConfirmationEmail.php?id=<?php echo $row['user_id'];?>"><i class="fa fa-paper-plane"></i></a></td>
+         <a    class="btn btn-primary" href="resendConfirmationEmail.php?id=<?php echo $row['user_id'];?>&userType=<?php echo $row['userType']?>"><i class="fa fa-paper-plane"></i></a></td>
 												</tr>
 								<?php
 								}
