@@ -25,7 +25,7 @@ include 'Connect.php';
 		}
 		else if($userStatus==1)
 		{
-		$userStatus='0';
+		$userStatus=' ';
 		   $sql = "UPDATE users SET userStatus  ='0' WHERE user_id ='$user_id' ";
 		}
      

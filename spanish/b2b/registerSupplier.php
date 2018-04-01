@@ -32,7 +32,7 @@ $confirmcode=$_SESSION['code'];
 
 
 						<div style="display: inline-block; text-align: center;" class="col-sm-8 col-sm-offset-2">
-							<a href="sendconfirmation2.php" >
+							<a href="sendconfirmation2.php?userStatus=1" >
 								<input type="submit" class="btn btn-default round btn-lg" value="Saltar">
 							</br>
 						</div>

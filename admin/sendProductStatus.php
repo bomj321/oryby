@@ -38,7 +38,7 @@ if(empty($errors))
             <img style='width:12.5em; height:6.25em;' src='http://www.orybu.com/img/oryLogo.png'>
             </div>
               <p>
-             Thanx for Contact Us Please do not reply to this mail.
+             Thanx for Contact us Please do not reply to this mail.
               </p>
                
 

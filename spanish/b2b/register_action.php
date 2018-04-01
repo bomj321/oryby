@@ -119,7 +119,7 @@ include 'Connect.php';
 			{
 				$q ="INSERT INTO seller(email,limitTopList,limitShowCase) VALUES ('$email','7','5')";
 				$qryresult=mysqli_query($connection,$q);
-				header('Location:sendconfirmation2.php');
+				header('Location:sendconfirmation2.php?userStatus=1');
 			}
 			if($userType == 'supplier' OR $userType =='both')
 			{

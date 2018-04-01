@@ -94,7 +94,7 @@ include 'Connect.php';
    $qryresult=mysqli_query($connection,$q);
    if (!$qryresult) {
    
-   	echo "INSERCION NO EXITOSA";
+   	echo "Error in the insertion of information";
    }else{
    	
    	echo "

@@ -100,11 +100,11 @@ include 'Connect.php';
 					echo "
 
 					<script>
-						alert('NO INSERTO NADA');
+						alert('Error in the insertion of information');
 					</script>
 					";
 				}
-				header('Location:sendconfirmation2.php');
+				header('Location:sendconfirmation2.php?userStatus=1');
 			}
 			if($userType == 'supplier' OR $userType =='both')
 			{
@@ -115,7 +115,7 @@ include 'Connect.php';
 					echo "
 
 					<script>
-						alert('NO INSERTO NADA');
+						alert('Error in the insertion of information');
 					</script>
 					";
 				}
