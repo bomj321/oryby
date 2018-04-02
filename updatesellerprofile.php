@@ -233,30 +233,30 @@ if($stmt === false)
 									</br>
 									</br>
 										<div class="form-group">
-										<input type="text" name="companyName" id="comanyName" tabindex="3" class="form-control"  value="<?php echo $companyName ?>">
+										<input type="text" name="companyName" id="comanyName" tabindex="3" class="form-control"  value="<?php echo $companyName ?>" placeholder="Company Information">
 									</div>
 										<div class="form-group">
-										<input type="text" name="companyLegalNo" id="companyLegalNo" tabindex="3" class="form-control"  value="<?php echo $companyLegalNo ?>">
+										<input type="text" name="companyLegalNo" id="companyLegalNo" tabindex="3" class="form-control"  value="<?php echo $companyLegalNo ?>" placeholder="Company Legal No">
 									</div>
 						
-                                               <input   type="text" name="street" tabindex="1" class="form-control"   value="<?php echo $street ?>">
+                                               <input   type="text" name="street" tabindex="1" class="form-control"   value="<?php echo $street ?>" placeholder="Street">
 									</div>
 									</br>
 						<div class="form-group">
 										
-					        <input  type="text" name="city" tabindex="1" class="form-control"   value="<?php echo $city ?>">
+					        <input  type="text" name="city" tabindex="1" class="form-control"   value="<?php echo $city ?>" placeholder="City">
 							
 										
 						</div>
 							<div class="form-group">
 										
-					        <input  type="text" name="province" tabindex="1" class="form-control"  value="<?php echo $province ?>">
+					        <input  type="text" name="province" tabindex="1" class="form-control"  value="<?php echo $province ?>" placeholder="Province">
 							
 										
 						</div>
 							<div class="form-group">
 										
-					        <input  type="text" name="zipCode" tabindex="1" class="form-control"   value="<?php echo $zipCode ?>">
+					        <input  type="text" name="zipCode" tabindex="1" class="form-control"   value="<?php echo $zipCode ?>" placeholder="Zip Code">
 							
 										
 						</div>
@@ -528,14 +528,15 @@ if($stmt === false)
 									</div>
 									<div class="form-group">
 										
-					        <input  type="text" name="noOfEmployee" tabindex="1" class="form-control"   value="<?php echo $noOfEmployee ?>">
+					        <input  type="text" name="noOfEmployee" tabindex="1" class="form-control"   value="<?php echo $noOfEmployee ?>" placeholder="Nro of Employee">
 													
 							</div>
 							<div class="form-group">
 										
-					        <textarea  name="companyDescription" tabindex="1" class="form-control"   rows="4" cols="50"> <?php echo $companyDescription ?>
+					        <textarea  name="companyDescription" tabindex="1" class="form-control"   rows="4" cols="50" placeholder="Description">
+							 <?php echo $companyDescription?>
 							
-									</textarea>	
+							</textarea>	
 						</div>
 										<div class="form-group">
 										<label>Company Logo</label>

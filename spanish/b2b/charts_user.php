@@ -1,4 +1,7 @@
 <?php session_start();
+    if(!isset($_SESSION['uemail'])):
+        header('location:singlelogin.php');
+    endif;
 include('Connect.php');
 include('head.php');
 $id_user=$_GET['id'];//id del usuario logueado
@@ -13,7 +16,7 @@ $id_user=$_GET['id'];//id del usuario logueado
         <div class="container">
             <div class="row">
                 <div class="col-md-12 content">
-                    <h3 class="text-center">Product Statistics</h3>
+                    <h3 class="text-center">Estadisticas de Productos</h3>
                 </div><!-- end col -->
             </div><!-- end row --> 
             <!-- Consulta a la db para la ilustración de la imagen-->
@@ -27,20 +30,11 @@ $id_user=$_GET['id'];//id del usuario logueado
                     <img src="images/<?php echo $cl[0]; ?>" class="img-thumbnail">                         
                 </div>
                 <div class="col-md-8 col-xs-8 col-lg-8">
-                    <div>
-                        <!-- Nav tabs -->
-                        <ul class="nav nav-tabs" role="tablist" id="<?php echo $rw['pid'];?>">   
-                            <li role="presentation" class="active"><a href="y" class="chart" aria-controls="home" role="tab" data-toggle="tab">Year</a></li>
-                            <li role="presentation" class="chart"><a href="m" class="chart" aria-controls="profile" role="tab" data-toggle="tab">Month</a></li>
-                            <li role="presentation" class="chart"><a href="d" class="chart" aria-controls="messages" role="tab" data-toggle="tab">Day</a></li>
-                        </ul>
-
-                        <!-- Tab panes -->
-                        <div class="tab-content <?php echo $rw['pid'];?>">
-                                                       
-
-                        </div>
-                    </div>
+					<ul class="list list-inline">
+                        <h6 style="display:inline;">Titulo:</h6> <li><p class="text-primary"><?php echo $rw['ntitle']; ?></p></li><br>
+                        <h6 style="display:inline;">Precio:</h6> <li><p class="text-primary"><?php echo$rw['price']; ?></p></li><br>
+                    </ul>
+					<a class="btn btn-default pull-lefth" href="charts.php?id=<?php echo $rw['pid']; ?>">Gráfica</a>
                 </div>
             </div>
             <hr>

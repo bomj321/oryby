@@ -40,15 +40,15 @@ $row=$stmt->fetch_assoc();
          {
            echo $_SESSION['suc']; }?>
             <div class="container">
-			<center> <a href="charts_user.php?id=<?php echo $userId; ?>" class="btn btn-warning btn-lg" style="padding-top:0px">Product Views Statistics</a> 
- <a href="product_add.php" class="btn btn-primary"><i class="fa fa-floppy"></i> ADD PRODUCT</a>
+			<center> <a href="charts_user.php?id=<?php echo $userId; ?>" class="btn btn-warning btn-lg" style="padding-top:0px">Ver Estadisticas de los Productos</a> 
+ <a href="product_add.php" class="btn btn-primary"><i class="fa fa-floppy"></i> Agregar Producto</a>
            </br>
         
         </center>         
 		 <div class="row">
                     <div class="col-sm-12">
 </br>                   
-				   <center> <h3>LIST OF PRODUCTS</h3>		
+				   <center> <h3>Lista de Productos</h3>		
     </center>
  <?php
 
@@ -68,17 +68,17 @@ if ($nr > 0)
  <table id="example" class="display" cellspacing="0" class="table table-bordered table-striped" width="100%">
  <thead >
      <tr>
-        <th>Title</th>
-        <th>price</th>
-        <th>Description</th>
-		<th>Category </th>
-		<th>Product Type </th>
-		<th>Minimum Orders </th>
-	    <th>Payment </th>
-        <th>Delivery Details</th>	
-        <th>Image</th>
+        <th>Titulo</th>
+        <th>Precio</th>
+        <th>Descripción</th>
+		<th>Categoria</th>
+		<th>Tipo de Producto</th>
+		<th>Minima Orden</th>
+	    <th>Método de Pago</th>
+        <th>Detalles de Envio</th>	
+        <th>Imagen</th>
         <th>Top List</th>
-       <th >Actions</th>
+       <th >Acciones</th>
          
       </tr>
     </thead>
@@ -176,17 +176,17 @@ $cl = explode(',', $myString);
 <tfoot>
      <tr>
       
-         <th>Title</th>
-        <th>price</th>
-        <th>Description</th>
-		<th>Category </th>
-		<th>Product Type </th>
-		<th>Minimum Orders </th>
-	    <th>Payment </th>
-        <th>Delivery Details</th>	
-        <th>Image</th>
+     <th>Titulo</th>
+        <th>Precio</th>
+        <th>Descripción</th>
+		<th>Categoria</th>
+		<th>Tipo de Producto</th>
+		<th>Minima Orden</th>
+	    <th>Método de Pago</th>
+        <th>Detalles de Envio</th>	
+        <th>Imagen</th>
         <th>Top List</th>
-       <th >Actions</th>
+       <th >Acciones</th>
          
          
       </tr>
@@ -221,7 +221,7 @@ function myFunction1() {
 					   
                     </div><!-- end col -->    
                 </div><!-- end row -->
-				
+
             </div><!-- end container -->
 			
 			

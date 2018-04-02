@@ -16,18 +16,6 @@ $(document).ready(function(){
                     año : año
                 };
             break;
-            case 'm': 
-                var select = $("#month_año");
-                var año = select.val();
-                var select2 = $("#month_month");
-                var mes = select2.val();
-                var datos = {
-                    id : id,
-                    periodo : periodo,
-                    año : año,
-                    mes:mes
-                };
-                break;
             case 'd':
                 var select = $("#day_año");
                 var año = select.val();
@@ -44,7 +32,8 @@ $(document).ready(function(){
                 };        
             break;
         }
-        var row = []  ;
+        var row = [];
+
         $.ajax({
             type: "POST",
             url: "charts.php",
@@ -52,6 +41,7 @@ $(document).ready(function(){
             dataType:"text",
         })
         .done(function(response){
+            console.log(response);
             var resultado = JSON.parse(response);
             const dataChart = [];
             for(let i = 0; i < resultado.length; i++){

@@ -12,19 +12,10 @@
         case "y":
             $description = "Año";
             $año = htmlspecialchars($_POST['año']);
-            $sql="Select n.id_subcatid, year(n.visited_at) AS periodo, 
+            $sql="Select n.id_subcatid, Monthname(n.visited_at) AS periodo, 
             COUNT(n.id_subcatid) AS visitas FROM chart_category_subcatego_admin n
             WHERE year(n.visited_at) = '$año' AND n.id_subcatid = '$id' GROUP BY 
-            year(n.visited_at),n.id_subcatid  order by COUNT(n.id_subcatid);";
-        break;
-        case "m":
-            $description = "Mes";
-            $año = htmlspecialchars($_POST['año']);
-            $mes = htmlspecialchars($_POST['mes']);
-            $sql="Select n.id_subcatid, MONTHNAME(n.visited_at) AS periodo, 
-            COUNT(n.id_subcatid) AS visitas FROM chart_category_subcatego_admin n
-            WHERE n.id_subcatid = '$id' AND MONTH(n.visited_at) = '$mes' AND YEAR(n.visited_at) = '$año' 
-            GROUP BY MONTHNAME(n.visited_at),n.id_subcatid order by COUNT(n.id_subcatid)";      
+            month(n.visited_at),n.id_subcatid;";
         break;
         case "d":
             $description = "Día";

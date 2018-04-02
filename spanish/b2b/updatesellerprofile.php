@@ -226,30 +226,30 @@ if($stmt === false)
 									</br>
 									</br>
 										<div class="form-group">
-										<input type="text" name="companyName" id="comanyName" tabindex="3" class="form-control"  value="<?php echo $companyName ?>">
+										<input type="text" name="companyName" id="comanyName" tabindex="3" class="form-control" placeholder="Nombre de la Compañia"  value="<?php echo $companyName ?>">
 									</div>
 										<div class="form-group">
-										<input type="text" name="companyLegalNo" id="companyLegalNo" tabindex="3" class="form-control"  value="<?php echo $companyLegalNo ?>">
+										<input type="text" name="companyLegalNo" id="companyLegalNo" tabindex="3" class="form-control"  value="<?php echo $companyLegalNo ?>"  placeholder="Número Legal">
 									</div>
 						
-                                               <input   type="text" name="street" tabindex="1" class="form-control"   value="<?php echo $street ?>">
+                                               <input   type="text" name="street" tabindex="1" class="form-control"  placeholder="Calle"   value="<?php echo $street ?>">
 									</div>
 									</br>
 						<div class="form-group">
 										
-					        <input  type="text" name="city" tabindex="1" class="form-control"   value="<?php echo $city ?>">
+					        <input  type="text" name="city" tabindex="1" class="form-control"  placeholder="Ciudad"   value="<?php echo $city ?>">
 							
 										
 						</div>
 							<div class="form-group">
 										
-					        <input  type="text" name="province" tabindex="1" class="form-control"  value="<?php echo $province ?>">
+					        <input  type="text" name="province" tabindex="1" class="form-control"  placeholder="Provincia"  value="<?php echo $province ?>">
 							
 										
 						</div>
 							<div class="form-group">
 										
-					        <input  type="text" name="zipCode" tabindex="1" class="form-control"   value="<?php echo $zipCode ?>">
+					        <input  type="text" name="zipCode" tabindex="1" class="form-control"  placeholder="Codigo Zip"  value="<?php echo $zipCode ?>">
 							
 										
 						</div>
@@ -521,12 +521,12 @@ if($stmt === false)
 									</div>
 									<div class="form-group">
 										
-					        <input  type="text" name="noOfEmployee" tabindex="1" class="form-control"   value="<?php echo $noOfEmployee ?>">
+					        <input  type="text" name="noOfEmployee" tabindex="1" class="form-control"  placeholder="Nro de Empleados"   value="<?php echo $noOfEmployee ?>">
 													
 							</div>
 							<div class="form-group">
 										
-					        <textarea  name="companyDescription" tabindex="1" class="form-control"   rows="4" cols="50"> <?php echo $companyDescription ?>
+					        <textarea  name="companyDescription" tabindex="1" class="form-control"  placeholder="Descripción"   rows="4" cols="50"> <?php echo $companyDescription ?>
 							
 									</textarea>	
 						</div>
@@ -559,11 +559,11 @@ if($stmt === false)
 											</br>
 											</br>
 			<center  style ="display: inline-block; text-align: center;"><button type="submit" name="btn_save_updates" class="btn btn-default" style="border-style:solid;border-width:1px;border-color:gray;color:#066;background:#ccc"><i class="fa fa-refresh" >
-       &nbsp; Update Profile</i>
+       &nbsp; Actualizar Perfil</i>
         </button>
            
        
-		<a href="profile.php" class="btn btn-warning"><i class="fa fa-times"></i> CANCEL</a>
+		<a href="profile.php" class="btn btn-warning"><i class="fa fa-times"></i> CANCELAR</a>
        </input>
            </br>
 		     </br>  </br>
