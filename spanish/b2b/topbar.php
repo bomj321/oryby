@@ -73,7 +73,6 @@ require 'Connect.php';
 							<li><a href="myorybue.php">Mi Orybu</a></li>
 							<li><a href="suppliers.php" class="top">Administrar productos</a></li>
                             <li><a href="chat2.php">Mis Chats</a></li>
-                        <li><a style="font-size: 1.23rem;" href="chatby.php">Solicitudes de Compra</a></li>
                             <li><a href="adminchat.php?admin=63">Contacta al Admin</a></li>
 							<li><a href="mysorders.php">Mis ordenes</a></li>
 							<li><a href="favoritos.php">Favoritos</a></li>
@@ -94,7 +93,6 @@ require 'Connect.php';
 										<li >
                         <li><a href="adminchat.php?admin=63">Contacta al Admin</a></li>
                             <li><a href="chat2.php">Mis Chats</a></li>
-                            <li><a style="font-size: 1.23rem;" href="chatby.php">Solicitudes de Compra</a></li>
 					       <a href="logoff.php">Cerrar sesión</a></li>
 
 
@@ -109,7 +107,6 @@ require 'Connect.php';
 							<li><a href="suppliers.php" class="top">Administrar productos</a></li>
                              <li><a href="chat2.php">Mis Chats</a></li>
                         <li><a href="adminchat.php?admin=63">Contacta al Admin</a></li>
-                    <li><a style="font-size: 1.23rem;" href="chatby.php">Solicitudes de Compra</a></li>
                             <li><a href="buyerorders.php">Mis ordenes</a></li>
 							<li><a href="favoritos.php">Favoritos</a></li>
 							<li><a href="logoff.php">Cerrar sesión</a></li>
