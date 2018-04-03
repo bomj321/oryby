@@ -240,16 +240,36 @@ $(document).ready(function(){
 						</div><!--.row-->
                         </div><!--.item-->
 <!-- ////////////////////////////////////// -->
+<?php 
+
+ $sqlx2="SELECT * FROM products  INNER JOIN categories ON(products.catid = categories.catid)Where productstatus=1 AND productaction = 1 AND (productType='Innovation' OR productType='Eco Friendly')";
+		$stmtx2=mysqli_query($connection,$sqlx2);
+		if($stmtx2 == false) {
+		trigger_error('Wrong SQL: ' . $sqlx2 . ' Error: ' . $connection->error, E_USER_ERROR);
+		}
+		$nrx2=mysqli_num_rows($stmtx2);
+		// CONTADORES
+$inicial = 7;
+$final = $inicial + 6;
+
+while (($nrx2 + 6) > $final ) {
+	
+
+// CONTADORES
+
+
+ ?>
                      <div class="item" style="padding-right:70px; padding-left:70px; background-color:#ffffff;">
                             <div class="row" style="background-color:#ffffff;">
 												 <?php
-			 $sql="SELECT * FROM products  INNER JOIN categories ON(products.catid = categories.catid)Where productstatus=1 AND productaction = 1 AND (productType='Innovation' OR productType='Eco Friendly') LIMIT 7,13";
+			 $sql="SELECT * FROM products  INNER JOIN categories ON(products.catid = categories.catid)Where productstatus=1 AND productaction = 1 AND (productType='Innovation' OR productType='Eco Friendly') LIMIT $inicial,$final";
 				$stmt=mysqli_query($connection,$sql);
 				if($stmt == false) {
 				trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $connection->error, E_USER_ERROR);
 				}
 				  $nr=mysqli_num_rows($stmt);
 				?>
+
 					<?php while($row=$stmt->fetch_assoc())
     {
 	$userId=$row['user_id'];
@@ -282,10 +302,29 @@ $(document).ready(function(){
 							  </br>
 							  </div>
 							     <?php
-				}
+							    
+
+				}// PRIMER WHILE
+
+
+
 				?>
 						</div><!--.row-->
                         </div><!--.item-->
+                        
+                        <?php 
+
+				 /////////////////////////ESTRUCTURA PARA SALIR DEL WHILE
+							     $inicial+= 7;
+							     $final+= 6;
+							     echo $inicial;
+
+echo $final;
+}
+							    /////////////////////////ESTRUCTURA PARA SALIR DEL WHILE
+
+
+                         ?>
 
                     </div><!--.carousel-inner-->
 
