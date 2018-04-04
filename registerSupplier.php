@@ -347,7 +347,7 @@ $confirmcode=$_SESSION['code'];
 									</div>
 									</br>
 									</br>
-									<h4>Described your Company </h4>
+									<h4>Describe your Company </h4>
 									<div class="form-group">
 										<select name="businessType" required class="form-control input">
 								  <option value="">SELECT Business Type</option>

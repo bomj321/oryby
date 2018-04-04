@@ -516,7 +516,7 @@ if($stmt === false)
 									</div>
 									</br>
 									</br>
-									<h4>Described your Company </h4>
+									<h4>Describe your Company </h4>
 									<div class="form-group">
 										<select name="businessType"  class="form-control input">
 								  <option value="<?php echo $businessType ?>"><?php echo $businessType ?></option>
